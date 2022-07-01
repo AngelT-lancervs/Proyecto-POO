@@ -1,5 +1,5 @@
 package usuario;
 
-public class Empleado {
-    
+public class Empleado extends Usuario{
+    private boolean estado;
 }
