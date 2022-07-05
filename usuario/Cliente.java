@@ -1,11 +1,15 @@
 package usuario;
 
-public class Cliente extends usuario {
+public class Cliente extends Usuario {
 	private String datos_del_representante;
+	private final String cedula;
 	
-	public Cliente(String nombre, String email, String cedula, String dts_re, String telefono)
+	public Cliente(String nombre, String telefono, String email, String cedula, String dts_re )
 	{
-		super(nombre, cedula, telefono, email);
+		super(nombre, telefono, email);
+		this.cedula=cedula;
 		this.datos_del_representante = dts_re;
 	}
+
+
 }
