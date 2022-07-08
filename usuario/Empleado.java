@@ -13,12 +13,7 @@ public class Empleado extends Usuario{
         this.cedula=cedula;
         this.estado = estado;
     }
-
     public void eliminarEmpleado(){
 
     }
-
-  
-    
-    
 }

@@ -18,27 +18,19 @@ public class Servicio{
         this.precio=pre;
         this.estado=estado;
     }
-    
     public Servicio(String nombreServicio, String duracion, Empleado empleado)
     {
         this.nombreServicio = nombreServicio;
         this.duracion = duracion;
         this.empleado = empleado;
     }
-
-    
     public String mostrarServicios(){
         return "-> " +nombreServicio +"Duración: "+duracion+ " Precio: "+precio + "Estado: "+estado;
     }
-
     public void agregarServicio(){
 
     }
-
     public void eliminarServicio(){
         
     }
-
-    
-
 }
