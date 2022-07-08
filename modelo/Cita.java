@@ -29,4 +29,17 @@ public class Cita{
     public void consultarCitas(){
         System.out.println("Ingrese fecha a consultar: ");	
     }
+    //Getters & Setters
+    public LocalTime getHora() {
+        return hora;
+    }
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
+    public Date getFecha() {
+        return fecha;
+    }
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 }

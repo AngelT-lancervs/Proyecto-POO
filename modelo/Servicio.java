@@ -12,7 +12,7 @@ public class Servicio{
     
     //crear un método para los servicios y agregarlo al constructor
 
-    public Servicio(String nomSer, String dur, double pre, boolean estado ){
+    public Servicio(String nomSer, String dur, double pre, boolean estado){
         this.nombreServicio= nomSer;
         this.duracion=dur;
         this.precio=pre;
@@ -32,5 +32,31 @@ public class Servicio{
     }
     public void eliminarServicio(){
         
+    }
+
+    //Getters and Setters
+    public String getNombreServicio(){
+        return nombreServicio;
+    }
+    public void setNombreServicio(String nombreServicio) {
+        this.nombreServicio = nombreServicio;
+    }
+    public double getPrecio() {
+        return precio;
+    }
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    public String getDuracion() {
+        return duracion;
+    }
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+    public boolean getEstado() {
+        return estado;
+    }
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 }
