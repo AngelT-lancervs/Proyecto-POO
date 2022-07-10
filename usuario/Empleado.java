@@ -16,4 +16,5 @@ public class Empleado extends Usuario{
     public void eliminarEmpleado(){
 
     }
+    
 }

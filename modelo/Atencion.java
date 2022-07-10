@@ -1,5 +1,8 @@
 package modelo;
 import java.time.*;
+
+import javax.xml.datatype.Duration;
+
 import usuario.*;
 
 public class Atencion{
@@ -8,17 +11,33 @@ public class Atencion{
     private Servicio servicio;
     //falta servicio, quizás importarlo desde citas con un metodo
     
+    //Constructor de la clase
     public Atencion(Duration duracionReal, Servicio servicio, Empleado empleado){
         this.duracionReal = duracionReal;
         this.servicio = servicio;
         this.empleado = empleado;
     }
+
+    //Métodos de la clase
     public void mostrarMenu(){
-            System.out.print("1. Registrar Atención");         
+        System.out.print("1. Registrar Atención");         
 	    System.out.print("2. Consultar Atención");
     }
+
     public void registrarAtencion(){
     }
+
     public void consultarAtencion(){
     }
+
+    //Getters y setters
+    public Duration getDuracionReal(){
+        return this.duracionReal;
+    }
+
+    public void setDuracionR(Duration t){
+        this.duracionReal = t;
+    }
+
+    
 }
