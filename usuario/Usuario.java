@@ -38,5 +38,6 @@ public abstract class Usuario {
     public void setEmail(String e){
         this.email = e;
     }
+
 }
 
