@@ -19,7 +19,7 @@ public class Atencion{
     }
 
     //Métodos de la clase
-    public void mostrarMenu(){
+    public static void mostrarMenu(){
         System.out.print("1. Registrar Atención\n");         
 	    System.out.print("2. Consultar Atención\n");
     }

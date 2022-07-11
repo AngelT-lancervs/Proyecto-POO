@@ -8,6 +8,11 @@ public class Empleado extends Usuario{
     private String cedula;
     
     //constructor de la clase
+
+    public Empleado(String nom){
+        super(nom);
+    }
+
     public Empleado(String nombre, String cedula, String email, boolean estado, String telefono)
     {
         super(nombre,telefono, email);

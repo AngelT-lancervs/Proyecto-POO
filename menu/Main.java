@@ -3,6 +3,10 @@ import modelo.*;
 import usuario.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 
@@ -20,12 +24,13 @@ public class Main{
         empleados.add(em1);
     }  
     
-    public void menu(){
+    public void menu() throws ParseException{
         Scanner sc=new Scanner(System.in);
         String interfaz	= "°=-----==[Menú]==-----=°\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n°=-----==[*]==-----=°";
         System.out.print(interfaz);
         System.out.print("Ingrese una opción: ");
         int opcion=sc.nextInt();
+        sc.nextLine();
 
         switch(opcion){
             case 1:
@@ -38,10 +43,42 @@ public class Main{
                 Cliente.mostrarClientes();
                 break;
             case 4:
-                Cita.mostrarMenu();
+            Cita.mostrarMenu();
+            System.out.println("Elija una opción: ");
+            int op=sc.nextInt();
+            sc.nextLine();
+            switch(op){
+                case 1:
+                System.out.println("Ingrese fecha de la cita con el formato DD/MM/YYYY: ");
+                String fecha_Cita=sc.nextLine();
+                System.out.println("Ingrese la hora de la cita con el formato HH:MM: ");
+                String hora=sc.nextLine();
+                LocalTime t = LocalTime.parse(hora) ;
+                System.out.println("Ingrese el servicio: ");
+                String servi=sc.nextLine();
+                Servicio ser=new Servicio(servi);
+                System.out.println("Ingrese el nombre del cliente: ");
+                String cliente=sc.nextLine();
+                Cliente cl=new Cliente(cliente);
+                System.out.println("Ingrese el nombre de la persona encargada del servicio: ");
+                String proveedor=sc.nextLine();
+                Empleado empl=new Empleado(proveedor);
+                Cita.crearCita(Cita.ParseFecha(fecha_Cita), t,ser,cl,empl);
                 break;
+
+                case 2:
+                Cita.eliminarCita();
+                break;
+
+                case 3:
+                Cita.consultarCitas();
+                break;
+
             case 5:
-                Cita.mostrarMenu();
+                Atencion.mostrarMenu();
+
+                }   
+
             case 6:
         }
 
@@ -52,9 +89,11 @@ public class Main{
     public static void main(String[]args){
 	Main sistema=new Main();
     sistema.inicializarSistema();
-    sistema.menu();
-
-    
+    try {
+        sistema.menu();
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
 
 }
 }   

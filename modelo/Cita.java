@@ -1,9 +1,7 @@
 package modelo;
 import usuario.*;
 import java.util.Date;
-
 import menu.Main;
-
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.time.*;
@@ -15,8 +13,8 @@ public class Cita{
     private Servicio servicio;
     private LocalTime hora;
     private Date fecha;
-    private ArrayList<Cita> ListaCitas = new ArrayList<Cita>();
-    private Scanner sc = new Scanner(System.in);
+    private static ArrayList<Cita> ListaCitas = new ArrayList<Cita>();
+    private static Scanner sc = new Scanner(System.in);
 
     //Constructor de la clase
     public Cita(Date fecha, LocalTime hora, Servicio servicio, Cliente cliente, Empleado proovedor){
@@ -31,14 +29,14 @@ public class Cita{
     public static void mostrarMenu(){
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
-        System.out.print("3. Consultar citas por fecha");
+        System.out.print("3. Consultar citas por fecha\n");
     }
 
-    public void crearcita(Date f_nuevaC, LocalTime h_nuevaC, Servicio s_nuevoC, Cliente c_nuevaC, Empleado p_nuevaC){
+    public static void crearCita(Date f_nuevaC, LocalTime h_nuevaC, Servicio s_nuevoC, Cliente c_nuevaC, Empleado p_nuevaC){
         Cita cita1= new Cita(f_nuevaC, h_nuevaC, s_nuevoC, c_nuevaC, p_nuevaC);
 
-        if( this.ListaCitas.size() == 0 ){
-            this.ListaCitas.add(cita1);
+        if( ListaCitas.size() == 0 ){
+            ListaCitas.add(cita1);
         }
         else{
             for(Cita c: ListaCitas ){
@@ -56,7 +54,7 @@ public class Cita{
      }
 
 
-    public void eliminarCita(){
+    public static void eliminarCita(){
         System.out.println("Ingrese su número de cédula");
         String c = sc.nextLine();
         
@@ -66,8 +64,7 @@ public class Cita{
             if(cedulaComprobar.equals(c)){
                 for(Cita ci: cl.getCitasCliente()){
                     ci.toString();
-                }
-                
+                }    
             }
         }
         
@@ -76,7 +73,7 @@ public class Cita{
 
     }
 
-    public void consultarCitas() throws ParseException{
+    public static void consultarCitas() throws ParseException{
         System.out.println("Ingrese fecha a consultar: ");
         String fecha_i = sc.nextLine();
         SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
@@ -87,6 +84,21 @@ public class Cita{
                 System.out.println(c.toString() + "\n");
             }
         }
+    }
+
+    //Metodo de conversion de String a Date
+    public static Date ParseFecha(String fecha)
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha);
+        } 
+        catch (ParseException ex) 
+        {
+            System.out.println(ex);
+        }
+        return fechaDate;
     }
 
     //Getters & Setters

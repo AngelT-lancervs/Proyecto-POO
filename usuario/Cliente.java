@@ -5,11 +5,16 @@ import menu.*;
 
 public class Cliente extends Usuario {
     private String datos_del_representante;
-    private final String cedula;
+    private String cedula;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
 
 
     //Constructor de la clase
+
+    public Cliente(String nom){
+        super(nom);
+    }
+
     public Cliente(String nombre,String telefono,String email,String cedula,String dts_re) {
         super(nombre, telefono, email);
         this.cedula = cedula;
@@ -17,6 +22,7 @@ public class Cliente extends Usuario {
         Main.ListaClientes.add(new Cliente(nombre, telefono, email, cedula, dts_re));
     }
 
+  
     public String toString(){
         return super.toString()+"Datos del representante: "+datos_del_representante;
     }

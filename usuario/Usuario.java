@@ -6,11 +6,18 @@ public abstract class Usuario {
     protected String email;	
 
     //Constructor de la clase Usuario
+
+    public Usuario(String nom){
+        this.nombre=nom;
+    }
+
     public Usuario(String nombre, String telefono, String email){
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;
     }
+
+  
 
 
 
