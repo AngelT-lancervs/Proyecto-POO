@@ -1,6 +1,9 @@
 package modelo;
 import usuario.*;
 import java.util.Date;
+
+import menu.Main;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.time.*;
@@ -13,7 +16,6 @@ public class Cita{
     private LocalTime hora;
     private Date fecha;
     private ArrayList<Cita> ListaCitas = new ArrayList<Cita>();
-    private ArrayList<Cliente> ListaClientes_Cita = cliente.getListaClientes();
     private Scanner sc = new Scanner(System.in);
 
     //Constructor de la clase
@@ -26,9 +28,9 @@ public class Cita{
     }
 
     //Métodos 
-    public void mostrarMenu(){
-        System.out.print("1. Crear cita");
-        System.out.print("2. Eliminar cita");
+    public static void mostrarMenu(){
+        System.out.print("1. Crear cita\n");
+        System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha");
     }
 
@@ -58,7 +60,7 @@ public class Cita{
         System.out.println("Ingrese su número de cédula");
         String c = sc.nextLine();
         
-        for (Cliente cl: ListaClientes_Cita){
+        for (Cliente cl: Main.ListaClientes){
             String cedulaComprobar = cl.getCedulaR();
             
             if(cedulaComprobar.equals(c)){

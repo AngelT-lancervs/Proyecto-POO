@@ -39,5 +39,9 @@ public abstract class Usuario {
         this.email = e;
     }
 
+    public String toString(){
+        return "-Nombre: "+nombre +" |"+" |"+"Teléfono: "+telefono+" "+" |"+ "Email: "+email+" "+" |";
+    }
+
 }
 

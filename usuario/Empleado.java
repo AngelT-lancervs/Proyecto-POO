@@ -1,5 +1,6 @@
 package usuario;
 import java.util.ArrayList;
+import menu.*;
 
 public class Empleado extends Usuario{
     private ArrayList<Empleado> empleados;
@@ -15,6 +16,26 @@ public class Empleado extends Usuario{
     }
     public void eliminarEmpleado(){
 
+    }
+
+    public static void mostrarEmpleados(){
+        System.out.println("-----Empleados-----");
+        for(Empleado e: Main.empleados)
+        {
+            System.out.println(e);
+        }
+    }
+
+    public  String activoOinactivo(){
+        if(estado){
+            return "Activo";
+        }else{
+            return "Inactivo";
+        }
+    }
+
+    public String toString(){
+        return super.toString()+"Estado: "+activoOinactivo();
     }
     
 }
