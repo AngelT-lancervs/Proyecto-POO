@@ -24,6 +24,12 @@ public class Cliente extends Usuario {
         super(nom); // Constructor creado para la probar el método de crear cita.
     }
 
+    
+    public Cliente(String cedula, String nom){
+        super(nom);
+        this.cedula=cedula;
+    }
+
     /**
      * Contructor de la clase Cliente que recibe como parametros el nombre, telefono, email, cedula, datos del representante
      * @param nombre Nombre del Cliente
@@ -35,7 +41,11 @@ public class Cliente extends Usuario {
     public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
-        Main.ListaClientes.add(this);
+        this.cedula = cedula;
+    }
+
+    public void anadirCliente(Cliente c){
+        Main.listaClientes.add(c);
     }
   
     public String toString(){
@@ -55,11 +65,28 @@ public class Cliente extends Usuario {
         }
     }
 
+    public static void mostrarMenu(){
+        System.out.print("1. Crear cita\n");
+        System.out.print("2. Eliminar cita\n");
+        System.out.print("3. Consultar citas por fecha\n");
+    }
+
+    public boolean equals(Object obj){
+        if(this==obj){
+            return true;
+        }
+        if(obj!=null && getClass()==obj.getClass()){
+            Cliente other=(Cliente)obj;
+            return (this.cedula.equals(other.cedula));
+        }
+        return false;
+    }
+
 
     public void editarCliente(){
         System.out.println("Cliente a editar: ");
         String nombreC = scC.nextLine();
-        Empleado cli = new Cliente(cli);
+        Cliente cli = new Cliente(nombreC);
 
         for(Cliente c: Main.listaClientes){
             if(c.equals(cli)){
@@ -81,9 +108,9 @@ public class Cliente extends Usuario {
                     case  "TELEFONO":
                         System.out.println("Nuevo telefono: ");
                         String tel =scC.nextLine();
-                        c.tel = tel;
+                        c.telefono = tel;
                     
-                    case  "DATOS DEL REPRESENTATE":
+                    case  "DATOS DEL REPRESENTANTE":
                         System.out.println("Nuevo telefono: ");
                         String dts =scC.nextLine();
                         c.datos_del_representante = dts;

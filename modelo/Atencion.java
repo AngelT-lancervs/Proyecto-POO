@@ -1,5 +1,6 @@
 package modelo;
 import java.time.*;
+import java.util.Scanner;
 import javax.xml.datatype.Duration;
 import usuario.*;
 
@@ -13,6 +14,7 @@ public class Atencion{
     private Duration duracionReal;
     private Empleado empleado;
     private Servicio servicio;
+    static Scanner sc3=new Scanner(System.in);
     /**
      * Constructor de la clase Atencion
      * Representa una atención que se registra en el Centro Terapeutico, la crea recibiendo los datos de la misma
@@ -33,9 +35,20 @@ public class Atencion{
         System.out.print("1. Registrar Atención\n");         
 	    System.out.print("2. Consultar Atención\n");
     }
-    public void registrarAtencion(){
+    public static void registrarAtencion(){
+        System.out.print("Ingrese cedula del Cliente: ");
+        String ced=sc3.nextLine();
+        System.out.print("Ingrese nombre del Cliente: ");
+        String nom=sc3.nextLine();
+        Cliente c1=new Cliente(ced, nom);
+
+        for(Cita c: Cita.getListaCitas()){
+            
+        }
+
+
     }
-    public void consultarAtencion(){
+    public static void consultarAtencion(){
     }
     //Getters y setters
     public Duration getDuracionReal(){

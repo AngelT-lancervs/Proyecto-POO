@@ -57,8 +57,15 @@ public class Cita{
      * @param c_nuevaC Cliente que accederá a la cita
      * @param p_nuevaC Empleado que prestará el Servicio en la cita
      */
-    public static void crearCita(Date f_nuevaC, LocalTime h_nuevaC, Servicio s_nuevoC, Cliente c_nuevaC, Empleado p_nuevaC){
-        Cita cita1= new Cita(f_nuevaC, h_nuevaC, s_nuevoC, c_nuevaC, p_nuevaC);
+    public static void crearCita(Date f_nuevaC, LocalTime h_nuevaC, String nomSer, Cliente c_nuevaC, Empleado p_nuevaC){
+        Servicio ser= new Servicio(nomSer);
+        Servicio ser2=null;
+        for(Servicio servi: Main.servicios){
+            if(servi.equals(ser)){
+                ser2=servi;
+            }
+        }
+        Cita cita1= new Cita(f_nuevaC, h_nuevaC, ser2, c_nuevaC, p_nuevaC);
 
     
         if( ListaCitas.size() == 0 ){
@@ -86,7 +93,7 @@ public class Cita{
         System.out.println("Ingrese su número de cédula");
         String c = sc.nextLine();
         
-        for (Cliente cl: Main.ListaClientes){
+        for (Cliente cl: Main.listaClientes){
             String cedulaComprobar = cl.getCedulaR();
             
             if(cedulaComprobar.equals(c)){
@@ -112,7 +119,7 @@ public class Cita{
         SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaConsultada = miDate.parse(fecha_i);
 
-        for(Cita c: listaCitas ){
+        for(Cita c: ListaCitas ){
             if (c.getFecha().equals(fechaConsultada)){
                 System.out.println(c.toString() + "\n");
             }
@@ -156,6 +163,10 @@ public class Cita{
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public static ArrayList<Cita> getListaCitas(){
+        return ListaCitas;
     }
 
     //ToString de Cita

@@ -42,14 +42,15 @@ import java.util.Date;
         int opcion = sc.nextInt();
         sc.nextLine();
 
-        switch(opcion){
-            case 1:
-                Servicio.mostrarServicios();
-                break;
-            case 2:
-                Empleado.mostrarEmpleados();
-                break;
-            case 3:
+        while(opcion!=6){ 
+            switch(opcion){
+                case 1:
+                    Servicio.mostrarServicios();
+                    break;
+                case 2:
+                    Empleado.mostrarEmpleados();
+                    break;
+                case 3:
                 Cliente.mostrarClientes();
                 Cliente.mostrarMenu();
                 System.out.println("Elija una opción: ");
@@ -102,37 +103,60 @@ import java.util.Date;
                 sc.nextLine();
                 switch(op) {
                     case 1:
-                        System.out.println("Ingrese fecha de la cita con el formato DD/MM/YYYY: ");
-                        String fecha_Cita = sc.nextLine();
-                        System.out.println("Ingrese la hora de la cita con el formato HH:MM:SS ");
-                        String hora = sc.nextLine();
-                        LocalTime t = LocalTime.parse(hora);
-                        System.out.println("Ingrese el servicio: ");
-                        String servi = sc.nextLine();
-                        Servicio ser = new Servicio(servi);
-                        System.out.println("Ingrese el nombre del cliente: ");
-                        //String cliente = sc.nextLine();
-                        //Cliente cl = new Cliente(cliente);
-                        System.out.println("Ingrese el nombre de la persona encargada del servicio: ");
-                        String proveedor = sc.nextLine();
-                        Empleado empl = new Empleado(proveedor);
-                        Cita.crearCita(Cita.ParseFecha(fecha_Cita), t, ser, cl, empl);
-                        break;
+                    System.out.println("Ingrese fecha de la cita con el formato DD/MM/YYYY: ");
+                    String fecha_Cita=sc.nextLine();
+                    System.out.println("Ingrese la hora de la cita con el formato HH:MM: ");
+                    String hora=sc.nextLine();
+                    LocalTime t = LocalTime.parse(hora) ;
+                    System.out.println("Ingrese el servicio: ");
+                    String servi=sc.nextLine();
+                    System.out.println("Ingrese el nombre del cliente: ");
+                    String cliente=sc.nextLine();
+                    System.out.println("Ingrese la cedula del cliente: ");
+                    String cedula=sc.nextLine();
+                    Cliente cl=new Cliente(cliente,cedula);
+                    System.out.println("Ingrese el nombre de la persona encargada del servicio: ");
+                    String proveedor=sc.nextLine();
+                    Empleado empl=new Empleado(proveedor);
+                    Cita.crearCita(Cita.ParseFecha(fecha_Cita), t,servi,cl,empl);
+                    break;
                     case 2:
-                        Cita.eliminarCita();
-                        break;
-                    case 3:
-                        Cita.consultarCitasPorFecha();
-                        break;
-                }
+                Cita.eliminarCita();
                 break;
-            case 5:
-                Atencion.mostrarMenu();
+
+                case 3:
+                Cita.consultarCitasPorFecha();
                 break;
-            case 6:
-                System.out.println("Cerrando sistema...");
-                break;
+                }   
+            break;
+        case 5:
+        Atencion.mostrarMenu();
+        System.out.println("Elija una opción: ");
+        int op2=sc.nextInt();
+        sc.nextLine();
+        switch(op2){
+            case 1:
+            Atencion.registrarAtencion();
+            break;
+
+            case 2:
+            Atencion.consultarAtencion();
         }
+
+            break;
+        
+          
+        
+        }
+        System.out.print(interfaz);
+        System.out.print("Ingrese una opción: ");
+        opcion=sc.nextInt();
+        sc.nextLine();
+
+    
+    }
+
+
         sc.close();
     }
     public static void main(String[]args){
