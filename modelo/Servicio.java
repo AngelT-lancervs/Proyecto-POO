@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import menu.Main;
 
+
+/**
+ * Clase que define los datos y métodos que se presentan en los servicios brindados
+ * @author:
+ * @version: 11/07/2022
+ */
 public class Servicio{
     private String nombreServicio;
     private String duracion;
@@ -14,6 +20,14 @@ public class Servicio{
     
     //crear un método para los servicios y agregarlo al constructor
 
+    /**
+     * Constructor de la clase Servicio, inicializa las variables
+     * Representa los servicios que se brindan
+     * @param nomSer es el Nombre del Servicio brindado
+     * @param dur es la duración que tiene el servicio
+     * @param pre es el costo del Servicio
+     * @param estado indica si se encuentra disponible o no el servicio
+     */
     public Servicio(String nomSer, String dur, double pre, boolean estado){
         this.nombreServicio= nomSer;
         this.duracion=dur;
@@ -21,10 +35,20 @@ public class Servicio{
         this.estado=estado;
     }
 
+    /**
+     * Constructor de la clase Servicio que solo recibe el nombre del mismo
+     * @param nomSer representa el nombre del Servicio que se brinda
+     */
     public Servicio(String nomSer){
         this.nombreServicio=nomSer;
     }
 
+    /**
+     * Contructor de la clase Servicio que recibe tres parametros
+     * @param nombreServicio es el nombre del Servicio que se brinda
+     * @param duracion es la duracion del Servicio brindado
+     * @param empleado es el empleado que provee el Servicio
+     */
     public Servicio(String nombreServicio, String duracion, Empleado empleado)
     {
         this.nombreServicio = nombreServicio;
@@ -32,6 +56,9 @@ public class Servicio{
         this.empleado = empleado;
     }
 
+    /**
+     * Muestra la lista de Servicios que se encuentran disponibles
+     */
     public static void mostrarServicios(){
         System.out.println("-----Servicios disponibles-----");
         for(Servicio c: Main.servicios)
@@ -41,6 +68,10 @@ public class Servicio{
       
     }
 
+    /**
+     * Metodo que presenta "Activo" si es true y "Inactivo" si es false
+     * @return retorna Activo O Inactivo
+     */
     public  String activoOinactivo(){
         if(estado){
             return "Activo";
@@ -49,6 +80,9 @@ public class Servicio{
         }
     }
 
+    /**
+     * Agrega el servicio a la lista de servicios que tiene el Centro
+     */
     public void agregarServicio(){
         System.out.println("Ingrese el nombre del Servicio:");
         String nombre=sc1.nextLine();
@@ -60,6 +94,9 @@ public class Servicio{
         Main.servicios.add(ser);
     }
 
+    /**
+     * Cambia el estado a inactivo si se elimina el Servicio
+     */
     public void eliminarServicio(){
         System.out.println("Servicio a eliminar: ");
         String servicio=sc1.nextLine();
@@ -72,6 +109,9 @@ public class Servicio{
         }
     }
 
+    /**
+     * Edita determinados campos del Servicio
+     */
     public void editarServicio(){
         System.out.println("Servicio a editar: ");
         String servicio=sc1.nextLine();
@@ -107,7 +147,9 @@ public class Servicio{
 
     
 
-
+    /**
+     * Compara los servicios por el nombre haciendo uso del metodo equals
+     */
     public boolean equals(Object obj){
         if(this==obj){
             return true;
@@ -118,7 +160,8 @@ public class Servicio{
         }
         return false;
         }
-
+    
+        
     public String toString(){
         return "-Nombre del Servicio: "+nombreServicio +" |"+"Duración: "+duracion+ " "+" min"+" "+" |"+ "Precio: $"+precio+" "+" |"+"Estado: "+activoOinactivo();
     }

@@ -3,6 +3,11 @@ import modelo.*;
 import java.util.ArrayList;
 import menu.*;
 
+/**
+ * Clase Cliente
+ * @author:
+ * @version: 11/07/2022
+ */
 public class Cliente extends Usuario {
     private String datos_del_representante;
     private String cedula;
@@ -10,11 +15,22 @@ public class Cliente extends Usuario {
 
 
     //Constructor de la clase
-
+    /**
+     * Constructor de la clase Cliente que recibe el nombre del cliente
+     * @param nom Nombre del Cliente
+     */
     public Cliente(String nom){
         super(nom);
     }
 
+    /**
+     * Contructor de la clase Cliente que recibe como parametros el nombre, telefono, email, cedula, datos del representante
+     * @param nombre Nombre del Cliente
+     * @param telefono Telefono del Cliente
+     * @param email Email del cliente
+     * @param cedula Cedula del cliente
+     * @param dts_re Datos del representante del Cliente
+     */
     public Cliente(String nombre,String telefono,String email,String cedula,String dts_re) {
         super(nombre, telefono, email);
         this.cedula = cedula;
@@ -27,6 +43,9 @@ public class Cliente extends Usuario {
         return super.toString()+"Datos del representante: "+datos_del_representante;
     }
 
+    /**
+     * Muestra los clientes registrados en el Centro
+     */
     public static void mostrarClientes(){
         System.out.println("-----Clientes-----");
         for(Cliente c: Main.ListaClientes)

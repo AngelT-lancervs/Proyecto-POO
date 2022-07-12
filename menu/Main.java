@@ -9,7 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-
+/**
+ * Clase donde se ejecutara el Sistema
+ * @author 
+ * @version
+ */
 public class Main{
         public static ArrayList <Servicio> servicios= new ArrayList<Servicio>();
         public static ArrayList<Empleado> empleados=new ArrayList<Empleado>();
@@ -24,6 +28,10 @@ public class Main{
         empleados.add(em1);
     }  
     
+    /**
+     * Representa la interfaz del Menu del Sistema
+     * @throws ParseException
+     */
     public void menu() throws ParseException{
         Scanner sc=new Scanner(System.in);
         String interfaz	= "°=-----==[Menú]==-----=°\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n°=-----==[*]==-----=°";
