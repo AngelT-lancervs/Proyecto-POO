@@ -1,8 +1,6 @@
 package modelo;
 import java.time.*;
-
 import javax.xml.datatype.Duration;
-
 import usuario.*;
 
 /**
@@ -15,8 +13,6 @@ public class Atencion{
     private Duration duracionReal;
     private Empleado empleado;
     private Servicio servicio;
-    //falta servicio, quizás importarlo desde citas con un metodo
-
     /**
      * Constructor de la clase Atencion
      * Representa una atención que se registra en el Centro Terapeutico, la crea recibiendo los datos de la misma
@@ -29,7 +25,6 @@ public class Atencion{
         this.servicio = servicio;
         this.empleado = empleado;
     }
-
     //Métodos de la clase
     /**
      * Método que muestra el menú a presentarse en la opción de Atención
@@ -38,23 +33,15 @@ public class Atencion{
         System.out.print("1. Registrar Atención\n");         
 	    System.out.print("2. Consultar Atención\n");
     }
-
-    
-
     public void registrarAtencion(){
     }
-
     public void consultarAtencion(){
     }
-
     //Getters y setters
     public Duration getDuracionReal(){
         return this.duracionReal;
     }
-
     public void setDuracionR(Duration t){
         this.duracionReal = t;
     }
-
-    
 }

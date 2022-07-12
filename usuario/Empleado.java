@@ -10,16 +10,15 @@ import menu.*;
 public class Empleado extends Usuario{
     private ArrayList<Empleado> empleados;
     private boolean estado;
-    private String cedula;
     
-    //constructor de la clase
+    //Constructor de la clase
 
     /**
      * Constructor de la clase Empleado, recibe como parametro el nombre del empleado
      * @param nom Nombre del empleado
      */
     public Empleado(String nom){
-        super(nom);
+        super(nom); // Constructor creado para la probar el método de crear cita.
     }
 
     /**
@@ -39,17 +38,18 @@ public class Empleado extends Usuario{
 
 
     public void eliminarEmpleado(){
-
+        this.estado = false;
     }
 
     /**
      * Muestra los empleados registrados en el Centro
      */
     public static void mostrarEmpleados(){
+        int count = 0; // Contador para índices
         System.out.println("-----Empleados-----");
         for(Empleado e: Main.empleados)
         {
-            System.out.println(e);
+            System.out.println(count+". "+e);
         }
     }
 

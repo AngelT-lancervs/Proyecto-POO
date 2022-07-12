@@ -91,23 +91,21 @@ public class Cita{
             
             if(cedulaComprobar.equals(c)){
                 for(Cita ci: cl.getCitasCliente()){
-                    ci.toString();
+                    ci.toString(); // Falta implementar
                 }    
             }
         }
     }
-
-
     /**
      * Consulta las citas que existen pidiendo una fecha y una hora
      */
-    public static void consultarCitas() throws ParseException{
+    public static void consultarCitasPorFecha() throws ParseException{
         System.out.println("Ingrese fecha a consultar: ");
         String fecha_i = sc.nextLine();
         SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaConsultada = miDate.parse(fecha_i);
 
-        for(Cita c: ListaCitas ){
+        for(Cita c: listaCitas ){
             if (c.getFecha().equals(fechaConsultada)){
                 System.out.println(c.toString() + "\n");
             }
@@ -137,11 +135,9 @@ public class Cita{
         return hora;
     }
 
-
     public void setHora(LocalTime hora) {
         this.hora = hora;
     }
-
 
     public Date getFecha() {
         return fecha;

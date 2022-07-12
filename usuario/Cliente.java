@@ -20,7 +20,7 @@ public class Cliente extends Usuario {
      * @param nom Nombre del Cliente
      */
     public Cliente(String nom){
-        super(nom);
+        super(nom); // Constructor creado para la probar el método de crear cita.
     }
 
     /**
@@ -31,13 +31,11 @@ public class Cliente extends Usuario {
      * @param cedula Cedula del cliente
      * @param dts_re Datos del representante del Cliente
      */
-    public Cliente(String nombre,String telefono,String email,String cedula,String dts_re) {
-        super(nombre, telefono, email);
-        this.cedula = cedula;
+    public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
+        super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
-        Main.ListaClientes.add(new Cliente(nombre, telefono, email, cedula, dts_re));
+        Main.ListaClientes.add(this);
     }
-
   
     public String toString(){
         return super.toString()+"Datos del representante: "+datos_del_representante;
@@ -48,12 +46,13 @@ public class Cliente extends Usuario {
      */
     public static void mostrarClientes(){
         System.out.println("-----Clientes-----");
-        for(Cliente c: Main.ListaClientes)
+        int count = 0; // Contador para índices
+        for(Cliente c: Main.listaClientes)
         {
-            System.out.println(c);
+            count++;
+            System.out.println(count+". "+c);
         }
     }
-    
 
     //Getters y setters
     public String getDatosR(){
@@ -71,10 +70,4 @@ public class Cliente extends Usuario {
     public void setDatosR(String texto){
         this.datos_del_representante = texto;
     }
-
-  
-
-
-
-
 }

@@ -99,12 +99,12 @@ public class Servicio{
      */
     public void eliminarServicio(){
         System.out.println("Servicio a eliminar: ");
-        String servicio=sc1.nextLine();
-        Servicio ser=new Servicio(servicio);
+        String servicio = sc1.nextLine();
+        Servicio ser = new Servicio(servicio);
 
         for(Servicio s: Main.servicios){
             if(s.equals(ser)){
-                s.estado=false;
+                s.estado = false;
             }
         }
     }
@@ -114,8 +114,8 @@ public class Servicio{
      */
     public void editarServicio(){
         System.out.println("Servicio a editar: ");
-        String servicio=sc1.nextLine();
-        Servicio ser=new Servicio(servicio);
+        String servicio = sc1.nextLine();
+        Servicio ser = new Servicio(servicio);
 
         
         for(Servicio s: Main.servicios){
