@@ -99,7 +99,7 @@ public class Cita{
             if(cedulaComprobar.equals(c)){
 
                 for(Cita ci: cl.getCitasCliente()){
-                    System.out,println("¿Desea eliminar esta cita? Y/N")
+                    System.out.println("¿Desea eliminar esta cita? Y/N");
                     ci.toString();
                     String comp = sc.nextLine();
                 
@@ -167,6 +167,14 @@ public class Cita{
 
     public static ArrayList<Cita> getListaCitas(){
         return ListaCitas;
+    }
+    
+    public Cliente getCliente(){
+        return cliente;
+    }
+
+    public Servicio getServicio(){
+        return servicio;
     }
 
     //ToString de Cita

@@ -19,9 +19,10 @@ public class Empleado extends Usuario{
      * Constructor de la clase Empleado, recibe como parametro el nombre del empleado
      * @param nom Nombre del empleado
      */
-    public Empleado(String nom){
-        super(nom); // Constructor creado para la probar el método de crear cita.
+    public Empleado(String ced){
+        super(ced); // Constructor creado para la probar el método de crear cita.
     }
+
 
     /**
      * Constructor de la clase Empleado, recibe como parametro el nombre del empleado, cedula, email, estado y telefono
@@ -39,10 +40,27 @@ public class Empleado extends Usuario{
         empleados.add(new Empleado(super(nombre, cedula, telefono, email), estado));
     }
 
+    public Empleado(String cedula, String nom){
+        super(nom);
+        this.cedula=cedula;
+    }
+
 
     public void eliminarEmpleado(){
         this.estado = false;
     }
+
+    public boolean equals(Object obj){
+        if(this==obj){
+            return true;
+        }
+        if(obj!=null && getClass()==obj.getClass()){
+            Empleado other=(Empleado)obj;
+            return (this.cedula.equals(other.cedula));
+        }
+        return false;
+    }
+
 
     /**
      * Muestra los empleados registrados en el Centro

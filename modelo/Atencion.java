@@ -1,7 +1,8 @@
 package modelo;
 import java.time.*;
 import java.util.Scanner;
-import javax.xml.datatype.Duration;
+
+import menu.Main;
 import usuario.*;
 
 /**
@@ -11,10 +12,11 @@ import usuario.*;
  * @version: 11/07/2022
  */
 public class Atencion{
-    private Duration duracionReal;
+    private int duracionReal;
     private Empleado empleado;
     private Servicio servicio;
     static Scanner sc3=new Scanner(System.in);
+    private Cita cita;
     /**
      * Constructor de la clase Atencion
      * Representa una atención que se registra en el Centro Terapeutico, la crea recibiendo los datos de la misma
@@ -22,10 +24,11 @@ public class Atencion{
      * @param servicio El servicio prestado en la atención
      * @param empleado El empleado que prestó el servicio
      */
-    public Atencion(Duration duracionReal, Servicio servicio, Empleado empleado){
+    public Atencion(int duracionReal, Servicio servicio, Empleado empleado, Cita cita){
         this.duracionReal = duracionReal;
         this.servicio = servicio;
         this.empleado = empleado;
+        this.cita=cita;
     }
     //Métodos de la clase
     /**
@@ -41,20 +44,73 @@ public class Atencion{
         System.out.print("Ingrese nombre del Cliente: ");
         String nom=sc3.nextLine();
         Cliente c1=new Cliente(ced, nom);
-
+        Cita cita1=null;
+        
         for(Cita c: Cita.getListaCitas()){
-            
+            if(c.getCliente().equals(c1)){
+                cita1=c;
+            }
         }
+        Empleado empleado=null;
+        System.out.print("Ingrese la duración real de la Atención en min: ");
+        int dur=sc3.nextInt();
+        sc3.nextLine();
+        System.out.print("Ingrese cédula del empleado que realizó la atención: ");
+        String cedEmpleado=sc3.nextLine();
+        Empleado empleado1=new Empleado(cedEmpleado);
+
+        for(Empleado e: Main.empleados){
+            if(e.equals(empleado1)){
+                empleado=e;
+            }
+        }
+        Atencion atencion1=new Atencion(dur, cita1.getServicio(), empleado, cita1 );
+        Main.atenciones.add(atencion1);
 
 
     }
     public static void consultarAtencion(){
+        System.out.println("Elija el dato por el cual desea consultar: ");
+        System.out.println("1.Cédula del empleado ");
+        System.out.println("2.Cédula del cliente");
+        System.out.println("3. Fecha de la atención");
+        int opcion=sc3.nextInt();
+        sc3.nextLine();
+
+        for(Atencion a: Main.atenciones){
+            switch(opcion){
+                case 1:
+                    System.out.println("Ingrese la cédula del empleado que prestó el servicio: ");
+                    String cedulaEmpleado=sc3.nextLine();
+                    Empleado empleado2=new Empleado(cedulaEmpleado);
+                    if(a.empleado.equals(empleado2)){
+                        System.out.println(a);
+                    }
+
+                case 2:
+                    System.out.println("Ingrese la cédula del cliente: ");
+                    String cedulaCliente=sc3.nextLine();
+                    Cliente cliente1=new Cliente(cedulaCliente);
+                    if(a.cita.getCliente().equals(cliente1)){
+                        System.out.println(a);
+                    }
+    
+                case 3:
+                    System.out.println("Ingrese la fecha de la atención a buscar: ");
+                    String fecha_a_buscar=sc3.nextLine();
+      
+                    if(a.cita.getFecha().equals(Cita.ParseFecha(fecha_a_buscar))){
+                        System.out.println(a);
+                    }
+            }
+        }
+        
     }
     //Getters y setters
-    public Duration getDuracionReal(){
+    public int getDuracionReal(){
         return this.duracionReal;
     }
-    public void setDuracionR(Duration t){
-        this.duracionReal = t;
+    public void setDuracionR(int t){
+        duracionReal = t;
     }
 }

@@ -16,9 +16,11 @@ public abstract class Usuario {
      * @param nom Nombre del Usuario
      */
 
-    public Usuario(String nom){
-        this.nombre = nom; // Constructor creado para probar la creación de citas.
+    public Usuario(String ced){
+        this.cedula = ced; // Constructor creado para probar la creación de citas.
     }
+
+
 
     /**
      * Constructor de la clase Usuario, recibe como parametros el nombre del Usuario, telefono, email
@@ -61,4 +63,7 @@ public abstract class Usuario {
     public String toString(){
         return ">> Nombre: "+nombre+" | "+" Cédula: "+cedula+" | Teléfono: "+telefono+" | Email: "+email+" |";
     }
+
+    
+   
 }
