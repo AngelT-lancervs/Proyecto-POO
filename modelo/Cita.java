@@ -90,8 +90,15 @@ public class Cita{
             String cedulaComprobar = cl.getCedulaR();
             
             if(cedulaComprobar.equals(c)){
+
                 for(Cita ci: cl.getCitasCliente()){
-                    ci.toString(); // Falta implementar
+                    System.out,println("¿Desea eliminar esta cita? Y/N")
+                    ci.toString();
+                    String comp = sc.nextLine();
+                
+                    if(comp.equals("Y")){
+                        ci = null;
+                    }
                 }    
             }
         }

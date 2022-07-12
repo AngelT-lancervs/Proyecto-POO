@@ -1,5 +1,6 @@
 package usuario;
 import java.util.ArrayList;
+import java.util.Scanner;
 import menu.*;
 
 /**
@@ -10,6 +11,7 @@ import menu.*;
 public class Empleado extends Usuario{
     private ArrayList<Empleado> empleados;
     private boolean estado;
+    Scanner scE = new Scanner(System.in);
     
     //Constructor de la clase
 
@@ -31,9 +33,10 @@ public class Empleado extends Usuario{
      */
     public Empleado(String nombre, String cedula, String email, boolean estado, String telefono)
     {
-        super(nombre,telefono, email);
+        super(nombre, cedula, telefono, email);
         this.cedula=cedula;
         this.estado = estado;
+        empleados.add(new Empleado(super(nombre, cedula, telefono, email), estado));
     }
 
 
@@ -52,12 +55,43 @@ public class Empleado extends Usuario{
             System.out.println(count+". "+e);
         }
     }
+    
+    public void editarEmpleado(){
+        System.out.println("Empleado a editar: ");
+        String nombreE = scE.nextLine();
+        Empleado empl = new Empleado(nombreE);
+
+        for(Empleado e: Main.empleados){
+            if(e.equals(empl)){
+                System.out.println(e);
+                System.out.println("Campo que desea editar: ");
+                String datos=scE.nextLine().toUpperCase();
+
+                switch (datos) {
+                    case "NOMBRE":
+                        System.out.println("Nuevo nombre: ");
+                        String nom=scE.nextLine();
+                        e.nombre = nom; 
+
+                    case "EMAIL":
+                        System.out.println("Nuevo email: ");
+                        String em=scE.nextLine();
+                        e.email = em; 
+
+                    case  "TELEFONO":
+                        System.out.println("Nuevo telefono: ");
+                        String prec=scE.nextLine();
+                        e.tel = tel;
+                    }
+                }
+            }      
+        }
 
     /**
      * Metodo Activo o Inactivo
      * @return devuelve "Activo" si es true e "Inactivo si es False"
      */
-    public  String activoOinactivo(){
+    public String activoOinactivo(){
         if(estado){
             return "Activo";
         }else{

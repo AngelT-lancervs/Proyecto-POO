@@ -1,6 +1,7 @@
 package usuario;
 import modelo.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import menu.*;
 
 /**
@@ -12,7 +13,7 @@ public class Cliente extends Usuario {
     private String datos_del_representante;
     private String cedula;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
-
+    Scanner scC = new Scanner(System.in);
 
     //Constructor de la clase
     /**
@@ -53,6 +54,43 @@ public class Cliente extends Usuario {
             System.out.println(count+". "+c);
         }
     }
+
+
+    public void editarCliente(){
+        System.out.println("Cliente a editar: ");
+        String nombreC = scC.nextLine();
+        Empleado cli = new Cliente(cli);
+
+        for(Cliente c: Main.listaClientes){
+            if(c.equals(cli)){
+                System.out.println(c);
+                System.out.println("Campo que desea editar: ");
+                String datos=scC.nextLine().toUpperCase();
+
+                switch (datos) {
+                    case "NOMBRE":
+                        System.out.println("Nuevo nombre: ");
+                        String nom=scC.nextLine();
+                        c.nombre = nom; 
+
+                    case "EMAIL":
+                        System.out.println("Nuevo email: ");
+                        String em=scC.nextLine();
+                        c.email = em; 
+
+                    case  "TELEFONO":
+                        System.out.println("Nuevo telefono: ");
+                        String tel =scC.nextLine();
+                        c.tel = tel;
+                    
+                    case  "DATOS DEL REPRESENTATE":
+                        System.out.println("Nuevo telefono: ");
+                        String dts =scC.nextLine();
+                        c.datos_del_representante = dts;
+                    }
+                }
+            }      
+        }
 
     //Getters y setters
     public String getDatosR(){

@@ -65,7 +65,6 @@ public class Servicio{
         {
             System.out.println(c);
         }
-      
     }
 
     /**
@@ -139,13 +138,10 @@ public class Servicio{
                         System.out.println("Nuevo precio: ");
                         double prec=sc1.nextDouble();
                         s.precio=prec;
-                    
                     }
             }
-    }   
+        }   
     }
-
-    
 
     /**
      * Compara los servicios por el nombre haciendo uso del metodo equals
