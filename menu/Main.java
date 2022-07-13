@@ -21,6 +21,7 @@ import java.util.Date;
         public static ArrayList<Atencion> atenciones = new ArrayList<Atencion>();
 
         public static void inicializarSistema(){
+        //Al momento de inicializar el sistema se ejecuta infinitas veces
         Servicio s1 = new Servicio("Terapia de Lenguaje", "30", 25, true);
         Servicio s2 = new Servicio("Terapia Psicopedagógica", "30", 25, true);
         Empleado em1 = new Empleado("Roberto Pluas", "0999456123", "rober.inf@gmail.com", true, "0992460023");
@@ -28,6 +29,7 @@ import java.util.Date;
         servicios.add(s1);
         servicios.add(s2);
         empleados.add(em1);
+        listaClientes.add(cl);
     }
     
     /**
@@ -82,15 +84,7 @@ import java.util.Date;
                             System.out.print("Ingrese un número válido.");
                         }else{
                             Cliente clienteEditar = listaClientes.get(op-1);
-                            System.out.println("Ingrese nuevo nombre del usuario: ");
-                            String newNombre = sc.nextLine();
-                            System.out.println("Ingrese nuevo número telefónico del usuario: ");
-                            String newTelefono = sc.nextLine();
-                            System.out.println("Ingrese nuevo correo del usuario: ");
-                            String newEmail = sc.nextLine();
-                            System.out.println("Ingrese los nuevos datos del representante del usuario: ");
-                            String newDatosRepresentante = sc.nextLine();
-                            clienteEditar.editarCliente(newNombre,newTelefono,newEmail,newDatosRepresentante);
+                            clienteEditar.editarCliente();
                         }
                         Cliente.mostrarClientes();
                         break;
@@ -159,13 +153,16 @@ import java.util.Date;
 
         sc.close();
     }
-    public static void main(String[]args){
+    public static void main(String[]args) throws ParseException{
 	    Main sistema = new Main();
-        sistema.inicializarSistema();
+        //Main.inicializarSistema();
+        sistema.menu();
+
+        /* 
         try {
             sistema.menu();
         } catch (ParseException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }   

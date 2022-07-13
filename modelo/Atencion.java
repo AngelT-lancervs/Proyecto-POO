@@ -113,4 +113,5 @@ public class Atencion{
     public void setDuracionR(int t){
         duracionReal = t;
     }
+    
 }

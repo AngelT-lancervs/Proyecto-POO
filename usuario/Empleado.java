@@ -37,7 +37,7 @@ public class Empleado extends Usuario{
         super(nombre, cedula, telefono, email);
         this.cedula=cedula;
         this.estado = estado;
-        empleados.add(new Empleado(super(nombre, cedula, telefono, email), estado));
+        empleados.add(new Empleado(nombre, cedula, email, estado, telefono));
     }
 
     public Empleado(String cedula, String nom){
@@ -98,8 +98,8 @@ public class Empleado extends Usuario{
 
                     case  "TELEFONO":
                         System.out.println("Nuevo telefono: ");
-                        String prec=scE.nextLine();
-                        e.tel = tel;
+                        String tel=scE.nextLine();
+                        e.telefono = tel;
                     }
                 }
             }      
@@ -120,5 +120,6 @@ public class Empleado extends Usuario{
     public String toString(){
         return super.toString()+"Estado: "+activoOinactivo();
     }
+    
     
 }

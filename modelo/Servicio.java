@@ -63,7 +63,7 @@ public class Servicio{
         System.out.println("-----Servicios disponibles-----");
         for(Servicio c: Main.servicios)
         {
-            System.out.println(c);
+            System.out.println(c.toString());
         }
     }
 
@@ -187,4 +187,5 @@ public class Servicio{
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
 }
