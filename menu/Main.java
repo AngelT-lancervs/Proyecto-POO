@@ -24,7 +24,7 @@ public class Main{
     public void inicializarSistema(){
         //Al momento de inicializar el sistema se ejecuta infinitas veces
         Servicio s1 = new Servicio("Terapia de Lenguaje", "30", 25, true);
-        Servicio s2 = new Servicio("Terapia Psicopedagógica", "30", 25, true);
+        Servicio s2 = new Servicio("Terapia Psicopedagógica", "30", 25, false);
         Empleado em1 = new Empleado("Roberto Pluas", "0999456123", "rober.inf@gmail.com", true, "0992460023");
         Cliente cl = new Cliente("Paco", "0958161168", "0961642035", "hola123@hotmail.com", "Maria Rosales, 32 años");
     }
@@ -52,6 +52,9 @@ public class Main{
                     break;
                 case 2:
                     Empleado.mostrarEmpleados();
+                    // Falta agregar el submenu de Empleados
+                    // Falta arreglar el método de agregar, editar empleado.
+
                     break;
                 case 3:
                     System.out.print("\nClientes Registrados:\n");
@@ -88,12 +91,12 @@ public class Main{
                     switch(opcion) {
                         case 1:
                             Cita.agregarCita();
-
                             break;
                         case 2:
                             Cita.eliminarCita();
                             break;
                         case 3:
+                            // Sale error NullPointerException, Corregir.
                             Cita.consultarCitasPorFecha();
                             break;
                         default:

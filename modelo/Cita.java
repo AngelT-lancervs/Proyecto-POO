@@ -1,5 +1,7 @@
 package modelo;
 import usuario.*;
+
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import menu.Main;
 import java.text.SimpleDateFormat;
@@ -80,18 +82,20 @@ public class Cita{
             System.out.print("¡Se creó la cita correctamente!\n");
         }
         else {
+            Cita citaCorrecta = null;
             for(Cita c : citas){
                 Date f = c.getFecha();
                 LocalTime h = c.getHora();
                 Empleado p = c.getProovedor();
 
                 if (!(f_nuevaC.equals(f) && h_nuevaC.equals(h) && p_nuevaC.equals(p))){ // Comprueba si existe otra cita con el mismo empleado a la misma fecha y hora.
-                    citas.add(cita1);
-                    c_nuevaC.getCitasCliente().add(cita1);
+                    citaCorrecta = c;
                     System.out.print("¡Se creó la cita correctamente!\n");
                 }
                 else{System.out.println("[ERROR] No está disponible una cita en esa fecha y hora con "+p_nuevaC.getNombre());}
             }
+            citas.add(citaCorrecta);
+            c_nuevaC.getCitasCliente().add(citaCorrecta);
         }
      }
 
@@ -100,7 +104,7 @@ public class Cita{
      * Elimina una cita usando el número de cédula del Cliente
      */
     public static void eliminarCita(){
-        System.out.println("Ingrese su número de cédula");
+        System.out.println("Ingrese su número de cédula: ");
         String c = sc.nextLine();
         
         for (Cliente cl: Main.clientes){
@@ -123,7 +127,7 @@ public class Cita{
     /**
      * Consulta las citas que existen pidiendo una fecha y una hora
      */
-    public static void consultarCitasPorFecha() throws ParseException{
+    public static void consultarCitasPorFecha() throws ParseException {
         System.out.println("Ingrese fecha a consultar: ");
         String fecha_i = sc.nextLine();
         SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
@@ -140,7 +144,13 @@ public class Cita{
         String fecha_Cita = sc.nextLine();
         System.out.println("Ingrese la hora de la cita con el formato HH:MM:SS ");
         String hora = sc.nextLine();
-        LocalTime t = LocalTime.parse(hora);
+        LocalTime t = null;
+        try{
+            t = LocalTime.parse(hora);
+        } catch (DateTimeParseException e){
+            System.out.print("[ERROR] Ingrese la hora en el formato HH:MM:SS ");
+        }
+
         Date d = ParseFecha(fecha_Cita);
 
         System.out.println("Seleccione el servicio: ");
@@ -157,27 +167,35 @@ public class Cita{
         Empleado.mostrarEmpleados();
         opcion = Main.pedirNumero();
         Empleado empleado = Main.empleados.get(opcion-1);
-        comprobarCita(d, t, servicio, cliente, empleado);
+        if(d == null || t == null) {
+            System.out.print("\n[ERROR] No se creó la cita, errores ocurrieron.\n");
+        } else if (!servicio.getEstado()) {
+            System.out.print("\n[ERROR] El servicio seleccionado no está disponible por el momento.\n");
+        } else if (!empleado.getEstado()) {
+            System.out.print("\n[ERROR] El empleado seleccionado no está disponible por el momento.\n");
+        }
+        else {
+            comprobarCita(d, t, servicio, cliente, empleado);
+        }
     }
 
     //Metodo de conversion de String a Date
     /**
      * Convierte el String ingresado por el usuario a un dato de tipo Fecha
      */
-    public static Date ParseFecha(String fecha)
-    {
+    public static Date ParseFecha(String fecha) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = null;
         try {
             fechaDate = formato.parse(fecha);
+            return fechaDate;
         } 
         catch (ParseException ex) 
         {
-            System.out.println(ex);
+            System.out.println("\n[ERROR] Ingrese la fecha con el formato yy/MM/yyyy");
         }
-        return fechaDate;
+        return null;
     }
-
     //Getters & Setters
     public LocalTime getHora() {
         return hora;

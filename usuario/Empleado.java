@@ -10,6 +10,8 @@ import menu.*;
  */
 public class Empleado extends Usuario{
     private ArrayList<Empleado> empleados;
+
+
     private boolean estado;
     Scanner scE = new Scanner(System.in);
     
@@ -50,7 +52,7 @@ public class Empleado extends Usuario{
     }
 
     public boolean equals(Object obj){
-        if(this==obj){
+        if(this == obj){
             return true;
         }
         if(obj!=null && getClass()==obj.getClass()){
@@ -72,7 +74,7 @@ public class Empleado extends Usuario{
         }
     }
     
-    public void editarEmpleado(){
+    public void editarEmpleado(){ // Pueden corregir el método guiandose del que está en clase cliente, "editarCliente"
         System.out.println("Empleado a editar: ");
         String nombreE = scE.nextLine();
         Empleado empl = new Empleado(nombreE);
@@ -113,6 +115,9 @@ public class Empleado extends Usuario{
         } else {
             return "Inactivo";
         }
+    }
+    public boolean getEstado() {
+        return estado;
     }
 
     public String toString(){
