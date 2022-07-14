@@ -50,6 +50,19 @@ public class Cita{
         System.out.print("3. Consultar citas por fecha\n");
     }
 
+    public static ArrayList<Cita> buscarPorCedula(String ced){
+        ArrayList<Cita> listaCitas = null;
+        for(Cliente cl : Main.clientes){
+            if(ced.equals(cl.getCedulaR())){
+                listaCitas = cl.getCitasCliente();
+            }
+            else {
+                System.out.print("No se encuentra el cliente registrado.");
+            }
+        }
+        return listaCitas;
+    }
+
     /**
      * Crea una cita recibiendo como parametros los datos de la misma, a su vez verifica que no exista otra cita a la misma fecha y hora con la persona encargada
      * @param f_nuevaC fecha de la cita que se creará

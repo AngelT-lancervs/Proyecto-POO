@@ -15,7 +15,7 @@ public class Atencion{
     private int duracionReal;
     private Empleado empleado;
     private Servicio servicio;
-    static Scanner sc3 = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     private Cita cita;
     /**
      * Constructor de la clase Atencion
@@ -35,16 +35,16 @@ public class Atencion{
      * Método que muestra el menú a presentarse en la opción de Atención
      */
     public static void mostrarMenu(){
+
+        System.out.print("-----[Menú/Atención]-----\n");
         System.out.print("1. Registrar Atención\n");         
 	    System.out.print("2. Consultar Atención\n");
     }
     public static void registrarAtencion(){
-        /*
+
         System.out.print("Ingrese cedula del Cliente: ");
-        String ced=sc3.nextLine();
-        System.out.print("Ingrese nombre del Cliente: ");
-        String nom=sc3.nextLine();
-        Cliente c1 = new Cliente(ced, nom);
+        String ced = sc.nextLine();
+        Cliente c1 = new Cliente(ced);
         Cita cita1 = null;
         
         for(Cita c: Cita.getCitas()){
@@ -52,22 +52,25 @@ public class Atencion{
                 cita1=c;
             }
         }
-        Empleado empleado=null;
+        Empleado empleado = null;
         System.out.print("Ingrese la duración real de la Atención en min: ");
-        int dur=sc3.nextInt();
-        sc3.nextLine();
+        int dur=sc.nextInt();
+        sc.nextLine();
         System.out.print("Ingrese cédula del empleado que realizó la atención: ");
-        String cedEmpleado=sc3.nextLine();
-        Empleado empleado1=new Empleado(cedEmpleado);
+        String cedEmpleado = sc.nextLine();
+        Empleado empleado1 = new Empleado(cedEmpleado);
 
         for(Empleado e: Main.empleados){
             if(e.equals(empleado1)){
                 empleado=e;
             }
         }
-        Atencion atencion1=new Atencion(dur, cita1.getServicio(), empleado, cita1 );
-        Main.atenciones.add(atencion1);
-        */
+        if(cita1 != null) {
+            Atencion atencion1 = new Atencion(dur, cita1.getServicio(), empleado, cita1);
+            Main.atenciones.add(atencion1);
+        } else {
+            System.out.print("[ERROR] No se el cliente o el proovedor.\n");
+        }
 
     }
     public static void consultarAtencion(){
@@ -75,38 +78,39 @@ public class Atencion{
         System.out.println("1.Cédula del empleado ");
         System.out.println("2.Cédula del cliente");
         System.out.println("3.Fecha de la atención");
-        int opcion=sc3.nextInt();
-        sc3.nextLine();
+        int opcion=sc.nextInt();
+        sc.nextLine();
 
         for(Atencion a: Main.atenciones){
             switch(opcion){
                 case 1:
                     System.out.println("Ingrese la cédula del empleado que prestó el servicio: ");
-                    String cedulaEmpleado = sc3.nextLine();
+                    String cedulaEmpleado = sc.nextLine();
                     Empleado empleado2 = new Empleado(cedulaEmpleado);
                     if(a.empleado.equals(empleado2)){
                         System.out.println(a);
                     }
+                    break;
 
                 case 2:
-                    /*
                     System.out.println("Ingrese la cédula del cliente: ");
-                    String cedulaCliente=sc3.nextLine();
+                    String cedulaCliente=sc.nextLine();
                     Cliente cliente1 = new Cliente(cedulaCliente);
                     if(a.cita.getCliente().equals(cliente1)){
                         System.out.println(a);
                     }
-                    */
+
+                    break;
                 case 3:
                     System.out.println("Ingrese la fecha de la atención a buscar: ");
-                    String fecha_a_buscar = sc3.nextLine();
+                    String fecha_a_buscar = sc.nextLine();
       
                     if(a.cita.getFecha().equals(Cita.ParseFecha(fecha_a_buscar))){
                         System.out.println(a);
                     }
+                    break;
             }
         }
-        
     }
     //Getters y setters
     public int getDuracionReal(){
@@ -115,5 +119,4 @@ public class Atencion{
     public void setDuracionR(int t){
         duracionReal = t;
     }
-    
 }

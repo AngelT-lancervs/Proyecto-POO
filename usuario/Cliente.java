@@ -30,6 +30,9 @@ public class Cliente extends Usuario {
      * @param cedula Cedula del cliente
      * @param dts_re Datos del representante del Cliente
      */
+    public Cliente(String ced){
+        super(ced);
+    }
     public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
@@ -114,6 +117,7 @@ public class Cliente extends Usuario {
         String datosRepresentante = sc.nextLine();
         Cliente cl = new Cliente(nombre, cedula, telefono, correo, datosRepresentante);
     }
+    // * Crear método mostrar citas por cliente
 
     //Getters y setters
     public String getDatosR(){

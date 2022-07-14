@@ -17,7 +17,7 @@ public abstract class Usuario {
      */
 
     public Usuario(String ced){
-        this.cedula = ced; // Constructor creado para probar la creación de citas.
+        this.cedula = ced; // Constructor creado para comparar con mayor facilidad.
     }
 
 
