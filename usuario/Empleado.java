@@ -60,7 +60,6 @@ public class Empleado extends Usuario{
         return false;
     }
 
-
     /**
      * Muestra los empleados registrados en el Centro
      */
@@ -117,6 +116,6 @@ public class Empleado extends Usuario{
     }
 
     public String toString(){
-        return super.toString()+"Estado: "+activoOinactivo();
+        return super.toString()+" Estado: "+activoOinactivo();
     }
 }

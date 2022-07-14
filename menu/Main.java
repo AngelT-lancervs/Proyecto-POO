@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class Main{
     Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner.
-    final String interfaz	= "°=-----==[Menú]==-----=°\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n°=-----==={[]}===-----=°";
+    final String interfaz	= "-----[Menú]-----\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n";
     public static ArrayList <Servicio> servicios = new ArrayList<Servicio>();
     public static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -31,7 +31,7 @@ public class Main{
 
     public static int pedirNumero() {
         Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner en un método estático.
-        System.out.print("\nElija una opción: ");
+        System.out.print("\n>>Elija una opción: ");
         int op = sc.nextInt();
         return op;
     }
@@ -41,7 +41,6 @@ public class Main{
      * @throws ParseException
      */
     public void menu() throws ParseException{
-
 
         int opcion = 0;
         while(opcion != 6){
@@ -55,35 +54,31 @@ public class Main{
                     Empleado.mostrarEmpleados();
                     break;
                 case 3:
+                    System.out.print("\nClientes Registrados:\n");
                     Cliente.mostrarClientes();
                     Cliente.mostrarMenu();
                     opcion = pedirNumero();
                     switch(opcion){
                         case 1:
-                            System.out.println("Ingrese nombre del usuario: ");
-                            String nombre = sc.nextLine();
-                            System.out.println("Ingrese el número de cédula del usuario: ");
-                            String cedula = sc.nextLine();
-                            System.out.println("Ingrese número telefónico del usuario: ");
-                            String telefono = sc.nextLine();
-                            System.out.println("Ingrese correo del usuario: ");
-                            String correo = sc.nextLine();
-                            System.out.println("Ingrese los datos del representante del usuario: ");
-                            String datosRepresentante = sc.nextLine();
-                            Cliente cl = new Cliente(nombre, cedula, telefono, correo, datosRepresentante);
+                            Cliente.agregarCliente();
+                            System.out.print("¡Cliente Agregado!\n");
                             Cliente.mostrarClientes();
                             break;
                         case 2:
-                            System.out.println("Seleccione usuario a editar: ");
+                            System.out.println("Seleccione cliente a editar: ");
                             Cliente.mostrarClientes();
                             opcion = pedirNumero();
                             if(opcion > clientes.size()) {
-                                System.out.print("Ingrese un número válido.");
+                                System.out.print("Ingrese una opción válida.");
                             } else {
                                 Cliente clienteEditar = clientes.get(opcion-1);
                                 clienteEditar.editarCliente();
                             }
+                            System.out.print("¡Cliente Actualizado!\n");
                             Cliente.mostrarClientes();
+                            break;
+                        default:
+                            System.out.print("Ingrese una opción válida.");
                             break;
                     }
                     break;

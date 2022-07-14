@@ -14,7 +14,7 @@ public class Cliente extends Usuario {
     private String datos_del_representante;
     private String cedula;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
-    Scanner scC = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
     //Constructor de la clase
     /**
@@ -42,19 +42,17 @@ public class Cliente extends Usuario {
     public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
-        this.cedula = cedula;
         Main.clientes.add(this);
     }
   
     public String toString(){
-        return super.toString()+"Datos del representante: "+datos_del_representante;
+        return super.toString() + " Datos del representante: "+datos_del_representante;
     }
 
     /**
      * Muestra los clientes registrados en el Centro
      */
     public static void mostrarClientes() {
-        System.out.println("-----Clientes-----");
         int count = 0; // Contador para índices
         for(Cliente c: Main.clientes)
         {
@@ -64,9 +62,9 @@ public class Cliente extends Usuario {
     }
 
     public static void mostrarMenu() {
-        System.out.print("1. Crear cita\n");
-        System.out.print("2. Eliminar cita\n");
-        System.out.print("3. Consultar citas por fecha\n");
+        System.out.print("-----[Menú/Cliente]-----\n");
+        System.out.print("1. Agregar cliente\n");
+        System.out.print("2. Editar cliente\n");
     }
 
     @Override
@@ -83,40 +81,84 @@ public class Cliente extends Usuario {
 
 
     public void editarCliente() {
+        System.out.print("-----[Menú/Cliente/Editar]-----\n");
+        System.out.print("1.Nombre \n2.Telefono \n3.Email \n4.Datos representante \n");
+        int opcion = Main.pedirNumero();
+        switch (opcion){
+            case 1:
+                System.out.print("\nIngrese el nuevo nombre: ");
+                String newNombre = sc.nextLine();
+                this.nombre = newNombre;
+                break;
+            case 2:
+                System.out.print("\nIngrese el nuevo telefono: ");
+                String newTelefono = sc.nextLine();
+                this.telefono = newTelefono;
+                break;
+            case 3:
+                System.out.print("\nIngrese el nuevo email: ");
+                String newEmail = sc.nextLine();
+                this.email = newEmail;
+                break;
+            case 4:
+                System.out.print("\nIngrese los nuevos datos del representante: ");
+                String newD_Representante = sc.nextLine();
+                this.datos_del_representante = newD_Representante;
+                break;
+            default:
+                System.out.print("Ingrese una opción válida.");
+        }
+        /*
         System.out.println("Cliente a editar: ");
-        String nombreC = scC.nextLine();
+        String nombreC = sc.nextLine();
         Cliente cli = new Cliente(nombreC);
 
         for(Cliente c: Main.clientes){
             if(c.equals(cli)){
                 System.out.println(c);
                 System.out.println("Campo que desea editar: ");
-                String datos=scC.nextLine().toUpperCase();
+                String datos=sc.nextLine().toUpperCase();
 
                 switch (datos) {
                     case "NOMBRE":
                         System.out.println("Nuevo nombre: ");
-                        String nom=scC.nextLine();
+                        String nom=sc.nextLine();
                         c.nombre = nom; 
 
                     case "EMAIL":
                         System.out.println("Nuevo email: ");
-                        String em=scC.nextLine();
+                        String em=sc.nextLine();
                         c.email = em; 
 
                     case  "TELEFONO":
                         System.out.println("Nuevo telefono: ");
-                        String tel =scC.nextLine();
+                        String tel =sc.nextLine();
                         c.telefono = tel;
                     
                     case  "DATOS DEL REPRESENTANTE":
                         System.out.println("Nuevo telefono: ");
-                        String dts =scC.nextLine();
+                        String dts =sc.nextLine();
                         c.datos_del_representante = dts;
                     }
                 }
-            }      
+            }
+
+         */
         }
+    public static void agregarCliente(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese nombre del usuario: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el número de cédula del usuario: ");
+        String cedula = sc.nextLine();
+        System.out.println("Ingrese número telefónico del usuario: ");
+        String telefono = sc.nextLine();
+        System.out.println("Ingrese correo del usuario: ");
+        String correo = sc.nextLine();
+        System.out.println("Ingrese los datos del representante del usuario: ");
+        String datosRepresentante = sc.nextLine();
+        Cliente cl = new Cliente(nombre, cedula, telefono, correo, datosRepresentante);
+    }
 
     //Getters y setters
     public String getDatosR(){
