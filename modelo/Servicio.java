@@ -33,6 +33,7 @@ public class Servicio{
         this.duracion=dur;
         this.precio=pre;
         this.estado=estado;
+        Main.servicios.add(this);
     }
 
     /**
@@ -83,13 +84,13 @@ public class Servicio{
      * Agrega el servicio a la lista de servicios que tiene el Centro
      */
     public void agregarServicio(){
-        System.out.println("Ingrese el nombre del Servicio:");
-        String nombre=sc1.nextLine();
+        System.out.println("Ingrese el nombre del servicio:");
+        String nombre = sc1.nextLine();
         System.out.println("Ingrese la duración del servicio:");
-        String duracion=sc1.nextLine();
+        String duracion = sc1.nextLine();
         System.out.println("Ingrese el precio del servicio: ");
-        double precio=sc1.nextDouble();
-        Servicio ser=new Servicio(nombre, duracion, precio, true);
+        double precio = sc1.nextDouble();
+        Servicio ser = new Servicio(nombre, duracion, precio, true);
         Main.servicios.add(ser);
     }
 

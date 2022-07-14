@@ -18,7 +18,7 @@ public class Cita{
     private Servicio servicio;
     private LocalTime hora;
     private Date fecha;
-    private static ArrayList<Cita> ListaCitas = new ArrayList<Cita>();
+    private static ArrayList<Cita> citas = new ArrayList<Cita>();
     private static Scanner sc = new Scanner(System.in);
 
     /**
@@ -58,30 +58,30 @@ public class Cita{
      * @param p_nuevaC Empleado que prestará el Servicio en la cita
      */
     public static void crearCita(Date f_nuevaC, LocalTime h_nuevaC, String nomSer, Cliente c_nuevaC, Empleado p_nuevaC){
-        Servicio ser= new Servicio(nomSer);
-        Servicio ser2=null;
-        for(Servicio servi: Main.servicios){
+        Servicio ser = new Servicio(nomSer);
+        Servicio ser2 = null;
+        for(Servicio servi : Main.servicios){
             if(servi.equals(ser)){
-                ser2=servi;
+                ser2 = servi;
             }
         }
         Cita cita1= new Cita(f_nuevaC, h_nuevaC, ser2, c_nuevaC, p_nuevaC);
 
     
-        if( ListaCitas.size() == 0 ){
-            ListaCitas.add(cita1);
+        if(getCitas().size() == 0){
+            getCitas().add(cita1);
         }
         else{
-            for(Cita c: ListaCitas ){
+            for(Cita c: citas){
                 Date f = c.getFecha();
                 LocalTime h= c.getHora();
                 Empleado p = c.getProovedor();
 
                 if (!(f_nuevaC.equals(f) && h_nuevaC.equals(h) && p_nuevaC.equals(p))){
-                    ListaCitas.add(cita1);
+                    citas.add(cita1);
                     c_nuevaC.getCitasCliente().add(cita1);
                 }
-                else{System.out.println("No está disponible esa hora");}
+                else{System.out.println("No está disponible una cita en esa fecha y hora.");}
             }
         }
      }
@@ -93,7 +93,7 @@ public class Cita{
         System.out.println("Ingrese su número de cédula");
         String c = sc.nextLine();
         
-        for (Cliente cl: Main.listaClientes){
+        for (Cliente cl: Main.clientes){
             String cedulaComprobar = cl.getCedulaR();
             
             if(cedulaComprobar.equals(c)){
@@ -119,7 +119,7 @@ public class Cita{
         SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaConsultada = miDate.parse(fecha_i);
 
-        for(Cita c: ListaCitas ){
+        for(Cita c: citas ){
             if (c.getFecha().equals(fechaConsultada)){
                 System.out.println(c.toString() + "\n");
             }
@@ -165,8 +165,8 @@ public class Cita{
         this.fecha = fecha;
     }
 
-    public static ArrayList<Cita> getListaCitas(){
-        return ListaCitas;
+    public static ArrayList<Cita> getCitas(){
+        return citas;
     }
     
     public Cliente getCliente(){
@@ -176,6 +176,7 @@ public class Cita{
     public Servicio getServicio(){
         return servicio;
     }
+
 
     //ToString de Cita
     public String toString(){

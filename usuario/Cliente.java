@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import menu.*;
 
+
 /**
  * Clase Cliente
  * @author:
@@ -42,10 +43,7 @@ public class Cliente extends Usuario {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
         this.cedula = cedula;
-    }
-
-    public void anadirCliente(Cliente c){
-        Main.listaClientes.add(c);
+        Main.clientes.add(this);
     }
   
     public String toString(){
@@ -55,27 +53,28 @@ public class Cliente extends Usuario {
     /**
      * Muestra los clientes registrados en el Centro
      */
-    public static void mostrarClientes(){
+    public static void mostrarClientes() {
         System.out.println("-----Clientes-----");
         int count = 0; // Contador para índices
-        for(Cliente c: Main.listaClientes)
+        for(Cliente c: Main.clientes)
         {
             count++;
             System.out.println(count+". "+c);
         }
     }
 
-    public static void mostrarMenu(){
+    public static void mostrarMenu() {
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha\n");
     }
 
-    public boolean equals(Object obj){
-        if(this==obj){
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
             return true;
         }
-        if(obj!=null && getClass()==obj.getClass()){
+        if(obj!=null && getClass() == obj.getClass()){
             Cliente other=(Cliente)obj;
             return (this.cedula.equals(other.cedula));
         }
@@ -83,12 +82,12 @@ public class Cliente extends Usuario {
     }
 
 
-    public void editarCliente(){
+    public void editarCliente() {
         System.out.println("Cliente a editar: ");
         String nombreC = scC.nextLine();
         Cliente cli = new Cliente(nombreC);
 
-        for(Cliente c: Main.listaClientes){
+        for(Cliente c: Main.clientes){
             if(c.equals(cli)){
                 System.out.println(c);
                 System.out.println("Campo que desea editar: ");

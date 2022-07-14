@@ -35,14 +35,13 @@ public class Empleado extends Usuario{
     public Empleado(String nombre, String cedula, String email, boolean estado, String telefono)
     {
         super(nombre, cedula, telefono, email);
-        this.cedula=cedula;
         this.estado = estado;
-        empleados.add(new Empleado(nombre, cedula, email, estado, telefono));
+        Main.empleados.add(this);
     }
 
     public Empleado(String cedula, String nom){
         super(nom);
-        this.cedula=cedula;
+        this.cedula = cedula;
     }
 
 
@@ -112,7 +111,7 @@ public class Empleado extends Usuario{
     public String activoOinactivo(){
         if(estado){
             return "Activo";
-        }else{
+        } else {
             return "Inactivo";
         }
     }
@@ -120,6 +119,4 @@ public class Empleado extends Usuario{
     public String toString(){
         return super.toString()+"Estado: "+activoOinactivo();
     }
-    
-    
 }

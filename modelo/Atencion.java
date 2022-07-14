@@ -15,7 +15,7 @@ public class Atencion{
     private int duracionReal;
     private Empleado empleado;
     private Servicio servicio;
-    static Scanner sc3=new Scanner(System.in);
+    static Scanner sc3 = new Scanner(System.in);
     private Cita cita;
     /**
      * Constructor de la clase Atencion
@@ -28,7 +28,7 @@ public class Atencion{
         this.duracionReal = duracionReal;
         this.servicio = servicio;
         this.empleado = empleado;
-        this.cita=cita;
+        this.cita = cita;
     }
     //Métodos de la clase
     /**
@@ -43,10 +43,10 @@ public class Atencion{
         String ced=sc3.nextLine();
         System.out.print("Ingrese nombre del Cliente: ");
         String nom=sc3.nextLine();
-        Cliente c1=new Cliente(ced, nom);
-        Cita cita1=null;
+        Cliente c1 = new Cliente(ced, nom);
+        Cita cita1 = null;
         
-        for(Cita c: Cita.getListaCitas()){
+        for(Cita c: Cita.getCitas()){
             if(c.getCliente().equals(c1)){
                 cita1=c;
             }
