@@ -21,15 +21,6 @@ public class Cliente extends Usuario {
      * Constructor de la clase Cliente que recibe el nombre del cliente
      * @param nom Nombre del Cliente
      */
-    public Cliente(String nom){
-        super(nom); // Constructor creado para la probar el método de crear cita.
-    }
-
-    
-    public Cliente(String cedula, String nom){
-        super(nom);
-        this.cedula=cedula;
-    }
 
     /**
      * Contructor de la clase Cliente que recibe como parametros el nombre, telefono, email, cedula, datos del representante
@@ -108,43 +99,7 @@ public class Cliente extends Usuario {
             default:
                 System.out.print("Ingrese una opción válida.");
         }
-        /*
-        System.out.println("Cliente a editar: ");
-        String nombreC = sc.nextLine();
-        Cliente cli = new Cliente(nombreC);
-
-        for(Cliente c: Main.clientes){
-            if(c.equals(cli)){
-                System.out.println(c);
-                System.out.println("Campo que desea editar: ");
-                String datos=sc.nextLine().toUpperCase();
-
-                switch (datos) {
-                    case "NOMBRE":
-                        System.out.println("Nuevo nombre: ");
-                        String nom=sc.nextLine();
-                        c.nombre = nom; 
-
-                    case "EMAIL":
-                        System.out.println("Nuevo email: ");
-                        String em=sc.nextLine();
-                        c.email = em; 
-
-                    case  "TELEFONO":
-                        System.out.println("Nuevo telefono: ");
-                        String tel =sc.nextLine();
-                        c.telefono = tel;
-                    
-                    case  "DATOS DEL REPRESENTANTE":
-                        System.out.println("Nuevo telefono: ");
-                        String dts =sc.nextLine();
-                        c.datos_del_representante = dts;
-                    }
-                }
-            }
-
-         */
-        }
+    }
     public static void agregarCliente(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese nombre del usuario: ");

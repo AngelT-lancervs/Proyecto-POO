@@ -61,10 +61,11 @@ public class Servicio{
      * Muestra la lista de Servicios que se encuentran disponibles
      */
     public static void mostrarServicios(){
-        System.out.println("-----Servicios disponibles-----");
+        int count = 0;
         for(Servicio c: Main.servicios)
         {
-            System.out.println(c.toString());
+            count++;
+            System.out.println(count+". "+c);
         }
     }
 
@@ -160,7 +161,7 @@ public class Servicio{
     
         
     public String toString(){
-        return "-Nombre del Servicio: "+nombreServicio +" |"+"Duración: "+duracion+ " "+" min"+" "+" |"+ "Precio: $"+precio+" "+" |"+"Estado: "+activoOinactivo();
+        return ">> Nombre del Servicio: "+nombreServicio +" | Duración: "+duracion+ " min | "+ "Precio: $"+precio+" | "+"Estado: "+activoOinactivo();
     }
 
     //Getters and Setters

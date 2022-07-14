@@ -44,6 +44,7 @@ public class Cita{
      *Representa el menú que se presenta al usuario al ingresar a la opcion de Citas
      */
     public static void mostrarMenu(){
+        System.out.print("-----[Menú/Citas]-----\n");
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha\n");
@@ -57,34 +58,30 @@ public class Cita{
      * @param c_nuevaC Cliente que accederá a la cita
      * @param p_nuevaC Empleado que prestará el Servicio en la cita
      */
-    public static void crearCita(Date f_nuevaC, LocalTime h_nuevaC, String nomSer, Cliente c_nuevaC, Empleado p_nuevaC){
-        Servicio ser = new Servicio(nomSer);
-        Servicio ser2 = null;
-        for(Servicio servi : Main.servicios){
-            if(servi.equals(ser)){
-                ser2 = servi;
-            }
-        }
-        Cita cita1= new Cita(f_nuevaC, h_nuevaC, ser2, c_nuevaC, p_nuevaC);
 
-    
+    public static void comprobarCita(Date f_nuevaC, LocalTime h_nuevaC, Servicio s_nuevoC, Cliente c_nuevaC, Empleado p_nuevaC){
+        Cita cita1 = new Cita(f_nuevaC, h_nuevaC, s_nuevoC, c_nuevaC, p_nuevaC);
+        // Si no hay ninguna cita
         if(getCitas().size() == 0){
             getCitas().add(cita1);
+            System.out.print("¡Se creó la cita correctamente!\n");
         }
-        else{
-            for(Cita c: citas){
+        else {
+            for(Cita c : citas){
                 Date f = c.getFecha();
-                LocalTime h= c.getHora();
+                LocalTime h = c.getHora();
                 Empleado p = c.getProovedor();
 
-                if (!(f_nuevaC.equals(f) && h_nuevaC.equals(h) && p_nuevaC.equals(p))){
+                if (!(f_nuevaC.equals(f) && h_nuevaC.equals(h) && p_nuevaC.equals(p))){ // Comprueba si existe otra cita con el mismo empleado a la misma fecha y hora.
                     citas.add(cita1);
                     c_nuevaC.getCitasCliente().add(cita1);
+                    System.out.print("¡Se creó la cita correctamente!\n");
                 }
-                else{System.out.println("No está disponible una cita en esa fecha y hora.");}
+                else{System.out.println("[ERROR] No está disponible una cita en esa fecha y hora con "+p_nuevaC.getNombre());}
             }
         }
      }
+
 
     /**
      * Elimina una cita usando el número de cédula del Cliente
@@ -124,6 +121,30 @@ public class Cita{
                 System.out.println(c.toString() + "\n");
             }
         }
+    }
+    public static void agregarCita (){
+        System.out.println("Ingrese fecha de la cita con el formato DD/MM/YYYY: ");
+        String fecha_Cita = sc.nextLine();
+        System.out.println("Ingrese la hora de la cita con el formato HH:MM:SS ");
+        String hora = sc.nextLine();
+        LocalTime t = LocalTime.parse(hora);
+        Date d = ParseFecha(fecha_Cita);
+
+        System.out.println("Seleccione el servicio: ");
+        Servicio.mostrarServicios();
+        int opcion = Main.pedirNumero();
+        Servicio servicio = Main.servicios.get(opcion-1);
+
+        System.out.println("Seleccione el cliente: ");
+        Cliente.mostrarClientes();
+        opcion = Main.pedirNumero();
+        Cliente cliente = Main.clientes.get(opcion-1);
+
+        System.out.println("Seleccione el empleado: ");
+        Empleado.mostrarEmpleados();
+        opcion = Main.pedirNumero();
+        Empleado empleado = Main.empleados.get(opcion-1);
+        comprobarCita(d, t, servicio, cliente, empleado);
     }
 
     //Metodo de conversion de String a Date

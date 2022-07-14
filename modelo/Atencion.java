@@ -39,6 +39,7 @@ public class Atencion{
 	    System.out.print("2. Consultar Atención\n");
     }
     public static void registrarAtencion(){
+        /*
         System.out.print("Ingrese cedula del Cliente: ");
         String ced=sc3.nextLine();
         System.out.print("Ingrese nombre del Cliente: ");
@@ -66,14 +67,14 @@ public class Atencion{
         }
         Atencion atencion1=new Atencion(dur, cita1.getServicio(), empleado, cita1 );
         Main.atenciones.add(atencion1);
-
+        */
 
     }
     public static void consultarAtencion(){
-        System.out.println("Elija el dato por el cual desea consultar: ");
+        System.out.println("Elija el tipo dato por el cual desea consultar: ");
         System.out.println("1.Cédula del empleado ");
         System.out.println("2.Cédula del cliente");
-        System.out.println("3. Fecha de la atención");
+        System.out.println("3.Fecha de la atención");
         int opcion=sc3.nextInt();
         sc3.nextLine();
 
@@ -81,23 +82,24 @@ public class Atencion{
             switch(opcion){
                 case 1:
                     System.out.println("Ingrese la cédula del empleado que prestó el servicio: ");
-                    String cedulaEmpleado=sc3.nextLine();
-                    Empleado empleado2=new Empleado(cedulaEmpleado);
+                    String cedulaEmpleado = sc3.nextLine();
+                    Empleado empleado2 = new Empleado(cedulaEmpleado);
                     if(a.empleado.equals(empleado2)){
                         System.out.println(a);
                     }
 
                 case 2:
+                    /*
                     System.out.println("Ingrese la cédula del cliente: ");
                     String cedulaCliente=sc3.nextLine();
-                    Cliente cliente1=new Cliente(cedulaCliente);
+                    Cliente cliente1 = new Cliente(cedulaCliente);
                     if(a.cita.getCliente().equals(cliente1)){
                         System.out.println(a);
                     }
-    
+                    */
                 case 3:
                     System.out.println("Ingrese la fecha de la atención a buscar: ");
-                    String fecha_a_buscar=sc3.nextLine();
+                    String fecha_a_buscar = sc3.nextLine();
       
                     if(a.cita.getFecha().equals(Cita.ParseFecha(fecha_a_buscar))){
                         System.out.println(a);

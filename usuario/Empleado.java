@@ -65,9 +65,9 @@ public class Empleado extends Usuario{
      */
     public static void mostrarEmpleados(){
         int count = 0; // Contador para índices
-        System.out.println("-----Empleados-----");
         for(Empleado e: Main.empleados)
         {
+            count++;
             System.out.println(count+". "+e);
         }
     }

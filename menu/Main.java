@@ -87,22 +87,8 @@ public class Main{
                     opcion = pedirNumero();
                     switch(opcion) {
                         case 1:
-                            System.out.println("Ingrese fecha de la cita con el formato DD/MM/YYYY: ");
-                            String fecha_Cita = sc.nextLine();
-                            System.out.println("Ingrese la hora de la cita con el formato HH:MM: ");
-                            String hora = sc.nextLine();
-                            LocalTime t = LocalTime.parse(hora) ;
-                            System.out.println("Ingrese el servicio: ");
-                            String servi = sc.nextLine();
-                            System.out.println("Ingrese el nombre del cliente: ");
-                            String cliente = sc.nextLine();
-                            System.out.println("Ingrese la cedula del cliente: ");
-                            String cedula = sc.nextLine();
-                            Cliente cl = new Cliente(cliente,cedula);
-                            System.out.println("Ingrese el nombre de la persona encargada del servicio: ");
-                            String proveedor = sc.nextLine();
-                            Empleado empl = new Empleado(proveedor);
-                            Cita.crearCita(Cita.ParseFecha(fecha_Cita), t,servi,cl,empl);
+                            Cita.agregarCita();
+
                             break;
                         case 2:
                             Cita.eliminarCita();
@@ -137,20 +123,18 @@ public class Main{
                     break;
             }
         }
-        System.out.print("Cerrando sistema...");
-
+        System.out.print("Cerrando el sistema...");
     }
+
     public static void main(String[]args) throws ParseException {
 
         Main sistema = new Main();
         sistema.inicializarSistema();
-        sistema.menu();
-        /*
+
         try {
             sistema.menu();
         } catch (ParseException e) {
             e.printStackTrace();
         }
-         */
     }
 }   
