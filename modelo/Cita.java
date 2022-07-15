@@ -23,6 +23,7 @@ public class Cita{
     private static ArrayList<Cita> citas = new ArrayList<Cita>();
     private static Scanner sc = new Scanner(System.in);
 
+
     /**
      * Constructor de la clase Cita
      * Registra una cita recibiendo por parámetros los datos de la cita
@@ -40,6 +41,9 @@ public class Cita{
         this.fecha = fecha;
     }
 
+    public Cita(Date d, String hora2, Servicio servicio2, Empleado empleado) {
+    }
+
     //Métodos
     /**
      * Método que presenta el menú de la opcion cita al Usuario
@@ -50,19 +54,26 @@ public class Cita{
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha\n");
+        System.out.print("4. Consultar citas por cédula\n");
+        System.out.print("5. Salir\n");
     }
 
-    public static ArrayList<Cita> buscarPorCedula(String ced){
-        ArrayList<Cita> listaCitas = null;
+    //Sale error Null.pointer.exception o no muestra las citas de un cliente por su cedula
+    public static void buscarPorCedula(){
+        System.out.println("Ingrese el número de cédula de un cliente: ");
+        String cd = sc.nextLine();
         for(Cliente cl : Main.clientes){
-            if(ced.equals(cl.getCedulaR())){
-                listaCitas = cl.getCitasCliente();
+            if(cd.equals(cl.getCedulaR())){
+                for(Cita ci: cl.getCitasCliente()){
+                    ci.toString();
+                }
             }
             else {
                 System.out.print("No se encuentra el cliente registrado.");
             }
         }
-        return listaCitas;
+        
+        
     }
 
     /**
@@ -128,17 +139,24 @@ public class Cita{
      * Consulta las citas que existen pidiendo una fecha y una hora
      */
     public static void consultarCitasPorFecha() throws ParseException {
-        System.out.println("Ingrese fecha a consultar: ");
-        String fecha_i = sc.nextLine();
-        SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
-        Date fechaConsultada = miDate.parse(fecha_i);
-
-        for(Cita c: citas ){
-            if (c.getFecha().equals(fechaConsultada)){
-                System.out.println(c.toString() + "\n");
+        if (citas.size() == 0){
+            System.out.println("[ERROR] No existe ninguna citas registrada, por favor, registre alguna\n");
+        }
+        else{
+            System.out.println("Ingrese fecha a consultar con el formato DD/MM/YYYY: ");
+            String fecha_i = sc.nextLine();
+            SimpleDateFormat miDate = new SimpleDateFormat("dd/MM/yyyy");
+            Date fechaConsultada = miDate.parse(fecha_i);
+        
+            for(Cita c: citas ){
+                if (c.getFecha().equals(fechaConsultada)){
+                    System.out.println("\n" + c.toString() + "\n");
+                }
+                else{System.out.println("[ERROR] No existe ninguna cita en esa fecha\n");}
             }
         }
     }
+
     public static void agregarCita (){
         System.out.println("Ingrese fecha de la cita con el formato DD/MM/YYYY: ");
         String fecha_Cita = sc.nextLine();
@@ -162,11 +180,15 @@ public class Cita{
         Cliente.mostrarClientes();
         opcion = Main.pedirNumero();
         Cliente cliente = Main.clientes.get(opcion-1);
+        
 
         System.out.println("Seleccione el empleado: ");
         Empleado.mostrarEmpleados();
         opcion = Main.pedirNumero();
         Empleado empleado = Main.empleados.get(opcion-1);
+        cliente.getCitasCliente().add(new Cita(d, hora, servicio, empleado));
+
+
         if(d == null || t == null) {
             System.out.print("\n[ERROR] No se creó la cita, errores ocurrieron.\n");
         } else if (!servicio.getEstado()) {
@@ -234,4 +256,6 @@ public class Cita{
     public String toString(){
         return "Cliente: " + this.cliente.getNombre() + "\n Proovedor: " + this.proovedor.getNombre() + "Servicio: " + this.servicio +"\n Hora: " + this.hora;
     }
+
+
 }

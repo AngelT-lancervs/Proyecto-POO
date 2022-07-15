@@ -90,6 +90,7 @@ public class Empleado extends Usuario{
             count++;
             System.out.println(count+". "+e);
         }
+        System.out.println("\n");
     }
     
     public void editarEmpleado(){
@@ -126,7 +127,8 @@ public class Empleado extends Usuario{
             System.out.print("-----[Menú/Empleados]-----\n");
             System.out.print("1. Agregar empleado\n");
             System.out.print("2. Editar empleado\n");
-            System.out.println("3. Eliminar empleado\n");
+            System.out.println("3. Eliminar empleado");
+            System.out.println("4. Salir\n");
         }
 
     /**

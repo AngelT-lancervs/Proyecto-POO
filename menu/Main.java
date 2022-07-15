@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class Main{
     Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner.
-    final String interfaz	= "-----[Menú]-----\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n";
+    final String interfaz	= "\n-----[Menú]-----\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n";
     public static ArrayList <Servicio> servicios = new ArrayList<Servicio>();
     public static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -87,10 +87,9 @@ public class Main{
                                 empleadoEliminar.eliminarEmpleado();
                                 System.out.print("¡Empleado Eliminado!\n");
                                 Empleado.mostrarEmpleados();
-        
                             }
+                        case 4:
                             break;
-                            
                     }
                     break;
 
@@ -106,22 +105,24 @@ public class Main{
                             Cliente.mostrarClientes();
                             break;
                         case 2:
-                            System.out.println("Seleccione cliente a editar: ");
+                            System.out.println("\nSeleccione cliente a editar: ");
                             Cliente.mostrarClientes();
                             opcion = pedirNumero();
                             if(opcion > clientes.size()) {
-                                System.out.print("Ingrese una opción válida.");
+                                System.out.print("Ingrese una opción válida.\n");
                             } else {
                                 Cliente clienteEditar = clientes.get(opcion-1);
                                 clienteEditar.editarCliente();
+                                System.out.print("¡Cliente Actualizado!\n");
                             }
-                            System.out.print("¡Cliente Actualizado!\n");
                             Cliente.mostrarClientes();
                             break;
                         default:
                             System.out.print("Ingrese una opción válida.");
                             break;
-                    }
+                        case 3: 
+                            break;
+                        }   
                     break;
                 case 4:
                     Cita.mostrarMenu();
@@ -134,8 +135,11 @@ public class Main{
                             Cita.eliminarCita();
                             break;
                         case 3:
-                            // Sale error NullPointerException, Corregir.
                             Cita.consultarCitasPorFecha();
+                        case 4:
+                            
+                            Cita.buscarPorCedula();
+                        case 5:
                             break;
                         default:
                             System.out.print("Ingrese una opción válida.");

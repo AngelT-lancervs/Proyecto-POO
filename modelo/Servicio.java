@@ -65,7 +65,7 @@ public class Servicio{
         for(Servicio c: Main.servicios)
         {
             count++;
-            System.out.println(count+". "+c);
+            System.out.println(count+ ". " + c);
         }
     }
 

@@ -56,9 +56,10 @@ public class Cliente extends Usuario {
     }
 
     public static void mostrarMenu() {
-        System.out.print("-----[Menú/Cliente]-----\n");
+        System.out.print("\n-----[Menú/Cliente]-----\n");
         System.out.print("1. Agregar cliente\n");
         System.out.print("2. Editar cliente\n");
+        System.out.print("3. Salir\n");
     }
 
     @Override
@@ -116,6 +117,7 @@ public class Cliente extends Usuario {
         System.out.println("Ingrese los datos del representante del usuario: ");
         String datosRepresentante = sc.nextLine();
         Cliente cl = new Cliente(nombre, cedula, telefono, correo, datosRepresentante);
+        
     }
     // * Crear método mostrar citas por cliente
 
