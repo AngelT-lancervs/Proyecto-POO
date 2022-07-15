@@ -10,8 +10,6 @@ import menu.*;
  */
 public class Empleado extends Usuario{
     private ArrayList<Empleado> empleados;
-
-
     private boolean estado;
     Scanner scE = new Scanner(System.in);
     
@@ -46,6 +44,26 @@ public class Empleado extends Usuario{
         this.cedula = cedula;
     }
 
+    /**
+     * Método que agrega empleados a la lista de empleados
+     */
+
+    public static void agregarEmpleado(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese nombre del empleado: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el número de cédula del empleado: ");
+        String cedula = sc.nextLine();
+        System.out.println("Ingrese número telefónico del empleado: ");
+        String telefono = sc.nextLine();
+        System.out.println("Ingrese correo del empleado: ");
+        String correo = sc.nextLine();
+        Empleado empl1= new Empleado(nombre, cedula, correo, true, telefono);
+    }
+
+
+
+
 
     public void eliminarEmpleado(){
         this.estado = false;
@@ -74,40 +92,46 @@ public class Empleado extends Usuario{
         }
     }
     
-    public void editarEmpleado(){ // Pueden corregir el método guiandose del que está en clase cliente, "editarCliente"
-        System.out.println("Empleado a editar: ");
-        String nombreE = scE.nextLine();
-        Empleado empl = new Empleado(nombreE);
+    public void editarEmpleado(){
+        System.out.print("-----[Menú/Empleado/Editar]-----\n");
+        System.out.print("1.Nombre \n2.Telefono \n3.Email");
+        int opcion = Main.pedirNumero();
+        switch (opcion){
+            case 1:
+            System.out.print("\nIngrese el nuevo nombre: ");
+                String newNombre = scE.nextLine();
+                this.nombre = newNombre;
+                break;
+            case 2:
+                System.out.print("\nIngrese el nuevo telefono: ");
+                String newTelefono = scE.nextLine();
+                this.telefono = newTelefono;
+                break;
+            case 3:
+                System.out.print("\nIngrese el nuevo email: ");
+                String newEmail = scE.nextLine();
+                this.email = newEmail;
+                break;
+            default:
+                System.out.print("Ingrese una opción válida.");
+        }
+        }
+            
 
-        for(Empleado e: Main.empleados){
-            if(e.equals(empl)){
-                System.out.println(e);
-                System.out.println("Campo que desea editar: ");
-                String datos=scE.nextLine().toUpperCase();
+        /**
+         * Metodo que muestra las opciones disponibles a realizar con la clase empleado
+         */
 
-                switch (datos) {
-                    case "NOMBRE":
-                        System.out.println("Nuevo nombre: ");
-                        String nom=scE.nextLine();
-                        e.nombre = nom; 
-
-                    case "EMAIL":
-                        System.out.println("Nuevo email: ");
-                        String em=scE.nextLine();
-                        e.email = em; 
-
-                    case  "TELEFONO":
-                        System.out.println("Nuevo telefono: ");
-                        String tel=scE.nextLine();
-                        e.telefono = tel;
-                    }
-                }
-            }      
+        public static void mostrarMenu() {
+            System.out.print("-----[Menú/Empleados]-----\n");
+            System.out.print("1. Agregar empleado\n");
+            System.out.print("2. Editar empleado\n");
+            System.out.println("3. Eliminar empleado\n");
         }
 
     /**
      * Metodo Activo o Inactivo
-     * @return devuelve "Activo" si es true e "Inactivo si es False"
+     * @return devuelve "Activo" si es true e "Inactivo" si es False
      */
     public String activoOinactivo(){
         if(estado){

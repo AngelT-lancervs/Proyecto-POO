@@ -33,6 +33,7 @@ public class Main{
         Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner en un método estático.
         System.out.print("\n>>Elija una opción: ");
         int op = sc.nextInt();
+        sc.nextLine();
         return op;
     }
 
@@ -51,11 +52,48 @@ public class Main{
                     Servicio.mostrarServicios();
                     break;
                 case 2:
+                    System.out.print("\nEmpleados Registrados:\n");
                     Empleado.mostrarEmpleados();
-                    // Falta agregar el submenu de Empleados
-                    // Falta arreglar el método de agregar, editar empleado.
+                    Empleado.mostrarMenu();
+                    int opcion1 = pedirNumero();
+                    switch(opcion1){
+                        case 1:
+                            Empleado.agregarEmpleado();
+                            System.out.print("¡Empleado Agregado!\n");
+                            Empleado.mostrarEmpleados();
+                            break;
 
+                        case 2:
+                            System.out.println("Seleccione el empleado a editar: ");
+                            Empleado.mostrarEmpleados();
+                            opcion=pedirNumero();
+                            if(opcion > empleados.size()) {
+                                System.out.print("Ingrese una opción válida.");
+                            } else {
+                                Empleado empleadoEditar = empleados.get(opcion-1);
+                                empleadoEditar.editarEmpleado();
+                            }
+                            System.out.print("¡Empleado Actualizado!\n");
+                            Empleado.mostrarEmpleados();
+                            break;
+                        case 3:
+                            System.out.println("Seleccione el empleado a eliminar: ");
+                            Empleado.mostrarEmpleados();
+                            opcion=pedirNumero();
+                            if(opcion > empleados.size()) {
+                                System.out.print("Ingrese una opción válida.");
+                            } else {
+                                Empleado empleadoEliminar = empleados.get(opcion-1);
+                                empleadoEliminar.eliminarEmpleado();
+                                System.out.print("¡Empleado Eliminado!\n");
+                                Empleado.mostrarEmpleados();
+        
+                            }
+                            break;
+                            
+                    }
                     break;
+
                 case 3:
                     System.out.print("\nClientes Registrados:\n");
                     Cliente.mostrarClientes();

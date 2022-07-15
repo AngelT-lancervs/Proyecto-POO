@@ -164,7 +164,11 @@ public class Servicio{
         return ">> Nombre del Servicio: "+nombreServicio +" | Duración: "+duracion+ " min | "+ "Precio: $"+precio+" | "+"Estado: "+activoOinactivo();
     }
 
-    //Getters and Setters
+    /**
+     * Getters and setters
+     * 
+     */
+
     public String getNombreServicio(){
         return nombreServicio;
     }
