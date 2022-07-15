@@ -12,7 +12,6 @@ import menu.*;
  */
 public class Cliente extends Usuario {
     private String datos_del_representante;
-    private String cedula;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
     Scanner sc = new Scanner(System.in);
 
@@ -30,9 +29,11 @@ public class Cliente extends Usuario {
      * @param cedula Cedula del cliente
      * @param dts_re Datos del representante del Cliente
      */
+
     public Cliente(String ced){
         super(ced);
     }
+
     public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
@@ -64,12 +65,12 @@ public class Cliente extends Usuario {
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj){
+        if(this.cedula == obj){
             return true;
         }
         if(obj!=null && getClass() == obj.getClass()){
             Cliente other=(Cliente)obj;
-            return (this.cedula.equals(other.cedula));
+            return (super.cedula.equals(other.cedula));
         }
         return false;
     }

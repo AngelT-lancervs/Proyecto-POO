@@ -6,7 +6,6 @@ import java.util.Scanner;
 import java.time.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 /**
@@ -27,6 +26,7 @@ public class Main{
         Servicio s2 = new Servicio("Terapia Psicopedagógica", "30", 25, false);
         Empleado em1 = new Empleado("Roberto Pluas", "0999456123", "rober.inf@gmail.com", true, "0992460023");
         Cliente cl = new Cliente("Paco", "0958161168", "0961642035", "hola123@hotmail.com", "Maria Rosales, 32 años");
+        Cita c1= new Cita(LocalDate.of(2022,Month.MAY,20), LocalTime.now(), s1, cl, em1 );
     }
 
     public static int pedirNumero() {
@@ -49,14 +49,54 @@ public class Main{
                 opcion = pedirNumero();
             switch(opcion){
                 case 1:
+                    System.out.print("\nServicios ofrecidos\n");
                     Servicio.mostrarServicios();
+                    Servicio.mostrarMenu();
+                    int opcion1=pedirNumero();
+                    switch(opcion1){
+                        case 1:
+                            Servicio.agregarServicio();
+                            Servicio.mostrarServicios();
+                            break;
+
+                        case 2:
+                            System.out.println("Seleccione el Servicio a editar: ");
+                            Servicio.mostrarServicios();
+                            opcion=pedirNumero();
+                            if(opcion > servicios.size()) {
+                                System.out.print("Ingrese una opción válida.");
+                            } else {
+                                Servicio servicioEditar = Main.servicios.get(opcion-1);
+                                servicioEditar.editarServicio();
+                            }
+                            System.out.print("¡Servicio Actualizado!\n");
+                            Servicio.mostrarServicios();
+                            break;
+
+                        case 3:
+                            System.out.println("Seleccione el Servicio a eliminar: ");
+                            Servicio.mostrarServicios();
+                            opcion=pedirNumero();
+                            if(opcion > servicios.size()) {
+                                System.out.print("Ingrese una opción válida.");
+                            } else {
+                                Servicio servicioEliminar = servicios.get(opcion-1);
+                                servicioEliminar.eliminarServicio();;
+                                System.out.print("¡Servicio Eliminado!\n");
+                                Servicio.mostrarServicios();
+                            }
+                            break;
+                        case 4:
+                        break;
+                    }
                     break;
+
                 case 2:
                     System.out.print("\nEmpleados Registrados:\n");
                     Empleado.mostrarEmpleados();
                     Empleado.mostrarMenu();
-                    int opcion1 = pedirNumero();
-                    switch(opcion1){
+                    int opcion2 = pedirNumero();
+                    switch(opcion2){
                         case 1:
                             Empleado.agregarEmpleado();
                             System.out.print("¡Empleado Agregado!\n");
@@ -76,6 +116,7 @@ public class Main{
                             System.out.print("¡Empleado Actualizado!\n");
                             Empleado.mostrarEmpleados();
                             break;
+
                         case 3:
                             System.out.println("Seleccione el empleado a eliminar: ");
                             Empleado.mostrarEmpleados();
@@ -130,15 +171,18 @@ public class Main{
                     switch(opcion) {
                         case 1:
                             Cita.agregarCita();
+                            System.out.println("---Citas registradas actualmente---");
+                            System.out.println(Cita.citas);
                             break;
                         case 2:
                             Cita.eliminarCita();
                             break;
                         case 3:
                             Cita.consultarCitasPorFecha();
+                            break;
                         case 4:
-                            
                             Cita.buscarPorCedula();
+                            break;
                         case 5:
                             break;
                         default:

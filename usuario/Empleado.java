@@ -149,4 +149,8 @@ public class Empleado extends Usuario{
     public String toString(){
         return super.toString()+" Estado: "+activoOinactivo();
     }
+
+    public String getCedulaR(){
+        return this.cedula;
+    }
 }

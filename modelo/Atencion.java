@@ -40,6 +40,10 @@ public class Atencion{
         System.out.print("1. Registrar Atención\n");         
 	    System.out.print("2. Consultar Atención\n");
     }
+
+    /**
+     * Método que registra las atenciones
+     */
     public static void registrarAtencion(){
 
         System.out.print("Ingrese cedula del Cliente: ");
@@ -73,6 +77,11 @@ public class Atencion{
         }
 
     }
+
+
+    /**
+     * Método que permite consultar las atenciones
+     */
     public static void consultarAtencion(){
         System.out.println("Elija el tipo dato por el cual desea consultar: ");
         System.out.println("1.Cédula del empleado ");
@@ -88,7 +97,7 @@ public class Atencion{
                     String cedulaEmpleado = sc.nextLine();
                     Empleado empleado2 = new Empleado(cedulaEmpleado);
                     if(a.empleado.equals(empleado2)){
-                        System.out.println(a);
+                        System.out.println(a.toString());
                     }
                     break;
 
@@ -97,7 +106,7 @@ public class Atencion{
                     String cedulaCliente=sc.nextLine();
                     Cliente cliente1 = new Cliente(cedulaCliente);
                     if(a.cita.getCliente().equals(cliente1)){
-                        System.out.println(a);
+                        System.out.println(a.toString());
                     }
 
                     break;
@@ -105,8 +114,8 @@ public class Atencion{
                     System.out.println("Ingrese la fecha de la atención a buscar: ");
                     String fecha_a_buscar = sc.nextLine();
       
-                    if(a.cita.getFecha().equals(Cita.ParseFecha(fecha_a_buscar))){
-                        System.out.println(a);
+                    if(a.cita.getFecha().equals(LocalDate.parse(fecha_a_buscar))){
+                        System.out.println(a.toString());
                     }
                     break;
             }
@@ -118,5 +127,9 @@ public class Atencion{
     }
     public void setDuracionR(int t){
         duracionReal = t;
+    }
+
+    public String toString(){
+        return "Atención:\n Cliente: "+cita.getCliente()+"\nServicio: "+cita.getServicio()+" |Duración real: "+duracionReal+" min"+"\nEmpleado que ofreció el servicio: Nombre: "+empleado.getNombre()+" |Cédula:"+empleado.getCedulaR();
     }
 }

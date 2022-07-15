@@ -16,9 +16,10 @@ public abstract class Usuario {
      * @param nom Nombre del Usuario
      */
 
+    
     public Usuario(String ced){
         this.cedula = ced; // Constructor creado para comparar con mayor facilidad.
-    }
+    } 
 
 
 

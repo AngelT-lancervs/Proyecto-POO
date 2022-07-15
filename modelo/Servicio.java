@@ -16,7 +16,7 @@ public class Servicio{
     private Empleado empleado;
     private double precio;
     private boolean estado;
-    Scanner sc1= new Scanner(System.in);
+
     
     //crear un método para los servicios y agregarlo al constructor
 
@@ -84,65 +84,43 @@ public class Servicio{
     /**
      * Agrega el servicio a la lista de servicios que tiene el Centro
      */
-    public void agregarServicio(){
+    public static void agregarServicio(){
+        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el nombre del servicio:");
-        String nombre = sc1.nextLine();
-        System.out.println("Ingrese la duración del servicio:");
-        String duracion = sc1.nextLine();
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese la duración del servicio en minutos:");
+        String duracion = sc.nextLine();
         System.out.println("Ingrese el precio del servicio: ");
-        double precio = sc1.nextDouble();
-        Servicio ser = new Servicio(nombre, duracion, precio, true);
-        Main.servicios.add(ser);
+        double prec= sc.nextDouble();
+        Servicio ser = new Servicio(nombre, duracion, prec, true);
     }
 
-    /**
-     * Cambia el estado a inactivo si se elimina el Servicio
-     */
-    public void eliminarServicio(){
-        System.out.println("Servicio a eliminar: ");
-        String servicio = sc1.nextLine();
-        Servicio ser = new Servicio(servicio);
-
-        for(Servicio s: Main.servicios){
-            if(s.equals(ser)){
-                s.estado = false;
-            }
-        }
-    }
 
     /**
      * Edita determinados campos del Servicio
      */
     public void editarServicio(){
-        System.out.println("Servicio a editar: ");
-        String servicio = sc1.nextLine();
-        Servicio ser = new Servicio(servicio);
-
-        
-        for(Servicio s: Main.servicios){
-            if(s.equals(ser)){
-                System.out.println(s);
-                System.out.println("Campo que desea editar: ");
-                String datos=sc1.nextLine().toUpperCase();
-
-                switch (datos) {
-                    case "NOMBRE":
-                        System.out.println("Nuevo nombre: ");
-                        String nom=sc1.nextLine();
-                        s.nombreServicio=nom; 
-
-                    case "DURACION":
-                        System.out.println("Nuevo duración: ");
-                        String dura=sc1.nextLine();
-                        s.duracion=dura; 
-
-                    case  "PRECIO":
-                        System.out.println("Nuevo precio: ");
-                        double prec=sc1.nextDouble();
-                        s.precio=prec;
-                    }
-            }
-        }   
+        Scanner sc = new Scanner(System.in);
+        System.out.print("-----[Menú/Servicio/Editar]-----\n");
+        System.out.print("1.Nombre \n2.Duración \n3.Precio \n");
+        int opcion = Main.pedirNumero();
+        switch (opcion){
+            case 1:
+                System.out.print("\nIngrese el nuevo nombre: ");
+                String newNombre = sc.nextLine();
+                this.nombreServicio = newNombre;
+                break;
+            case 2:
+                System.out.print("\nIngrese nueva duración: ");
+                String newDuracion = sc.nextLine();
+                this.duracion = newDuracion;
+                break;
+            case 3:
+                System.out.print("\nIngrese el nuevo precio: ");
+                Double newPrecio = sc.nextDouble();
+                this.precio = newPrecio;
+                break;
+            }  
     }
 
     /**
@@ -159,9 +137,23 @@ public class Servicio{
         return false;
         }
     
+     /**
+     * Cambia el estado a inactivo si se elimina el Servicio
+     */
+    public void eliminarServicio(){
+        this.estado = false;
+    }
         
     public String toString(){
         return ">> Nombre del Servicio: "+nombreServicio +" | Duración: "+duracion+ " min | "+ "Precio: $"+precio+" | "+"Estado: "+activoOinactivo();
+    }
+
+    public static void mostrarMenu(){
+        System.out.print("-----[Menú/Servicios]-----\n");
+        System.out.print("1. Agregar Servicio\n");
+        System.out.print("2. Editar Servicio\n");
+        System.out.print("3. Eliminar Servicio\n");
+        System.out.print("4. Salir\n");
     }
 
     /**
