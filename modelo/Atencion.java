@@ -44,11 +44,11 @@ public class Atencion{
     /**
      * Método que registra las atenciones
      */
-    public static void registrarAtencion(){
-
+    public static void registrarAtencion() {
+    /*
         System.out.print("Ingrese cedula del Cliente: ");
         String ced = sc.nextLine();
-        Cliente c1 = new Cliente(ced);
+        //Cliente c1 = new Cliente(ced);
         Cita cita1 = null;
         
         for(Cita c: Cita.getCitas()){
@@ -77,6 +77,8 @@ public class Atencion{
         }
 
     }
+    */
+    }
 
 
     /**
@@ -95,19 +97,19 @@ public class Atencion{
                 case 1:
                     System.out.println("Ingrese la cédula del empleado que prestó el servicio: ");
                     String cedulaEmpleado = sc.nextLine();
-                    Empleado empleado2 = new Empleado(cedulaEmpleado);
-                    if(a.empleado.equals(empleado2)){
-                        System.out.println(a.toString());
-                    }
+                    //Empleado empleado2 = new Empleado(cedulaEmpleado);
+                    //if(a.empleado.equals(empleado2)){
+                   //     System.out.println(a.toString());
+                    //}
                     break;
 
                 case 2:
                     System.out.println("Ingrese la cédula del cliente: ");
                     String cedulaCliente=sc.nextLine();
-                    Cliente cliente1 = new Cliente(cedulaCliente);
-                    if(a.cita.getCliente().equals(cliente1)){
-                        System.out.println(a.toString());
-                    }
+                   // Cliente cliente1 = new Cliente(cedulaCliente);
+                   // if(a.cita.getCliente().equals(cliente1)){
+                   //     System.out.println(a.toString());
+                    //}
 
                     break;
                 case 3:

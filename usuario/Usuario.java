@@ -11,17 +11,6 @@ public abstract class Usuario {
     protected String telefono;
     protected String email;	
 
-    /**
-     * Constructor de la clase Usuario, recibe como parametro el nombre del Usuario, esta se hereda a Cliente y Empleado
-     * @param nom Nombre del Usuario
-     */
-
-    
-    public Usuario(String ced){
-        this.cedula = ced; // Constructor creado para comparar con mayor facilidad.
-    } 
-
-
 
     /**
      * Constructor de la clase Usuario, recibe como parametros el nombre del Usuario, telefono, email
@@ -61,6 +50,7 @@ public abstract class Usuario {
         this.email = e;
     }
 
+    @Override
     public String toString(){
         return ">> Nombre: "+nombre+" | "+" Cédula: "+cedula+" | Teléfono: "+telefono+" | Email: "+email+" |";
     }

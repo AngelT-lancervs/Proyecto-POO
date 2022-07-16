@@ -102,7 +102,7 @@ public class Servicio{
     public void editarServicio(){
         Scanner sc = new Scanner(System.in);
         System.out.print("-----[Menú/Servicio/Editar]-----\n");
-        System.out.print("1.Nombre \n2.Duración \n3.Precio \n");
+        System.out.print("1.Nombre \n2.Duración \n3.Precio\n");
         int opcion = Main.pedirNumero();
         switch (opcion){
             case 1:

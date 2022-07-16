@@ -39,6 +39,7 @@ public class Cita{
         this.hora = hora;
         this.fecha = fecha;
         citas.add(this);
+        cliente.getCitasCliente().add(this);
     }
 
     public Cita(LocalDate d, String hora2, Servicio servicio2, Empleado empleado) {
@@ -54,44 +55,9 @@ public class Cita{
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha\n");
-        System.out.print("4. Consultar citas por cédula\n");
-        System.out.print("5. Salir\n");
+        System.out.print("4. Salir\n");
     }
 
-    public static void buscarPorCedula(){
-        Cita c2=null;
-        Cliente cl=null;
-        System.out.println("Ingrese el número de cédula de un cliente: ");
-        String cd = sc.nextLine();
-        ArrayList <Cliente> cedulasCoinciden= new ArrayList<>();
-        ArrayList <Cita> citasCoinciden=new ArrayList<>(); 
-        Cliente clienteBuscar=new Cliente(cd);
-        for(Cliente c : Main.clientes){
-            if(c.equals(clienteBuscar)){
-                cl=c;
-                cedulasCoinciden.add(cl);
-            }
-            }
-        
-        if(cedulasCoinciden.size()>0){
-            for(Cita c: citas){
-                if(c.getCliente().equals(cl)){
-                    c2=c;
-                    citasCoinciden.add(c2);
-                }
-            }
-        }else{
-                System.out.println("El cliente no se encuentra registrado");
-            }
-        
-        if(citasCoinciden.size()>0 && cedulasCoinciden.size()>0){
-            System.out.println(c2);
-        }else{
-            System.out.println("El cliente no tiene citas");
-        }}
-
-   
-    
     /**
      * Crea una cita recibiendo como parametros los datos de la misma, a su vez verifica que no exista otra cita a la misma fecha y hora con la persona encargada
      * @param f_nuevaC fecha de la cita que se creará
@@ -117,26 +83,100 @@ public class Cita{
 
                 if(!(f_nuevaC.equals(f) && h_nuevaC.equals(h) && p_nuevaC.equals(p))){ // Comprueba si existe otra cita con el mismo empleado a la misma fecha y hora.
                     citaCorrecta = c;
-                    System.out.print("¡Se creó la cita correctamente !\n");
+                    System.out.print("\n¡Se creó la cita correctamente !\n");
                     citas.add(citaCorrecta);
                     break;
                 }
                 else{
-                    System.out.println("[ERROR] No está disponible una cita en esa fecha y hora con "+p_nuevaC.getNombre());
+                    System.out.println("\n[ERROR] No está disponible una cita en esa fecha y hora con "+p_nuevaC.getNombre()+".\n");
                 }
             }
-            
         }
      }
+
+    public static ArrayList<Cita> buscarPorCedulaCliente(String ced) {
+        Cliente clienteEncontrado = null;
+        for(Cliente c : Main.clientes) {
+            if(c.getCedulaR().equals(ced)) {
+                clienteEncontrado = c;
+            }
+        }
+        if (clienteEncontrado == null){
+            System.out.print("\n[ERROR] El cliente no está registrado.");
+            return null;
+        } else if (clienteEncontrado.getCitasCliente().size() == 0){
+            System.out.print("\n[AVISO] El cliente no tiene citas pendientes.");
+            return null;
+        }
+        return clienteEncontrado.getCitasCliente();
+        /*
+         * c2 es una cita vacía
+         *
+         *
+         */
+        /*
+        Cita c2 = null;
+        Cliente cl = null;
+        System.out.print("\nIngrese el número de cédula de un cliente: ");
+        String cd = sc.nextLine();
+        ArrayList <Cliente> cedulasCoinciden = new ArrayList<>();
+        ArrayList <Cita> citasCoinciden = new ArrayList<>();
+        Cliente clienteBuscar = new Cliente(cd);
+        for(Cliente c : Main.clientes){
+            if(c.equals(clienteBuscar)){
+                cl = c;
+                cedulasCoinciden.add(cl);
+                }
+            }
+
+        if(cedulasCoinciden.size()>0){
+            for(Cita c: citas){
+                if(c.getCliente().equals(cl)){
+                    c2=c;
+                    citasCoinciden.add(c2);
+                }
+            }
+        } else {
+                System.out.print("\n[ERROR] El cliente no se encuentra registrado.\n");
+        }
+
+        if (citasCoinciden.size()>0 && cedulasCoinciden.size()>0){
+            System.out.println(c2);
+        } else {
+            System.out.println("El cliente no tiene citas");
+        }
+        }
+
+        */
+    }
 
 
     /**
      * Elimina una cita usando el número de cédula del Cliente
      */
-    public static void eliminarCita(){
-        System.out.println("Ingrese su número de cédula: ");
-        String c = sc.nextLine();
-        
+    public static void eliminarCita(String ced){
+        ArrayList<Cita> citasPendientes = buscarPorCedulaCliente(ced);
+        if(citasPendientes != null){
+            for(int i = 0; i <= citasPendientes.size()-1 ; i++) {
+                int count = i + 1;
+                System.out.print("\n--Citas Pendientes--\n");
+                System.out.print("\n"+count+". "+citasPendientes.get(i)+"\n");
+            }
+            System.out.print("\nSelecciones una cita a eliminar.");
+            int opcion = Main.pedirNumero();
+            Cita citaEliminar = citasPendientes.get(opcion-1);
+            citasPendientes.remove(opcion-1); // Eliminar la cita de las citas pendientes del cliente.
+            for(Cita c : citas){
+                if(c.equals(citaEliminar)){
+                    int indiceCita = citas.indexOf(citaEliminar);
+                    citas.remove(indiceCita); // Eliminar la cita de todas las citas registradas.
+                }
+            }
+
+        }
+
+
+        /*
         for (Cliente cl: Main.clientes){
             String cedulaComprobar = cl.getCedulaR();
             
@@ -152,34 +192,36 @@ public class Cita{
                     }
                 }    
             }
-        }
+        }*/
     }
     /**
      * Consulta las citas que existen pidiendo una fecha y una hora
      */
     public static void consultarCitasPorFecha(){
         if (citas.size() == 0){
-            System.out.println("[ERROR] No existe ninguna citas registrada, por favor, registre alguna\n");
+            System.out.print("\n[ERROR] No existe ninguna citas registrada, por favor, registre alguna\n");
         }
         else{
-            System.out.println("Ingrese fecha a consultar con el formato YYYY/MM/DD (Ejemplo: 2022-01-04): ");
+            System.out.print("\nIngrese fecha a consultar con el formato YYYY/MM/DD (Ejemplo: 2022-01-04): ");
             String fecha_i = sc.nextLine();
-            LocalDate fecha=LocalDate.parse(fecha_i);
-            ArrayList <Cita> citasFecha= new ArrayList<>();
+            LocalDate fecha = LocalDate.parse(fecha_i);
+            ArrayList <Cita> citasFecha = new ArrayList<>();
         
             for(Cita c: citas ){
                 if (c.getFecha().equals(fecha)){
                     citasFecha.add(c);
-                }}
+                }
+            }
 
             if(citasFecha.size()>0){        
                 for(Cita ci: citasFecha){
                     System.out.println(ci);
                 }
-                } else{
-                    System.out.println("[ERROR] No existe ninguna cita en esa fecha\n");
+            } else{
+                    System.out.print("\n[ERROR] No existe ninguna cita en esa fecha.\n");
             }
-            }}
+        }
+    }
     
 
     public static void agregarCita (){
@@ -264,8 +306,6 @@ public class Cita{
 
     //ToString de Cita
     public String toString(){
-        return "Cliente: " + this.cliente.getNombre() + "\n Proovedor: " + this.proovedor.getNombre() + " Servicio: " + this.servicio +"\n Hora: " + this.hora+"\n";
+        return ">> Cliente: " + this.cliente.getNombre() + " | Proovedor: " + this.proovedor.getNombre() + " | Servicio: " + this.servicio +" | Hora: " + this.hora;
     }
-
-
 }

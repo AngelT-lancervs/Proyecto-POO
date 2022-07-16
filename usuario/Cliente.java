@@ -30,10 +30,6 @@ public class Cliente extends Usuario {
      * @param dts_re Datos del representante del Cliente
      */
 
-    public Cliente(String ced){
-        super(ced);
-    }
-
     public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;

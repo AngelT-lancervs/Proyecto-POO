@@ -19,9 +19,9 @@ public class Empleado extends Usuario{
      * Constructor de la clase Empleado, recibe como parametro el nombre del empleado
      * @param nom Nombre del empleado
      */
-    public Empleado(String ced){
-        super(ced); // Constructor creado para la probar el método de crear cita.
-    }
+    //public Empleado(String ced){
+    //    super(ced); // Constructor creado para la probar el método de crear cita.
+   // }
 
 
     /**
@@ -39,10 +39,10 @@ public class Empleado extends Usuario{
         Main.empleados.add(this);
     }
 
-    public Empleado(String cedula, String nom){
-        super(nom);
-        this.cedula = cedula;
-    }
+    //public Empleado(String cedula, String nom){
+    //    super(nom);
+    //    this.cedula = cedula;
+    //}
 
     /**
      * Método que agrega empleados a la lista de empleados

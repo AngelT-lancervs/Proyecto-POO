@@ -21,7 +21,7 @@ public class Main{
     public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     public static ArrayList<Atencion> atenciones = new ArrayList<Atencion>();
     public void inicializarSistema(){
-        //Al momento de inicializar el sistema se ejecuta infinitas veces
+        //Se inicializan los servicios, un empleado un cliente y una cita.
         Servicio s1 = new Servicio("Terapia de Lenguaje", "30", 25, true);
         Servicio s2 = new Servicio("Terapia Psicopedagógica", "30", 25, false);
         Empleado em1 = new Empleado("Roberto Pluas", "0999456123", "rober.inf@gmail.com", true, "0992460023");
@@ -44,6 +44,7 @@ public class Main{
     public void menu() throws ParseException{
 
         int opcion = 0;
+        String cedula = "";
         while(opcion != 6){
                 System.out.print(interfaz);
                 opcion = pedirNumero();
@@ -52,42 +53,42 @@ public class Main{
                     System.out.print("\nServicios ofrecidos\n");
                     Servicio.mostrarServicios();
                     Servicio.mostrarMenu();
-                    int opcion1=pedirNumero();
-                    switch(opcion1){
+                    opcion = pedirNumero();
+                    switch(opcion){
                         case 1:
                             Servicio.agregarServicio();
                             Servicio.mostrarServicios();
                             break;
 
                         case 2:
-                            System.out.println("Seleccione el Servicio a editar: ");
+                            System.out.print("\nSeleccione el Servicio a editar: \n");
                             Servicio.mostrarServicios();
-                            opcion=pedirNumero();
+                            opcion = pedirNumero();
                             if(opcion > servicios.size()) {
-                                System.out.print("Ingrese una opción válida.");
+                                System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Servicio servicioEditar = Main.servicios.get(opcion-1);
                                 servicioEditar.editarServicio();
                             }
-                            System.out.print("¡Servicio Actualizado!\n");
+                            System.out.print("\n¡Servicio Actualizado!\n");
                             Servicio.mostrarServicios();
                             break;
 
                         case 3:
-                            System.out.println("Seleccione el Servicio a eliminar: ");
+                            System.out.print("\nSeleccione el servicio a eliminar: \n");
                             Servicio.mostrarServicios();
-                            opcion=pedirNumero();
-                            if(opcion > servicios.size()) {
-                                System.out.print("Ingrese una opción válida.");
+                            opcion = pedirNumero();
+                            if (opcion > servicios.size()) {
+                                System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Servicio servicioEliminar = servicios.get(opcion-1);
                                 servicioEliminar.eliminarServicio();;
-                                System.out.print("¡Servicio Eliminado!\n");
+                                System.out.print("\n¡Servicio Eliminado!\n");
                                 Servicio.mostrarServicios();
                             }
                             break;
                         case 4:
-                        break;
+                            break;
                     }
                     break;
 
@@ -95,38 +96,38 @@ public class Main{
                     System.out.print("\nEmpleados Registrados:\n");
                     Empleado.mostrarEmpleados();
                     Empleado.mostrarMenu();
-                    int opcion2 = pedirNumero();
-                    switch(opcion2){
+                    opcion = pedirNumero();
+                    switch(opcion){
                         case 1:
                             Empleado.agregarEmpleado();
-                            System.out.print("¡Empleado Agregado!\n");
+                            System.out.print("\n¡Empleado Agregado!\n");
                             Empleado.mostrarEmpleados();
                             break;
 
                         case 2:
-                            System.out.println("Seleccione el empleado a editar: ");
+                            System.out.print("\nSeleccione el empleado a editar: \n");
                             Empleado.mostrarEmpleados();
                             opcion=pedirNumero();
                             if(opcion > empleados.size()) {
-                                System.out.print("Ingrese una opción válida.");
+                                System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Empleado empleadoEditar = empleados.get(opcion-1);
                                 empleadoEditar.editarEmpleado();
                             }
-                            System.out.print("¡Empleado Actualizado!\n");
+                            System.out.print("\n¡Empleado Actualizado!\n");
                             Empleado.mostrarEmpleados();
                             break;
 
                         case 3:
-                            System.out.println("Seleccione el empleado a eliminar: ");
+                            System.out.print("\nSeleccione el empleado a eliminar: \n");
                             Empleado.mostrarEmpleados();
                             opcion=pedirNumero();
                             if(opcion > empleados.size()) {
-                                System.out.print("Ingrese una opción válida.");
+                                System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Empleado empleadoEliminar = empleados.get(opcion-1);
                                 empleadoEliminar.eliminarEmpleado();
-                                System.out.print("¡Empleado Eliminado!\n");
+                                System.out.print("\n¡Empleado Eliminado!\n");
                                 Empleado.mostrarEmpleados();
                             }
                         case 4:
@@ -142,24 +143,24 @@ public class Main{
                     switch(opcion){
                         case 1:
                             Cliente.agregarCliente();
-                            System.out.print("¡Cliente Agregado!\n");
+                            System.out.print("\n¡Cliente Agregado!\n");
                             Cliente.mostrarClientes();
                             break;
                         case 2:
-                            System.out.println("\nSeleccione cliente a editar: ");
+                            System.out.print("\nSeleccione cliente a editar: \n");
                             Cliente.mostrarClientes();
                             opcion = pedirNumero();
                             if(opcion > clientes.size()) {
-                                System.out.print("Ingrese una opción válida.\n");
+                                System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Cliente clienteEditar = clientes.get(opcion-1);
                                 clienteEditar.editarCliente();
-                                System.out.print("¡Cliente Actualizado!\n");
+                                System.out.print("\n¡Cliente Actualizado!\n");
                             }
                             Cliente.mostrarClientes();
                             break;
                         default:
-                            System.out.print("Ingrese una opción válida.");
+                            System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             break;
                         case 3: 
                             break;
@@ -171,22 +172,26 @@ public class Main{
                     switch(opcion) {
                         case 1:
                             Cita.agregarCita();
-                            System.out.println("---Citas registradas actualmente---");
-                            System.out.println(Cita.citas);
+                            System.out.print("\n---Citas registradas---\n");
+                            System.out.print(Cita.citas);
                             break;
                         case 2:
-                            Cita.eliminarCita();
+                            System.out.println("Ingrese cédula del cliente: ");
+                            cedula = sc.nextLine();
+                            Cita.eliminarCita(cedula);
                             break;
                         case 3:
                             Cita.consultarCitasPorFecha();
                             break;
                         case 4:
-                            Cita.buscarPorCedula();
+                            System.out.println("Ingrese cédula del cliente: ");
+                            cedula = sc.nextLine();
+                            Cita.buscarPorCedulaCliente(cedula);
                             break;
                         case 5:
                             break;
                         default:
-                            System.out.print("Ingrese una opción válida.");
+                            System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             break;
                     }
                     break;
@@ -201,18 +206,18 @@ public class Main{
                             Atencion.consultarAtencion();
                             break;
                         default:
-                            System.out.print("Ingrese una opción válida.");
+                            System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             break;
                     }
                     break;
                 case 6:
                     break;
                 default:
-                    System.out.print("Ingrese una opción válida.");
+                    System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                     break;
             }
         }
-        System.out.print("Cerrando el sistema...");
+        System.out.print("\nCerrando el sistema...");
     }
 
     public static void main(String[]args) throws ParseException {
