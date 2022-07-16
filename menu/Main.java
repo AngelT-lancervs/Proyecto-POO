@@ -27,6 +27,8 @@ public class Main{
         Empleado em1 = new Empleado("Roberto Pluas", "0999456123", "rober.inf@gmail.com", true, "0992460023");
         Cliente cl = new Cliente("Paco", "0958161168", "0961642035", "hola123@hotmail.com", "Maria Rosales, 32 años");
         Cita c1= new Cita(LocalDate.of(2022,Month.MAY,20), LocalTime.now(), s1, cl, em1 );
+        Cita.citas.add(c1);
+        cl.getCitasCliente().add(c1);
     }
 
     public static int pedirNumero() {
@@ -50,7 +52,7 @@ public class Main{
                 opcion = pedirNumero();
             switch(opcion){
                 case 1:
-                    System.out.print("\nServicios ofrecidos\n");
+                    System.out.print("\n--Servicios ofrecidos--\n");
                     Servicio.mostrarServicios();
                     Servicio.mostrarMenu();
                     opcion = pedirNumero();
@@ -172,8 +174,6 @@ public class Main{
                     switch(opcion) {
                         case 1:
                             Cita.agregarCita();
-                            System.out.print("\n---Citas registradas---\n");
-                            System.out.print(Cita.citas);
                             break;
                         case 2:
                             System.out.println("Ingrese cédula del cliente: ");
@@ -184,11 +184,6 @@ public class Main{
                             Cita.consultarCitasPorFecha();
                             break;
                         case 4:
-                            System.out.println("Ingrese cédula del cliente: ");
-                            cedula = sc.nextLine();
-                            Cita.buscarPorCedulaCliente(cedula);
-                            break;
-                        case 5:
                             break;
                         default:
                             System.out.print("\n[ERROR] Ingrese una opción válida.\n");
