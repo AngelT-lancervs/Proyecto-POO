@@ -20,7 +20,7 @@ public class Cita{
     private LocalTime hora;
     private LocalDate fecha;
     public static ArrayList<Cita> citas = new ArrayList<Cita>();
-    private static Scanner sc = new Scanner(System.in);
+
 
 
     /**
@@ -40,9 +40,6 @@ public class Cita{
         this.fecha = fecha;
     }
 
-    public Cita(LocalDate d, String hora2, Servicio servicio2, Empleado empleado) {
-    }
-
     //Métodos
     /**
      * Método que presenta el menú de la opcion cita al Usuario
@@ -53,7 +50,7 @@ public class Cita{
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha\n");
-        System.out.print("4. Salir\n");
+        System.out.print("4. Atras\n");
     }
 
     /**
@@ -71,6 +68,7 @@ public class Cita{
         if(getCitas().size() == 0){
             citas.add(cita1);//Registramos la cita en el sistema.
             c_nuevaC.getCitasCliente().add(cita1); //Registramos en las citas pendientes del cliente.
+            p_nuevaC.getCitasEmpleado().add(cita1); //Registramos en las citas pendientes del empleado.
             System.out.print("\n¡Se creó la cita correctamente!\n");
         }
         else {
@@ -93,7 +91,7 @@ public class Cita{
         }
     }
 
-    public static ArrayList<Cita> buscarPorCedulaCliente(String ced) {
+    public static ArrayList<Cita> buscarCitasPorCedulaCliente(String ced) {
         Cliente clienteEncontrado = null;
         if(citas.size() != 0){
             for(Cliente c : Main.clientes) {
@@ -114,8 +112,30 @@ public class Cita{
           return null;
         }
     }
+    /*
+    public static ArrayList<Cita> buscarCitasPorCedulaEmpleado(String ced){
+        Empleado empleadoEncontrado = null;
+        for(Empleado e : Main.empleados) {
+            if(e.getCedulaR().equals(ced)) {
+                empleadoEncontrado = e;
+            }
+        }
+        if (empleadoEncontrado == null){
+            System.out.print("[ERROR] El empleado no está registrado.\n");
+            return null;
+        } else {
+            if(empleadoEncontrado.getEstado()){
+                return empleadoEncontrado.getCitasEmpleado();
+            } else {
+                System.out.print("[ERROR] El empleado no se encuentra activo.\n");
+                return null;
+            }
+        }
+    }
+    */
 
-    public static LocalDate pedirFecha(){
+
+    public static LocalDate pedirFecha(Scanner sc){
         LocalDate d = null; // Variable de la fecha.
 
         while(d == null) { //Comprueba que la fecha se escriba correctamente.
@@ -130,7 +150,7 @@ public class Cita{
         }
         return d;
     }
-    public static LocalTime pedirHora(){
+    public static LocalTime pedirHora(Scanner sc){
         LocalTime t = null; // Variable de la hora.
         while(t == null) { //Comprueba que la hora se escriba correctamente.
             try{
@@ -150,7 +170,7 @@ public class Cita{
      * Elimina una cita usando el número de cédula del Cliente
      */
     public static void eliminarCita(String ced){
-        ArrayList<Cita> citasPendientes = buscarPorCedulaCliente(ced);
+        ArrayList<Cita> citasPendientes = buscarCitasPorCedulaCliente(ced);
         if(citasPendientes != null){
             System.out.print("--Citas Pendientes--\n");
             for(int i = 0; i <= citasPendientes.size()-1 ; i++) {
@@ -174,12 +194,12 @@ public class Cita{
     /**
      * Consulta las citas que existen pidiendo una fecha y una hora
      */
-    public static void consultarCitasPorFecha() {
+    public static void consultarCitasPorFecha(Scanner sc) {
         if (citas.size() == 0){
             System.out.print("[ERROR] No existe ninguna cita registrada, por favor, registre alguna.\n");
         }
         else{
-            LocalDate fecha = pedirFecha();
+            LocalDate fecha = pedirFecha(sc);
             ArrayList <Cita> citasFecha = new ArrayList<>();
 
             for(Cita c: citas ){
@@ -200,9 +220,9 @@ public class Cita{
     }
     
 
-    public static void agregarCita () {
-        LocalDate d = pedirFecha();
-        LocalTime t = pedirHora();
+    public static void agregarCita (Scanner sc) {
+        LocalDate d = pedirFecha(sc);
+        LocalTime t = pedirHora(sc);
         System.out.print("Seleccione el servicio: \n");
         Servicio.mostrarServicios();
         int opcion = Main.pedirNumero();

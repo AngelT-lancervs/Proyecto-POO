@@ -1,5 +1,9 @@
 package usuario;
 
+import menu.Main;
+
+import java.util.ArrayList;
+
 /**
  * Clase Usuario
  * @author:
@@ -23,6 +27,9 @@ public abstract class Usuario {
         this.cedula = cedula;
         this.telefono = telefono;
         this.email = email;
+    }
+    public  Usuario(String ced){
+        cedula = ced;
     }
 
     //Getters y Setters
@@ -50,11 +57,9 @@ public abstract class Usuario {
         this.email = e;
     }
 
+
     @Override
     public String toString(){
         return ">> Nombre: "+nombre+" | "+" Cédula: "+cedula+" | Teléfono: "+telefono+" | Email: "+email+" |";
     }
-
-    
-   
 }

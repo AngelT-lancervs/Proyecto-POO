@@ -13,7 +13,6 @@ import menu.*;
 public class Cliente extends Usuario {
     private String datos_del_representante;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
-    Scanner sc = new Scanner(System.in);
 
     //Constructor de la clase
     /**
@@ -23,21 +22,26 @@ public class Cliente extends Usuario {
 
     /**
      * Contructor de la clase Cliente que recibe como parametros el nombre, telefono, email, cedula, datos del representante
-     * @param nombre Nombre del Cliente
+     *
+     * @param nombre   Nombre del Cliente
      * @param telefono Telefono del Cliente
-     * @param email Email del cliente
-     * @param cedula Cedula del cliente
-     * @param dts_re Datos del representante del Cliente
+     * @param email    Email del cliente
+     * @param cedula   Cedula del cliente
+     * @param dts_re   Datos del representante del Cliente
      */
 
-    public Cliente(String nombre, String cedula, String telefono,String email,String dts_re) {
+    public Cliente(String nombre, String cedula, String telefono, String email, String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
         Main.clientes.add(this);
     }
-  
-    public String toString(){
-        return super.toString() + " Datos del representante: "+datos_del_representante;
+
+    public Cliente(String ced) {
+        super(ced);
+    }
+
+    public String toString() {
+        return super.toString() + " Datos del representante: " + datos_del_representante;
     }
 
     /**
@@ -45,10 +49,9 @@ public class Cliente extends Usuario {
      */
     public static void mostrarClientes() {
         int count = 0; // Contador para índices
-        for(Cliente c: Main.clientes)
-        {
+        for (Cliente c : Main.clientes) {
             count++;
-            System.out.println(count+". "+c);
+            System.out.println(count + ". " + c);
         }
     }
 
@@ -61,22 +64,22 @@ public class Cliente extends Usuario {
 
     @Override
     public boolean equals(Object obj) {
-        if(this.cedula == obj){
+        if (this.cedula == obj) {
             return true;
         }
-        if(obj!=null && getClass() == obj.getClass()){
-            Cliente other=(Cliente)obj;
+        if (obj != null && getClass() == obj.getClass()) {
+            Cliente other = (Cliente) obj;
             return (super.cedula.equals(other.cedula));
         }
         return false;
     }
 
 
-    public void editarCliente() {
+    public void editarCliente(Scanner sc) {
         System.out.print("-----[Menú/Cliente/Editar]-----\n");
         System.out.print("1.Nombre \n2.Telefono \n3.Email \n4.Datos representante \n");
         int opcion = Main.pedirNumero();
-        switch (opcion){
+        switch (opcion) {
             case 1:
                 System.out.print("\nIngrese el nuevo nombre: ");
                 String newNombre = sc.nextLine();
@@ -101,7 +104,8 @@ public class Cliente extends Usuario {
                 System.out.print("Ingrese una opción válida.");
         }
     }
-    public static void agregarCliente(){
+
+    public static void agregarCliente() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese nombre del usuario: ");
         String nombre = sc.nextLine();
@@ -114,9 +118,26 @@ public class Cliente extends Usuario {
         System.out.println("Ingrese los datos del representante del usuario: ");
         String datosRepresentante = sc.nextLine();
         Cliente cl = new Cliente(nombre, cedula, telefono, correo, datosRepresentante);
-        
+
     }
-    // * Crear método mostrar citas por cliente
+
+    public static Cliente buscarPorCedulaCliente(String ced) {
+        Cliente clienteEncontrado = null;
+        for (Cliente cl : Main.clientes) {
+            if (cl.getCedulaR().equals(ced)) {
+                clienteEncontrado = cl;
+            }
+        }
+        return clienteEncontrado;
+    }
+    public void mostrarCitasPendientes(){
+        System.out.print("---Citas pendientes---\n");
+        int count = 0;
+        for (Cita c : this.getCitasCliente()){
+            count++;
+            System.out.println(count+". "+c);
+        }
+    }
 
     //Getters y setters
     public String getDatosR(){

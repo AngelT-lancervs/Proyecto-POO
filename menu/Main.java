@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 public class Main{
     Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner.
     final String interfaz	= "\n-----[Menú]-----\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n";
-    public static ArrayList <Servicio> servicios = new ArrayList<Servicio>();
+    public static ArrayList<Servicio> servicios = new ArrayList<Servicio>();
     public static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     public static ArrayList<Atencion> atenciones = new ArrayList<Atencion>();
@@ -101,7 +101,7 @@ public class Main{
                     opcion = pedirNumero();
                     switch(opcion){
                         case 1:
-                            Empleado.agregarEmpleado();
+                            Empleado.agregarEmpleado(sc);
                             System.out.print("\n¡Empleado Agregado!\n");
                             Empleado.mostrarEmpleados();
                             break;
@@ -114,7 +114,7 @@ public class Main{
                                 System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Empleado empleadoEditar = empleados.get(opcion-1);
-                                empleadoEditar.editarEmpleado();
+                                empleadoEditar.editarEmpleado(sc);
                             }
                             System.out.print("\n¡Empleado Actualizado!\n");
                             Empleado.mostrarEmpleados();
@@ -156,15 +156,15 @@ public class Main{
                                 System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
                                 Cliente clienteEditar = clientes.get(opcion-1);
-                                clienteEditar.editarCliente();
+                                clienteEditar.editarCliente(sc);
                                 System.out.print("\n¡Cliente Actualizado!\n");
                             }
                             Cliente.mostrarClientes();
                             break;
+                        case 3:
+                            break;
                         default:
                             System.out.print("\n[ERROR] Ingrese una opción válida.\n");
-                            break;
-                        case 3: 
                             break;
                         }   
                     break;
@@ -173,7 +173,7 @@ public class Main{
                     opcion = pedirNumero();
                     switch(opcion) {
                         case 1:
-                            Cita.agregarCita();
+                            Cita.agregarCita(sc);
                             break;
                         case 2:
                             System.out.println("Ingrese cédula del cliente: ");
@@ -181,7 +181,7 @@ public class Main{
                             Cita.eliminarCita(cedula);
                             break;
                         case 3:
-                            Cita.consultarCitasPorFecha();
+                            Cita.consultarCitasPorFecha(sc);
                             break;
                         case 4:
                             break;
@@ -195,10 +195,12 @@ public class Main{
                     opcion = pedirNumero();
                     switch(opcion){
                         case 1:
-                            Atencion.registrarAtencion();
+                            Atencion.registrarAtencion(sc);
                             break;
                         case 2:
-                            Atencion.consultarAtencion();
+                            Atencion.consultarAtencion(sc);
+                            break;
+                        case 3:
                             break;
                         default:
                             System.out.print("\n[ERROR] Ingrese una opción válida.\n");

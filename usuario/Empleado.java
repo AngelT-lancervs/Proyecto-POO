@@ -2,6 +2,7 @@ package usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
 import menu.*;
+import modelo.Cita;
 
 /**
  * Clase empleado
@@ -9,20 +10,11 @@ import menu.*;
  * @version: 11/07/2022
  */
 public class Empleado extends Usuario{
-    private ArrayList<Empleado> empleados;
+
+    private ArrayList<Cita> citasEmpleado = new ArrayList<>();
     private boolean estado;
-    Scanner scE = new Scanner(System.in);
     
     //Constructor de la clase
-
-    /**
-     * Constructor de la clase Empleado, recibe como parametro el nombre del empleado
-     * @param nom Nombre del empleado
-     */
-    //public Empleado(String ced){
-    //    super(ced); // Constructor creado para la probar el método de crear cita.
-   // }
-
 
     /**
      * Constructor de la clase Empleado, recibe como parametro el nombre del empleado, cedula, email, estado y telefono
@@ -39,17 +31,11 @@ public class Empleado extends Usuario{
         Main.empleados.add(this);
     }
 
-    //public Empleado(String cedula, String nom){
-    //    super(nom);
-    //    this.cedula = cedula;
-    //}
-
     /**
      * Método que agrega empleados a la lista de empleados
      */
 
-    public static void agregarEmpleado(){
-        Scanner sc = new Scanner(System.in);
+    public static void agregarEmpleado(Scanner sc){
         System.out.println("Ingrese nombre del empleado: ");
         String nombre = sc.nextLine();
         System.out.println("Ingrese el número de cédula del empleado: ");
@@ -58,11 +44,8 @@ public class Empleado extends Usuario{
         String telefono = sc.nextLine();
         System.out.println("Ingrese correo del empleado: ");
         String correo = sc.nextLine();
-        Empleado empl1= new Empleado(nombre, cedula, correo, true, telefono);
+        Empleado empl1 = new Empleado(nombre, cedula, correo, true, telefono);
     }
-
-
-
 
 
     public void eliminarEmpleado(){
@@ -88,48 +71,62 @@ public class Empleado extends Usuario{
         for(Empleado e: Main.empleados)
         {
             count++;
-            System.out.println(count+". "+e);
+            System.out.print(count+". "+e);
         }
-        System.out.print("\n");
     }
-    
-    public void editarEmpleado(){
+    public void mostrarCitasPendientes(){
+        System.out.print("---Citas pendientes---\n");
+        int count = 0;
+        for (Cita c : this.getCitasEmpleado()){
+            count++;
+            System.out.println(count+". "+c);
+        }
+    }
+
+    public void editarEmpleado(Scanner sc){
         System.out.print("-----[Menú/Empleado/Editar]-----\n");
         System.out.print("1.Nombre \n2.Telefono \n3.Email");
         int opcion = Main.pedirNumero();
         switch (opcion){
             case 1:
             System.out.print("\nIngrese el nuevo nombre: ");
-                String newNombre = scE.nextLine();
+                String newNombre = sc.nextLine();
                 this.nombre = newNombre;
                 break;
             case 2:
                 System.out.print("\nIngrese el nuevo telefono: ");
-                String newTelefono = scE.nextLine();
+                String newTelefono = sc.nextLine();
                 this.telefono = newTelefono;
                 break;
             case 3:
                 System.out.print("\nIngrese el nuevo email: ");
-                String newEmail = scE.nextLine();
+                String newEmail = sc.nextLine();
                 this.email = newEmail;
                 break;
             default:
                 System.out.print("Ingrese una opción válida.");
         }
+    }
+    public static Empleado buscarPorCedulaEmpleado(String ced) {
+        Empleado empleadoEncontrado = null;
+        for (Empleado ep : Main.empleados) {
+            if (ep.getCedulaR().equals(ced)) {
+                empleadoEncontrado = ep;
+            }
         }
-            
+        return empleadoEncontrado;
+    }
 
         /**
          * Metodo que muestra las opciones disponibles a realizar con la clase empleado
          */
-
-        public static void mostrarMenu() {
+    public static void mostrarMenu() {
             System.out.print("-----[Menú/Empleados]-----\n");
             System.out.print("1. Agregar empleado\n");
             System.out.print("2. Editar empleado\n");
             System.out.print("3. Eliminar empleado\n");
-            System.out.print("4. Salir\n");
-        }
+            System.out.print("4. Atrás\n");
+    }
 
     /**
      * Metodo Activo o Inactivo
@@ -146,11 +143,15 @@ public class Empleado extends Usuario{
         return estado;
     }
 
-    public String toString(){
-        return super.toString()+" Estado: "+activoOinactivo();
-    }
-
     public String getCedulaR(){
         return this.cedula;
+    }
+
+    public ArrayList<Cita> getCitasEmpleado() {
+        return citasEmpleado;
+    }
+
+    public String toString(){
+        return super.toString()+" Estado: "+activoOinactivo();
     }
 }
