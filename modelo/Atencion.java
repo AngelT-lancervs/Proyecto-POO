@@ -57,8 +57,8 @@ public class Atencion{
                 n_Cliente.mostrarCitasPendientes();
                 System.out.print("Seleccione cita atendida: ");
                 int opcion1 = Main.pedirNumero();
-                int indiceCita = opcion1-1;
-                Cita n_Cita = n_Cliente.getCitasCliente().get(indiceCita);
+                int indiceCitaCliente = opcion1-1;
+                Cita n_Cita = n_Cliente.getCitasCliente().get(indiceCitaCliente);
 
                 System.out.print("Ingrese la duración real de la Atención en min: ");
                 int n_Duracion = sc.nextInt();
@@ -73,16 +73,14 @@ public class Atencion{
                     System.out.print("[ERROR] El empleado seleccionado está inactivo.\n");
                 } else {
                     Atencion atencion = new Atencion(n_Duracion, n_Cita.getServicio(), n_Empleado, n_Cita);
+                    int indiceCita = Cita.citas.indexOf(n_Cita);
                     Cita.citas.remove(indiceCita); // Se elimina de las citas del sistema.
-                    int indiceCitaUsuario, indiceCitaEmpleado= 0;
-                    indiceCitaUsuario = n_Cita.getCliente().getCitasCliente().indexOf(n_Cita);
-                    indiceCitaEmpleado = n_Cita.getProovedor().getCitasEmpleado().indexOf(n_Cita);
-                    n_Cita.getCliente().getCitasCliente().remove(indiceCitaUsuario); // Se elimina de las citas pendientes del cliente.
-                    n_Cita.getProovedor().getCitasEmpleado().remove(indiceCitaEmpleado); // Se elimina de las citas pendientes del empleado.
+                    n_Cita.getCliente().getCitasCliente().remove(indiceCitaCliente); // Se elimina de las citas pendientes del cliente.
+
                     System.out.print("¡Atención registrada!\n");
                 }
             } else {
-                System.out.print("[ERROR] El usuario no tiene citas pendientes.\n");
+                System.out.print("[AVISO] El usuario no tiene citas pendientes.\n");
             }
         } else {
             System.out.print("[ERROR] No se encontró el usuario.\n");

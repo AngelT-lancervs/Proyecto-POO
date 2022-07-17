@@ -23,7 +23,7 @@ public class Main{
     public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     public static ArrayList<Atencion> atenciones = new ArrayList<Atencion>();
     public void inicializarSistema(){
-        //Se inicializan los servicios, un empleado un cliente y una cita.
+        //Se inicializan los servicios, un empleado y un cliente.
         Servicio s1 = new Servicio("Terapia de Lenguaje", "30", 25, true);
         Servicio s2 = new Servicio("Terapia Psicopedagógica", "30", 25, false);
         Empleado em1 = new Empleado("Roberto Pluas", "0999456123", "rober.inf@gmail.com", true, "0992460023");

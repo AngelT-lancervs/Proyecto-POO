@@ -13,7 +13,6 @@ import modelo.Cita;
  */
 public class Empleado extends Usuario{
 
-    private ArrayList<Cita> citasEmpleado = new ArrayList<>();
     private boolean estado;
 
     /**
@@ -62,18 +61,6 @@ public class Empleado extends Usuario{
         {
             count++;
             System.out.print(count+". "+e);
-        }
-    }
-
-    /**
-     * Método que muestra las citas pendientes
-     */
-    public void mostrarCitasPendientes(){
-        System.out.print("---Citas pendientes---\n");
-        int count = 0;
-        for (Cita c : this.getCitasEmpleado()){
-            count++;
-            System.out.println(count+". "+c);
         }
     }
 
@@ -151,10 +138,6 @@ public class Empleado extends Usuario{
 
     public String getCedulaR(){
         return this.cedula;
-    }
-
-    public ArrayList<Cita> getCitasEmpleado() {
-        return citasEmpleado;
     }
 
     public String toString(){

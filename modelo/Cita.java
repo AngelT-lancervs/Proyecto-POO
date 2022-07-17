@@ -70,7 +70,6 @@ public class Cita{
         if(getCitas().size() == 0){
             citas.add(cita1);//Registramos la cita en el sistema.
             c_nuevaC.getCitasCliente().add(cita1); //Registramos en las citas pendientes del cliente.
-            p_nuevaC.getCitasEmpleado().add(cita1); //Registramos en las citas pendientes del empleado.
             System.out.print("\n¡Se creó la cita correctamente!\n");
         }
         else {
