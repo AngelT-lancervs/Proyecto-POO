@@ -52,7 +52,7 @@ public class Cita{
         System.out.print("1. Crear cita\n");
         System.out.print("2. Eliminar cita\n");
         System.out.print("3. Consultar citas por fecha\n");
-        System.out.print("4. Atras\n");
+        System.out.print("4. Atrás\n");
     }
 
     /**

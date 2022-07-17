@@ -57,7 +57,7 @@ public class Cliente extends Usuario {
         System.out.print("\n-----[Menú/Cliente]-----\n");
         System.out.print("1. Agregar cliente\n");
         System.out.print("2. Editar cliente\n");
-        System.out.print("3. Salir\n");
+        System.out.print("3. Atrás\n");
     }
 
 
@@ -164,5 +164,4 @@ public class Cliente extends Usuario {
     public ArrayList<Cita> getCitasCliente(){
         return this.citasCliente;
     }
-
 }
