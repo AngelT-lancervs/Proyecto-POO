@@ -87,9 +87,7 @@ public class Empleado extends Usuario{
                 break;
             case 3:
                 System.out.print("\nIngrese el nuevo email: ");
-                String newEmail = sc.nextLine()    public  Usuario(String ced){
-        cedula = ced;
-    };
+                String newEmail = sc.nextLine();
                 this.email = newEmail;
                 break;
             default:
