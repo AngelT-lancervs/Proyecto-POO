@@ -152,7 +152,7 @@ public class Servicio{
         System.out.print("1. Agregar Servicio\n");
         System.out.print("2. Editar Servicio\n");
         System.out.print("3. Eliminar Servicio\n");
-        System.out.print("4. Salir\n");
+        System.out.print("4. Atrás\n");
     }
 
     /**
