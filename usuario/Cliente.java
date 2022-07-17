@@ -51,7 +51,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * Menú de la opcion Cliente
+     * Menu de la opcion Cliente
      */
     public static void mostrarMenu() {
         System.out.print("\n-----[Menú/Cliente]-----\n");
@@ -62,7 +62,7 @@ public class Cliente extends Usuario {
 
 
     /**
-     * Método que compara las cédulas
+     * Metodo que compara las cedulas
      */
     @Override
     public boolean equals(Object obj) {
@@ -111,7 +111,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * Método que permite agregar Clientes al sistema
+     * Metodo que permite agregar Clientes al sistema
      */
     public static void agregarCliente() {
         Scanner sc = new Scanner(System.in);
@@ -129,7 +129,7 @@ public class Cliente extends Usuario {
 
     }
     /**
-     * Método utilizado para buscar clientes por cédula
+     * Metodo utilizado para buscar clientes por cedula
      * @param ced
      * @return
      */
@@ -144,7 +144,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * Método que muestra las citas pendientes
+     * Metodo que muestra las citas pendientes
      */
     public void mostrarCitasPendientes(){
         System.out.print("---Citas pendientes---\n");

@@ -44,8 +44,8 @@ public class Cita{
 
     //Métodos
     /**
-     * Método que presenta el menú de la opcion cita al Usuario
-     *Representa el menú que se presenta al usuario al ingresar a la opcion de Citas
+     * Metodo que presenta el menu de la opcion cita al Usuario
+     *Representa el menu que se presenta al usuario al ingresar a la opcion de Citas
      */
     public static void mostrarMenu(){
         System.out.print("-----[Menú/Citas]-----\n");
@@ -57,8 +57,8 @@ public class Cita{
 
     /**
      * Crea una cita recibiendo como parametros los datos de la misma, a su vez verifica que no exista otra cita a la misma fecha y hora con la persona encargada
-     * @param f_nuevaC fecha de la cita que se creará
-     * @param h_nuevaC hora de la cita que se creará
+     * @param f_nuevaC fecha de la cita que se creara
+     * @param h_nuevaC hora de la cita que se creara
      * @param s_nuevoC Servicio a prestarse en la cita
      * @param c_nuevaC Cliente que accederá a la cita
      * @param p_nuevaC Empleado que prestará el Servicio en la cita
@@ -93,7 +93,7 @@ public class Cita{
     }
 
     /**
-     * Método que permite la búsqueda de citas usando la cédula
+     * Metodo que permite la busqueda de citas usando la cedula
      * @param ced
      * @return lista de las citas encontradas para la cedula ingresada
      */
@@ -120,7 +120,7 @@ public class Cita{
     }
 
     /**
-     * Método para pedir fecha
+     * Metodo para pedir fecha
      * @param sc
      * @return retorna una fecha
      */
@@ -141,7 +141,7 @@ public class Cita{
     }
 
     /**
-     * Método para pedir hora
+     * Metodo para pedir hora
      * @param sc
      * @return retorna una hora
      */
@@ -161,7 +161,7 @@ public class Cita{
     }
 
     /**
-     * Elimina una cita usando el número de cédula del Cliente
+     * Elimina una cita usando el numero de cedula del Cliente
      */
     public static void eliminarCita(String ced){
         ArrayList<Cita> citasPendientes = buscarCitasPorCedulaCliente(ced);

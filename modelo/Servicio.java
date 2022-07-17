@@ -6,7 +6,7 @@ import menu.Main;
 
 
 /**
- * Clase que define los datos y métodos que se presentan en los servicios brindados
+ * Clase que define los datos y metodos que se presentan en los servicios brindados
  * @author  Jeremy Poveda
  * @author  Angel Tomala
  * @author  Paulina Loor

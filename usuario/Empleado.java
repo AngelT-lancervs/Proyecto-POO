@@ -31,7 +31,7 @@ public class Empleado extends Usuario{
     }
 
     /**
-     * Método que agrega empleados a la lista de empleados
+     * Metodo que agrega empleados a la lista de empleados
      */
     public static void agregarEmpleado(Scanner sc){
         System.out.println("Ingrese nombre del empleado: ");
@@ -46,7 +46,7 @@ public class Empleado extends Usuario{
     }
 
     /**
-     * Método que cambia el estado del empleado (elimina empleado)
+     * Metodo que cambia el estado del empleado (elimina empleado)
      */
     public void eliminarEmpleado(){
         this.estado = false;
@@ -65,7 +65,7 @@ public class Empleado extends Usuario{
     }
 
     /**
-     * Método que permite editar información del empleado
+     * Metodo que permite editar informacion del empleado
      * @param sc
      */
     public void editarEmpleado(Scanner sc){
@@ -94,7 +94,7 @@ public class Empleado extends Usuario{
     }
 
     /**
-     * Método que permite buscar a un empleado usando la cédula
+     * Metodo que permite buscar a un empleado usando la cedula
      * @param ced
      * @return
      */

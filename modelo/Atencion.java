@@ -7,8 +7,8 @@ import menu.Main;
 import usuario.*;
 
 /**
- * Clase que define los datos y métodos que intervienen en la Atencion del Centro
- * Representa una atención registrada en el Centro terapeutico
+ * Clase que define los datos y metodos que intervienen en la Atencion del Centro
+ * Representa una atencion registrada en el Centro terapeutico
  * @author  Jeremy Poveda
  * @author Angel Tomala
  * @author Paulina Loor
@@ -35,7 +35,7 @@ public class Atencion{
     }
     //Métodos de la clase
     /**
-     * Método que muestra el menú a presentarse en la opción de Atención
+     * Metodo que muestra el menú a presentarse en la opcion de Atencion
      */
     public static void mostrarMenu(){
 
@@ -46,7 +46,7 @@ public class Atencion{
     }
 
     /**
-     * Método que registra las atenciones
+     * Metodo que registra las atenciones
      */
     public static void registrarAtencion(Scanner sc) {
         System.out.print("Ingrese cédula del cliente: ");
@@ -90,7 +90,7 @@ public class Atencion{
 
 
     /**
-     * Método que permite consultar las atenciones
+     * Metodo que permite consultar las atenciones
      */
     public static void consultarAtencion(Scanner sc){
         System.out.print("-----[Menú/Atención/Consultar]-----\n");

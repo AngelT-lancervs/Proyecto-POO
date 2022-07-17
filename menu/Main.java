@@ -9,7 +9,7 @@ import java.text.ParseException;
 
 
 /**
- * Clase donde se ejecutará el sistema
+ * Clase donde se ejecutara el sistema
  * @author Jeremy Poveda
  * @author Angel Tomala
  * @author Paulina Loor
@@ -31,10 +31,10 @@ public class Main{
     }
 
     /**
-     * Método que pide un número al usuario, se usa para los distintos menús del programa
+     * Metodo que pide un numero al usuario, se usa para los distintos menus del programa
      */
     public static int pedirNumero() {
-        Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner en un método estático.
+        Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner en un metodo estatico.
         System.out.print("\n>>Elija una opción: ");
         int op = sc.nextInt();
         sc.nextLine();

@@ -57,7 +57,7 @@ public abstract class Usuario {
 
 
     /**
-     * Muestra por pantalla la información
+     * Muestra por pantalla la informacion
      */
     @Override
     public String toString(){
