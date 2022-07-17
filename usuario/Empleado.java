@@ -6,8 +6,10 @@ import modelo.Cita;
 
 /**
  * Clase empleado
- * @author:
- * @version: 11/07/2022
+ * @author Jeremy Poveda
+ * @author Angel Tomala
+ * @author Paulina Loor
+ * @version 16/07/2022
  */
 public class Empleado extends Usuario{
 
@@ -32,7 +34,6 @@ public class Empleado extends Usuario{
     /**
      * Método que agrega empleados a la lista de empleados
      */
-
     public static void agregarEmpleado(Scanner sc){
         System.out.println("Ingrese nombre del empleado: ");
         String nombre = sc.nextLine();
@@ -45,6 +46,9 @@ public class Empleado extends Usuario{
         Empleado empl1 = new Empleado(nombre, cedula, correo, true, telefono);
     }
 
+    /**
+     * Método que cambia el estado del empleado (elimina empleado)
+     */
     public void eliminarEmpleado(){
         this.estado = false;
     }
@@ -61,6 +65,9 @@ public class Empleado extends Usuario{
         }
     }
 
+    /**
+     * Método que muestra las citas pendientes
+     */
     public void mostrarCitasPendientes(){
         System.out.print("---Citas pendientes---\n");
         int count = 0;
@@ -70,6 +77,10 @@ public class Empleado extends Usuario{
         }
     }
 
+    /**
+     * Método que permite editar información del empleado
+     * @param sc
+     */
     public void editarEmpleado(Scanner sc){
         System.out.print("-----[Menú/Empleado/Editar]-----\n");
         System.out.print("1.Nombre \n2.Telefono \n3.Email");
@@ -94,6 +105,12 @@ public class Empleado extends Usuario{
                 System.out.print("Ingrese una opción válida.");
         }
     }
+
+    /**
+     * Método que permite buscar a un empleado usando la cédula
+     * @param ced
+     * @return
+     */
     public static Empleado buscarPorCedulaEmpleado(String ced) {
         Empleado empleadoEncontrado = null;
         for (Empleado ep : Main.empleados) {
@@ -126,6 +143,8 @@ public class Empleado extends Usuario{
             return "Inactivo";
         }
     }
+
+    //Getters and Setters
     public boolean getEstado() {
         return estado;
     }
@@ -139,6 +158,6 @@ public class Empleado extends Usuario{
     }
 
     public String toString(){
-        return super.toString()+" Estado: "+activoOinactivo();
+        return super.toString()+" Estado: "+activoOinactivo()+"\n";
     }
 }

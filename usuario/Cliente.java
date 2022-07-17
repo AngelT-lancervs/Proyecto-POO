@@ -7,18 +7,15 @@ import menu.*;
 
 /**
  * Clase Cliente
- * @author:
- * @version: 11/07/2022
+ * @author Jeremy Poveda
+ * @author Angel Tomala
+ * @author Paulina Loor
+ * @version 16/07/2022
  */
 public class Cliente extends Usuario {
     private String datos_del_representante;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
 
-    //Constructor de la clase
-    /**
-     * Constructor de la clase Cliente que recibe el nombre del cliente
-     * @param nom Nombre del Cliente
-     */
 
     /**
      * Contructor de la clase Cliente que recibe como parametros el nombre, telefono, email, cedula, datos del representante
@@ -29,13 +26,15 @@ public class Cliente extends Usuario {
      * @param cedula   Cedula del cliente
      * @param dts_re   Datos del representante del Cliente
      */
-
     public Cliente(String nombre, String cedula, String telefono, String email, String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
         Main.clientes.add(this);
     }
 
+    /**
+     * Muestra por pantalla los datos del cliente
+     */
     public String toString() {
         return super.toString() + " Datos del representante: " + datos_del_representante;
     }
@@ -51,6 +50,9 @@ public class Cliente extends Usuario {
         }
     }
 
+    /**
+     * Menú de la opcion Cliente
+     */
     public static void mostrarMenu() {
         System.out.print("\n-----[Menú/Cliente]-----\n");
         System.out.print("1. Agregar cliente\n");
@@ -58,6 +60,10 @@ public class Cliente extends Usuario {
         System.out.print("3. Salir\n");
     }
 
+
+    /**
+     * Método que compara las cédulas
+     */
     @Override
     public boolean equals(Object obj) {
         if (this.cedula == obj) {
@@ -70,6 +76,10 @@ public class Cliente extends Usuario {
         return false;
     }
 
+    /**
+     * Método que permite editar la información del cliente
+     * @param sc
+     */
     public void editarCliente(Scanner sc) {
         System.out.print("-----[Menú/Cliente/Editar]-----\n");
         System.out.print("1.Nombre \n2.Telefono \n3.Email \n4.Datos representante \n");
@@ -100,6 +110,9 @@ public class Cliente extends Usuario {
         }
     }
 
+    /**
+     * Método que permite agregar Clientes al sistema
+     */
     public static void agregarCliente() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese nombre del usuario: ");
@@ -115,7 +128,11 @@ public class Cliente extends Usuario {
         Cliente cl = new Cliente(nombre, cedula, telefono, correo, datosRepresentante);
 
     }
-
+    /**
+     * Método utilizado para buscar clientes por cédula
+     * @param ced
+     * @return
+     */
     public static Cliente buscarPorCedulaCliente(String ced) {
         Cliente clienteEncontrado = null;
         for (Cliente cl : Main.clientes) {
@@ -125,6 +142,10 @@ public class Cliente extends Usuario {
         }
         return clienteEncontrado;
     }
+
+    /**
+     * Método que muestra las citas pendientes
+     */
     public void mostrarCitasPendientes(){
         System.out.print("---Citas pendientes---\n");
         int count = 0;
@@ -134,8 +155,8 @@ public class Cliente extends Usuario {
         }
     }
 
-    //Getters y setters
 
+    //Getters y setters
     public String getCedulaR(){
         return this.cedula;
     }

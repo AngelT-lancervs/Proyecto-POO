@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 
 
 /**
  * Clase donde se ejecutará el sistema
- * @author 
- * @version
+ * @author Jeremy Poveda
+ * @author Angel Tomala
+ * @author Paulina Loor
+ * @version 16/07/2022
  */
 public class Main{
     Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner.
@@ -31,6 +33,9 @@ public class Main{
         cl.getCitasCliente().add(c1);
     }
 
+    /**
+     * Método que pide un número al usuario, se usa para los distintos menús del programa
+     */
     public static int pedirNumero() {
         Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner en un método estático.
         System.out.print("\n>>Elija una opción: ");

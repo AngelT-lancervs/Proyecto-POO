@@ -1,12 +1,13 @@
 package usuario;
 
 import menu.Main;
-
 import java.util.ArrayList;
 
 /**
  * Clase Usuario
- * @author:
+ * @author Jeremy Poveda
+ * @author Angel Tomala
+ * @author Paulina Loor
  * @version:
  */
 public abstract class Usuario {
@@ -55,6 +56,9 @@ public abstract class Usuario {
     }
 
 
+    /**
+     * Muestra por pantalla la información
+     */
     @Override
     public String toString(){
         return ">> Nombre: "+nombre+" | "+" Cédula: "+cedula+" | Teléfono: "+telefono+" | Email: "+email+" |";

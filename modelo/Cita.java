@@ -10,8 +10,10 @@ import java.util.*;
 
 /**
  * Esta clase define los objetos y métodos de las citas del Centro 
- * @author
- * @version:11/07/2022
+ * @author Jeremy Poveda
+ * @author Angel Tomala
+ * @author Paulina Loor
+ * @version 16/07/2022
  */
 public class Cita{
     private Cliente cliente;
@@ -91,6 +93,11 @@ public class Cita{
         }
     }
 
+    /**
+     * Método que permite la búsqueda de citas usando la cédula
+     * @param ced
+     * @return lista de las citas encontradas para la cedula ingresada
+     */
     public static ArrayList<Cita> buscarCitasPorCedulaCliente(String ced) {
         Cliente clienteEncontrado = null;
         if(citas.size() != 0){
@@ -113,6 +120,11 @@ public class Cita{
         }
     }
 
+    /**
+     * Método para pedir fecha
+     * @param sc
+     * @return retorna una fecha
+     */
     public static LocalDate pedirFecha(Scanner sc){
         LocalDate d = null; // Variable de la fecha.
 
@@ -128,6 +140,12 @@ public class Cita{
         }
         return d;
     }
+
+    /**
+     * Método para pedir hora
+     * @param sc
+     * @return retorna una hora
+     */
     public static LocalTime pedirHora(Scanner sc){
         LocalTime t = null; // Variable de la hora.
         while(t == null) { //Comprueba que la hora se escriba correctamente.
@@ -169,7 +187,7 @@ public class Cita{
         }
     }
     /**
-     * Consulta las citas que existen pidiendo una fecha y una hora
+     * Consulta las citas que existen pidiendo una fecha 
      */
     public static void consultarCitasPorFecha(Scanner sc) {
         if (citas.size() == 0){
@@ -196,7 +214,10 @@ public class Cita{
         }
     }
     
-
+    /**
+     * Agrega las citas al sistema
+     * @param sc
+     */
     public static void agregarCita (Scanner sc) {
         LocalDate d = pedirFecha(sc);
         LocalTime t = pedirHora(sc);
@@ -261,6 +282,9 @@ public class Cita{
 
 
     //ToString de Cita
+    /**
+     * Muestra datos por pantalla
+     */
     public String toString(){
         return ">> Cliente: " + cliente.getNombre() + " | Proovedor: " + proovedor.getNombre() + " | Servicio: " + servicio.getNombreServicio() +" | Hora: " + hora+ " | Fecha: "+ fecha;
     }

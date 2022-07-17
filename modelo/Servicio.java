@@ -7,8 +7,10 @@ import menu.Main;
 
 /**
  * Clase que define los datos y métodos que se presentan en los servicios brindados
- * @author:
- * @version: 11/07/2022
+ * @author  Jeremy Poveda
+ * @author  Angel Tomala
+ * @author  Paulina Loor
+ * @version 16/07/2022
  */
 public class Servicio{
     private String nombreServicio;

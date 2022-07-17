@@ -9,8 +9,10 @@ import usuario.*;
 /**
  * Clase que define los datos y métodos que intervienen en la Atencion del Centro
  * Representa una atención registrada en el Centro terapeutico
- * @author: 
- * @version: 11/07/2022
+ * @author  Jeremy Poveda
+ * @author Angel Tomala
+ * @author Paulina Loor
+ * @version 16/07/2022
  */
 public class Atencion{
     private int duracionReal;
