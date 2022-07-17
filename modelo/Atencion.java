@@ -74,8 +74,11 @@ public class Atencion{
                 } else {
                     Atencion atencion = new Atencion(n_Duracion, n_Cita.getServicio(), n_Empleado, n_Cita);
                     Cita.citas.remove(indiceCita); // Se elimina de las citas del sistema.
-                    indiceCita = n_Cita.getCliente().getCitasCliente().indexOf(n_Cita);
-                    n_Cita.getCliente().getCitasCliente().remove(indiceCita); // Se elimina de las citas pendientes del cliente.
+                    int indiceCitaUsuario, indiceCitaEmpleado= 0;
+                    indiceCitaUsuario = n_Cita.getCliente().getCitasCliente().indexOf(n_Cita);
+                    indiceCitaEmpleado = n_Cita.getProovedor().getCitasEmpleado().indexOf(n_Cita);
+                    n_Cita.getCliente().getCitasCliente().remove(indiceCitaUsuario); // Se elimina de las citas pendientes del cliente.
+                    n_Cita.getProovedor().getCitasEmpleado().remove(indiceCitaEmpleado); // Se elimina de las citas pendientes del empleado.
                     System.out.print("¡Atención registrada!\n");
                 }
             } else {
