@@ -13,8 +13,6 @@ public class Empleado extends Usuario{
 
     private ArrayList<Cita> citasEmpleado = new ArrayList<>();
     private boolean estado;
-    
-    //Constructor de la clase
 
     /**
      * Constructor de la clase Empleado, recibe como parametro el nombre del empleado, cedula, email, estado y telefono
@@ -47,20 +45,8 @@ public class Empleado extends Usuario{
         Empleado empl1 = new Empleado(nombre, cedula, correo, true, telefono);
     }
 
-
     public void eliminarEmpleado(){
         this.estado = false;
-    }
-
-    public boolean equals(Object obj){
-        if(this == obj){
-            return true;
-        }
-        if(obj!=null && getClass()==obj.getClass()){
-            Empleado other=(Empleado)obj;
-            return (this.cedula.equals(other.cedula));
-        }
-        return false;
     }
 
     /**
@@ -74,6 +60,7 @@ public class Empleado extends Usuario{
             System.out.print(count+". "+e);
         }
     }
+
     public void mostrarCitasPendientes(){
         System.out.print("---Citas pendientes---\n");
         int count = 0;
@@ -100,7 +87,9 @@ public class Empleado extends Usuario{
                 break;
             case 3:
                 System.out.print("\nIngrese el nuevo email: ");
-                String newEmail = sc.nextLine();
+                String newEmail = sc.nextLine()    public  Usuario(String ced){
+        cedula = ced;
+    };
                 this.email = newEmail;
                 break;
             default:
@@ -117,9 +106,9 @@ public class Empleado extends Usuario{
         return empleadoEncontrado;
     }
 
-        /**
-         * Metodo que muestra las opciones disponibles a realizar con la clase empleado
-         */
+    /**
+     * Metodo que muestra las opciones disponibles a realizar con la clase empleado
+     */
     public static void mostrarMenu() {
             System.out.print("-----[Menú/Empleados]-----\n");
             System.out.print("1. Agregar empleado\n");

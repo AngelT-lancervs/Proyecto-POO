@@ -112,28 +112,6 @@ public class Cita{
           return null;
         }
     }
-    /*
-    public static ArrayList<Cita> buscarCitasPorCedulaEmpleado(String ced){
-        Empleado empleadoEncontrado = null;
-        for(Empleado e : Main.empleados) {
-            if(e.getCedulaR().equals(ced)) {
-                empleadoEncontrado = e;
-            }
-        }
-        if (empleadoEncontrado == null){
-            System.out.print("[ERROR] El empleado no está registrado.\n");
-            return null;
-        } else {
-            if(empleadoEncontrado.getEstado()){
-                return empleadoEncontrado.getCitasEmpleado();
-            } else {
-                System.out.print("[ERROR] El empleado no se encuentra activo.\n");
-                return null;
-            }
-        }
-    }
-    */
-
 
     public static LocalDate pedirFecha(Scanner sc){
         LocalDate d = null; // Variable de la fecha.
@@ -164,7 +142,6 @@ public class Cita{
         }
         return t;
     }
-
 
     /**
      * Elimina una cita usando el número de cédula del Cliente

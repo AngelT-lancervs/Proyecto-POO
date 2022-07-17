@@ -28,9 +28,6 @@ public abstract class Usuario {
         this.telefono = telefono;
         this.email = email;
     }
-    public  Usuario(String ced){
-        cedula = ced;
-    }
 
     //Getters y Setters
     public String getNombre(){

@@ -170,7 +170,6 @@ public class Atencion{
         return empleado;
     }
 
-
     public String toString(){
         return ">> Cliente: "+cita.getCliente().getNombre()+" | Servicio: "+cita.getServicio().getNombreServicio()+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: Nombre: "+empleado.getNombre()+" | Cédula:"+empleado.getCedulaR();
     }

@@ -17,9 +17,6 @@ public class Servicio{
     private double precio;
     private boolean estado;
 
-    
-    //crear un método para los servicios y agregarlo al constructor
-
     /**
      * Constructor de la clase Servicio, inicializa las variables
      * Representa los servicios que se brindan
@@ -29,10 +26,10 @@ public class Servicio{
      * @param estado indica si se encuentra disponible o no el servicio
      */
     public Servicio(String nomSer, String dur, double pre, boolean estado){
-        this.nombreServicio= nomSer;
-        this.duracion=dur;
-        this.precio=pre;
-        this.estado=estado;
+        this.nombreServicio = nomSer;
+        this.duracion = dur;
+        this.precio = pre;
+        this.estado = estado;
         Main.servicios.add(this);
     }
 
@@ -185,5 +182,4 @@ public class Servicio{
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
 }

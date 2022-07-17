@@ -36,10 +36,6 @@ public class Cliente extends Usuario {
         Main.clientes.add(this);
     }
 
-    public Cliente(String ced) {
-        super(ced);
-    }
-
     public String toString() {
         return super.toString() + " Datos del representante: " + datos_del_representante;
     }
@@ -73,7 +69,6 @@ public class Cliente extends Usuario {
         }
         return false;
     }
-
 
     public void editarCliente(Scanner sc) {
         System.out.print("-----[Menú/Cliente/Editar]-----\n");
@@ -140,9 +135,6 @@ public class Cliente extends Usuario {
     }
 
     //Getters y setters
-    public String getDatosR(){
-        return this.datos_del_representante;
-    }
 
     public String getCedulaR(){
         return this.cedula;
@@ -152,7 +144,4 @@ public class Cliente extends Usuario {
         return this.citasCliente;
     }
 
-    public void setDatosR(String texto){
-        this.datos_del_representante = texto;
-    }
 }
