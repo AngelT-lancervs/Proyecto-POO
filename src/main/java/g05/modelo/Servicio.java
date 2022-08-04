@@ -1,8 +1,8 @@
-package modelo;
-import usuario.*;
+package g05.modelo;
+import g05.usuario.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import menu.Main;
+import g05.menu.Main;
 
 
 /**

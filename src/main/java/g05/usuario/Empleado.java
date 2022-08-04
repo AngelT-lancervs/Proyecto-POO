@@ -1,8 +1,9 @@
-package usuario;
+package g05.usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
-import menu.*;
-import modelo.Cita;
+import g05.usuario.Empleado;
+import g05.menu.Main;
+
 
 /**
  * Clase empleado
@@ -27,7 +28,7 @@ public class Empleado extends Usuario{
     {
         super(nombre, cedula, telefono, email);
         this.estado = estado;
-        Main.empleados.add(this);
+        g05.menu.Main.empleados.add(this);
     }
 
     /**
@@ -57,7 +58,7 @@ public class Empleado extends Usuario{
      */
     public static void mostrarEmpleados(){
         int count = 0; // Contador para índices
-        for(Empleado e: Main.empleados)
+        for(Empleado e: g05.menu.Main.empleados)
         {
             count++;
             System.out.print(count+". "+e);
@@ -71,7 +72,7 @@ public class Empleado extends Usuario{
     public void editarEmpleado(Scanner sc){
         System.out.print("-----[Menú/Empleado/Editar]-----\n");
         System.out.print("1.Nombre \n2.Telefono \n3.Email");
-        int opcion = Main.pedirNumero();
+        int opcion = g05.menu.Main.pedirNumero();
         switch (opcion){
             case 1:
             System.out.print("\nIngrese el nuevo nombre: ");

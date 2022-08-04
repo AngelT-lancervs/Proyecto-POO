@@ -1,8 +1,9 @@
-package usuario;
-import modelo.*;
+package g05.usuario;
+import g05.modelo.Cita;
+import g05.menu.Main;
 import java.util.ArrayList;
 import java.util.Scanner;
-import menu.*;
+
 
 
 /**

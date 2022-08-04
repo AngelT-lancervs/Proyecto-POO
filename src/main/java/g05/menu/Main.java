@@ -1,6 +1,10 @@
-package menu;
-import modelo.*;
-import usuario.*;
+package g05.menu;
+import g05.modelo.Atencion;
+import g05.modelo.Cita;
+import g05.modelo.Servicio;
+import g05.usuario.Cliente;
+import g05.usuario.Empleado;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.*;

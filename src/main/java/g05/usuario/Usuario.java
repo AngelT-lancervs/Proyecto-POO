@@ -1,6 +1,6 @@
-package usuario;
+package g05.usuario;
 
-import menu.Main;
+import g05.menu.Main;
 import java.util.ArrayList;
 
 /**

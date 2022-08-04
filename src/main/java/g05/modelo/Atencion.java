@@ -1,10 +1,12 @@
-package modelo;
+package g05.modelo;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import menu.Main;
-import usuario.*;
+import g05.menu.Main;
+import g05.usuario.Cliente;
+import g05.usuario.Empleado;
+
 
 /**
  * Clase que define los datos y metodos que intervienen en la Atencion del Centro

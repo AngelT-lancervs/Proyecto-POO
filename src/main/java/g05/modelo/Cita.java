@@ -1,8 +1,11 @@
-package modelo;
-import usuario.*;
+package g05.modelo;
+
+import g05.menu.Main;
+import g05.usuario.Cliente;
+import g05.usuario.Empleado;
 
 import java.time.format.DateTimeParseException;
-import menu.Main;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.time.*;
