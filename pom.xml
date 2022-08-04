@@ -11,7 +11,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>g05</groupId>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>13</version>
         </dependency>
