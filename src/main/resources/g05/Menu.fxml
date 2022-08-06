@@ -51,11 +51,11 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Label fx:id="infoMenu" alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="337.0" layoutY="314.0" prefHeight="79.0" prefWidth="291.0" text="se mostrará texto aqui.">
+      <Rectangle fx:id="cuadroMenuInfo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="127.0" layoutX="322.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+      <Label fx:id="infoMenu" alignment="TOP_LEFT" layoutX="331.0" layoutY="296.0" prefHeight="105.0" prefWidth="302.0" text="Seleccione una opción.">
          <font>
-            <Font name="System Italic" size="15.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Rectangle fx:id="cuadroMenuInfo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="103.0" layoutX="322.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
    </children>
 </AnchorPane>
