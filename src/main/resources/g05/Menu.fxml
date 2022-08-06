@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.MenuController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" layoutX="223.0" layoutY="14.0" prefHeight="71.0" prefWidth="269.0" text="MENÚ PRINCIPAL" textAlignment="CENTER" textFill="#36362d">
+         <font>
+            <Font name="Rockwell" size="29.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="cont_im_menu" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="170.0" layoutX="368.0" layoutY="91.0" stroke="#9aa4ab" strokeType="INSIDE" strokeWidth="4.0" width="229.0" />
+      <ImageView fx:id="displayMenu" fitHeight="150.0" fitWidth="170.0" layoutX="397.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox fx:id="vBoxMenu" layoutX="26.0" layoutY="109.0" prefHeight="244.0" prefWidth="229.0" spacing="5.0">
+         <children>
+            <Button fx:id="botonServicios" onAction="#entrarServicios" onMouseEntered="#preServicios" prefHeight="44.0" prefWidth="229.0" text="Servicios">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonEmpleados" onAction="#entrarEmpleados" onMouseEntered="#preEmpleados" prefHeight="44.0" prefWidth="229.0" text="Empleados">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonClientes" onAction="#entrarClientes" onMouseEntered="#preClientes" prefHeight="44.0" prefWidth="229.0" text="Clientes">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonCitas" layoutX="10.0" layoutY="118.0" onAction="#entrarCitas" onMouseEntered="#preCitas" prefHeight="44.0" prefWidth="229.0" text="Citas">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="botonAtenciones" layoutX="10.0" layoutY="172.0" onAction="#entrarAtenciones" onMouseEntered="#preAtenciones" prefHeight="44.0" prefWidth="229.0" text="Atenciones">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Button fx:id="botonSalir" alignment="CENTER" layoutX="26.0" layoutY="413.0" onAction="#cerrarSistema" onMouseEntered="#preSalir" prefHeight="44.0" prefWidth="229.0" text="Salir" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="infoMenu" alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="337.0" layoutY="314.0" prefHeight="79.0" prefWidth="291.0" text="se mostrará texto aqui.">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="cuadroMenuInfo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="103.0" layoutX="322.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+   </children>
+</AnchorPane>
