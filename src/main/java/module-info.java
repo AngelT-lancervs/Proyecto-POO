@@ -1,4 +1,4 @@
-module org.example {
+module g05 {
     requires javafx.controls;
     requires javafx.fxml;
 
