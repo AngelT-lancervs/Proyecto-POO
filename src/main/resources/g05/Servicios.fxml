@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label alignment="CENTER" prefHeight="76.0" prefWidth="269.0" text="SERVICIOS" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Tahoma" size="28.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="110.0" layoutY="39.0" prefHeight="294.0" prefWidth="531.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Nombre" />
+                <TableColumn prefWidth="75.0" text="Duración" />
+                  <TableColumn prefWidth="75.0" text="Precio" />
+                  <TableColumn fx:id="tablaServicios" minWidth="20.0" prefWidth="75.0" text="Estado" />
+              </columns>
+            </TableView>
+         </children></Pane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAgregarEmpleado" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="185.0" text="Agregar Servicio">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarEmpleado" mnemonicParsing="false" prefHeight="44.0" prefWidth="185.0" text="Editar Servicio">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEliminarEmpleado" mnemonicParsing="false" prefHeight="44.0" prefWidth="185.0" text="Eliminar Servicio">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

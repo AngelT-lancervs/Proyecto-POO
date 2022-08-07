@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="EMPLEADOS" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Tahoma" size="28.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Agregar">
+               <font>
+                  <Font name="Microsoft JhengHei Light" size="18.0" />
+               </font>
+            </Button>
+            <Button maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Editar">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="18.0" />
+               </font>
+            </Button>
+            <Button maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="Microsoft JhengHei Light" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Regresar">
+               <font>
+                  <Font name="Microsoft JhengHei Light" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

@@ -2,7 +2,10 @@ package g05;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -88,22 +91,55 @@ public class MenuController {
     //Métodos cuando se da click a cada boton
     @FXML
     public void entrarServicios(){
+        try{
+            borderPane.getChildren().clear();
+            BorderPane loader = FXMLLoader.load(getClass().getResource("Servicios.fxml"));
+            borderPane.getChildren().setAll(loader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
     @FXML
     public void entrarClientes(){
-
+        try{
+            borderPane.getChildren().clear();
+            BorderPane loader = FXMLLoader.load(getClass().getResource("Clientes.fxml"));
+            borderPane.getChildren().setAll(loader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     @FXML
     public void entrarAtenciones(){
+        try{
+            borderPane.getChildren().clear();
+            BorderPane loader = FXMLLoader.load(getClass().getResource("Atenciones.fxml"));
+            borderPane.getChildren().setAll(loader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
     @FXML
     public void entrarCitas(){
-
+        try{
+            borderPane.getChildren().clear();
+            BorderPane loader = FXMLLoader.load(getClass().getResource("Citas.fxml"));
+            borderPane.getChildren().setAll(loader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     @FXML
     public void entrarEmpleados(){
+        try{
+            borderPane.getChildren().clear();
+            BorderPane loader = FXMLLoader.load(getClass().getResource("Empleados.fxml"));
+            borderPane.getChildren().setAll(loader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
     @FXML
