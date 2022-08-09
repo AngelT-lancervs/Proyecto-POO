@@ -20,7 +20,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="botonAgregarE" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Agregar">
+            <Button fx:id="botonAgregarE" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#agregarEmpleado" prefHeight="44.0" prefWidth="148.0" text="Agregar">
                <font>
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>

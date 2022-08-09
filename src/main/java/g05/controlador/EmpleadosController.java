@@ -86,5 +86,20 @@ public class EmpleadosController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void agregarEmpleado(ActionEvent actionEvent) {
+        try {
 
+            Stage stageAgregarEmpleado = new Stage();
+
+            FXMLLoader loader =  new FXMLLoader(App.class.getResource("AgregarEmpleado.fxml"));
+            Scene sceneAgregarEmpleado = new Scene(loader.load());
+            stageAgregarEmpleado.setScene(sceneAgregarEmpleado);
+            stageAgregarEmpleado.show();
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
