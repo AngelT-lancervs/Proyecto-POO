@@ -1,7 +1,6 @@
-package g05.usuario;
+package g05.modelo;
 
-import g05.menu.Main;
-import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
  * Clase Usuario
@@ -55,6 +54,9 @@ public abstract class Usuario {
         this.email = e;
     }
 
+    public String getCedula() {
+        return cedula;
+    }
 
     /**
      * Muestra por pantalla la informacion

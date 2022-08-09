@@ -1,13 +1,7 @@
 package g05.modelo;
 
-import g05.menu.Main;
-import g05.usuario.Cliente;
-import g05.usuario.Empleado;
-
 import java.time.format.DateTimeParseException;
 
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 import java.time.*;
 import java.util.*;
 
@@ -103,7 +97,7 @@ public class Cita{
     public static ArrayList<Cita> buscarCitasPorCedulaCliente(String ced) {
         Cliente clienteEncontrado = null;
         if(citas.size() != 0){
-            for(Cliente c : Main.clientes) {
+            for(Cliente c : Sistema.clientes) {
                 if(c.getCedulaR().equals(ced)) {
                     clienteEncontrado = c;
                 }
@@ -175,7 +169,7 @@ public class Cita{
                 System.out.print(count+". "+citasPendientes.get(i)+"\n");
             }
             System.out.print("Seleccione una cita a eliminar: \n");
-            int opcion = Main.pedirNumero();
+            int opcion = Sistema.pedirNumero();
             int indiceCita = 0;
             Cita citaEliminar = citasPendientes.get(opcion-1);
             citasPendientes.remove(opcion-1); // Eliminar la cita de las citas pendientes del cliente.
@@ -225,18 +219,18 @@ public class Cita{
         LocalTime t = pedirHora(sc);
         System.out.print("Seleccione el servicio: \n");
         Servicio.mostrarServicios();
-        int opcion = Main.pedirNumero();
-        Servicio n_Servicio = Main.servicios.get(opcion-1);
+        int opcion = Sistema.pedirNumero();
+        Servicio n_Servicio = Sistema.servicios.get(opcion-1);
 
         System.out.print("Seleccione el cliente: \n");
         Cliente.mostrarClientes();
-        opcion = Main.pedirNumero();
-        Cliente n_Cliente = Main.clientes.get(opcion-1);
+        opcion = Sistema.pedirNumero();
+        Cliente n_Cliente = Sistema.clientes.get(opcion-1);
 
         System.out.print("Seleccione el empleado: \n");
         Empleado.mostrarEmpleados();
-        opcion = Main.pedirNumero();
-        Empleado n_Empleado = Main.empleados.get(opcion-1);
+        opcion = Sistema.pedirNumero();
+        Empleado n_Empleado = Sistema.empleados.get(opcion-1);
 
        if (!n_Servicio.getEstado()) {
            System.out.print("\n[ERROR] El servicio seleccionado no está disponible por el momento.\n");

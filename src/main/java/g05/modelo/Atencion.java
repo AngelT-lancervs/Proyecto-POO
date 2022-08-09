@@ -1,11 +1,6 @@
 package g05.modelo;
 import java.time.*;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import g05.menu.Main;
-import g05.usuario.Cliente;
-import g05.usuario.Empleado;
 
 
 /**
@@ -33,7 +28,7 @@ public class Atencion{
         this.servicio = servicio;
         this.empleado = empleado;
         this.cita = cita;
-        Main.atenciones.add(this);
+        Sistema.atenciones.add(this);
     }
     //Métodos de la clase
     /**
@@ -58,7 +53,7 @@ public class Atencion{
             if(n_Cliente.getCitasCliente().size() != 0){
                 n_Cliente.mostrarCitasPendientes();
                 System.out.print("Seleccione cita atendida: ");
-                int opcion1 = Main.pedirNumero();
+                int opcion1 = Sistema.pedirNumero();
                 int indiceCitaCliente = opcion1-1;
                 Cita n_Cita = n_Cliente.getCitasCliente().get(indiceCitaCliente);
 
@@ -68,8 +63,8 @@ public class Atencion{
 
                 System.out.print("Seleccione el empleado encargado: \n");
                 Empleado.mostrarEmpleados();
-                int opcion2 = Main.pedirNumero();
-                Empleado n_Empleado = Main.empleados.get(opcion2-1);
+                int opcion2 = Sistema.pedirNumero();
+                Empleado n_Empleado = Sistema.empleados.get(opcion2-1);
 
                 if(!n_Empleado.getEstado()){
                     System.out.print("[ERROR] El empleado seleccionado está inactivo.\n");
@@ -102,7 +97,7 @@ public class Atencion{
         System.out.print("3.Fecha de la atención\n");
         System.out.print("4.Atrás\n");
 
-        int opcion = Main.pedirNumero();
+        int opcion = Sistema.pedirNumero();
         int count = 0;
         switch(opcion){
             case 1:
@@ -112,7 +107,7 @@ public class Atencion{
                 if(empleado != null){
                     System.out.print("--Atenciones de "+ empleado.getNombre()+"--\n");
                     count = 0;
-                    for(Atencion at : Main.atenciones){
+                    for(Atencion at : Sistema.atenciones){
                         if(at.empleado.equals(empleado)){
                             count++;
                             System.out.print(count+". "+at);
@@ -131,7 +126,7 @@ public class Atencion{
                 if(cliente != null) {
                     System.out.print("--Atenciones de "+ cliente.getNombre()+"--\n");
                     count = 0;
-                    for(Atencion at : Main.atenciones){
+                    for(Atencion at : Sistema.atenciones){
                         if(at.cita.getCliente().equals(cliente)){
                             count++;
                             System.out.print(count+". "+at);
@@ -147,7 +142,7 @@ public class Atencion{
                 LocalDate fecha = Cita.pedirFecha(sc);
                 System.out.print("--Atenciones de la fecha ("+fecha+")--\n");
                 count = 0;
-                for(Atencion at :Main.atenciones){
+                for(Atencion at : Sistema.atenciones){
                     if(at.cita.getFecha().isEqual(fecha)){
                         count++;
                         System.out.print(count+". "+at);

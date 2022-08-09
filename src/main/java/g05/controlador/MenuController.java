@@ -1,5 +1,6 @@
-package g05;
+package g05.controlador;
 
+import g05.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,37 +54,37 @@ public class MenuController {
     //Métodos cuando el cursor pasa por encima de cada boton
     @FXML
     public void preServicios(){
-        Image im = new Image(getClass().getResourceAsStream("media/servicios.png"));
+        Image im = new Image(App.class.getResourceAsStream("vista/servicios.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, agregar, editar y/o desactivar \n algún servicio. Presione el botón\n -Servicios- para continuar");
     }
     @FXML
     public void preClientes(){
-        Image im = new Image(getClass().getResourceAsStream("media/clientes.png"));
+        Image im = new Image(App.class.getResourceAsStream("vista/clientes.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, agregar y/o editar clientes.\n Presione el botón -Clientes- para\n continuar");
     }
     @FXML
     public void preAtenciones(){
-        Image im = new Image(getClass().getResourceAsStream("media/atenciones.png"));
+        Image im = new Image(App.class.getResourceAsStream("vista/atenciones.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, registrar y/o consultar las atenciones.\n Presione el botón -Atenciones- para\n continuar");
     }
     @FXML
     public void preCitas(){
-        Image im = new Image(getClass().getResourceAsStream("media/citas.png"));
+        Image im = new Image(App.class.getResourceAsStream("vista/citas.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, crear, eliminar, y/o consultar\n citas. Presione el botón -Citas- para\n continuar");
     }
     @FXML
     public void preEmpleados(){
-        Image im = new Image(getClass().getResourceAsStream("media/empleados.png"));
+        Image im = new Image(App.class.getResourceAsStream("vista/empleados.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, agregar, editar y/o eliminar\n empleados. Presione el botón\n -Empleados- para continuar");
     }
     @FXML
     public void preSalir(){
-        Image im = new Image(getClass().getResourceAsStream("media/salir.png"));
+        Image im = new Image(App.class.getResourceAsStream("vista/salir.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Cerrará la sesión actual.\n Presione el botón -Salir- para cerrar\n el sistema");
     }
@@ -93,7 +94,7 @@ public class MenuController {
     public void entrarServicios(){
         try{
             borderPane.getChildren().clear();
-            BorderPane loader = FXMLLoader.load(getClass().getResource("Servicios.fxml"));
+            BorderPane loader = FXMLLoader.load(App.class.getResource("Servicios.fxml"));
             borderPane.getChildren().setAll(loader);
         }catch(Exception e){
             e.printStackTrace();
@@ -104,7 +105,7 @@ public class MenuController {
     public void entrarClientes(){
         try{
             borderPane.getChildren().clear();
-            BorderPane loader = FXMLLoader.load(getClass().getResource("Clientes.fxml"));
+            BorderPane loader = FXMLLoader.load(App.class.getResource("Clientes.fxml"));
             borderPane.getChildren().setAll(loader);
         }catch(Exception e){
             e.printStackTrace();
@@ -114,7 +115,7 @@ public class MenuController {
     public void entrarAtenciones(){
         try{
             borderPane.getChildren().clear();
-            BorderPane loader = FXMLLoader.load(getClass().getResource("Atenciones.fxml"));
+            BorderPane loader = FXMLLoader.load(App.class.getResource("Atenciones.fxml"));
             borderPane.getChildren().setAll(loader);
         }catch(Exception e){
             e.printStackTrace();
@@ -125,7 +126,7 @@ public class MenuController {
     public void entrarCitas(){
         try{
             borderPane.getChildren().clear();
-            BorderPane loader = FXMLLoader.load(getClass().getResource("Citas.fxml"));
+            BorderPane loader = FXMLLoader.load(App.class.getResource("Citas.fxml"));
             borderPane.getChildren().setAll(loader);
         }catch(Exception e){
             e.printStackTrace();
@@ -135,7 +136,7 @@ public class MenuController {
     public void entrarEmpleados(){
         try{
             borderPane.getChildren().clear();
-            BorderPane loader = FXMLLoader.load(getClass().getResource("Empleados.fxml"));
+            BorderPane loader = FXMLLoader.load(App.class.getResource("Empleados.fxml"));
             borderPane.getChildren().setAll(loader);
         }catch(Exception e){
             e.printStackTrace();

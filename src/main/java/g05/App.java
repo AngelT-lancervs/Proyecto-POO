@@ -1,5 +1,6 @@
 package g05;
 
+import g05.modelo.Sistema;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,6 +36,8 @@ public class App extends Application {
 
 
     public static void main(String[] args) {
+        Sistema datosSistema = new Sistema();
+        datosSistema.inicializarSistema();
         launch();
     }
 

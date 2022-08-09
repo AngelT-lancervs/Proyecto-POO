@@ -1,6 +1,4 @@
-package g05.usuario;
-import g05.modelo.Cita;
-import g05.menu.Main;
+package g05.modelo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,7 +28,7 @@ public class Cliente extends Usuario {
     public Cliente(String nombre, String cedula, String telefono, String email, String dts_re) {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
-        Main.clientes.add(this);
+        Sistema.clientes.add(this);
     }
 
     /**
@@ -45,7 +43,7 @@ public class Cliente extends Usuario {
      */
     public static void mostrarClientes() {
         int count = 0; // Contador para índices
-        for (Cliente c : Main.clientes) {
+        for (Cliente c : Sistema.clientes) {
             count++;
             System.out.println(count + ". " + c);
         }
@@ -84,7 +82,7 @@ public class Cliente extends Usuario {
     public void editarCliente(Scanner sc) {
         System.out.print("-----[Menú/Cliente/Editar]-----\n");
         System.out.print("1.Nombre \n2.Telefono \n3.Email \n4.Datos representante \n");
-        int opcion = Main.pedirNumero();
+        int opcion = Sistema.pedirNumero();
         switch (opcion) {
             case 1:
                 System.out.print("\nIngrese el nuevo nombre: ");
@@ -136,7 +134,7 @@ public class Cliente extends Usuario {
      */
     public static Cliente buscarPorCedulaCliente(String ced) {
         Cliente clienteEncontrado = null;
-        for (Cliente cl : Main.clientes) {
+        for (Cliente cl : Sistema.clientes) {
             if (cl.getCedulaR().equals(ced)) {
                 clienteEncontrado = cl;
             }

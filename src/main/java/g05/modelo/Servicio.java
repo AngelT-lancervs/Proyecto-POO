@@ -1,8 +1,5 @@
 package g05.modelo;
-import g05.usuario.*;
-import java.util.ArrayList;
 import java.util.Scanner;
-import g05.menu.Main;
 
 
 /**
@@ -32,7 +29,7 @@ public class Servicio{
         this.duracion = dur;
         this.precio = pre;
         this.estado = estado;
-        Main.servicios.add(this);
+        Sistema.servicios.add(this);
     }
 
     /**
@@ -61,7 +58,7 @@ public class Servicio{
      */
     public static void mostrarServicios(){
         int count = 0;
-        for(Servicio c: Main.servicios)
+        for(Servicio c: Sistema.servicios)
         {
             count++;
             System.out.println(count+ ". " + c);
@@ -102,7 +99,7 @@ public class Servicio{
         Scanner sc = new Scanner(System.in);
         System.out.print("-----[Menú/Servicio/Editar]-----\n");
         System.out.print("1.Nombre \n2.Duración \n3.Precio\n");
-        int opcion = Main.pedirNumero();
+        int opcion = Sistema.pedirNumero();
         switch (opcion){
             case 1:
                 System.out.print("\nIngrese el nuevo nombre: ");

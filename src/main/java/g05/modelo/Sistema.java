@@ -1,13 +1,7 @@
-package g05.menu;
-import g05.modelo.Atencion;
-import g05.modelo.Cita;
-import g05.modelo.Servicio;
-import g05.usuario.Cliente;
-import g05.usuario.Empleado;
+package g05.modelo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.time.*;
 import java.text.ParseException;
 
 
@@ -19,7 +13,7 @@ import java.text.ParseException;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Main{
+public class Sistema {
     Scanner sc = new Scanner(System.in); // Iniciamos objeto de tipo Scanner.
     final String interfaz	= "\n-----[Menú]-----\n1.Servicios\n2.Empleados\n3.Clientes\n4.Citas\n5.Atenciones\n6.Salir\n";
     public static ArrayList<Servicio> servicios = new ArrayList<Servicio>();
@@ -75,7 +69,7 @@ public class Main{
                             if(opcion > servicios.size()) {
                                 System.out.print("\n[ERROR] Ingrese una opción válida.\n");
                             } else {
-                                Servicio servicioEditar = Main.servicios.get(opcion-1);
+                                Servicio servicioEditar = Sistema.servicios.get(opcion-1);
                                 servicioEditar.editarServicio();
                             }
                             System.out.print("\n¡Servicio Actualizado!\n");
@@ -222,16 +216,4 @@ public class Main{
         }
         System.out.print("\nCerrando el sistema...");
     }
-
-    public static void main(String[]args) throws ParseException {
-
-        Main sistema = new Main();
-        sistema.inicializarSistema();
-
-        try {
-            sistema.menu();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-}   
+}

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.EmpleadosController">
    <top>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="EMPLEADOS" BorderPane.alignment="CENTER">
          <font>
@@ -20,17 +20,17 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Agregar">
+            <Button fx:id="botonAgregarE" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Agregar">
                <font>
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
             </Button>
-            <Button maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Editar">
+            <Button fx:id="botonEditarE" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Editar">
                <font>
-                  <Font name="Microsoft New Tai Lue" size="18.0" />
+                  <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
             </Button>
-            <Button maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
+            <Button fx:id="botonEliminarE" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -38,7 +38,7 @@
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Regresar">
+            <Button fx:id="regresarE" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backEmpleados" prefHeight="44.0" prefWidth="148.0" text="Regresar">
                <font>
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
@@ -47,10 +47,13 @@
       </HBox>
    </bottom>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tEmpleados" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colNombreE" prefWidth="119.0" text="Nombre" />
+          <TableColumn fx:id="colCedulaE" prefWidth="101.0" text="Cédula" />
+            <TableColumn fx:id="colEmailE" prefWidth="229.0" text="Email" />
+            <TableColumn fx:id="colEstadoE" prefWidth="109.0" text="Estado" />
+            <TableColumn fx:id="colTelefonoE" prefWidth="126.0" text="Teléfono" />
         </columns>
       </TableView>
    </center>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPane" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.MenuController">
+<BorderPane fx:id="borderPane" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.MenuController">
    <top>
       <Label alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" prefHeight="76.0" prefWidth="269.0" text="MENÚ PRINCIPAL" textAlignment="CENTER" textFill="#36362d" textOverrun="WORD_ELLIPSIS" BorderPane.alignment="CENTER">
          <font>
