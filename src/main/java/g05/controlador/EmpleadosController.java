@@ -92,7 +92,7 @@ public class EmpleadosController implements Initializable {
 
             Stage stageAgregarEmpleado = new Stage();
 
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("AgregarEmpleado.fxml"));
+            FXMLLoader loader =  new FXMLLoader(App.class.getResource("secundarias/AgregarEmpleado.fxml"));
             Scene sceneAgregarEmpleado = new Scene(loader.load());
             stageAgregarEmpleado.setScene(sceneAgregarEmpleado);
             stageAgregarEmpleado.show();

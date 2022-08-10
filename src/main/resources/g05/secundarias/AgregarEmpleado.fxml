@@ -12,13 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.AgregarEmpleadoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.AgregarEmpleadoController">
    <children>
       <Label text="Agregar empleado">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Label>
       <GridPane alignment="CENTER" prefHeight="178.0" prefWidth="655.0">
         <columnConstraints>
@@ -31,36 +33,35 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtTelE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="txtTelE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Microsoft JhengHei Light" size="12.0" />
                </font>
             </TextField>
-            <ComboBox fx:id="cbEstadoE" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtCedE" prefHeight="25.0" prefWidth="231.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ComboBox fx:id="cbEstadoE" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtCedE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1">
                <font>
                   <Font name="Microsoft JhengHei Light" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtCorreoE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="txtCorreoE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="414.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Microsoft JhengHei Light" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtNomE" GridPane.columnIndex="1">
+            <TextField fx:id="txtNomE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="414.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Microsoft JhengHei Light" size="12.0" />
                </font>
             </TextField>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="133.0" text="Nombre">
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="133.0" text="Nombre" GridPane.rowIndex="1">
                <font>
                   <Font name="Microsoft JhengHei Light" size="14.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="128.0" text="Cédula" GridPane.rowIndex="1">
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="128.0" text="Cédula">
                <font>
                   <Font name="Microsoft JhengHei Light" size="14.0" />
                </font>
@@ -70,12 +71,12 @@
                   <Font name="Microsoft JhengHei Light" size="14.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="133.0" text="Estado" GridPane.rowIndex="3">
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="133.0" text="Estado" GridPane.rowIndex="4">
                <font>
                   <Font name="Microsoft JhengHei Light" size="14.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="133.0" text="Teléfono" GridPane.rowIndex="4">
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="133.0" text="Teléfono" GridPane.rowIndex="3">
                <font>
                   <Font name="Microsoft JhengHei Light" size="14.0" />
                </font>
@@ -84,10 +85,13 @@
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
       </GridPane>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" prefHeight="85.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <Button fx:id="botonAgregarE" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="Agregar">
+            <Button fx:id="botonAgregarE" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="Guardar">
                <font>
                   <Font name="Microsoft JhengHei Light" size="16.0" />
                </font>

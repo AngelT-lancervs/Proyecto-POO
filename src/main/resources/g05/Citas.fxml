@@ -2,39 +2,33 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Label alignment="CENTER" prefHeight="82.0" prefWidth="130.0" text="CITAS" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Tahoma" size="28.0" />
-         </font>
-      </Label>
-   </top>
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.CitasController">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="736.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Crear ">
+            <Button fx:id="botonCrear" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#crearCita" prefHeight="44.0" prefWidth="148.0" text="Crear ">
                <font>
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar ">
+            <Button fx:id="botonEliminar" mnemonicParsing="false" onAction="#eliminarCita" prefHeight="44.0" prefWidth="148.0" text="Eliminar ">
                <font>
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="190.0" text="Consultar por Fecha">
+            <Button fx:id="botonFecha" mnemonicParsing="false" onAction="#consultarPorFecha" prefHeight="44.0" prefWidth="190.0" text="Consultar por Fecha">
                <font>
-                  <Font name="Microsoft New Tai Lue" size="18.0" />
+                  <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Regresar">
+            <Button fx:id="botonRegresar" mnemonicParsing="false" onAction="#volverPantalla" prefHeight="44.0" prefWidth="148.0" text="Regresar">
                <font>
                   <Font name="Microsoft JhengHei Light" size="18.0" />
                </font>
@@ -42,12 +36,26 @@
          </children>
       </HBox>
    </bottom>
+   <top>
+      <Label alignment="CENTER" prefHeight="82.0" prefWidth="130.0" text="CITAS" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Tahoma Bold" size="28.0" />
+         </font>
+      </Label>
+   </top>
    <center>
-      <TableView prefHeight="365.0" prefWidth="598.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <ScrollPane minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="tablaCitas" prefHeight="417.0" prefWidth="1170.0">
+              <columns>
+                  <TableColumn fx:id="colCliente" editable="false" prefWidth="259.0" sortable="false" text="Nombre del cliente" />
+                  <TableColumn fx:id="colEmpleado" editable="false" prefWidth="236.0" sortable="false" text="Empleado " />
+                  <TableColumn fx:id="colFecha" editable="false" prefWidth="150.0" text="Fecha" />
+                  <TableColumn fx:id="colHora" editable="false" prefWidth="150.0" text="Hora" />
+                  <TableColumn fx:id="colServicio" editable="false" prefWidth="260.0" text="Servicio" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
    </center>
 </BorderPane>
