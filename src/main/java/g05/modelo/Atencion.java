@@ -65,7 +65,7 @@ public class Atencion{
                 Empleado.mostrarEmpleados();
                 int opcion2 = Sistema.pedirNumero();
                 Empleado n_Empleado = Sistema.empleados.get(opcion2-1);
-
+                /*
                 if(!n_Empleado.getEstado()){
                     System.out.print("[ERROR] El empleado seleccionado está inactivo.\n");
                 } else {
@@ -75,7 +75,7 @@ public class Atencion{
                     n_Cita.getCliente().getCitasCliente().remove(indiceCitaCliente); // Se elimina de las citas pendientes del cliente.
 
                     System.out.print("¡Atención registrada!\n");
-                }
+                }*/
             } else {
                 System.out.print("[AVISO] El usuario no tiene citas pendientes.\n");
             }
@@ -171,6 +171,6 @@ public class Atencion{
     }
 
     public String toString(){
-        return ">> Cliente: "+cita.getCliente().getNombre()+" | Servicio: "+cita.getServicio().getNombreServicio()+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: Nombre: "+empleado.getNombre()+" | Cédula:"+empleado.getCedulaR();
+        return ">> Cliente: "+cita.getCliente().getNombre()+" | Servicio: "+cita.getServicio().getNombreServicio()+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: Nombre: "+empleado.getNombre()+" | Cédula:"+empleado.getCedula();
     }
 }

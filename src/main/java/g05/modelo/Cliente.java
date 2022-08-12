@@ -163,4 +163,8 @@ public class Cliente extends Usuario {
     public ArrayList<Cita> getCitasCliente(){
         return this.citasCliente;
     }
+
+    public String getDatos_del_representante() {
+        return datos_del_representante;
+    }
 }

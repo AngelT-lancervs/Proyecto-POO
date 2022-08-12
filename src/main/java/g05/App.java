@@ -16,11 +16,14 @@ public class App extends Application {
 
     private static Scene scene;
 
+    public static String pathEmpleados = "archivo/empleados.csv";
+
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Menu"),750 ,620);
+        scene = new Scene(loadFXML("Menu"),800 ,650);
         stage.setScene(scene);
         stage.setTitle("Sistema para manejo de atenciones");
+        scene.getStylesheets().add(App.class.getResource("vista/css/estilos.css").toExternalForm());
         stage.show();
 
     }
@@ -33,11 +36,18 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
+    //Método para cambiar el nodo root de la escena.
+    public static void changeRootFXML(String nameFXML) {
+        Parent root = null;
+        try {
+            root = loadFXML(nameFXML);
+            scene.setRoot(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static void main(String[] args) {
-        Sistema datosSistema = new Sistema();
-        datosSistema.inicializarSistema();
         launch();
     }
 

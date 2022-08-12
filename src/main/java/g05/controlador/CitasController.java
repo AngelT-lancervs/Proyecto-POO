@@ -90,7 +90,7 @@ public class CitasController implements Initializable {
         try {
             Stage stageNuevaCita = new Stage();
 
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("secundarias/AgregarCita.fxml"));
+            FXMLLoader loader =  new FXMLLoader(App.class.getResource("secundarias/AgregarCitas.fxml"));
             Scene sceneNuevaCita = new Scene(loader.load());
             stageNuevaCita.setScene(sceneNuevaCita);
             stageNuevaCita.show();

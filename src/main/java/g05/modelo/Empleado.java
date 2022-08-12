@@ -1,4 +1,6 @@
 package g05.modelo;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -27,7 +29,22 @@ public class Empleado extends Usuario{
         this.estado = estado;
         Sistema.empleados.add(this);
     }
-
+    public static ArrayList<Empleado> cargarEmpleados(String pathEmpleados){
+        ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+        try (BufferedReader br = new BufferedReader(new FileReader(pathEmpleados))) {
+            String line;
+            while ((line = br.readLine())!= null){
+                String[] parametros = line.split(",");
+                Empleado e = new Empleado(parametros[0],parametros[1],parametros[2],Boolean.parseBoolean(parametros[3]),parametros[4]);
+                empleados.add(e);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("El archivo no existe.");
+        } catch (IOException ex) {
+            System.out.println("Error IOException:"+ex.getMessage());
+        }
+        return empleados;
+    }
     /**
      * Metodo que agrega empleados a la lista de empleados
      */
@@ -99,7 +116,7 @@ public class Empleado extends Usuario{
     public static Empleado buscarPorCedulaEmpleado(String ced) {
         Empleado empleadoEncontrado = null;
         for (Empleado ep : Sistema.empleados) {
-            if (ep.getCedulaR().equals(ced)) {
+            if (ep.getCedula().equals(ced)) {
                 empleadoEncontrado = ep;
             }
         }
@@ -130,13 +147,10 @@ public class Empleado extends Usuario{
     }
 
     //Getters and Setters
-    public boolean getEstado() {
-        return estado;
+    public String getEstado() {
+        return estado?"Activo":"Inactivo";
     }
 
-    public String getCedulaR(){
-        return this.cedula;
-    }
 
     public String toString(){
         return super.toString()+" Estado: "+activoOinactivo()+"\n";

@@ -234,12 +234,12 @@ public class Cita{
 
        if (!n_Servicio.getEstado()) {
            System.out.print("\n[ERROR] El servicio seleccionado no está disponible por el momento.\n");
-       } else if (!n_Empleado.getEstado()) {
-           System.out.print("\n[ERROR] El empleado seleccionado no está disponible por el momento.\n");
-       }
-       else {
-           comprobarCita(d, t, n_Servicio, n_Cliente, n_Empleado);
-       }
+       } //else if (!n_Empleado.getEstado()) {
+          // System.out.print("\n[ERROR] El empleado seleccionado no está disponible por el momento.\n");
+       //}
+       //else {
+      //     comprobarCita(d, t, n_Servicio, n_Cliente, n_Empleado);
+       //}
     }
 
     

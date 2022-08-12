@@ -7,21 +7,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EmpleadosController implements Initializable {
+
+    @FXML
+    private AnchorPane anchorPane;
+
 
     @FXML
     private BorderPane borderPane;
@@ -42,7 +43,7 @@ public class EmpleadosController implements Initializable {
     private TableColumn<Empleado, String> colEmailE;
 
     @FXML
-    private TableColumn<Empleado, Boolean> colEstadoE;
+    private TableColumn<Empleado, Void> colEstadoE;
 
     @FXML
     private TableColumn<Empleado, String> colNombreE;
@@ -61,14 +62,15 @@ public class EmpleadosController implements Initializable {
         colNombreE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("nombre"));
         colCedulaE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("cedula"));
         colEmailE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("email"));
-        colEstadoE.setCellValueFactory(new PropertyValueFactory<Empleado, Boolean>("estado"));
+        colEstadoE.setCellValueFactory(new PropertyValueFactory<Empleado, Void>("estado"));
         colTelefonoE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("telefono"));
         tEmpleados.setItems(obtenerEmpleados());
     }
 
     public ObservableList<Empleado> obtenerEmpleados(){
         ObservableList<Empleado> empleados = FXCollections.observableArrayList();
-        for (Empleado e : Sistema.empleados){
+        ArrayList<Empleado> empleadosCSV = Empleado.cargarEmpleados(App.pathEmpleados);
+        for (Empleado e : empleadosCSV){
             empleados.add(e);
         }
         return empleados;
@@ -76,30 +78,10 @@ public class EmpleadosController implements Initializable {
     //Eventos al presionar los botones del menú Empleados
     @FXML
     void backEmpleados(ActionEvent event) {
-        try {
-            Scene scene = borderPane.getScene();
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("Menu.fxml"));
-            scene.setRoot(loader.load());
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        App.changeRootFXML("Menu");
     }
     @FXML
     void agregarEmpleado(ActionEvent actionEvent) {
-        try {
-
-            Stage stageAgregarEmpleado = new Stage();
-
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("secundarias/AgregarEmpleado.fxml"));
-            Scene sceneAgregarEmpleado = new Scene(loader.load());
-            stageAgregarEmpleado.setScene(sceneAgregarEmpleado);
-            stageAgregarEmpleado.show();
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        App.changeRootFXML("vista/secundarias/AgregarEmpleado");
     }
 }
