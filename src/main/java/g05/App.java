@@ -16,7 +16,8 @@ public class App extends Application {
 
     private static Scene scene;
 
-    public static String pathEmpleados = "archivo/empleados.csv";
+    public static String pathEmpleadosCSV = "archivo/empleados/empleados.csv";
+
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -37,13 +38,13 @@ public class App extends Application {
         return fxmlLoader.load();
     }
     //Método para cambiar el nodo root de la escena.
-    public static void changeRootFXML(String nameFXML) {
+    public static void changeRootFXML(String pathFXML) {
         Parent root = null;
         try {
-            root = loadFXML(nameFXML);
+            root = loadFXML(pathFXML);
             scene.setRoot(root);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

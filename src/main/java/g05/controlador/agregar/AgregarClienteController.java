@@ -1,4 +1,4 @@
-package g05.controlador;
+package g05.controlador.agregar;
 import g05.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

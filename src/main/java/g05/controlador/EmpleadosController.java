@@ -55,7 +55,7 @@ public class EmpleadosController implements Initializable {
     private Button regresarE;
 
     @FXML
-    private TableView<Empleado> tEmpleados;
+    private TableView<Empleado> tablaEmpleados;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -64,14 +64,15 @@ public class EmpleadosController implements Initializable {
         colEmailE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("email"));
         colEstadoE.setCellValueFactory(new PropertyValueFactory<Empleado, Void>("estado"));
         colTelefonoE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("telefono"));
-        tEmpleados.setItems(obtenerEmpleados());
+        tablaEmpleados.setItems(obtenerEmpleados());
     }
 
     public ObservableList<Empleado> obtenerEmpleados(){
         ObservableList<Empleado> empleados = FXCollections.observableArrayList();
-        ArrayList<Empleado> empleadosCSV = Empleado.cargarEmpleados(App.pathEmpleados);
+        ArrayList<Empleado> empleadosCSV = Empleado.cargarEmpleados(App.pathEmpleadosCSV);
         for (Empleado e : empleadosCSV){
             empleados.add(e);
+            System.out.println(e);
         }
         return empleados;
     }
@@ -82,6 +83,6 @@ public class EmpleadosController implements Initializable {
     }
     @FXML
     void agregarEmpleado(ActionEvent actionEvent) {
-        App.changeRootFXML("vista/secundarias/AgregarEmpleado");
+        App.changeRootFXML("vista/secundarias/AgregarEmpleados");
     }
 }

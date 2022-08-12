@@ -17,13 +17,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
 public class CitasController implements Initializable {
 
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private BorderPane borderPane;
 
@@ -46,38 +50,40 @@ public class CitasController implements Initializable {
     //private TableColumn<Cliente, String> colCedula;
 
     @FXML
-    private TableColumn<Cliente, String> colCliente;
+    private TableColumn<Cliente, String> colNombreCi;
 
     @FXML
-    private TableColumn<Empleado, String> colEmpleado;
+    private TableColumn<Empleado, String> colEmpleadoCi;
 
     @FXML
-    private TableColumn<Cita, LocalDate> colFecha;
+    private TableColumn<Cita, LocalDate> colFechaCi;
 
     @FXML
-    private TableColumn<Cita, LocalTime> colHora;
+    private TableColumn<Cita, LocalTime> colHoraCi;
 
     @FXML
-    private TableColumn<Servicio, String> colServicio;
+    private TableColumn<Servicio, String> colServicioCi;
 
+    @FXML
+    private TextField txtCedCliente;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //this.colCedula.setCellValueFactory(new PropertyValueFactory<Cliente, String>("Cédula"));
-        this.colCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("Nombre del cliente"));
-        this.colEmpleado.setCellValueFactory(new PropertyValueFactory<Empleado, String>("Empleado"));
-        this.colFecha.setCellValueFactory(new PropertyValueFactory<Cita, LocalDate>("Fecha"));
-        this.colHora.setCellValueFactory(new PropertyValueFactory<Cita, LocalTime>("Hora"));
-        this.colServicio.setCellValueFactory(new PropertyValueFactory<Servicio, String>("Servicio"));
+        //colCedula.setCellValueFactory(new PropertyValueFactory<Cliente, String>("Cédula"));
+        colNombreCi.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nombre"));
+        colEmpleadoCi.setCellValueFactory(new PropertyValueFactory<Empleado, String>("proveedor"));
+        colFechaCi.setCellValueFactory(new PropertyValueFactory<Cita, LocalDate>("fecha"));
+        colHoraCi.setCellValueFactory(new PropertyValueFactory<Cita, LocalTime>("hora"));
+        colServicioCi.setCellValueFactory(new PropertyValueFactory<Servicio, String>("servicio"));
         tablaCitas.setItems(obtenerCitas());
 
     }
 
-    public ObservableList<Cita> obtenerCitas(){
+    public ObservableList<Cita> obtenerCitas() {
         ObservableList<Cita> citas = FXCollections.observableArrayList();
-        for (Cita c : Cita.citas){
+        for (Cita c : Cita.citas) {
             citas.add(c);
         }
         return citas;
@@ -86,39 +92,13 @@ public class CitasController implements Initializable {
 
     //Metodos de las opciones de cita
     @FXML
-    public void crearCita(){
-        try {
-            Stage stageNuevaCita = new Stage();
-
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("secundarias/AgregarCitas.fxml"));
-            Scene sceneNuevaCita = new Scene(loader.load());
-            stageNuevaCita.setScene(sceneNuevaCita);
-            stageNuevaCita.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void crearCita() {
+        App.changeRootFXML("vista/secundarias/AgregarCitas");
     }
+
 
     @FXML
-    public void eliminarCita(){
-        
-    
+    public void backCitas(){
+        App.changeRootFXML("vista/Menu");
     }
-
-    @FXML
-    public void consultarPorFecha(){
-        
-    
-    }
-
-    @FXML
-    public void volverPantalla(){
-        try {
-            Scene scene = borderPane.getScene();
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("Menu.fxml"));
-            scene.setRoot(loader.load());
-        } catch (Exception e) { e.printStackTrace();}
-    }
-
-
 }

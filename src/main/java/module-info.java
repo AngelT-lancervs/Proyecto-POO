@@ -11,4 +11,6 @@ module g05 {
     opens g05.controlador to javafx.fxml;
     exports g05.modelo;
     opens g05.modelo to javafx.base;
+    exports g05.controlador.agregar;
+    opens g05.controlador.agregar to javafx.fxml;
 }

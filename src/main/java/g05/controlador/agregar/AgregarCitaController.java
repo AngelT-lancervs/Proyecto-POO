@@ -1,4 +1,4 @@
-package g05.controlador;
+package g05.controlador.agregar;
 
 import java.io.IOException;
 import java.time.LocalDate;
