@@ -67,7 +67,7 @@ public class EmpleadosController implements Initializable {
         tablaEmpleados.setItems(obtenerEmpleados());
     }
 
-    public ObservableList<Empleado> obtenerEmpleados(){
+    public static ObservableList<Empleado> obtenerEmpleados(){
         ObservableList<Empleado> empleados = FXCollections.observableArrayList();
         ArrayList<Empleado> empleadosCSV = Empleado.cargarEmpleados(App.pathEmpleadosCSV);
         for (Empleado e : empleadosCSV){

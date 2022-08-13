@@ -18,6 +18,8 @@ public class App extends Application {
 
     public static String pathEmpleadosCSV = "archivo/empleados/empleados.csv";
     public static String pathClientesCSV= "archivo/clientes/clientes.csv";
+    public static String pathCitas = "archivo/citas/citas.dat";
+    public static String pathServiciosCSV = "archivo/servicios/servicios.csv";
 
 
     @Override

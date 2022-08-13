@@ -1,5 +1,14 @@
 package g05.modelo;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import g05.App;
 
 
 /**
@@ -15,18 +24,20 @@ public class Servicio{
     private Empleado empleado;
     private double precio;
     private boolean estado;
-
+    public static ArrayList<Servicio> svs = new ArrayList<>();
+    
+    
     /**
      * Constructor de la clase Servicio, inicializa las variables
      * Representa los servicios que se brindan
      * @param nomSer es el Nombre del Servicio brindado
-     * @param dur es la duración que tiene el servicio
+     * @param duracion2 es la duración que tiene el servicio
      * @param pre es el costo del Servicio
      * @param estado indica si se encuentra disponible o no el servicio
      */
-    public Servicio(String nomSer, String dur, double pre, boolean estado){
+    public Servicio(String nomSer, String duracion2, double pre, boolean estado){
         this.nombreServicio = nomSer;
-        this.duracion = dur;
+        this.duracion = duracion2;
         this.precio = pre;
         this.estado = estado;
         Sistema.servicios.add(this);
@@ -180,5 +191,31 @@ public class Servicio{
     }
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+
+    //Escribir servicios
+    public void escribirServicio(Servicio s){
+        try(BufferedWriter bf = new BufferedWriter(new FileWriter(App.pathServiciosCSV, true))){
+            bf.write(s.getNombreServicio() +", " +  s.getPrecio() + ", " + s.getDuracion());
+        }
+        catch(Exception e) { e.printStackTrace(); }
+    }
+
+    public static ArrayList<Servicio> leerServicios(){
+        ArrayList<Servicio> sv = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("archivo/servicios/servicios.csv"))) {
+            String line;
+            while ((line = br.readLine())!= null){
+                String[] parametros = line.split(", ");
+                Servicio s = new Servicio(parametros[0], parametros[1], Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
+                sv.add(s);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("El archivo no existe.");
+        } catch (IOException ex) {
+            System.out.println("Error IOException:"+ex.getMessage());
+        }
+        return sv;
     }
 }

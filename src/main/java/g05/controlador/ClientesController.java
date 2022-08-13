@@ -73,7 +73,7 @@ public class ClientesController implements Initializable {
     }
 
     @FXML
-    public ObservableList<Cliente> obtenerClientes(){
+    public static ObservableList<Cliente> obtenerClientes(){
         ObservableList<Cliente> clientes = FXCollections.observableArrayList();
         ArrayList<Cliente> clientesCSV= Cliente.cargarClientes(App.pathClientesCSV);
         for (Cliente c : clientesCSV){
@@ -82,6 +82,8 @@ public class ClientesController implements Initializable {
         }
         return clientes;
     }
+
+    
 
     @FXML
     public void agregarCliente(ActionEvent event) {
@@ -99,6 +101,7 @@ public class ClientesController implements Initializable {
         App.changeRootFXML("vista/secundarias/EditarCliente");
 
     }
+
 
 
 }

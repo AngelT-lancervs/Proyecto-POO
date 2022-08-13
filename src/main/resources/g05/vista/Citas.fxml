@@ -62,17 +62,17 @@
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonRegistrarA" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="176.0" text="Registrar Atención">
+                        <Button fx:id="botonRegistrarA" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#registrarAtencion" prefHeight="40.0" prefWidth="176.0" text="Registrar Atención">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonConsultarAc" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" text="Consultar Actividades">
+                        <Button fx:id="botonConsultarAc" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#consultarActividades" prefHeight="40.0" prefWidth="185.0" text="Consultar Actividades">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEliminarCi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="96.0" text="Eliminar">
+                        <Button fx:id="botonEliminarCi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarCita" prefHeight="40.0" prefWidth="96.0" text="Eliminar">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>

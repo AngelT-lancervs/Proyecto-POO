@@ -1,9 +1,17 @@
 package g05.modelo;
 
 import java.time.format.DateTimeParseException;
-
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.*;
 import java.util.*;
+
+import g05.App;
 
 /**
  * Esta clase define los objetos y métodos de las citas del Centro 
@@ -12,13 +20,14 @@ import java.util.*;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Cita{
+public class Cita implements Serializable{
     private Cliente cliente;
     private Empleado proovedor;
     private Servicio servicio;
     private LocalTime hora;
     private LocalDate fecha;
     public static ArrayList<Cita> citas = new ArrayList<Cita>();
+    public static ArrayList<Cita> citas2 = new ArrayList<Cita>();
 
 
 
@@ -277,6 +286,24 @@ public class Cita{
     }
 
 
+    
+    //Metodo para guardar en un archivo la informacion de las citas
+    public static void escribirCita(Cita c){
+        try(ObjectOutputStream bf = new ObjectOutputStream(new FileOutputStream(App.pathCitas))){
+            citas.add(c);
+            bf.writeObject(citas);
+        }
+        catch(Exception e) { e.printStackTrace(); }
+    }
+
+    public static ArrayList<Cita> leerCita(){
+        try(ObjectInputStream bf = new ObjectInputStream(new FileInputStream(App.pathCitas))){
+        
+            citas2 = (ArrayList<Cita>)bf.readObject();   
+        }
+        catch(Exception e) { e.printStackTrace(); }
+        return citas2;
+    }
     //ToString de Cita
     /**
      * Muestra datos por pantalla
