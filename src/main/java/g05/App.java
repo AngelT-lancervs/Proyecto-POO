@@ -17,11 +17,12 @@ public class App extends Application {
     private static Scene scene;
 
     public static String pathEmpleadosCSV = "archivo/empleados/empleados.csv";
+    public static String pathClientesCSV= "archivo/clientes/clientes.csv";
 
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Menu"),800 ,650);
+        scene = new Scene(loadFXML("vista/Menu"),800 ,650);
         stage.setScene(scene);
         stage.setTitle("Sistema para manejo de atenciones");
         scene.getStylesheets().add(App.class.getResource("vista/css/estilos.css").toExternalForm());

@@ -40,19 +40,19 @@
                         <TableColumn fx:id="colDatosRepresentante" prefWidth="184.0" text="Datos representante" />
                      </columns>
                   </TableView>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
+                  <HBox fx:id="hBox" alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
                      <children>
                         <Button fx:id="botonAgregarC" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#agregarCliente" prefHeight="44.0" prefWidth="148.0" text="Agregar">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEditarE" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Editar">
+                        <Button fx:id="botonEditarC" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Editar">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEliminarE" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
+                        <Button fx:id="botonEliminarC" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
                            <padding>
                               <Insets left="10.0" />
                            </padding>

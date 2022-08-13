@@ -110,4 +110,8 @@ public class AgregarEmpleadoController implements Initializable {
             ioe.printStackTrace();
         }
     }
+
+
+
+
 }

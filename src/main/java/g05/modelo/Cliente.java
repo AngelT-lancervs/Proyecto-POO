@@ -1,4 +1,8 @@
 package g05.modelo;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,6 +16,7 @@ import java.util.Scanner;
  * @version 16/07/2022
  */
 public class Cliente extends Usuario {
+
     private String datos_del_representante;
     private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
 
@@ -167,4 +172,19 @@ public class Cliente extends Usuario {
     public String getDatos_del_representante() {
         return datos_del_representante;
     }
-}
+
+    public static ArrayList<Cliente> cargarClientes(String pathClientes){
+
+        ArrayList<Cliente> clientes=new ArrayList<>();
+        try(BufferedReader lectura=new BufferedReader(new FileReader(pathClientes))){
+            String linea;
+            while((linea=lectura.readLine())!=null){
+                String[] datos=linea.split(",");
+                Cliente cliente=new Cliente(datos[0], datos[1], datos[2],datos[3], datos[4]);
+                clientes.add(cliente);}}
+        catch(FileNotFoundException ex){
+            ex.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return clientes;}}

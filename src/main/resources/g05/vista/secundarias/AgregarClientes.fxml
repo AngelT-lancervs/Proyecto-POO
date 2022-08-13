@@ -1,53 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="borderPane" prefHeight="352.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.agregar.AgregarClienteController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.agregar.AgregarClienteController">
    <children>
-      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutY="318.0" prefHeight="26.0" prefWidth="256.0" text="Ingrese datos del representante:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="14.0" layoutY="262.0" prefHeight="26.0" prefWidth="544.0" text="Ingrese el teléfono:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="14.0" text="Nuevo Cliente">
-         <font>
-            <Font name="Microsoft JhengHei" size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="14.0" layoutY="192.0" prefHeight="26.0" prefWidth="544.0" text="Ingrese el email:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="14.0" layoutY="62.0" prefHeight="26.0" prefWidth="544.0" text="Ingrese el número de cédula:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="14.0" layoutY="127.0" prefHeight="26.0" prefWidth="544.0" text="Ingrese el nombre:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="236.0" layoutY="48.0" prefHeight="42.0" prefWidth="221.0" />
-      <TextArea layoutX="236.0" layoutY="106.0" prefHeight="42.0" prefWidth="221.0" />
-      <TextArea layoutX="236.0" layoutY="176.0" prefHeight="42.0" prefWidth="221.0" />
-      <TextArea layoutX="236.0" layoutY="235.0" prefHeight="42.0" prefWidth="228.0" />
-      <TextArea layoutX="236.0" layoutY="297.0" prefHeight="42.0" prefWidth="228.0" />
-      <Button fx:id="btnAceptar" layoutX="478.0" layoutY="102.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="97.0" text="ACEPTAR">
+      <Button fx:id="btnCancelar" layoutX="321.0" layoutY="353.0" mnemonicParsing="false" onAction="#regresarCliente" prefHeight="51.0" prefWidth="97.0" text="CANCELAR" />
+      <VBox layoutX="14.0" layoutY="71.0" prefHeight="267.0" prefWidth="575.0">
+         <children>
+            <GridPane prefHeight="300.0" prefWidth="518.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="339.99997863769534" minWidth="10.0" prefWidth="260.7999664306641" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.8000244140625" minWidth="200.0" prefWidth="306.40003356933596" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="60.8" minHeight="10.0" prefHeight="43.99998168945312" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="77.60001831054687" minHeight="10.0" prefHeight="45.20001831054688" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="75.20000000000002" minHeight="10.0" prefHeight="47.199981689453125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="66.60001831054686" minHeight="0.0" prefHeight="43.99998779296874" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="43.80000000000001" minHeight="10.0" prefHeight="43.80000000000001" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="544.0" text="Ingrese el nombre:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="544.0" text="Ingrese el número de cédula:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txtNombre" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="295.0" GridPane.columnIndex="1" />
+                  <TextArea fx:id="txtID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="295.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextArea fx:id="txtTelf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="544.0" text="Ingrese el teléfono:" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="222.0" text="Ingrese el email:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txtEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextArea fx:id="txtRepresent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="256.0" text="Ingrese datos del representante:" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <Button fx:id="btnAceptar" layoutX="179.0" layoutY="353.0" mnemonicParsing="false" onAction="#agregarCliente" prefHeight="51.0" prefWidth="97.0" text="ACEPTAR">
          <font>
             <Font name="Microsoft JhengHei Light" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnCancelar" layoutX="478.0" layoutY="164.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="97.0" text="CANCELAR" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="199.0" layoutY="32.0" text="NUEVO CLIENTE">
+         <font>
+            <Font name="Tahoma" size="28.0" />
+         </font>
+      </Label>
    </children>
-</Pane>
+   <stylesheets>
+      <URL value="@../css/estilos.css" />
+   </stylesheets>
+</AnchorPane>

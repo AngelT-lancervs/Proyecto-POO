@@ -79,7 +79,7 @@ public class EmpleadosController implements Initializable {
     //Eventos al presionar los botones del menú Empleados
     @FXML
     void backEmpleados(ActionEvent event) {
-        App.changeRootFXML("Menu");
+        App.changeRootFXML("vista/Menu");
     }
     @FXML
     void agregarEmpleado(ActionEvent actionEvent) {
