@@ -10,27 +10,31 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
 public class ClientesController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
-
+    @FXML
+    private VBox vBox;
     @FXML
     private TableView<Cliente> tablaClientes;
-
     @FXML
     private TableColumn<Cliente, String> colCedulaC;
-
     @FXML
     private TableColumn<Cliente, String> colNombreC;
 
@@ -53,11 +57,7 @@ public class ClientesController implements Initializable {
     @FXML
     private Button botonAgregarC;
     @FXML
-    private Button regresarE;
-
-
-
-
+    private Button regresarC;
 
 
     @Override
@@ -68,7 +68,6 @@ public class ClientesController implements Initializable {
         colTelefonoC.setCellValueFactory(new PropertyValueFactory<Cliente, String>("telefono"));
         colEmailC.setCellValueFactory(new PropertyValueFactory<Cliente, String>("email"));
         colDatosRepresentante.setCellValueFactory(new PropertyValueFactory<Cliente, String>("datos_del_representante"));
-
         tablaClientes.setItems(obtenerClientes());
 
     }
@@ -85,21 +84,21 @@ public class ClientesController implements Initializable {
     }
 
     @FXML
-    void agregarCliente(ActionEvent event) {
+    public void agregarCliente(ActionEvent event) {
         App.changeRootFXML("vista/secundarias/AgregarClientes");
     }
 
     @FXML
-    void regresarClientes(ActionEvent event) {
+    public void regresarClientes(ActionEvent event) {
         App.changeRootFXML("vista/Menu");
     }
 
     @FXML
-    void editarClientes(ActionEvent event){
-        hbox.getChildren().clear();
-        Button btnAceptar=new Button("Aceptar");
-        Button btnCancelar=new Button("Cancelar");
-        hbox.getChildren().addAll(btnAceptar,btnCancelar);
+    public void editarClientes(ActionEvent event) {
+
+        App.changeRootFXML("vista/secundarias/EditarCliente");
+
     }
+
 
 }
