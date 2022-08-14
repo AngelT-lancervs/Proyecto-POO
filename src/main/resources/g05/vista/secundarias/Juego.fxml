@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.JuegoController">
+   <children>
+      <VBox layoutX="11.0" layoutY="14.0" prefHeight="507.0" prefWidth="718.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="193.0" text="BINGO">
+               <VBox.margin>
+                  <Insets left="250.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="29.0" />
+               </font>
+            </Label>
+            <GridPane gridLinesVisible="true" prefHeight="281.0" prefWidth="694.0" styleClass="button" stylesheets="@../css/estilos.css">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="label0_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" />
+                  <Label fx:id="label1_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.rowIndex="1" />
+                  <Label fx:id="label2_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.rowIndex="2" />
+                  <Label fx:id="label3_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.rowIndex="3" />
+                  <Label fx:id="label0_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="1" />
+                  <Label fx:id="label1_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="label2_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="label3_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="label0_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="2" />
+                  <Label fx:id="label1_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="label2_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="label3_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label fx:id="label4_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label fx:id="label0_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="3" />
+                  <Label fx:id="label1_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Label fx:id="label2_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Label fx:id="label3_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Label fx:id="label4_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Label fx:id="label4_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="label4_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="e" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+            <HBox prefHeight="170.0" prefWidth="718.0">
+               <children>
+                  <VBox prefHeight="170.0" prefWidth="161.0">
+                     <children>
+                        <Label fx:id="label0_01" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="Aciertos :D ">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="aciertos" layoutX="10.0" layoutY="10.0" onMouseClicked="#accionJugador" prefHeight="41.0" prefWidth="165.0" text="0">
+                           <font>
+                              <Font name="Tahoma Bold" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="label0_012" layoutX="10.0" layoutY="10.0" onMouseClicked="#accionJugador" prefHeight="38.0" prefWidth="165.0" text="Errores :( ">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="errores" layoutX="20.0" layoutY="48.0" onMouseClicked="#accionJugador" prefHeight="41.0" prefWidth="165.0" text="0">
+                           <font>
+                              <Font name="Tahoma Bold" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="170.0" prefWidth="183.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="120.0" text="Seleccione el:">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Tahoma Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="numero" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="41.0" prefWidth="165.0" text="0">
+                           <font>
+                              <Font name="Tahoma Bold" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="170.0" prefWidth="264.0">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <children>
+                        <Button fx:id="botonGuardar" mnemonicParsing="false" onAction="#guardarPuntaje" prefHeight="52.0" prefWidth="176.0" text="GUARDAR">
+                           <VBox.margin>
+                              <Insets left="50.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Tahoma" size="23.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="botonSalir" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" onAction="#salir" prefHeight="52.0" prefWidth="171.0" text="SALIR">
+                           <VBox.margin>
+                              <Insets left="50.0" top="40.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Tahoma" size="22.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

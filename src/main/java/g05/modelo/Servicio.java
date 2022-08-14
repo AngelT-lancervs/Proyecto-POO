@@ -202,12 +202,13 @@ public class Servicio{
         catch(Exception e) { e.printStackTrace(); }
     }
 
-    public static ArrayList<Servicio> leerServicios(){
+    public static ArrayList<Servicio> leerServicios(String ruta){
         ArrayList<Servicio> sv = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("archivo/servicios/servicios.csv"))) {
-            String line;
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
+            String line = br.readLine();
             while ((line = br.readLine())!= null){
-                String[] parametros = line.split(", ");
+                String[] parametros = line.split(",");
                 Servicio s = new Servicio(parametros[0], parametros[1], Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
                 sv.add(s);
             }

@@ -29,6 +29,7 @@ public class Empleado extends Usuario{
         this.estado = estado;
         Sistema.empleados.add(this);
     }
+
     public static ArrayList<Empleado> cargarEmpleados(String pathEmpleados){
         ArrayList<Empleado> empleados = new ArrayList<Empleado>();
         try (BufferedReader br = new BufferedReader(new FileReader(pathEmpleados))) {

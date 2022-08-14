@@ -76,10 +76,11 @@ public class AgregarCitaController implements Initializable{
             CitasController.añadirComboBoxCl(opcionesCliente, c);
         }
 
-        /* 
+        /*  AQUÍ ESTÁ EL NULLPOINTEREXCEPTION :(
         ObservableList<Servicio> servicios1 = CitasController.obtenerServicios();
         for (Servicio s: servicios1){
             CitasController.añadirComboBoxSer(opcionesServicios, s);
+            
         }
         */
     }

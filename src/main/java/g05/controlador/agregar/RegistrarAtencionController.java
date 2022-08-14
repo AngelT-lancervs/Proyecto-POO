@@ -66,7 +66,7 @@ public class RegistrarAtencionController implements Initializable {
     
     @FXML
     public void entrarJuego(){
-
+        App.changeRootFXML("vista/secundarias/Juego");
     }
     
     

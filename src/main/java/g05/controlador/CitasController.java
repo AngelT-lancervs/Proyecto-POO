@@ -44,7 +44,7 @@ public class CitasController implements Initializable {
     private Button regresarCi;
 
     @FXML
-    private TableView<Cita> tablaCitas;
+    private TableView<String> tablaCitas;
 
     @FXML
     private Button botonRegistrarA;
@@ -64,10 +64,10 @@ public class CitasController implements Initializable {
     private TableColumn<Empleado, String> colEmpleadoCi;
 
     @FXML
-    private TableColumn<Cita, LocalDate> colFechaCi;
+    private TableColumn<Cita, String> colFechaCi;
 
     @FXML
-    private TableColumn<Cita, LocalTime> colHoraCi;
+    private TableColumn<Cita, String> colHoraCi;
 
     @FXML
     private TableColumn<Servicio, String> colServicioCi;
@@ -82,17 +82,17 @@ public class CitasController implements Initializable {
         //colCedula.setCellValueFactory(new PropertyValueFactory<Cliente, String>("Cédula"));
         colNombreCi.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nombre"));
         colEmpleadoCi.setCellValueFactory(new PropertyValueFactory<Empleado, String>("proveedor"));
-        colFechaCi.setCellValueFactory(new PropertyValueFactory<Cita, LocalDate>("fecha"));
-        colHoraCi.setCellValueFactory(new PropertyValueFactory<Cita, LocalTime>("hora"));
+        colFechaCi.setCellValueFactory(new PropertyValueFactory<Cita, String>("fecha"));
+        colHoraCi.setCellValueFactory(new PropertyValueFactory<Cita, String>("hora"));
         colServicioCi.setCellValueFactory(new PropertyValueFactory<Servicio, String>("servicio"));
         tablaCitas.setItems(obtenerCitas());
 
     }
 
-    public ObservableList<Cita> obtenerCitas() {
-        ObservableList<Cita> citas = FXCollections.observableArrayList();
-        ArrayList<Cita> ci = Cita.leerCita();
-        for (Cita c : ci) {
+    public ObservableList<String> obtenerCitas() {
+        ObservableList<String> citas = FXCollections.observableArrayList();
+        ArrayList<String> ci = Cita.leerCita();
+        for (String c : ci) {
             citas.add(c);
         }
         return citas;
@@ -100,9 +100,10 @@ public class CitasController implements Initializable {
 
     public static ObservableList<Servicio> obtenerServicios() {
         ObservableList<Servicio> sv = FXCollections.observableArrayList();
-        ArrayList<Servicio> servicios = Servicio.leerServicios();
-        for (Servicio s : servicios) {
+        ArrayList<Servicio> servicios_citas = Servicio.leerServicios(App.pathServiciosCSV);
+        for (Servicio s : servicios_citas) {
             sv.add(s);
+            System.out.println(s);
         }
         return sv;
     }

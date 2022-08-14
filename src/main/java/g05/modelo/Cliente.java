@@ -36,6 +36,7 @@ public class Cliente extends Usuario {
         Sistema.clientes.add(this);
     }
 
+
     /**
      * Muestra por pantalla los datos del cliente
      */

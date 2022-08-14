@@ -3,8 +3,14 @@ package g05.modelo;
 import java.time.format.DateTimeParseException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -20,7 +26,7 @@ import g05.App;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Cita implements Serializable{
+public class Cita{
     private Cliente cliente;
     private Empleado proovedor;
     private Servicio servicio;
@@ -289,26 +295,38 @@ public class Cita implements Serializable{
     
     //Metodo para guardar en un archivo la informacion de las citas
     public static void escribirCita(Cita c){
-        try(ObjectOutputStream bf = new ObjectOutputStream(new FileOutputStream(App.pathCitas))){
-            citas.add(c);
-            bf.writeObject(citas);
-        }
-        catch(Exception e) { e.printStackTrace(); }
+
+            try(BufferedWriter br = new BufferedWriter(new FileWriter(App.pathCitas, true))){
+                    br.write(c.toString());
+                    br.newLine();
+                    br.write("");
+            }catch (IOException ioe){
+                ioe.printStackTrace();
+            }
     }
 
-    public static ArrayList<Cita> leerCita(){
-        try(ObjectInputStream bf = new ObjectInputStream(new FileInputStream(App.pathCitas))){
-        
-            citas2 = (ArrayList<Cita>)bf.readObject();   
+    public static ArrayList<String> leerCita(){
+        ArrayList<String> ci = new ArrayList<>();
+
+        try(BufferedReader bf = new BufferedReader(new FileReader(App.pathCitas))){
+            String line;
+            while ((line = bf.readLine())!= null){
+                String[] parametros = line.split(", ");
+                String c = parametros[4] + parametros[3] + parametros[2]+ parametros[0] + parametros[1];
+                ci.add(c);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("El archivo no existe.");} catch (IOException e) {
+            e.printStackTrace();
         }
-        catch(Exception e) { e.printStackTrace(); }
-        return citas2;
+        return ci;
     }
     //ToString de Cita
     /**
      * Muestra datos por pantalla
      */
     public String toString(){
-        return ">> Cliente: " + cliente.getNombre() + " | Proovedor: " + proovedor.getNombre() + " | Servicio: " + servicio.getNombreServicio() +" | Hora: " + hora+ " | Fecha: "+ fecha;
+        return cliente.getNombre() + ", " + proovedor.getNombre() + ", " + servicio.getNombreServicio() +", " + hora+ ", "+ fecha;
     }
+    //LocalDate fecha, LocalTime hora, Servicio servicio, Cliente cliente, Empleado proovedor
 }
