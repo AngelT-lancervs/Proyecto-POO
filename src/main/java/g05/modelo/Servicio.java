@@ -24,6 +24,7 @@ public class Servicio{
     private Empleado empleado;
     private double precio;
     private boolean estado;
+
     public static ArrayList<Servicio> svs = new ArrayList<>();
     
     
@@ -40,7 +41,7 @@ public class Servicio{
         this.duracion = duracion2;
         this.precio = pre;
         this.estado = estado;
-        Sistema.servicios.add(this);
+
     }
 
     /**
@@ -65,76 +66,10 @@ public class Servicio{
     }
 
     /**
-     * Muestra la lista de Servicios que se encuentran disponibles
-     */
-    public static void mostrarServicios(){
-        int count = 0;
-        for(Servicio c: Sistema.servicios)
-        {
-            count++;
-            System.out.println(count+ ". " + c);
-        }
-    }
-
-    /**
-     * Metodo que presenta "Activo" si es true y "Inactivo" si es false
-     * @return retorna Activo O Inactivo
-     */
-    public  String activoOinactivo(){
-        if(estado){
-            return "Activo";
-        }else{
-            return "Inactivo";
-        }
-    }
-
-    /**
-     * Agrega el servicio a la lista de servicios que tiene el Centro
-     */
-    public static void agregarServicio(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del servicio:");
-        String nombre = sc.nextLine();
-        System.out.println("Ingrese la duración del servicio en minutos:");
-        String duracion = sc.nextLine();
-        System.out.println("Ingrese el precio del servicio: ");
-        double prec= sc.nextDouble();
-        Servicio ser = new Servicio(nombre, duracion, prec, true);
-    }
-
-
-    /**
-     * Edita determinados campos del Servicio
-     */
-    public void editarServicio(){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("-----[Menú/Servicio/Editar]-----\n");
-        System.out.print("1.Nombre \n2.Duración \n3.Precio\n");
-        int opcion = Sistema.pedirNumero();
-        switch (opcion){
-            case 1:
-                System.out.print("\nIngrese el nuevo nombre: ");
-                String newNombre = sc.nextLine();
-                this.nombreServicio = newNombre;
-                break;
-            case 2:
-                System.out.print("\nIngrese nueva duración: ");
-                String newDuracion = sc.nextLine();
-                this.duracion = newDuracion;
-                break;
-            case 3:
-                System.out.print("\nIngrese el nuevo precio: ");
-                Double newPrecio = sc.nextDouble();
-                this.precio = newPrecio;
-                break;
-            }  
-    }
-
-    /**
      * Compara los servicios por el nombre haciendo uso del metodo equals
      */
     public boolean equals(Object obj){
-        if(this==obj){
+        if(this == obj){
             return true;
         }
         if(obj!=null && getClass()==obj.getClass()){
@@ -142,25 +77,36 @@ public class Servicio{
             return(this.nombreServicio.equals(other.nombreServicio));
         }
         return false;
-        }
-    
-     /**
-     * Cambia el estado a inactivo si se elimina el Servicio
-     */
-    public void eliminarServicio(){
-        this.estado = false;
-    }
-        
-    public String toString(){
-        return ">> Nombre del Servicio: "+nombreServicio +" | Duración: "+duracion+ " min | "+ "Precio: $"+precio+" | "+"Estado: "+activoOinactivo();
     }
 
-    public static void mostrarMenu(){
-        System.out.print("-----[Menú/Servicios]-----\n");
-        System.out.print("1. Agregar Servicio\n");
-        System.out.print("2. Editar Servicio\n");
-        System.out.print("3. Eliminar Servicio\n");
-        System.out.print("4. Atrás\n");
+    //Escribir servicios
+    public void escribirServicio(Servicio s){
+        try(BufferedWriter bf = new BufferedWriter(new FileWriter(App.pathServiciosCSV, true))){
+            bf.write(s.getNombreServicio() +", " +  s.getPrecio() + ", " + s.getDuracion());
+        }
+        catch(Exception e) { e.printStackTrace(); }
+    }
+
+    public static ArrayList<Servicio> leerServicios(String ruta){
+        ArrayList<Servicio> sv = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
+            String line = br.readLine();
+            while ((line = br.readLine())!= null){
+                String[] parametros = line.split(",");
+                Servicio s = new Servicio(parametros[0], parametros[1], Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
+                sv.add(s);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("El archivo no existe.");
+        } catch (IOException ex) {
+            System.out.println("Error IOException:"+ex.getMessage());
+        }
+        return sv;
+    }
+
+    public String toString(){
+        return ">> Nombre del Servicio: "+nombreServicio +" | Duración: "+duracion+ " min | "+ "Precio: $"+precio+" | "+"Estado: "+getEstado();
     }
 
     /**
@@ -186,37 +132,10 @@ public class Servicio{
     public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
-    public boolean getEstado() {
-        return estado;
+    public String getEstado() {
+        return estado?"Activo":"Inactivo";
     }
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
-
-
-    //Escribir servicios
-    public void escribirServicio(Servicio s){
-        try(BufferedWriter bf = new BufferedWriter(new FileWriter(App.pathServiciosCSV, true))){
-            bf.write(s.getNombreServicio() +", " +  s.getPrecio() + ", " + s.getDuracion());
-        }
-        catch(Exception e) { e.printStackTrace(); }
-    }
-
-    public static ArrayList<Servicio> leerServicios(String ruta){
-        ArrayList<Servicio> sv = new ArrayList<>();
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
-            String line = br.readLine();
-            while ((line = br.readLine())!= null){
-                String[] parametros = line.split(",");
-                Servicio s = new Servicio(parametros[0], parametros[1], Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
-                sv.add(s);
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println("El archivo no existe.");
-        } catch (IOException ex) {
-            System.out.println("Error IOException:"+ex.getMessage());
-        }
-        return sv;
     }
 }

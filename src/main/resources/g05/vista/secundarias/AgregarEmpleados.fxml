@@ -39,22 +39,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField fx:id="txtTelE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="txtTelE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#datosCorrectos" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtCedE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1">
+                  <TextField fx:id="txtCedE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#datosCorrectos" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtCorreoE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="txtCorreoE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#datosCorrectos" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtNomE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="txtNomE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#datosCorrectos" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="12.0" />
                      </font>

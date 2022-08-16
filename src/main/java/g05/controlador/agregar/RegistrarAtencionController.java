@@ -48,7 +48,6 @@ public class RegistrarAtencionController implements Initializable {
 
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -60,7 +59,6 @@ public class RegistrarAtencionController implements Initializable {
 
     @FXML
     public void agregarAtencion(ActionEvent event) {
-        
 
     }
     
@@ -68,26 +66,9 @@ public class RegistrarAtencionController implements Initializable {
     public void entrarJuego(){
         App.changeRootFXML("vista/secundarias/Juego");
     }
-    
-    
 
     @FXML
     void atrasAtencion(ActionEvent event) {
-        try {
-            Scene scene = anchorPane.getScene();
-            FXMLLoader loader =  new FXMLLoader(App.class.getResource("vista/Citas.fxml"));
-            scene.setRoot(loader.load());
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        App.changeRootFXML("vista/Citas");
     }
-    
- 
-        
-
-
-
-
 }

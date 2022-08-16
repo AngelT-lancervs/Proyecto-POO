@@ -1,10 +1,24 @@
-.button {
-    -fx-padding: 10;
-    -fx-background-color: #FFFFFF;
-    -fx-text-fill: #000000;
-    -fx-background-radius: 20;
-    -fx-border-radius: 30;
+.backgroundColor{
+    -fx-background-color: #eceff4;
 }
+
+.button {
+    -fx-background-color: #d8dee9;
+    -fx-text-fill: #2e3440;
+    -fx-background-radius: 30;
+}
+.button:hover {
+    -fx-background-color: #4c566a;
+    -fx-text-fill: #d8dee9;
+    -fx-background-radius: 30;
+}
+.button:pressed {
+    -fx-background-color: #2e3440;
+    -fx-text-fill: #d8dee9;
+    -fx-background-radius: 30;
+}
+
+
 .table-view {
     -fx-background-color: transparent;
 }

@@ -93,8 +93,8 @@ public class AgregarCitaController implements Initializable{
         String h = this.hora.getText();
 
         if(confirmarFormato(f, h)){
-            Cita cita1 = new Cita(LocalDate.parse(f), LocalTime.parse(h), this.opcionesServicios.getValue(), this.opcionesCliente.getValue(), this.opcionesEmpleado.getValue());
-            Cita.escribirCita(cita1);
+            //Cita cita1 = new Cita(LocalDate.parse(f), LocalTime.parse(h), this.opcionesServicios.getValue(), this.opcionesCliente.getValue(), this.opcionesEmpleado.getValue());
+            //Cita.escribirCita(cita1);
             Alert alertaRegistro = new Alert(Alert.AlertType.INFORMATION);
             alertaRegistro.setTitle("Registro existoso");
             alertaRegistro.setHeaderText("REGISTRO");
@@ -104,9 +104,6 @@ public class AgregarCitaController implements Initializable{
         
         }
         else{ mostrarAlerta(); }
-
-
-        
     }
 
 
@@ -155,7 +152,7 @@ public class AgregarCitaController implements Initializable{
             return true;
 
             } catch (DateTimeParseException e){}
-                return false;
+            return false;
         }
     }
 

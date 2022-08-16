@@ -13,16 +13,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="415.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.ClientesController">
+<AnchorPane fx:id="anchorPane" prefHeight="415.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.ClientesController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="6.0" prefHeight="430.0" prefWidth="786.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="-5.0" prefHeight="415.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="CLIENTES">
                <font>
                   <Font name="Tahoma" size="28.0" />
                </font>
             </Label>
-            <GridPane alignment="CENTER" prefHeight="348.0" prefWidth="667.0">
+            <GridPane alignment="CENTER" prefHeight="351.0" prefWidth="706.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -31,7 +31,7 @@
                   <RowConstraints maxHeight="89.0" minHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="tablaClientes" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="276.0" prefWidth="665.0" stylesheets="@css/estilos.css">
+                  <TableView fx:id="tablaClientes" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="273.0" prefWidth="702.0" stylesheets="@css/estilos.css">
                      <columns>
                         <TableColumn fx:id="colNombreC" prefWidth="121.0" text="Nombre" />
                         <TableColumn fx:id="colCedulaC" prefWidth="108.0" text="Cédula" />

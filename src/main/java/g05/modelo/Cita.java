@@ -33,7 +33,7 @@ public class Cita{
     private LocalTime hora;
     private LocalDate fecha;
     public static ArrayList<Cita> citas = new ArrayList<Cita>();
-    public static ArrayList<Cita> citas2 = new ArrayList<Cita>();
+
 
 
 
@@ -54,210 +54,38 @@ public class Cita{
         this.fecha = fecha;
     }
 
+
     //Métodos
-    /**
-     * Metodo que presenta el menu de la opcion cita al Usuario
-     *Representa el menu que se presenta al usuario al ingresar a la opcion de Citas
-     */
-    public static void mostrarMenu(){
-        System.out.print("-----[Menú/Citas]-----\n");
-        System.out.print("1. Crear cita\n");
-        System.out.print("2. Eliminar cita\n");
-        System.out.print("3. Consultar citas por fecha\n");
-        System.out.print("4. Atrás\n");
-    }
 
-    /**
-     * Crea una cita recibiendo como parametros los datos de la misma, a su vez verifica que no exista otra cita a la misma fecha y hora con la persona encargada
-     * @param f_nuevaC fecha de la cita que se creara
-     * @param h_nuevaC hora de la cita que se creara
-     * @param s_nuevoC Servicio a prestarse en la cita
-     * @param c_nuevaC Cliente que accederá a la cita
-     * @param p_nuevaC Empleado que prestará el Servicio en la cita
-     */
+    public static void escribirCita(Cita c){
 
-    public static void comprobarCita(LocalDate f_nuevaC, LocalTime h_nuevaC, Servicio s_nuevoC, Cliente c_nuevaC, Empleado p_nuevaC){
-        Cita cita1 = new Cita(f_nuevaC, h_nuevaC, s_nuevoC, c_nuevaC, p_nuevaC);
-        // Si no hay ninguna cita
-        if(getCitas().size() == 0){
-            citas.add(cita1);//Registramos la cita en el sistema.
-            c_nuevaC.getCitasCliente().add(cita1); //Registramos en las citas pendientes del cliente.
-            System.out.print("\n¡Se creó la cita correctamente!\n");
-        }
-        else {
-
-            for(Cita c : citas){
-                LocalDate f = c.getFecha();
-                LocalTime h = c.getHora();
-                Empleado p = c.getProovedor();
-
-                if(!(f_nuevaC.equals(f) && h_nuevaC.equals(h) && p_nuevaC.equals(p))){ // Comprueba si existe otra cita con el mismo empleado a la misma fecha y hora.
-                    citas.add(cita1); //Registramos la cita en el sistema.
-                    c_nuevaC.getCitasCliente().add(cita1); //Registramos en las citas pendientes del cliente.
-                    System.out.print("¡Se creó la cita correctamente !\n");
-                    break;
-                }
-                else{
-                    System.out.println("[ERROR] No está disponible una cita en esa fecha y hora con "+p_nuevaC.getNombre()+".\n");
-                }
-            }
+        try(BufferedWriter br = new BufferedWriter(new FileWriter(App.pathCitas, true))){
+            br.write(c.toString());
+            br.newLine();
+            br.write("");
+        }catch (IOException ioe){
+            ioe.printStackTrace();
         }
     }
 
-    /**
-     * Metodo que permite la busqueda de citas usando la cedula
-     * @param ced
-     * @return lista de las citas encontradas para la cedula ingresada
-     */
-    public static ArrayList<Cita> buscarCitasPorCedulaCliente(String ced) {
-        Cliente clienteEncontrado = null;
-        if(citas.size() != 0){
-            for(Cliente c : Sistema.clientes) {
-                if(c.getCedulaR().equals(ced)) {
-                    clienteEncontrado = c;
-                }
+    public static ArrayList<String> leerCita(){
+        ArrayList<String> ci = new ArrayList<>();
+
+        try(BufferedReader bf = new BufferedReader(new FileReader(App.pathCitas))){
+            String line;
+            while ((line = bf.readLine())!= null){
+                String[] parametros = line.split(",");
+                String c = parametros[4] + parametros[3] + parametros[2]+ parametros[0] + parametros[1];
+                ci.add(c);
             }
-            if (clienteEncontrado == null){
-                System.out.print("[ERROR] El cliente no está registrado.\n");
-                return null;
-            } else if (clienteEncontrado.getCitasCliente().size() == 0){
-                System.out.print("[AVISO] El cliente no tiene citas pendientes.\n");
-                return null;
-            }
-            return clienteEncontrado.getCitasCliente();
-        } else {
-          System.out.print("[ERROR] No existe ninguna cita registrada, por favor, registre alguna.\n");
-          return null;
+        } catch (FileNotFoundException ex) {
+            System.out.println("El archivo no existe.");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return ci;
     }
 
-    /**
-     * Metodo para pedir fecha
-     * @param sc
-     * @return retorna una fecha
-     */
-    public static LocalDate pedirFecha(Scanner sc){
-        LocalDate d = null; // Variable de la fecha.
-
-        while(d == null) { //Comprueba que la fecha se escriba correctamente.
-            try {
-                System.out.print("\nIngrese fecha de la cita con el formato YYYY-MM-DD (Ejemplo: 2022-01-04): ");
-                String fecha_Cita = sc.nextLine();
-                d = LocalDate.parse(fecha_Cita);
-            } catch (DateTimeParseException e) {
-                System.out.print("\n[ERROR] Se ingresó la fecha incorrectamente. (Formato -> YYYY-MM-DD)\n");
-                d = null;
-            }
-        }
-        return d;
-    }
-
-    /**
-     * Metodo para pedir hora
-     * @param sc
-     * @return retorna una hora
-     */
-    public static LocalTime pedirHora(Scanner sc){
-        LocalTime t = null; // Variable de la hora.
-        while(t == null) { //Comprueba que la hora se escriba correctamente.
-            try{
-                System.out.print("\nIngrese la hora de la cita con el formato HH:MM:SS ");
-                String hora_Cita = sc.nextLine();
-                t = LocalTime.parse(hora_Cita);
-            } catch (DateTimeParseException e){
-                System.out.print("\n[ERROR] Se ingresó la hora incorrectamente. (Formato -> HH:MM:SS)\n");
-                t = null;
-            }
-        }
-        return t;
-    }
-
-    /**
-     * Elimina una cita usando el numero de cedula del Cliente
-     */
-    public static void eliminarCita(String ced){
-        ArrayList<Cita> citasPendientes = buscarCitasPorCedulaCliente(ced);
-        if(citasPendientes != null){
-            System.out.print("--Citas Pendientes--\n");
-            for(int i = 0; i <= citasPendientes.size()-1 ; i++) {
-                int count = i + 1;
-                System.out.print(count+". "+citasPendientes.get(i)+"\n");
-            }
-            System.out.print("Seleccione una cita a eliminar: \n");
-            int opcion = Sistema.pedirNumero();
-            int indiceCita = 0;
-            Cita citaEliminar = citasPendientes.get(opcion-1);
-            citasPendientes.remove(opcion-1); // Eliminar la cita de las citas pendientes del cliente.
-            for(Cita c : citas){
-                if(c.equals(citaEliminar)){
-                    indiceCita = citas.indexOf(citaEliminar);
-                }
-            }
-            citas.remove(indiceCita); // Eliminar la cita del sistema.
-            System.out.print("¡Cita eliminada!\n");
-        }
-    }
-    /**
-     * Consulta las citas que existen pidiendo una fecha 
-     */
-    public static void consultarCitasPorFecha(Scanner sc) {
-        if (citas.size() == 0){
-            System.out.print("[ERROR] No existe ninguna cita registrada, por favor, registre alguna.\n");
-        }
-        else{
-            LocalDate fecha = pedirFecha(sc);
-            ArrayList <Cita> citasFecha = new ArrayList<>();
-
-            for(Cita c: citas ){
-                if (c.getFecha().isEqual(fecha)){
-                    citasFecha.add(c);
-                }
-            }
-
-            if(citasFecha.size()!=0){
-                System.out.print("Citas para el día "+fecha+" :\n");
-                for(Cita ci: citasFecha){
-                    System.out.println(ci);
-                }
-            } else{
-                    System.out.print("\n[ERROR] No existe ninguna cita en esa fecha.\n");
-            }
-        }
-    }
-    
-    /**
-     * Agrega las citas al sistema
-     * @param sc
-     */
-    public static void agregarCita (Scanner sc) {
-        LocalDate d = pedirFecha(sc);
-        LocalTime t = pedirHora(sc);
-        System.out.print("Seleccione el servicio: \n");
-        Servicio.mostrarServicios();
-        int opcion = Sistema.pedirNumero();
-        Servicio n_Servicio = Sistema.servicios.get(opcion-1);
-
-        System.out.print("Seleccione el cliente: \n");
-        Cliente.mostrarClientes();
-        opcion = Sistema.pedirNumero();
-        Cliente n_Cliente = Sistema.clientes.get(opcion-1);
-
-        System.out.print("Seleccione el empleado: \n");
-        Empleado.mostrarEmpleados();
-        opcion = Sistema.pedirNumero();
-        Empleado n_Empleado = Sistema.empleados.get(opcion-1);
-
-       if (!n_Servicio.getEstado()) {
-           System.out.print("\n[ERROR] El servicio seleccionado no está disponible por el momento.\n");
-       } //else if (!n_Empleado.getEstado()) {
-          // System.out.print("\n[ERROR] El empleado seleccionado no está disponible por el momento.\n");
-       //}
-       //else {
-      //     comprobarCita(d, t, n_Servicio, n_Cliente, n_Empleado);
-       //}
-    }
-
-    
     //Getters & Setters
     public LocalTime getHora() {
         return hora;
@@ -292,41 +120,10 @@ public class Cita{
     }
 
 
-    
-    //Metodo para guardar en un archivo la informacion de las citas
-    public static void escribirCita(Cita c){
-
-            try(BufferedWriter br = new BufferedWriter(new FileWriter(App.pathCitas, true))){
-                    br.write(c.toString());
-                    br.newLine();
-                    br.write("");
-            }catch (IOException ioe){
-                ioe.printStackTrace();
-            }
-    }
-
-    public static ArrayList<String> leerCita(){
-        ArrayList<String> ci = new ArrayList<>();
-
-        try(BufferedReader bf = new BufferedReader(new FileReader(App.pathCitas))){
-            String line;
-            while ((line = bf.readLine())!= null){
-                String[] parametros = line.split(", ");
-                String c = parametros[4] + parametros[3] + parametros[2]+ parametros[0] + parametros[1];
-                ci.add(c);
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println("El archivo no existe.");} catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ci;
-    }
-    //ToString de Cita
     /**
      * Muestra datos por pantalla
      */
     public String toString(){
         return cliente.getNombre() + ", " + proovedor.getNombre() + ", " + servicio.getNombreServicio() +", " + hora+ ", "+ fecha;
     }
-    //LocalDate fecha, LocalTime hora, Servicio servicio, Cliente cliente, Empleado proovedor
 }

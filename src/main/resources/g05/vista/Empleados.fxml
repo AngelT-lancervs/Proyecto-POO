@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.EmpleadosController">
+<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.EmpleadosController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="-9.0" prefHeight="430.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="EMPLEADOS">
                <font>
@@ -31,7 +31,7 @@
                 <RowConstraints maxHeight="89.0" minHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tablaEmpleados" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@css/estilos.css">
+                  <TableView fx:id="tablaEmpleados" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@css/estilos.css">
                      <columns>
                         <TableColumn fx:id="colNombreE" prefWidth="109.0" text="Nombre" />
                         <TableColumn fx:id="colCedulaE" prefWidth="101.0" text="Cédula" />
@@ -47,12 +47,12 @@
                               <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEditarE" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Editar">
+                        <Button fx:id="botonEditarE" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#editarEmpleado" prefHeight="44.0" prefWidth="148.0" text="Editar">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEliminarE" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
+                        <Button fx:id="botonEliminarE" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarEmpleado" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
                            <padding>
                               <Insets left="10.0" />
                            </padding>

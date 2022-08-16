@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="548.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.MenuController">
+<AnchorPane fx:id="anchorPane" prefHeight="548.0" prefWidth="740.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.MenuController">
    <children>
       <VBox alignment="CENTER" fillWidth="false" prefHeight="548.0" prefWidth="740.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -40,7 +40,7 @@
                               <Rectangle2D height="800.0" width="800.0" />
                            </viewport>
                         </ImageView>
-                        <Label fx:id="infoMenu" alignment="TOP_LEFT" prefHeight="98.0" prefWidth="323.0" text="Seleccione una opción." textFill="#ff712f">
+                        <Label fx:id="infoMenu" alignment="TOP_LEFT" prefHeight="98.0" prefWidth="323.0" text="Seleccione una opción." textFill="#2e3440">
                            <font>
                               <Font name="Microsoft YaHei Light" size="15.0" />
                            </font>
