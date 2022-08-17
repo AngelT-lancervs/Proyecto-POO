@@ -54,7 +54,7 @@
                               <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEliminarS" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
+                        <Button fx:id="botonEliminarS" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarServicio" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
                            <padding>
                               <Insets left="10.0" />
                            </padding>

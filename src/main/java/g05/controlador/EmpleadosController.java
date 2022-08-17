@@ -119,7 +119,7 @@ public class EmpleadosController implements Initializable {
         controladorEditarE.cargarDatosEmpleado(e);
     }
     @FXML
-    void eliminarEmpleado(ActionEvent event) {
+    void eliminarEmpleado(ActionEvent event){
         Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
         Alert alertaEliminarE = new Alert(Alert.AlertType.CONFIRMATION);
         alertaEliminarE.setTitle("Eliminar empleado "+e.getNombre());
@@ -127,16 +127,15 @@ public class EmpleadosController implements Initializable {
         alertaEliminarE.setContentText("¿Está seguro que quiere eliminar al empleado "+e.getNombre()+"?");
         Optional<ButtonType> resultado = alertaEliminarE.showAndWait();
         //Si el usuario da OK, se eliminará el empleado seleccionado.
-        if(resultado.get() == ButtonType.OK){
+        if(resultado.get() == ButtonType.OK) {
             ArrayList<Empleado> empleados = empleadosCSV;
             int ind = empleados.indexOf(e);
             empleados.remove(ind);
-            Empleado.actualizarCSV(App.pathEmpleadosCSV,empleados);
+            Empleado.actualizarCSV(App.pathEmpleadosCSV, empleados);
             tablaEmpleados.setItems(obtenerEmpleados());
             // Los botones se desactivan nuevamente.
             botonEditarE.setDisable(true);
-            botonEliminarE.setDisable(true);
+            botonEliminarE.setDisable(true);}
         }
     }
 
-}

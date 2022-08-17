@@ -1,6 +1,4 @@
 package g05;
-
-import g05.controlador.editar.EditarEmpleadoController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

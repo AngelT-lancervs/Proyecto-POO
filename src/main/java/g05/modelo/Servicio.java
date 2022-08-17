@@ -82,7 +82,7 @@ public class Servicio{
     //Escribir servicios
     public void escribirServicio(Servicio s){
         try(BufferedWriter bf = new BufferedWriter(new FileWriter(App.pathServiciosCSV, true))){
-            bf.write(s.getNombreServicio() +", " +  s.getPrecio() + ", " + s.getDuracion());
+            bf.write(s.getNombreServicio() +"," +  s.getDuracion() + "," + s.getPrecio()+","+getEstado());
         }
         catch(Exception e) { e.printStackTrace(); }
     }
@@ -91,9 +91,10 @@ public class Servicio{
         ArrayList<Servicio> sv = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
-            String line = br.readLine();
+            String line;
             while ((line = br.readLine())!= null){
                 String[] parametros = line.split(",");
+                System.out.println(parametros.length);
                 Servicio s = new Servicio(parametros[0], parametros[1], Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
                 sv.add(s);
             }
@@ -137,5 +138,25 @@ public class Servicio{
     }
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public static boolean retornaEstado(String s){
+        if (s.equals("Activo")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static void actualizarCSV(String pathCSV, ArrayList<Servicio> serviciosActualizado){
+        try(BufferedWriter br = new BufferedWriter(new FileWriter(pathCSV, false))){
+            for (Servicio s : serviciosActualizado){
+                br.write(s.getNombreServicio()+","+s.getDuracion()+","+s.getPrecio()+","+ retornaEstado(s.getEstado()));
+                br.newLine();
+                br.write("");
+            }
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
     }
 }
