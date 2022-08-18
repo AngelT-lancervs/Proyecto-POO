@@ -98,6 +98,8 @@ public class JuegoController implements Initializable {
 
     ArrayList<Integer> nms = JuegoController.generarNumeros();
 
+    ArrayList<Label> labels = new ArrayList<>();
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -123,8 +125,31 @@ public class JuegoController implements Initializable {
         this.label4_2.setText(String.valueOf(nms.get(18)));
         this.label4_3.setText(String.valueOf(nms.get(19)));
 
+        labels.add(label0_0);
+        labels.add(label0_1);
+        labels.add(label0_2);
+        labels.add(label0_3);
+        labels.add(label1_0);
+        labels.add(label1_1);
+        labels.add(label1_2);
+        labels.add(label1_3);
+        labels.add(label2_0);
+        labels.add(label2_1);
+        labels.add(label2_2);
+        labels.add(label2_3);
+        labels.add(label3_0);
+        labels.add(label3_1);
+        labels.add(label3_2);
+        labels.add(label3_3);
+        labels.add(label4_0);
+        labels.add(label4_1);
+        labels.add(label4_2);
+        labels.add(label4_3);
+
+
         int numaleatorio = (int) (Math.random()*20);
         this.numero.setText(String.valueOf(nms.get(numaleatorio)));
+        nms.remove(numaleatorio);
         
 
 
@@ -144,7 +169,7 @@ public class JuegoController implements Initializable {
 
     @FXML
     public void accionJugador(){
-        
+        comprobarAccion(labels);
     }
 
 
@@ -169,4 +194,35 @@ public class JuegoController implements Initializable {
         return nums;
     }
 
+    //Comprobar movimiento
+    public void comprobarAccion(ArrayList<Label> lb){
+
+        for(Label l: lb){
+
+            l.setOnMouseClicked(ev -> {
+                int numAciertos = Integer.parseInt(aciertos.getText());
+                int numErrores = Integer.parseInt(errores.getText());
+
+
+                if(l.getText().equals(numero.getText())){
+                    numAciertos += 1;
+                    this.aciertos.setText(String.valueOf(numAciertos));
+                    cambiarNumero(nms);
+                } else {
+                    numErrores += 1;
+                    this.errores.setText(String.valueOf(numErrores));
+                }
+
+            });
+
+        }
+    }
+
+
+    //Cambiar Numero
+    public void cambiarNumero(ArrayList<Integer> lb){
+        int numA = (int) (Math.random()*lb.size());
+        this.numero.setText(String.valueOf(lb.get(numA)));
+        lb.remove(numA);
+    }
 }
