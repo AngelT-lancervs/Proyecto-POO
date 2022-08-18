@@ -11,6 +11,7 @@ import g05.App;
 import g05.controlador.CitasController;
 import g05.controlador.ClientesController;
 import g05.controlador.EmpleadosController;
+import g05.controlador.ServiciosController;
 import g05.modelo.*;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -55,7 +56,7 @@ public class AgregarCitaController implements Initializable{
     private ComboBox<Empleado> opcionesEmpleado;
 
     @FXML
-    ComboBox<Servicio> opcionesServicios;
+    private ComboBox<Servicio> serviciosCita;
 
     @FXML
     private TextField fecha;
@@ -76,13 +77,13 @@ public class AgregarCitaController implements Initializable{
             CitasController.añadirComboBoxCl(opcionesCliente, c);
         }
 
-        /*  AQUÍ ESTÁ EL NULLPOINTEREXCEPTION :(
         ObservableList<Servicio> servicios1 = CitasController.obtenerServicios();
         for (Servicio s: servicios1){
-            CitasController.añadirComboBoxSer(opcionesServicios, s);
-            
+            CitasController.añadirComboBoxSer(serviciosCita, s);
         }
-        */
+        
+
+
     }
 
 
@@ -93,14 +94,15 @@ public class AgregarCitaController implements Initializable{
         String h = this.hora.getText();
 
         if(confirmarFormato(f, h)){
-            //Cita cita1 = new Cita(LocalDate.parse(f), LocalTime.parse(h), this.opcionesServicios.getValue(), this.opcionesCliente.getValue(), this.opcionesEmpleado.getValue());
-            //Cita.escribirCita(cita1);
+            Cita cita1 = new Cita(LocalDate.parse(f), LocalTime.parse(h), this.serviciosCita.getValue(), this.opcionesCliente.getValue(), this.opcionesEmpleado.getValue());
+            Cita.escribirCita(cita1);
             Alert alertaRegistro = new Alert(Alert.AlertType.INFORMATION);
             alertaRegistro.setTitle("Registro existoso");
             alertaRegistro.setHeaderText("REGISTRO");
             alertaRegistro.setContentText("Cita registrada correctamente!");
             alertaRegistro.showAndWait();
             App.changeRootFXML("vista/Citas");
+
         
         }
         else{ mostrarAlerta(); }
@@ -130,10 +132,6 @@ public class AgregarCitaController implements Initializable{
         
     }
 
-    @FXML
-    public void mostrarServicio(){
-        
-    }
 
 
     public void mostrarAlerta(){

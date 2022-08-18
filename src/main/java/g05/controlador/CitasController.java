@@ -86,6 +86,11 @@ public class CitasController implements Initializable {
         colHoraCi.setCellValueFactory(new PropertyValueFactory<Cita, String>("hora"));
         colServicioCi.setCellValueFactory(new PropertyValueFactory<Servicio, String>("servicio"));
         tablaCitas.setItems(obtenerCitas());
+        
+        for(String s: obtenerCitas()){
+            System.out.println(s);
+        }
+       
 
     }
 

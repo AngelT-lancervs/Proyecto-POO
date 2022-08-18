@@ -74,8 +74,8 @@ public class Cita{
         try(BufferedReader bf = new BufferedReader(new FileReader(App.pathCitas))){
             String line;
             while ((line = bf.readLine())!= null){
-                String[] parametros = line.split(",");
-                String c = parametros[4] + parametros[3] + parametros[2]+ parametros[0] + parametros[1];
+                String[] parametros = line.split(", ");
+                String c = parametros[4] + ", "+ parametros[3] +", "+ parametros[2]+", "+ parametros[0] +", "+ parametros[1];
                 ci.add(c);
             }
         } catch (FileNotFoundException ex) {
