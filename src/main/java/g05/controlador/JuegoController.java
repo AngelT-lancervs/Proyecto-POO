@@ -96,6 +96,12 @@ public class JuegoController implements Initializable {
     @FXML
     private Label errores;
 
+    @FXML
+    private Button botonIniciar;
+
+    @FXML
+    private Label timer;
+
     ArrayList<Integer> nms = JuegoController.generarNumeros();
 
     ArrayList<Label> labels = new ArrayList<>();
@@ -146,8 +152,9 @@ public class JuegoController implements Initializable {
         labels.add(label4_2);
         labels.add(label4_3);
 
+        //casillasVacias(labels, nms);
 
-        int numaleatorio = (int) (Math.random()*20);
+        int numaleatorio = (int) (Math.random()*nms.size());
         this.numero.setText(String.valueOf(nms.get(numaleatorio)));
         nms.remove(numaleatorio);
         
@@ -161,9 +168,10 @@ public class JuegoController implements Initializable {
 
     }
 
+    //ERROR AL QUERER REGRESAR A LA PANTALLA REGISTRARATENCION
     @FXML
     public void salir(ActionEvent event) {
-        App.changeRootFXML("vista/secundarias/RegistrarAtencion");
+        App.changeRootFXML("vista/Citas");
     }
 
 
@@ -172,6 +180,11 @@ public class JuegoController implements Initializable {
         comprobarAccion(labels);
     }
 
+    @FXML
+    public void iniciar(){
+        this.botonIniciar.setDisable(true);
+        accionJugador();
+    }
 
     //Generar numeros aleatorios no repetidos
     public static ArrayList<Integer> generarNumeros(){
@@ -198,16 +211,22 @@ public class JuegoController implements Initializable {
     public void comprobarAccion(ArrayList<Label> lb){
 
         for(Label l: lb){
+            
 
             l.setOnMouseClicked(ev -> {
                 int numAciertos = Integer.parseInt(aciertos.getText());
                 int numErrores = Integer.parseInt(errores.getText());
-
+        
 
                 if(l.getText().equals(numero.getText())){
                     numAciertos += 1;
                     this.aciertos.setText(String.valueOf(numAciertos));
+                    l.setText("");
+                    Image im = new Image(App.class.getResourceAsStream("vista/img/gato/gifgato.gif"), 200.0,100.0, true, false);
+                    l.setGraphic(new ImageView(im));
                     cambiarNumero(nms);
+                    
+
                 } else {
                     numErrores += 1;
                     this.errores.setText(String.valueOf(numErrores));
@@ -221,8 +240,42 @@ public class JuegoController implements Initializable {
 
     //Cambiar Numero
     public void cambiarNumero(ArrayList<Integer> lb){
+
         int numA = (int) (Math.random()*lb.size());
         this.numero.setText(String.valueOf(lb.get(numA)));
         lb.remove(numA);
+
     }
+
+
+    //Cambiar imagen Perro
+    public void cambiarImagen(Label l){
+        l.setText("");
+        Image im = new Image(App.class.getResourceAsStream("vista/img/gato/perro2.jpg"), 200.0,100.0, true, false);
+        l.setGraphic(new ImageView(im));
+    }
+
+    //Generar Casillas Vacias
+    public void casillasVacias(ArrayList<Label> lbs, ArrayList<Integer> ints){
+        ArrayList<Integer> indices = new ArrayList<>();
+        int contador =0;
+
+        while (contador <6){
+            int c = (int) (Math.random()*ints.size());
+            Integer n = (int) c;
+            if(!indices.contains(n)){
+                indices.add(n);
+            }
+            //else { n++; indices.add(n); }
+            contador++;
+        }
+
+        for (Integer i: indices){
+            ints.remove(i);
+            lbs.get(i).setText("");
+            cambiarImagen(lbs.get(i));
+        }
+    }
+
+
 }
