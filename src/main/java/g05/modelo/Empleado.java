@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Empleado extends Usuario{
+public class Empleado extends Usuario implements Serializable{
 
     private boolean estado;
 

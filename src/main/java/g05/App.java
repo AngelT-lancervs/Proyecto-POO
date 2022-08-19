@@ -25,8 +25,9 @@ public class App extends Application {
     public static String pathSound = "src/main/resources/g05/vista/sound-fx/";
     public static String pathEmpleadosCSV = "archivo/registros/empleados.csv";
     public static String pathClientesCSV= "archivo/registros/clientes.csv";
-    public static String pathCitas = "archivo/registros/citas.csv";
     public static String pathServiciosCSV = "archivo/registros/servicios.csv";
+    public static String pathCitas = "archivo/registros/citas.ser";
+    public static String pathAtenciones = "archivo/registros/atenciones.ser";
 
 
     @Override

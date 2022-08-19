@@ -1,7 +1,6 @@
-package g05.controlador.agregar;
+package g05.controlador.empleado;
 
 import g05.App;
-import g05.controlador.EmpleadosController;
 import g05.modelo.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,34 +8,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AgregarEmpleadoController implements Initializable {
 
     @FXML
     private Button botonAgregarE;
-
     @FXML
     private Button botonCancelar;
-
     @FXML
     private ToggleGroup estado;
-
     @FXML
     private TextField txtCedE;
-
     @FXML
     private TextField txtCorreoE;
-
     @FXML
     private TextField txtNomE;
-
     @FXML
     private TextField txtTelE;
 
@@ -50,6 +39,8 @@ public class AgregarEmpleadoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         botonAgregarE.setDisable(true);
+        botonAgregarE.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonCancelar.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
     }
 
     @FXML

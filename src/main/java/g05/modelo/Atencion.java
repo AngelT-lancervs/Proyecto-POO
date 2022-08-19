@@ -1,5 +1,7 @@
 package g05.modelo;
+import java.io.*;
 import java.time.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -11,7 +13,7 @@ import java.util.Scanner;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Atencion{
+public class Atencion implements Serializable{
     private int duracionReal;
     private Empleado empleado;
     private Servicio servicio;
@@ -31,6 +33,29 @@ public class Atencion{
     }
     //Métodos de la clase
 
+    public static ArrayList<Atencion> cargarAtenciones(String path) {
+        ArrayList<Atencion> atenciones = new ArrayList<>();
+        //leer la lista de personas del archivo serializado
+        try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(path))) {
+            atenciones = (ArrayList<Atencion>) oi.readObject();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Archivo no existe");
+        } catch (IOException ex) {
+            System.out.println("Error IO: "+ex.getMessage());
+        } catch (ClassNotFoundException  ex) {
+            System.out.println("Error class: "+ex.getMessage());
+        }
+        return atenciones;
+    }
+
+    public static void actualizarSER(String pathSER, ArrayList<Atencion> atencionesActualizado){
+        try(ObjectOutputStream bOS = new ObjectOutputStream(new FileOutputStream(pathSER, false))){
+            bOS.writeObject(atencionesActualizado);
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+    }
+
     //Getters y setters
     public int getDuracionReal(){
         return this.duracionReal;
@@ -42,8 +67,11 @@ public class Atencion{
     public Empleado getEmpleado() {
         return empleado;
     }
+    public Cliente getCliente(){
+        return cita.getClienteObj();
+    }
 
     public String toString(){
-        return ">> Cliente: "+cita.getCliente().getNombre()+" | Servicio: "+cita.getServicio().getNombreServicio()+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: Nombre: "+empleado.getNombre()+" | Cédula:"+empleado.getCedula();
+        return ">> Cliente: "+cita+" | Servicio: "+cita+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: Nombre: "+empleado+" | Cédula:"+empleado.getCedula();
     }
 }

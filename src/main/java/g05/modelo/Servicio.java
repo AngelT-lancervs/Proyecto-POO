@@ -1,12 +1,6 @@
 package g05.modelo;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import g05.App;
 
@@ -18,9 +12,9 @@ import g05.App;
  * @author  Paulina Loor
  * @version 16/07/2022
  */
-public class Servicio{
+public class Servicio implements Serializable {
     private String nombreServicio;
-    private String duracion;
+    private double duracion;
     private Empleado empleado;
     private double precio;
     private boolean estado;
@@ -32,39 +26,17 @@ public class Servicio{
      * Constructor de la clase Servicio, inicializa las variables
      * Representa los servicios que se brindan
      * @param nomSer es el Nombre del Servicio brindado
-     * @param duracion2 es la duración que tiene el servicio
+     * @param duracion es la duración que tiene el servicio
      * @param pre es el costo del Servicio
      * @param estado indica si se encuentra disponible o no el servicio
      */
-    public Servicio(String nomSer, String duracion2, double pre, boolean estado){
+    public Servicio(String nomSer, double duracion, double pre, boolean estado){
         this.nombreServicio = nomSer;
-        this.duracion = duracion2;
+        this.duracion = duracion;
         this.precio = pre;
         this.estado = estado;
 
     }
-
-    /**
-     * Constructor de la clase Servicio que solo recibe el nombre del mismo
-     * @param nomSer representa el nombre del Servicio que se brinda
-     */
-    public Servicio(String nomSer){
-        this.nombreServicio=nomSer;
-    }
-
-    /**
-     * Contructor de la clase Servicio que recibe tres parametros
-     * @param nombreServicio es el nombre del Servicio que se brinda
-     * @param duracion es la duracion del Servicio brindado
-     * @param empleado es el empleado que provee el Servicio
-     */
-    public Servicio(String nombreServicio, String duracion, Empleado empleado)
-    {
-        this.nombreServicio = nombreServicio;
-        this.duracion = duracion;
-        this.empleado = empleado;
-    }
-
     /**
      * Compara los servicios por el nombre haciendo uso del metodo equals
      */
@@ -78,24 +50,14 @@ public class Servicio{
         }
         return false;
     }
-
-    //Escribir servicios
-    public void escribirServicio(Servicio s){
-        try(BufferedWriter bf = new BufferedWriter(new FileWriter(App.pathServiciosCSV, true))){
-            bf.write(s.getNombreServicio() +"," +  s.getDuracion() + "," + s.getPrecio()+","+getEstado());
-        }
-        catch(Exception e) { e.printStackTrace(); }
-    }
-
-    public static ArrayList<Servicio> leerServicios(String ruta){
+    public static ArrayList<Servicio> cargarServicios(String ruta){
         ArrayList<Servicio> sv = new ArrayList<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
             String line;
             while ((line = br.readLine())!= null){
                 String[] parametros = line.split(",");
                 System.out.println(parametros.length);
-                Servicio s = new Servicio(parametros[0], parametros[1], Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
+                Servicio s = new Servicio(parametros[0], Double.parseDouble(parametros[1]), Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
                 sv.add(s);
             }
         } catch (FileNotFoundException ex) {
@@ -104,6 +66,18 @@ public class Servicio{
             System.out.println("Error IOException:"+ex.getMessage());
         }
         return sv;
+    }
+
+    public static void actualizarCSV(String pathCSV, ArrayList<Servicio> serviciosActualizado){
+        try(BufferedWriter br = new BufferedWriter(new FileWriter(pathCSV, false))){
+            for (Servicio s : serviciosActualizado){
+                br.write(s.getNombreServicio()+","+s.getDuracion()+","+s.getPrecio()+","+ s.getEstadoBoolean());
+                br.newLine();
+                br.write("");
+            }
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
     }
 
     public String toString(){
@@ -127,36 +101,19 @@ public class Servicio{
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    public String getDuracion() {
+    public double getDuracion() {
         return duracion;
     }
-    public void setDuracion(String duracion) {
+    public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
     public String getEstado() {
         return estado?"Activo":"Inactivo";
     }
+    public boolean getEstadoBoolean(){
+        return estado;
+    }
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
-
-    public static boolean retornaEstado(String s){
-        if (s.equals("Activo")){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public static void actualizarCSV(String pathCSV, ArrayList<Servicio> serviciosActualizado){
-        try(BufferedWriter br = new BufferedWriter(new FileWriter(pathCSV, false))){
-            for (Servicio s : serviciosActualizado){
-                br.write(s.getNombreServicio()+","+s.getDuracion()+","+s.getPrecio()+","+ retornaEstado(s.getEstado()));
-                br.newLine();
-                br.write("");
-            }
-        }catch (IOException ioe){
-            ioe.printStackTrace();
-        }
     }
 }

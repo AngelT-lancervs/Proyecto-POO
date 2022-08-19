@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.agregar.AgregarCitaController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.cita.AgregarCitaController">
    <children>
-      <VBox fx:id="vBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="575.0">
+      <VBox fx:id="vBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="627.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Agregar Cita">
+            <Label text="AGREGAR CITA">
                <font>
-                  <Font name="Microsoft JhengHei" size="24.0" />
+                  <Font name="Tahoma" size="24.0" />
                </font>
                <opaqueInsets>
                   <Insets />
@@ -25,92 +25,89 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Label>
-            <HBox prefHeight="137.0" prefWidth="575.0">
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="225.0" prefWidth="627.0">
                <children>
                   <VBox prefHeight="177.0" prefWidth="223.0">
                      <children>
-                        <Label prefHeight="33.0" prefWidth="74.0" text="Cliente:">
+                        <Label prefHeight="33.0" prefWidth="100.0" text="Cliente">
                            <VBox.margin>
-                              <Insets left="30.0" />
+                              <Insets />
                            </VBox.margin>
                            <font>
-                              <Font name="Microsoft JhengHei Bold" size="14.0" />
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="opcionesCliente" onAction="#mostrarCl" prefHeight="25.0" prefWidth="185.0" promptText="Escoja un cliente">
+                        <ComboBox fx:id="opcionesCliente" onAction="#datosCorrectosCB" prefHeight="25.0" prefWidth="220.0" promptText="Escoja un cliente" visibleRowCount="24">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets bottom="10.0" />
                            </VBox.margin>
                         </ComboBox>
-                        <Label prefHeight="33.0" prefWidth="109.0" text="Empleado:">
+                        <Label contentDisplay="CENTER" prefHeight="33.0" prefWidth="100.0" text="Empleado">
                            <VBox.margin>
-                              <Insets left="30.0" top="30.0" />
+                              <Insets />
                            </VBox.margin>
                            <font>
-                              <Font name="Microsoft JhengHei Bold" size="14.0" />
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="opcionesEmpleado" onAction="#mostrarE" prefHeight="25.0" prefWidth="175.0" promptText="Escoja un Empleado">
+                        <ComboBox fx:id="opcionesEmpleado" onAction="#datosCorrectosCB" prefHeight="25.0" prefWidth="220.0" promptText="Escoja un Empleado" visibleRowCount="24">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <VBox.margin>
-                              <Insets left="25.0" />
+                              <Insets bottom="10.0" />
                            </VBox.margin>
                         </ComboBox>
-                        <Label layoutX="20.0" layoutY="98.0" prefHeight="33.0" prefWidth="109.0" text="Servicio:">
+                        <Label layoutX="20.0" layoutY="98.0" prefHeight="33.0" prefWidth="100.0" text="Servicio">
                            <font>
-                              <Font name="Microsoft JhengHei Bold" size="14.0" />
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="30.0" top="30.0" />
+                              <Insets />
                            </VBox.margin>
                         </Label>
-                        <ComboBox fx:id="serviciosCita" layoutX="35.0" layoutY="103.0" prefHeight="25.0" prefWidth="175.0" promptText="Escoja un Servicio">
+                        <ComboBox fx:id="serviciosCita" layoutX="35.0" layoutY="103.0" onAction="#datosCorrectosCB" prefHeight="25.0" prefWidth="220.0" promptText="Escoja un Servicio" visibleRowCount="24">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <VBox.margin>
-                              <Insets left="30.0" />
+                              <Insets bottom="10.0" />
                            </VBox.margin>
                         </ComboBox>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </VBox>
                   <VBox prefHeight="177.0" prefWidth="161.0">
                      <children>
-                        <Label contentDisplay="CENTER" prefHeight="33.0" prefWidth="109.0" text="Fecha:">
+                        <Label contentDisplay="CENTER" prefHeight="33.0" prefWidth="165.0" text="Fecha (YYYY-MM-DD)">
                            <font>
-                              <Font name="Microsoft JhengHei Bold" size="14.0" />
+                              <Font name="Microsoft JhengHei Light" size="16.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
-                           <padding>
-                              <Insets top="20.0" />
-                           </padding>
                         </Label>
-                        <TextField fx:id="fecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="135.0">
+                        <TextField fx:id="fecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#datosCorrectosTF" prefHeight="25.0" prefWidth="160.0">
                            <VBox.margin>
-                              <Insets left="10.0" top="10.0" />
+                              <Insets bottom="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label contentDisplay="CENTER" layoutX="30.0" layoutY="10.0" prefHeight="33.0" prefWidth="109.0" text="Hora:">
+                        <Label contentDisplay="CENTER" layoutX="30.0" layoutY="10.0" prefHeight="33.0" prefWidth="138.0" text="Hora (HH:MM:SS)">
                            <font>
-                              <Font name="Microsoft JhengHei Bold" size="14.0" />
+                              <Font name="Microsoft JhengHei Light" size="16.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
-                           <padding>
-                              <Insets top="30.0" />
-                           </padding>
                         </Label>
-                        <TextField fx:id="hora" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="135.0">
+                        <TextField fx:id="hora" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#datosCorrectosTF" prefHeight="25.0" prefWidth="160.0">
                            <VBox.margin>
-                              <Insets left="10.0" top="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextField>
                      </children>
@@ -120,24 +117,23 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="531.0" spacing="20.0">
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="69.0" prefWidth="531.0" spacing="20.0">
                <children>
-                  <Button fx:id="botonAgregarC" mnemonicParsing="false" onAction="#guardarCita" prefHeight="32.0" prefWidth="100.0" text="Guardar">
+                  <Button fx:id="botonAgregarC" mnemonicParsing="false" onAction="#guardarCita" prefHeight="44.0" prefWidth="100.0" text="Guardar">
                      <font>
-                        <Font name="Microsoft JhengHei Light" size="16.0" />
+                        <Font name="Microsoft JhengHei Light" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="botonCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="32.0" prefWidth="100.0" text="Cancelar">
+                  <Button fx:id="botonCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="44.0" prefWidth="100.0" text="Cancelar">
                      <font>
-                        <Font name="Microsoft JhengHei Light" size="16.0" />
+                        <Font name="Microsoft JhengHei Light" size="18.0" />
                      </font>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets top="75.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
    </children>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.EmpleadosController">
+<AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.empleado.EmpleadosController">
    <children>
       <VBox alignment="CENTER" fillWidth="false" layoutX="-9.0" prefHeight="430.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
          <children>

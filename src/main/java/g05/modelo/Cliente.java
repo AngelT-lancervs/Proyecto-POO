@@ -12,11 +12,9 @@ import java.util.Scanner;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Cliente extends Usuario {
+public class Cliente extends Usuario implements Serializable {
 
     private String datos_del_representante;
-    private ArrayList<Cita> citasCliente = new ArrayList<Cita>();
-
 
     /**
      * Contructor de la clase Cliente que recibe como parametros el nombre, telefono, email, cedula, datos del representante
@@ -89,9 +87,7 @@ public class Cliente extends Usuario {
         return this.cedula;
     }
 
-    public ArrayList<Cita> getCitasCliente() {
-        return this.citasCliente;
-    }
+
 
     public void setDatos_del_representante(String datos_del_representante) {
         this.datos_del_representante = datos_del_representante;

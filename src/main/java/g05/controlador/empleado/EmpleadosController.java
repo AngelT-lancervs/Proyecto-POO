@@ -1,7 +1,7 @@
-package g05.controlador;
+package g05.controlador.empleado;
 
 import g05.App;
-import g05.controlador.editar.EditarEmpleadoController;
+import g05.controlador.empleado.EditarEmpleadosController;
 import g05.modelo.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -25,39 +24,26 @@ public class EmpleadosController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
-
-
     @FXML
     private BorderPane borderPane;
-
     @FXML
     private Button botonAgregarE;
-
     @FXML
     private Button botonEditarE;
-
     @FXML
     private Button botonEliminarE;
-
     @FXML
     private Button regresarE;
-
     @FXML
     private TableColumn<Empleado, String> colCedulaE;
-
     @FXML
     private TableColumn<Empleado, String> colEmailE;
-
     @FXML
     private TableColumn<Empleado, Void> colEstadoE;
-
     @FXML
     private TableColumn<Empleado, String> colNombreE;
-
     @FXML
     private TableColumn<Empleado, String> colTelefonoE;
-
-
     @FXML
     private TableView<Empleado> tablaEmpleados;
 
@@ -84,7 +70,6 @@ public class EmpleadosController implements Initializable {
         ObservableList<Empleado> empleados = FXCollections.observableArrayList();
         for (Empleado e : empleadosCSV) {
             empleados.add(e);
-            System.out.println(e);
         }
         return empleados;
     }
@@ -101,21 +86,9 @@ public class EmpleadosController implements Initializable {
     }
 
     @FXML
-    void comprobarSeleccion(MouseEvent event) {
-        Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
-        if(e == null){
-            botonEditarE.setDisable(true);
-            botonEliminarE.setDisable(true);
-        } else{
-            botonEditarE.setDisable(false);
-            botonEliminarE.setDisable(false);
-        }
-    }
-
-    @FXML
     void editarEmpleado(ActionEvent event) {
         Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
-        EditarEmpleadoController controladorEditarE = (EditarEmpleadoController) App.changeRootFXML("vista/secundarias/EditarEmpleados", EditarEmpleadoController.class);
+        EditarEmpleadosController controladorEditarE = (EditarEmpleadosController) App.changeRootFXML("vista/secundarias/EditarEmpleados", EditarEmpleadosController.class);
         controladorEditarE.cargarDatosEmpleado(e);
     }
     @FXML
@@ -135,7 +108,19 @@ public class EmpleadosController implements Initializable {
             tablaEmpleados.setItems(obtenerEmpleados());
             // Los botones se desactivan nuevamente.
             botonEditarE.setDisable(true);
-            botonEliminarE.setDisable(true);}
+            botonEliminarE.setDisable(true);
         }
     }
+    @FXML
+    void comprobarSeleccion(MouseEvent event) {
+        Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
+        if(e == null){
+            botonEditarE.setDisable(true);
+            botonEliminarE.setDisable(true);
+        } else{
+            botonEditarE.setDisable(false);
+            botonEliminarE.setDisable(false);
+        }
+    }
+}
 

@@ -2,6 +2,8 @@ package g05.modelo;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.io.Serializable;
+
 /**
  * Clase Usuario
  * @author Jeremy Poveda
@@ -9,7 +11,7 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Paulina Loor
  * @version:
  */
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
     protected String nombre;
     protected String cedula;
     protected String telefono;

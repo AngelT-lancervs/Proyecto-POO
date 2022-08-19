@@ -1,23 +1,14 @@
 package g05.modelo;
 
-import java.time.format.DateTimeParseException;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.*;
 import java.util.*;
-
-import g05.App;
 
 /**
  * Esta clase define los objetos y métodos de las citas del Centro 
@@ -26,7 +17,7 @@ import g05.App;
  * @author Paulina Loor
  * @version 16/07/2022
  */
-public class Cita{
+public class Cita implements Serializable{
     private Cliente cliente;
     private Empleado proovedor;
     private Servicio servicio;
@@ -54,36 +45,29 @@ public class Cita{
         this.fecha = fecha;
     }
 
-
     //Métodos
+    public static ArrayList<Cita> cargarCitas(String path) {
+        ArrayList<Cita> citas = new ArrayList<>();
+        //leer la lista de personas del archivo serializado
+        try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(path))) {
+            citas = (ArrayList<Cita>) oi.readObject();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Archivo no existe");
+        } catch (IOException   ex) {
+            System.out.println("Error IO: "+ex.getMessage());
+            System.out.println("El archivo se encuentra vacío");
+        } catch (ClassNotFoundException  ex) {
+            System.out.println("Error class: "+ex.getMessage());
+        }
+        return citas;
+    }
 
-    public static void escribirCita(Cita c){
-
-        try(BufferedWriter br = new BufferedWriter(new FileWriter(App.pathCitas, true))){
-            br.write(c.toString());
-            br.newLine();
-            br.write("");
+    public static void actualizarSER(String pathSER, ArrayList<Cita> citasActualizado){
+        try(ObjectOutputStream bOS = new ObjectOutputStream(new FileOutputStream(pathSER, false))){
+            bOS.writeObject(citasActualizado);
         }catch (IOException ioe){
             ioe.printStackTrace();
         }
-    }
-
-    public static ArrayList<String> leerCita(){
-        ArrayList<String> ci = new ArrayList<>();
-
-        try(BufferedReader bf = new BufferedReader(new FileReader(App.pathCitas))){
-            String line;
-            while ((line = bf.readLine())!= null){
-                String[] parametros = line.split(", ");
-                String c = parametros[4] + ", "+ parametros[3] +", "+ parametros[2]+", "+ parametros[0] +", "+ parametros[1];
-                ci.add(c);
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println("El archivo no existe.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ci;
     }
 
     //Getters & Setters
@@ -99,23 +83,28 @@ public class Cita{
         return fecha;
     }
 
-    public Empleado getProovedor(){
-        return this.proovedor;
+    public String getProovedor(){
+        return this.proovedor.getNombre();
+    }
+    public Empleado getEmpleado(){
+        return proovedor;
     }
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public static ArrayList<Cita> getCitas(){
-        return citas;
+    public String getCliente(){
+        return cliente.getNombre();
     }
-    
-    public Cliente getCliente(){
+    public Cliente getClienteObj(){
         return cliente;
     }
 
-    public Servicio getServicio(){
+    public String getServicio(){
+        return servicio.getNombreServicio();
+    }
+    public Servicio getServicioObj(){
         return servicio;
     }
 

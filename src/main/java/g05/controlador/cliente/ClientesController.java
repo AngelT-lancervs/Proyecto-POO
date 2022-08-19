@@ -1,11 +1,10 @@
-package g05.controlador;
+package g05.controlador.cliente;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import g05.App;
-import g05.controlador.editar.EditarClienteController;
 import g05.modelo.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,9 +16,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-
 
 
 public class ClientesController implements Initializable {
@@ -58,6 +54,9 @@ public class ClientesController implements Initializable {
         colDatosRepresentante.setCellValueFactory(new PropertyValueFactory<Cliente, String>("datos_del_representante"));
         tablaClientes.setItems(obtenerClientes());
         botonEditarC.setDisable(true);
+        botonEditarC.setOnMouseEntered(ev -> App.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(ev -> App.button_hoverSound());
+        regresarC.setOnMouseEntered(ev -> App.button_hoverSound());
     }
 
     @FXML
@@ -65,7 +64,6 @@ public class ClientesController implements Initializable {
         ObservableList<Cliente> clientes = FXCollections.observableArrayList();
         for (Cliente c : clientesCSV){
             clientes.add(c);
-            System.out.println(c);
         }
         return clientes;
     }

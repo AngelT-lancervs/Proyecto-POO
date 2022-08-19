@@ -1,27 +1,16 @@
-package g05.controlador.agregar;
+package g05.controlador.cliente;
 import g05.App;
-import g05.controlador.ClientesController;
+import g05.controlador.cliente.ClientesController;
 import g05.modelo.Cliente;
-import g05.modelo.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AgregarClienteController implements Initializable {
@@ -64,6 +53,8 @@ public class AgregarClienteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         botonAgregarC.setDisable(true);
+        btnAceptar.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
     }
 
     @FXML

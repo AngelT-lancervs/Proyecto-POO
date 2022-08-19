@@ -1,15 +1,12 @@
-package g05.controlador.editar;
+package g05.controlador.cliente;
 import g05.App;
-import g05.controlador.ClientesController;
-import g05.controlador.EmpleadosController;
+import g05.controlador.cliente.ClientesController;
 import g05.modelo.Cliente;
-import g05.modelo.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
@@ -36,7 +33,8 @@ public class EditarClienteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        botonEditarC.setDisable(true);
+        botonEditarC.setOnMouseEntered(ev -> App.button_hoverSound());
+        botonCancelarC.setOnMouseEntered(ev -> App.button_hoverSound());
     }
 
     @FXML
