@@ -24,19 +24,19 @@
                   <Font name="Tahoma" size="28.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="639.0">
+            <HBox fx:id="hConsulta" alignment="CENTER" prefHeight="62.0" prefWidth="639.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="159.0" text="Consultar por">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbConsultarPor" prefHeight="32.0" prefWidth="139.0">
+                  <ComboBox fx:id="cbConsultarPor" onAction="#filtrarAtenciones" prefHeight="32.0" prefWidth="139.0">
                      <padding>
                         <Insets bottom="2.0" left="5.0" right="2.0" top="5.0" />
                      </padding>
                   </ComboBox>
-                  <TextField fx:id="txtConsultar">
+                  <TextField fx:id="txtConsultar" onAction="#filtrarAtenciones">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -52,7 +52,7 @@
                   <RowConstraints maxHeight="89.0" minHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="tablaEmpleados" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@css/estilos.css">
+                  <TableView fx:id="tablaAtenciones" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@css/estilos.css">
                      <columns>
                         <TableColumn fx:id="colFechaA" prefWidth="133.0" text="Fecha" />
                         <TableColumn fx:id="colClienteA" prefWidth="158.0" text="Cliente" />
@@ -62,7 +62,7 @@
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="botonEliminarA" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
+                        <Button fx:id="botonEliminarA" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarAtenciones" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
                            <padding>
                               <Insets left="10.0" />
                            </padding>

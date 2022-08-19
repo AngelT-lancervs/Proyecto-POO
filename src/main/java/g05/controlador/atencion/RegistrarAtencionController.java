@@ -54,7 +54,7 @@ public class RegistrarAtencionController implements Initializable {
     }
     @FXML
     public void agregarAtencion(ActionEvent event) {
-        nuevaAtencion = new Atencion(Integer.parseInt(duracion.getText()), citaSeleccionada.getServicioObj(), citaSeleccionada.getEmpleado(), citaSeleccionada);
+        nuevaAtencion = new Atencion(Integer.parseInt(duracion.getText()), citaSeleccionada.getServicioObj(), citaSeleccionada.getEmpleado(), citaSeleccionada, citaSeleccionada.getClienteObj(), citaSeleccionada.getFecha());
         ArrayList<Atencion> atenciones = AtencionesController.atencionesSer;
         ArrayList<Cita> citas = CitasController.citasSer;
         atenciones.add(nuevaAtencion);
@@ -66,7 +66,7 @@ public class RegistrarAtencionController implements Initializable {
         Alert alertaRegistroA = new Alert(Alert.AlertType.INFORMATION);
         alertaRegistroA.setTitle("Registro existoso");
         alertaRegistroA.setHeaderText("Atención realizada");
-        alertaRegistroA.setContentText("¡Atención de "+ nuevaAtencion.getCliente().getNombre()+" registrada correctamente!");
+        alertaRegistroA.setContentText("¡Atención de "+ nuevaAtencion.getCliente()+" registrada correctamente!");
         alertaRegistroA.showAndWait();
         System.out.println(atenciones);
         App.changeRootFXML("vista/Citas");

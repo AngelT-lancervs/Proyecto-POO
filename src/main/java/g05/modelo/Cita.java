@@ -109,10 +109,14 @@ public class Cita implements Serializable{
     }
 
 
+
+
     /**
      * Muestra datos por pantalla
      */
     public String toString(){
         return cliente.getNombre() + ", " + proovedor.getNombre() + ", " + servicio.getNombreServicio() +", " + hora+ ", "+ fecha;
     }
+
+
 }

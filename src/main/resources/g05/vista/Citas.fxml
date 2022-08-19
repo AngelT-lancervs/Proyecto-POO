@@ -30,7 +30,7 @@
                         <Font name="Microsoft JhengHei Light" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCedCliente">
+                  <TextField fx:id="txtCedCliente" onKeyReleased="#filtrarCliente">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

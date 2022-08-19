@@ -31,6 +31,10 @@ public abstract class Usuario implements Serializable {
         this.email = email;
     }
 
+    public Usuario(String cedula){
+        this.cedula=cedula;
+    }
+
     //Getters y Setters
     public String getNombre(){
         return this.nombre;

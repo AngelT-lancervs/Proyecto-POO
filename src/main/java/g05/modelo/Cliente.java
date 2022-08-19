@@ -29,6 +29,9 @@ public class Cliente extends Usuario implements Serializable {
         super(nombre, cedula, telefono, email);
         this.datos_del_representante = dts_re;
     }
+    public Cliente(String cedula){
+        super(cedula);
+    }
 
     /**
      * Muestra por pantalla los datos del cliente

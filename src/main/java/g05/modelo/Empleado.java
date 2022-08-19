@@ -31,6 +31,9 @@ public class Empleado extends Usuario implements Serializable{
         this.estado = estado;
     }
 
+    public Empleado(String cedula){
+        super(cedula);
+    }
     public static ArrayList<Empleado> cargarEmpleados(String pathEmpleados){
         ArrayList<Empleado> empleados = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(pathEmpleados))) {

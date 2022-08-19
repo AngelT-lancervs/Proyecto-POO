@@ -18,6 +18,10 @@ public class Atencion implements Serializable{
     private Empleado empleado;
     private Servicio servicio;
     private Cita cita;
+    private ArrayList<Atencion> atenciones= new ArrayList<>();
+    private Cliente cliente;
+    private LocalDate fecha;
+
     /**
      * Constructor de la clase Atencion
      * Representa una atención que se registra en el Centro Terapeutico, la crea recibiendo los datos de la misma
@@ -31,6 +35,17 @@ public class Atencion implements Serializable{
         this.empleado = empleado;
         this.cita = cita;
     }
+
+    public Atencion(int duracionReal, Servicio servicio, Empleado empleado, Cita cita, Cliente cliente, LocalDate fecha){
+        this.duracionReal = duracionReal;
+        this.servicio = servicio;
+        this.empleado = empleado;
+        this.cita = cita;
+        this.cliente=cliente;
+        this.fecha=fecha;
+    }
+
+
     //Métodos de la clase
 
     public static ArrayList<Atencion> cargarAtenciones(String path) {
@@ -64,14 +79,31 @@ public class Atencion implements Serializable{
         duracionReal = t;
     }
 
-    public Empleado getEmpleado() {
+    public String getEmpleado() {
+        return empleado.getNombre();
+    }
+    public Empleado getEmpleadoObj(){
         return empleado;
     }
-    public Cliente getCliente(){
-        return cita.getClienteObj();
+    public String getCliente(){
+        return cliente.getNombre();
     }
 
+    public Cliente getClienteObj(){
+        return cliente;
+    }
+    public Cita getCita(){
+        return cita;
+    }
+
+    public LocalDate getFecha(){
+        return fecha;
+    }
+
+
+
+
     public String toString(){
-        return ">> Cliente: "+cita+" | Servicio: "+cita+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: Nombre: "+empleado+" | Cédula:"+empleado.getCedula();
+        return ">> Cliente: "+cita+" | Servicio: "+cita+" | Duración real: "+duracionReal+" minutos | Empleado que ofreció el servicio: "+empleado.getNombre()+" | Cédula:"+empleado.getCedula();
     }
 }

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -45,6 +47,7 @@ public class CitasController implements Initializable {
 
     @FXML
     private Button botonConsultarAc;
+    private ObservableList<Cita> filtroClientes;
 
 
 
@@ -83,6 +86,7 @@ public class CitasController implements Initializable {
         botonEliminarCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
         botonRegistrarA.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
         regresarCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        filtroClientes= FXCollections.observableArrayList();
     }
 
     public ObservableList<Cita> obtenerCitas() {
@@ -97,6 +101,24 @@ public class CitasController implements Initializable {
     @FXML
     public void crearCita() {
         App.changeRootFXML("vista/secundarias/AgregarCitas");
+    }
+
+    @FXML
+    public void filtrarCliente(KeyEvent event){
+        String filtroNombre= this.txtCedCliente.getText();
+        if(filtroNombre.isEmpty()){
+            this.tablaCitas.setItems(obtenerCitas());
+        }else{
+            this.filtroClientes.clear();
+
+            for(Cita c: this.obtenerCitas()) {
+                if (c.getClienteObj().getNombre().toLowerCase().contains(filtroNombre.toLowerCase())){
+                    this.filtroClientes.add(c);
+                }
+            }
+
+            this.tablaCitas.setItems(filtroClientes);
+        }
     }
 
 

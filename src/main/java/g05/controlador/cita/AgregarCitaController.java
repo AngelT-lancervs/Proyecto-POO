@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import g05.App;
@@ -22,10 +23,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
@@ -36,9 +34,13 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+
 
 public class AgregarCitaController implements Initializable{
 
+    @FXML
+    private DatePicker fechaCita;
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -60,11 +62,29 @@ public class AgregarCitaController implements Initializable{
     @FXML
     private TextField hora;
 
+    //Deshabilita fechas anteriores
+    final Callback<DatePicker, DateCell> dayCellFactory= new Callback<DatePicker, DateCell>() {
+        @Override
+        public DateCell call(final DatePicker datePicker) {
+            return new DateCell() {
+                public void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
 
+                    if (item.isBefore(LocalDate.now())) {
+                        setDisable(true);
+                    }
+                }
+            };
+        }
+    };
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         botonAgregarC.setDisable(true);
+        fechaCita.setEditable(false);
+        fechaCita.setDayCellFactory(dayCellFactory);
+
+
 
         ObservableList<Empleado> empleados = EmpleadosController.obtenerEmpleados();
         for (Empleado e: empleados){
@@ -100,11 +120,16 @@ public class AgregarCitaController implements Initializable{
     }
 
 
+    public void getDate(ActionEvent event){
+        LocalDate fechaC= fechaCita.getValue();
+    }
+
+
     //Metodos de los botones 
     @FXML
     public void guardarCita(){
 
-        Cita cita = new Cita(LocalDate.parse(fecha.getText()),LocalTime.parse(hora.getText()),serviciosCita.getValue(),opcionesCliente.getValue(),opcionesEmpleado.getValue());
+        Cita cita = new Cita(fechaCita.getValue(),LocalTime.parse(hora.getText()),serviciosCita.getValue(),opcionesCliente.getValue(),opcionesEmpleado.getValue());
         ArrayList<Cita> citas = CitasController.citasSer;
         citas.add(cita);
         Cita.actualizarSER(App.pathCitas,citas);
@@ -125,7 +150,6 @@ public class AgregarCitaController implements Initializable{
     void confirmarFormato(){
         try{
             LocalTime.parse(hora.getText());
-            LocalDate.parse(fecha.getText());
             botonAgregarC.setDisable(false);
             } catch (DateTimeParseException e){
             botonAgregarC.setDisable(true);
@@ -141,7 +165,7 @@ public class AgregarCitaController implements Initializable{
         verificarCampos();
     }
     void verificarCampos(){
-        if((fecha.getText())!="" && (hora.getText())!="" && opcionesEmpleado.getSelectionModel().getSelectedItem() != null && opcionesCliente.getSelectionModel().getSelectedItem() != null && serviciosCita.getSelectionModel().getSelectedItem() != null){
+        if((fechaCita.getValue())!=null && (hora.getText())!="" && opcionesEmpleado.getSelectionModel().getSelectedItem() != null && opcionesCliente.getSelectionModel().getSelectedItem() != null && serviciosCita.getSelectionModel().getSelectedItem() != null){
             confirmarFormato();
         } else {
             botonAgregarC.setDisable(true);
