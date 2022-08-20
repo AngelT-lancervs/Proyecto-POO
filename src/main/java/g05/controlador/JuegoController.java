@@ -179,15 +179,13 @@ public class JuegoController implements Initializable {
     //ERROR AL QUERER REGRESAR A LA PANTALLA REGISTRARATENCION
     @FXML
     public void salir(ActionEvent event) {
-        App.changeRootFXML("vista/Citas");
+        App.changeRootFXML("vista/fxml/cita/Citas");
     }
 
 
     @FXML
     public void accionJugador(){
         comprobarAccion(labels);
-        
-        
     }
 
     @FXML

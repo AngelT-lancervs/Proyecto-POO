@@ -61,12 +61,12 @@ public class AgregarEmpleadoController implements Initializable {
         alertaRegistro.setHeaderText("REGISTRO");
         alertaRegistro.setContentText("Empleado "+nombre+" registrado correctamente!");
         alertaRegistro.showAndWait();
-        App.changeRootFXML("vista/Empleados");
+        App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
 
     @FXML
     void backAgregarEmpleados(ActionEvent event) {
-        App.changeRootFXML("vista/Empleados");
+        App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
 
 

@@ -67,19 +67,19 @@ public class ServiciosController implements Initializable {
     }
     @FXML
     void agregarServicio(ActionEvent event) {
-        App.changeRootFXML("vista/secundarias/AgregarServicios");
+        App.changeRootFXML("vista/fxml/servicio/AgregarServicio");
     }
 
     @FXML
     void editarServicio(ActionEvent event) {
         Servicio s = (Servicio) tablaServicios.getSelectionModel().getSelectedItem();
-        EditarServicioController controladorEditarS = (EditarServicioController) App.changeRootFXML("vista/secundarias/EditarServicios", EditarServicioController.class);
+        EditarServicioController controladorEditarS = (EditarServicioController) App.changeRootFXML("vista/fxml/servicio/EditarServicio", EditarServicioController.class);
         controladorEditarS.cargarDatosEmpleado(s);
     }
 
     @FXML
     void backServicios(ActionEvent event) {
-        App.changeRootFXML("vista/Menu");
+        App.changeRootFXML("vista/fxml/Menu");
     }
 
     @FXML

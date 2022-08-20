@@ -42,7 +42,7 @@ public class EditarServicioController implements Initializable {
     }
     @FXML
     void backEditarServicios(ActionEvent event) {
-        App.changeRootFXML("vista/Servicios");
+        App.changeRootFXML("vista/fxml/servicio/Servicios");
     }
 
     @FXML
@@ -77,7 +77,7 @@ public class EditarServicioController implements Initializable {
             int ind = servicios.indexOf(servicioSeleccionado);
             servicios.set(ind, servicioSeleccionado);
             Servicio.actualizarCSV(App.pathServiciosCSV,servicios);
-            App.changeRootFXML("vista/Servicios");
+            App.changeRootFXML("vista/fxml/servicio/Servicios");
         }
     }
     public void cargarDatosEmpleado(Servicio s){

@@ -57,7 +57,7 @@ public class AtencionesController implements Initializable {
 
     @FXML
     public void llenarCombo(){
-        cbConsultarPor.getItems().addAll("Consultar por Cédula del cliente", "Consultar por Cédula del empleado", "Consultar por Fecha");
+        cbConsultarPor.getItems().addAll("Cédula del cliente", "Cédula del empleado", "Fecha");
     }
 
 
@@ -78,7 +78,7 @@ public class AtencionesController implements Initializable {
     }
     @FXML
     void backAtenciones(ActionEvent event) {
-        App.changeRootFXML("vista/Menu");
+        App.changeRootFXML("vista/fxml/Menu");
     }
 
     public ObservableList<Atencion> obtenerAtenciones() {
@@ -93,7 +93,7 @@ public class AtencionesController implements Initializable {
     private void filtrarAtenciones() {
         ArrayList<Atencion> atenciones = new ArrayList<>();
         try {
-            if (cbConsultarPor.getValue().equals("Consultar por Cédula del cliente")) {
+            if (cbConsultarPor.getValue().equals("Cédula del cliente")) {
 
                 txtConsultar.setPromptText("Ingrese cédula del cliente");
                 String cedulaC = txtConsultar.getText();
@@ -103,7 +103,7 @@ public class AtencionesController implements Initializable {
                         atenciones.add(a);
                     }
                 }
-            } else if (cbConsultarPor.getValue().equals("Consultar por Cédula del empleado")) {
+            } else if (cbConsultarPor.getValue().equals("Cédula del empleado")) {
                 txtConsultar.setPromptText("Ingrese cédula del empleado");
                 String cedulaE = txtConsultar.getText();
                 Empleado empleado = new Empleado(cedulaE);
@@ -122,19 +122,19 @@ public class AtencionesController implements Initializable {
                 }
             }
             tablaAtenciones.getItems().setAll(atenciones);
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            //Exception capturada
         }
     }
 
     @FXML
     public void eliminarAtenciones() {
         Atencion atencion = (Atencion) tablaAtenciones.getSelectionModel().getSelectedItem();
-        Alert alertaEliminarCi = new Alert(Alert.AlertType.CONFIRMATION);
-        alertaEliminarCi.setTitle("Eliminar Atencion " + atencion.getCliente());
-        alertaEliminarCi.setHeaderText("Confirmación");
-        alertaEliminarCi.setContentText("¿Está seguro que quiere eliminar la cita del cliente " + atencion.getCliente() + "?");
-        Optional<ButtonType> resultado = alertaEliminarCi.showAndWait();
+        Alert alertaEliminarA = new Alert(Alert.AlertType.CONFIRMATION);
+        alertaEliminarA.setTitle("Eliminar Atencion " + atencion.getCliente());
+        alertaEliminarA.setHeaderText("Confirmación");
+        alertaEliminarA.setContentText("¿Está seguro que quiere eliminar la atención del cliente " + atencion.getCliente() + "?");
+        Optional<ButtonType> resultado = alertaEliminarA.showAndWait();
         //Si el usuario da OK, se eliminará la atencion seleccionada.
         if (resultado.get() == ButtonType.OK) {
             ArrayList<Atencion> atenciones = atencionesSer;
@@ -156,6 +156,4 @@ public class AtencionesController implements Initializable {
             botonEliminarA.setDisable(false);
         }
     }
-
-
 }

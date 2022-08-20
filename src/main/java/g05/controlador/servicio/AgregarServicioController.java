@@ -58,19 +58,20 @@ public class AgregarServicioController implements Initializable{
         alertaRegistro.setHeaderText("REGISTRO");
         alertaRegistro.setContentText("Servicio "+nombreS+" registrado correctamente!");
         alertaRegistro.showAndWait();
-        App.changeRootFXML("vista/Servicios");
+        App.changeRootFXML("vista/fxml/servicio/Servicios");
     }
 
     @FXML
     void backAgregarServicios(ActionEvent event) {
-        App.changeRootFXML("vista/Servicios");
+        App.changeRootFXML("vista/fxml/servicio/Servicios");
     }
 
     @FXML
     void datosCorrectos(KeyEvent event) {
         if(txtPrecioS.getText()!="" && txtDuracionS.getText()!="" && txtNombreS.getText()!=""){
             try {
-                double precio = Double.parseDouble(txtPrecioS.getText());
+                Double.parseDouble(txtDuracionS.getText());
+                Double.parseDouble(txtPrecioS.getText());
                 botonAgregarS.setDisable(false);
             }catch (Exception e){
                 botonAgregarS.setDisable(true);

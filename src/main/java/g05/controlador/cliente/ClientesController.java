@@ -70,7 +70,7 @@ public class ClientesController implements Initializable {
 
     @FXML
     public void agregarCliente(ActionEvent event) {
-        App.changeRootFXML("vista/secundarias/AgregarClientes");
+        App.changeRootFXML("vista/fxml/cliente/AgregarCliente");
     }
 
     @FXML
@@ -86,13 +86,13 @@ public class ClientesController implements Initializable {
 
     @FXML
     public void regresarClientes(ActionEvent event) {
-        App.changeRootFXML("vista/Menu");
+        App.changeRootFXML("vista/fxml/Menu");
     }
 
     @FXML
     public void editarClientes(ActionEvent event) {
         Cliente c = (Cliente) tablaClientes.getSelectionModel().getSelectedItem();
-        EditarClienteController editarController = (EditarClienteController) App.changeRootFXML("vista/secundarias/EditarCliente", EditarClienteController.class);
+        EditarClienteController editarController = (EditarClienteController) App.changeRootFXML("vista/fxml/cliente/EditarCliente", EditarClienteController.class);
         editarController.cargarDatosCliente(c);
     }
 }

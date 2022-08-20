@@ -31,65 +31,65 @@ public class MenuController{
         App.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/servicios.png"));
         displayMenu.setImage(im);
-        infoMenu.setText("Podrá ver, agregar, editar y/o desactivar \n algún servicio. Presione el botón\n -Servicios- para continuar");
+        infoMenu.setText("Podrá ver, agregar, editar y/o desactivar \nalgún servicio. Presione el botón\n -Servicios- para continuar");
     }
     @FXML
     public void preClientes(){
         App.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/clientes.png"));
         displayMenu.setImage(im);
-        infoMenu.setText("Podrá ver, agregar y/o editar clientes.\n Presione el botón -Clientes- para\n continuar");
+        infoMenu.setText("Podrá ver, agregar y/o editar clientes.\nPresione el botón -Clientes- para\n continuar");
     }
     @FXML
     public void preAtenciones(){
         App.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/atenciones.png"));
         displayMenu.setImage(im);
-        infoMenu.setText("Podrá ver, registrar y/o consultar las atenciones.\n Presione el botón -Atenciones- para\n continuar");
+        infoMenu.setText("Podrá consultar las atenciones.\nPresione el botón -Atenciones- para\n continuar");
     }
     @FXML
     public void preCitas(){
         App.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/citas.png"));
         displayMenu.setImage(im);
-        infoMenu.setText("Podrá ver, crear, eliminar, y/o consultar\n citas. Presione el botón -Citas- para\n continuar");
+        infoMenu.setText("Podrá ver, crear, eliminar, consultar\ncitas, y/o registrar su atención \nPresione el botón -Citas- para continuar");
     }
     @FXML
     public void preEmpleados(){
         App.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/empleados.png"));
         displayMenu.setImage(im);
-        infoMenu.setText("Podrá ver, agregar, editar y/o eliminar\n empleados. Presione el botón\n -Empleados- para continuar");
+        infoMenu.setText("Podrá ver, agregar, editar y/o eliminar \nempleados. Presione el botón\n -Empleados- para continuar");
     }
     @FXML
     public void preSalir(){
         App.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/salir.png"));
         displayMenu.setImage(im);
-        infoMenu.setText("Cerrará la sesión actual.\n Presione el botón -Salir- para cerrar\n el sistema");
+        infoMenu.setText("Cerrará la sesión actual.\nPresione el botón -Salir- para cerrar\n el sistema");
     }
 
     //Métodos cuando se da click a cada botón
     @FXML
     public void entrarServicios(){
-        App.changeRootFXML("vista/Servicios");
+        App.changeRootFXML("vista/fxml/servicio/Servicios");
 
     }
     @FXML
     public void entrarClientes(){
-        App.changeRootFXML("vista/Clientes");
+        App.changeRootFXML("vista/fxml/cliente/Clientes");
     }
     @FXML
     public void entrarAtenciones(){
-        App.changeRootFXML("vista/Atenciones");
+        App.changeRootFXML("vista/fxml/atencion/Atenciones");
     }
     @FXML
     public void entrarCitas(){
-        App.changeRootFXML("vista/Citas");
+        App.changeRootFXML("vista/fxml/cita/Citas");
     }
     @FXML
     public void entrarEmpleados(){
-        App.changeRootFXML("vista/Empleados");
+        App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
     @FXML
     public void cerrarSistema(){

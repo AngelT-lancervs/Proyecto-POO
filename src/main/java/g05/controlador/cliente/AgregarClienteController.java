@@ -43,18 +43,13 @@ public class AgregarClienteController implements Initializable {
     String email;
     String telefono;
     String datosRepresentante;
-
-    @FXML
-    private Button btnCancelar;
-
-    @FXML
-    private Button btnAceptar;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         botonAgregarC.setDisable(true);
-        btnAceptar.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
         botonAgregarC.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonCancelarC.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
     }
 
     @FXML
@@ -71,12 +66,12 @@ public class AgregarClienteController implements Initializable {
         alertaRegistro.setHeaderText("REGISTRO");
         alertaRegistro.setContentText("Cliente "+nombre+" registrado correctamente!");
         alertaRegistro.showAndWait();
-        App.changeRootFXML("vista/Clientes");
+        App.changeRootFXML("vista/fxml/cliente/Clientes");
 
     }
     @FXML
     void backAgregarCliente(ActionEvent event){
-        App.changeRootFXML("vista/Clientes");
+        App.changeRootFXML("vista/fxml/cliente/Clientes");
     }
 
     @FXML

@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class EditarEmpleadosController implements Initializable {
+public class EditarEmpleadoController implements Initializable {
     @FXML
     private RadioButton rbA;
     @FXML
@@ -55,12 +55,12 @@ public class EditarEmpleadosController implements Initializable {
             int ind = empleados.indexOf(empleadoSeleccionado);
             empleados.set(ind, empleadoSeleccionado);
             Empleado.actualizarCSV(App.pathEmpleadosCSV,empleados);
-            App.changeRootFXML("vista/Empleados");
+            App.changeRootFXML("vista/fxml/empleado/Empleados");
         }
     }
     @FXML
     void backEditarEmpleados(ActionEvent event) {
-        App.changeRootFXML("vista/Empleados");
+        App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
 
     @FXML

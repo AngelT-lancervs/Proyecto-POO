@@ -73,12 +73,12 @@ public class RegistrarAtencionController implements Initializable {
     }
     @FXML
     public void entrarJuego(){
-        App.changeRootFXML("vista/secundarias/Juego");
+        App.changeRootFXML("vista/fxml/Juego");
     }
 
     @FXML
     void atrasAtencion(ActionEvent event) {
-        App.changeRootFXML("vista/Citas");
+        App.changeRootFXML("vista/fxml/cita/Citas");
     }
     public void cargarDatosCita(Cita ci){
         fecha_hora.setText(ci.getFecha()+" a las "+ci.getHora());

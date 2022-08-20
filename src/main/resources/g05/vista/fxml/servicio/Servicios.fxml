@@ -31,7 +31,7 @@
                   <RowConstraints maxHeight="89.0" minHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="tablaServicios" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="269.0" prefWidth="605.0" stylesheets="@css/estilos.css">
+                  <TableView fx:id="tablaServicios" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="269.0" prefWidth="605.0" stylesheets="@../../css/estilos.css">
                      <columns>
                         <TableColumn fx:id="colNombreS" prefWidth="207.0" resizable="false" text="Nombre" />
                         <TableColumn fx:id="colDuracionS" prefWidth="110.0" resizable="false" text="Duración" />

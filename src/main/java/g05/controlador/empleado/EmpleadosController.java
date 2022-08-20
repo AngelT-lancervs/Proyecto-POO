@@ -1,7 +1,6 @@
 package g05.controlador.empleado;
 
 import g05.App;
-import g05.controlador.empleado.EditarEmpleadosController;
 import g05.modelo.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,18 +76,18 @@ public class EmpleadosController implements Initializable {
     //Eventos al presionar los botones del menú Empleados
     @FXML
     void backEmpleados(ActionEvent event) {
-        App.changeRootFXML("vista/Menu");
+        App.changeRootFXML("vista/fxml/Menu");
     }
 
     @FXML
     void agregarEmpleado(ActionEvent actionEvent) {
-        App.changeRootFXML("vista/secundarias/AgregarEmpleados");
+        App.changeRootFXML("vista/fxml/empleado/AgregarEmpleado");
     }
 
     @FXML
     void editarEmpleado(ActionEvent event) {
         Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
-        EditarEmpleadosController controladorEditarE = (EditarEmpleadosController) App.changeRootFXML("vista/secundarias/EditarEmpleados", EditarEmpleadosController.class);
+        EditarEmpleadoController controladorEditarE = (EditarEmpleadoController) App.changeRootFXML("vista/fxml/empleado/EditarEmpleado", EditarEmpleadoController.class);
         controladorEditarE.cargarDatosEmpleado(e);
     }
     @FXML

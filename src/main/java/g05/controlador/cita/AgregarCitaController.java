@@ -84,8 +84,6 @@ public class AgregarCitaController implements Initializable{
         fechaCita.setEditable(false);
         fechaCita.setDayCellFactory(dayCellFactory);
 
-
-
         ObservableList<Empleado> empleados = EmpleadosController.obtenerEmpleados();
         for (Empleado e: empleados){
             if(e.getEstadoBoolean()){
@@ -116,9 +114,7 @@ public class AgregarCitaController implements Initializable{
         if(!(serviciosCita.getItems().size()>=1)){
             serviciosCita.setPromptText("No hay servicios activos");
         }
-
     }
-
 
     public void getDate(ActionEvent event){
         LocalDate fechaC= fechaCita.getValue();
@@ -138,13 +134,13 @@ public class AgregarCitaController implements Initializable{
         alertaRegistro.setHeaderText("REGISTRO");
         alertaRegistro.setContentText("Cita registrada correctamente!");
         alertaRegistro.showAndWait();
-        App.changeRootFXML("vista/Citas");
+        App.changeRootFXML("vista/fxml/cita/Citas");
     }
 
 
     @FXML
     public void cancelar(Event event){
-        App.changeRootFXML("vista/Citas");
+        App.changeRootFXML("vista/fxml/cita/Citas");
     }
 
     void confirmarFormato(){

@@ -56,7 +56,6 @@ public class Servicio implements Serializable {
             String line;
             while ((line = br.readLine())!= null){
                 String[] parametros = line.split(",");
-                System.out.println(parametros.length);
                 Servicio s = new Servicio(parametros[0], Double.parseDouble(parametros[1]), Double.parseDouble(parametros[2]), Boolean.parseBoolean(parametros[3]));
                 sv.add(s);
             }

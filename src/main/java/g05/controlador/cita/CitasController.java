@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import g05.App;
 import g05.controlador.atencion.RegistrarAtencionController;
 import g05.modelo.*;
@@ -49,11 +48,6 @@ public class CitasController implements Initializable {
     private Button botonConsultarAc;
     private ObservableList<Cita> filtroClientes;
 
-
-
-    //@FXML
-    //private TableColumn<Cliente, String> colCedula;
-
     @FXML
     private TableColumn<Cita, Cliente> colNombreCi;
     @FXML
@@ -72,7 +66,6 @@ public class CitasController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //colCedula.setCellValueFactory(new PropertyValueFactory<Cita, String>("cedula"));
         colNombreCi.setCellValueFactory(new PropertyValueFactory<Cita, Cliente>("cliente"));
         colEmpleadoCi.setCellValueFactory(new PropertyValueFactory<Cita, Empleado>("proovedor"));
         colFechaCi.setCellValueFactory(new PropertyValueFactory<Cita, LocalDate>("fecha"));
@@ -86,7 +79,7 @@ public class CitasController implements Initializable {
         botonEliminarCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
         botonRegistrarA.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
         regresarCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        filtroClientes= FXCollections.observableArrayList();
+        filtroClientes = FXCollections.observableArrayList();
     }
 
     public ObservableList<Cita> obtenerCitas() {
@@ -100,23 +93,21 @@ public class CitasController implements Initializable {
     //Metodos de las opciones de cita
     @FXML
     public void crearCita() {
-        App.changeRootFXML("vista/secundarias/AgregarCitas");
+        App.changeRootFXML("vista/fxml/cita/AgregarCita");
     }
 
     @FXML
     public void filtrarCliente(KeyEvent event){
-        String filtroNombre= this.txtCedCliente.getText();
+        String filtroNombre = this.txtCedCliente.getText();
         if(filtroNombre.isEmpty()){
             this.tablaCitas.setItems(obtenerCitas());
-        }else{
+        }else {
             this.filtroClientes.clear();
-
             for(Cita c: this.obtenerCitas()) {
                 if (c.getClienteObj().getNombre().toLowerCase().contains(filtroNombre.toLowerCase())){
                     this.filtroClientes.add(c);
                 }
             }
-
             this.tablaCitas.setItems(filtroClientes);
         }
     }
@@ -124,7 +115,7 @@ public class CitasController implements Initializable {
 
     @FXML
     public void backCitas(){
-        App.changeRootFXML("vista/Menu");
+        App.changeRootFXML("vista/fxml/Menu");
     }
 
     @FXML
@@ -157,7 +148,7 @@ public class CitasController implements Initializable {
     @FXML
     public void registrarAtencion(){
         Cita ci = (Cita) tablaCitas.getSelectionModel().getSelectedItem();
-        RegistrarAtencionController controladorRegistroA = (RegistrarAtencionController) App.changeRootFXML("vista/secundarias/RegistrarAtencion", RegistrarAtencionController.class);
+        RegistrarAtencionController controladorRegistroA = (RegistrarAtencionController) App.changeRootFXML("vista/fxml/atencion/RegistrarAtencion", RegistrarAtencionController.class);
         controladorRegistroA.cargarDatosCita(ci);
     }
     @FXML

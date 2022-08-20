@@ -52,7 +52,7 @@
                   <RowConstraints maxHeight="89.0" minHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="tablaAtenciones" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@css/estilos.css">
+                  <TableView fx:id="tablaAtenciones" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@../../css/estilos.css">
                      <columns>
                         <TableColumn fx:id="colFechaA" prefWidth="133.0" text="Fecha" />
                         <TableColumn fx:id="colClienteA" prefWidth="158.0" text="Cliente" />

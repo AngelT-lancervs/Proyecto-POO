@@ -39,7 +39,7 @@ public class EditarClienteController implements Initializable {
 
     @FXML
     void backEditarCliente(ActionEvent event) {
-        App.changeRootFXML("vista/Clientes");
+        App.changeRootFXML("vista/fxml/cliente/Clientes");
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class EditarClienteController implements Initializable {
             int ind = clientes.indexOf(clienteSeleccionado);
             clientes.set(ind, clienteSeleccionado);
             Cliente.actualizarCSV(App.pathClientesCSV,clientes);
-            App.changeRootFXML("vista/Clientes");
+            App.changeRootFXML("vista/fxml/cliente/Clientes");
         }
     }
     public void cargarDatosCliente(Cliente c){
