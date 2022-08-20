@@ -39,88 +39,88 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="label0_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="117.0" prefWidth="241.0" snapToPixel="false" text="e" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label fx:id="label0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="75.0" prefWidth="226.0" snapToPixel="false" text="0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Microsoft JhengHei" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label1_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="111.0" prefWidth="276.0" text="e" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label fx:id="label4" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="111.0" prefWidth="276.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label2_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="122.0" prefWidth="316.0" text="e" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Label fx:id="label8" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="122.0" prefWidth="316.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label3_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="88.0" prefWidth="255.0" text="e" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="label12" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="88.0" prefWidth="255.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label0_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="105.0" prefWidth="249.0" text="e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label fx:id="label1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="105.0" prefWidth="249.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Microsoft JhengHei" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label1_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="146.0" prefWidth="268.0" text="e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label fx:id="label5" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="146.0" prefWidth="268.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label2_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="113.0" prefWidth="257.0" text="e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Label fx:id="label9" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="113.0" prefWidth="257.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label3_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="124.0" prefWidth="281.0" text="e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="label13" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="124.0" prefWidth="281.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin></Label>
-                  <Label fx:id="label0_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="81.0" prefWidth="205.0" text="e" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label fx:id="label2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="81.0" prefWidth="205.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Microsoft JhengHei" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label1_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="104.0" prefWidth="223.0" text="e" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label fx:id="label6" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="104.0" prefWidth="223.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label2_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="139.0" prefWidth="273.0" text="e" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Label fx:id="label10" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="139.0" prefWidth="273.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
-                  <Label fx:id="label3_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="160.0" prefWidth="296.0" text="e" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="label14" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="160.0" prefWidth="296.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
-                  <Label fx:id="label4_2" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="102.0" prefWidth="300.0" text="e" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Label fx:id="label18" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="102.0" prefWidth="300.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
-                  <Label fx:id="label0_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="93.0" prefWidth="216.0" text="e" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label fx:id="label3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="93.0" prefWidth="216.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Microsoft JhengHei" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label1_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="109.0" prefWidth="202.0" text="e" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label fx:id="label7" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="109.0" prefWidth="202.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label2_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="118.0" prefWidth="236.0" text="e" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Label fx:id="label11" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="118.0" prefWidth="236.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="22.0" />
+                        <Font name="Tahoma" size="66.0" />
                      </font></Label>
-                  <Label fx:id="label3_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="108.0" prefWidth="209.0" text="e" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="label15" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="108.0" prefWidth="209.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
-                  <Label fx:id="label4_3" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="144.0" prefWidth="249.0" text="e" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Label fx:id="label19" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="144.0" prefWidth="249.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
-                  <Label fx:id="label4_1" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="140.0" prefWidth="264.0" text="e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Label fx:id="label17" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="140.0" prefWidth="264.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
-                  <Label fx:id="label4_0" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="146.0" prefWidth="360.0" text="e" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Label fx:id="label16" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="146.0" prefWidth="360.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="66.0" />
                      </font></Label>
                </children>
             </GridPane>
@@ -181,13 +181,16 @@
                   </VBox>
                   <VBox prefHeight="127.0" prefWidth="172.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="50.0" />
                      </HBox.margin>
                      <children>
                         <Label fx:id="timer" alignment="CENTER" prefHeight="58.0" prefWidth="182.0" text="00:00">
                            <font>
                               <Font name="Microsoft JhengHei Bold" size="21.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </Label>
                         <Button fx:id="botonIniciar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#iniciar" prefHeight="44.0" prefWidth="128.0" text="INICIAR" textAlignment="CENTER">
                            <font>
@@ -204,14 +207,6 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                      <children>
-                        <Button fx:id="botonGuardar" mnemonicParsing="false" onAction="#guardarPuntaje" prefHeight="38.0" prefWidth="138.0" text="GUARDAR">
-                           <VBox.margin>
-                              <Insets left="50.0" top="20.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Tahoma" size="23.0" />
-                           </font>
-                        </Button>
                         <Button fx:id="botonSalir" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" onAction="#salir" prefHeight="33.0" prefWidth="135.0" text="SALIR">
                            <VBox.margin>
                               <Insets left="50.0" top="20.0" />

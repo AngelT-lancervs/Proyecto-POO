@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import g05.App;
@@ -45,51 +46,48 @@ public class JuegoController implements Initializable {
     private GridPane gridPane;
 
     @FXML
-    private Label label0_0;
+    private Label label0;
     @FXML
-    private Label label0_1;
+    private Label label1;
     @FXML
-    private Label label0_2;
+    private Label label2;
     @FXML
-    private Label label0_3;
+    private Label label3;
     @FXML
-    private Label label1_0;
+    private Label label4;
     @FXML
-    private Label label1_1;
+    private Label label5;
     @FXML
-    private Label label1_2;
+    private Label label6;
     @FXML
-    private Label label1_3;
+    private Label label7;
     @FXML
-    private Label label2_0;
+    private Label label8;
     @FXML
-    private Label label2_1;
+    private Label label9;
     @FXML
-    private Label label2_2;
+    private Label label10;
     @FXML
-    private Label label2_3;
+    private Label label11;
     @FXML
-    private Label label3_0;
+    private Label label12;
     @FXML
-    private Label label3_1;
+    private Label label13;
     @FXML
-    private Label label3_2;
+    private Label label14;
     @FXML
-    private Label label3_3;
+    private Label label15;
     @FXML
-    private Label label4_0;
+    private Label label16;
     @FXML
-    private Label label4_1;
+    private Label label17;
     @FXML
-    private Label label4_2;
+    private Label label18;
     @FXML
-    private Label label4_3;
+    private Label label19;
 
     @FXML
     private Label numero;
-
-    @FXML
-    private Button botonGuardar;
 
     @FXML
     private Button botonSalir;
@@ -108,73 +106,50 @@ public class JuegoController implements Initializable {
 
     ArrayList<Integer> nms = JuegoController.generarNumeros();
 
-    ArrayList<Label> labels = new ArrayList<>();
+    //ArrayList<Label> labels = new ArrayList<>();
+    //ArrayList<Label> lVacios = new ArrayList<>();
 
+    ArrayList<Integer> indicesV = indicesVacios();
+    ArrayList<Integer> numerosReales = new ArrayList<>();
+   
+    HashMap<String, Label> labels = new HashMap<>();
     
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        labels.add(label0_0);
-        labels.add(label0_1);
-        labels.add(label0_2);
-        labels.add(label0_3);
-        labels.add(label1_0);
-        labels.add(label1_1);
-        labels.add(label1_2);
-        labels.add(label1_3);
-        labels.add(label2_0);
-        labels.add(label2_1);
-        labels.add(label2_2);
-        labels.add(label2_3);
-        labels.add(label3_0);
-        labels.add(label3_1);
-        labels.add(label3_2);
-        labels.add(label3_3);
-        labels.add(label4_0);
-        labels.add(label4_1);
-        labels.add(label4_2);
-        labels.add(label4_3);
 
+        labels.put("label0", label0);
+        labels.put("label1", label1);
+        labels.put("label2", label2);
+        labels.put("label3", label3);
+        labels.put("label4", label4);
+        labels.put("label5", label5);
+        labels.put("label6", label6);
+        labels.put("label7", label7);
+        labels.put("label8", label8);
+        labels.put("label9", label9);
+        labels.put("label10", label10);
+        labels.put("label11", label11);
+        labels.put("label12", label12);
+        labels.put("label13", label13);
+        labels.put("label14", label14);
+        labels.put("label15", label15);
+        labels.put("label16", label16);
+        labels.put("label17", label17);
+        labels.put("label18", label18);
+        labels.put("label19", label19);
 
-        
-        this.label0_0.setText(String.valueOf(nms.get(0)));
-        this.label0_1.setText(String.valueOf(nms.get(1)));
-        this.label0_2.setText(String.valueOf(nms.get(2)));
-        this.label0_3.setText(String.valueOf(nms.get(3)));
-        this.label1_0.setText(String.valueOf(nms.get(4)));
-        this.label1_1.setText(String.valueOf(nms.get(5)));
-        this.label1_2.setText(String.valueOf(nms.get(6)));
-        this.label1_3.setText(String.valueOf(nms.get(7)));
-        this.label2_0.setText(String.valueOf(nms.get(8)));
-        this.label2_1.setText(String.valueOf(nms.get(9)));
-        this.label2_2.setText(String.valueOf(nms.get(10)));
-        this.label2_3.setText(String.valueOf(nms.get(11)));
-        this.label3_0.setText(String.valueOf(nms.get(12)));
-        this.label3_1.setText(String.valueOf(nms.get(13)));
-        this.label3_2.setText(String.valueOf(nms.get(14)));
-        this.label3_3.setText(String.valueOf(nms.get(15)));
-        this.label4_0.setText(String.valueOf(nms.get(16)));
-        this.label4_1.setText(String.valueOf(nms.get(17)));
-        this.label4_2.setText(String.valueOf(nms.get(18)));
-        this.label4_3.setText(String.valueOf(nms.get(19)));
-
+        indicesV = indicesVacios();
+        numerosReales = listaOriginal();
+        System.out.println(indicesV);
+        System.out.println(nms);
+        System.out.println(numerosReales);
+        System.out.println(numerosReales.size());
         
         reproducirIdle();
-        cambiarNumero();
-
-        casillasVacias(labels, nms);
-        for(Integer i: nms){
-            System.out.println(i);
-        }
         
     }
 
-
-    @FXML
-    public void guardarPuntaje(ActionEvent event) {
-
-    }
 
     //ERROR AL QUERER REGRESAR A LA PANTALLA REGISTRARATENCION
     @FXML
@@ -185,13 +160,17 @@ public class JuegoController implements Initializable {
 
     @FXML
     public void accionJugador(){
-        comprobarAccion(labels);
+        comprobarAccion();
     }
 
     @FXML
     public void iniciar(){
         this.botonIniciar.setDisable(true);
+        numerosR();
+        cambiarNumero();
+        casillasVacias();
         accionJugador();
+        
     }
 
     //Generar numeros aleatorios no repetidos
@@ -199,7 +178,7 @@ public class JuegoController implements Initializable {
         ArrayList<Integer> nums = new ArrayList<>();
 
         while (nums.size() < 20){
-            int rd = (int) (Math.random()*30 +1);
+            int rd = (int) (Math.random()*80 +1);
             Integer i = (int) rd;
 
             if(!nums.contains(i)){
@@ -212,9 +191,9 @@ public class JuegoController implements Initializable {
     }
 
     //Comprobar movimiento
-    public void comprobarAccion(ArrayList<Label> lb){
+    public void comprobarAccion(){
 
-        for(Label l: lb){
+        for(Label l: labels.values()){
             
 
             l.setOnMouseClicked(ev -> {
@@ -230,29 +209,31 @@ public class JuegoController implements Initializable {
                     l.setGraphic(new ImageView(im));
                     reproducirCorrecto();
                     cambiarNumero();
-
-
+                    //nms.remove(cambiarNumero());
                 } else {
                     numErrores += 1;
                     this.errores.setText(String.valueOf(numErrores));
                     reproducirError();
                 } 
-
             });
-
         }
+    }
+    public void numerosR(){
+        for(int i = 0; i<20; i++){
+            labels.get("label" + String.valueOf(i)).setText(nms.get(i).toString());
+        }
+
     }
 
 
     //Cambiar Numero
-    public void cambiarNumero(){
+    public int cambiarNumero(){
 
-        int numA = (int) (Math.random()*nms.size());
-        this.numero.setText(String.valueOf(nms.get(numA)));
-        nms.remove(numA);
-
+        int numA = (int) (Math.random()*(numerosReales.size()-1));
+        this.numero.setText(String.valueOf(numerosReales.get(numA)));
+        numerosReales.remove(numA);
+        return numA;
     }
-
 
     //Cambiar imagen Perro
     public void cambiarImagen(Label l){
@@ -261,23 +242,49 @@ public class JuegoController implements Initializable {
         l.setGraphic(new ImageView(im));
     }
 
-    //Generar Casillas Vacias
-    public void casillasVacias(ArrayList<Label> lbs, ArrayList<Integer> ints){
+    //GENERAR CASILLAS VACIAS
+    //Generar indices
+    public ArrayList<Integer> indicesVacios(){
         ArrayList<Integer> indices = new ArrayList<>();
 
         while (indices.size() <5){
-            int c = (int) (Math.random()*ints.size());
+            int c = (int) (Math.random()*(nms.size()-1));
             Integer n = (int) c;
             if(!indices.contains(n)){
                 indices.add(n);
             }
         }
+        return indices;
+    }
 
-        for (Integer i: indices){
-            ints.remove(i);
-            lbs.get(i).setText("");
-            cambiarImagen(lbs.get(i));
+    //cambiar por perritos
+    public void casillasVacias(){
+
+        for (Integer i: indicesV){
+
+            labels.get("label" + String.valueOf(i)).setText("");
+            cambiarImagen(labels.get("label" + String.valueOf(i)));
+
         }
+    }
+       
+    public ArrayList<Integer> listaOriginal(){
+
+        ArrayList<Integer> numerosPro = new ArrayList<>();
+
+        Integer n1 = this.nms.get(this.indicesV.get(0));
+        Integer n2 = this.nms.get(this.indicesV.get(1));
+        Integer n3 = this.nms.get(this.indicesV.get(2));
+        Integer n4 = this.nms.get(this.indicesV.get(3));
+        Integer n5 = this.nms.get(this.indicesV.get(4));
+
+        for(int i=0 ; i<20 ; i++){
+            Integer indiceP = nms.get(i);
+            if(indiceP != n1 && indiceP != n2 && indiceP != n3 && indiceP != n4 && indiceP != n5){
+                numerosPro.add(nms.get(i));
+            }
+        }
+        return numerosPro;
     }
 
     public void reproducirCorrecto(){
