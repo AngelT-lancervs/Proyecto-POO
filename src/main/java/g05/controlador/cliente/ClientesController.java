@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.modelo.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,9 +55,9 @@ public class ClientesController implements Initializable {
         colDatosRepresentante.setCellValueFactory(new PropertyValueFactory<Cliente, String>("datos_del_representante"));
         tablaClientes.setItems(obtenerClientes());
         botonEditarC.setDisable(true);
-        botonEditarC.setOnMouseEntered(ev -> App.button_hoverSound());
-        botonAgregarC.setOnMouseEntered(ev -> App.button_hoverSound());
-        regresarC.setOnMouseEntered(ev -> App.button_hoverSound());
+        botonEditarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        regresarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
     }
 
     @FXML

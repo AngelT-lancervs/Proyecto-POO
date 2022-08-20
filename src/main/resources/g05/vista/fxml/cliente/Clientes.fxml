@@ -15,11 +15,11 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="415.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.cliente.ClientesController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="-5.0" prefHeight="415.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="-5.0" prefHeight="415.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="CLIENTES">
                <font>
-                  <Font name="Tahoma" size="28.0" />
+                  <Font name="Yu Gothic Regular" size="32.0" />
                </font>
             </Label>
             <GridPane alignment="CENTER" prefHeight="351.0" prefWidth="706.0">
@@ -33,12 +33,15 @@
                <children>
                   <TableView fx:id="tablaClientes" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="273.0" prefWidth="702.0" stylesheets="@../../css/estilos.css">
                      <columns>
-                        <TableColumn fx:id="colNombreC" prefWidth="121.0" text="Nombre" />
-                        <TableColumn fx:id="colCedulaC" prefWidth="108.0" text="Cédula" />
-                        <TableColumn fx:id="colEmailC" prefWidth="163.0" text="Email" />
-                        <TableColumn fx:id="colTelefonoC" prefWidth="102.0" text="Teléfono" />
-                        <TableColumn fx:id="colDatosRepresentante" prefWidth="184.0" text="Datos representante" />
+                        <TableColumn fx:id="colNombreC" prefWidth="100.0" text="Nombre" />
+                        <TableColumn fx:id="colCedulaC" prefWidth="100.0" text="Cédula" />
+                        <TableColumn fx:id="colEmailC" prefWidth="100.0" text="Email" />
+                        <TableColumn fx:id="colTelefonoC" prefWidth="100.0" text="Teléfono" />
+                        <TableColumn fx:id="colDatosRepresentante" prefWidth="150.0" text="Datos representante" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                   <HBox fx:id="hBox" alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
                      <children>

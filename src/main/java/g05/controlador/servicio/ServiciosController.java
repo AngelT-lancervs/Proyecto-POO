@@ -1,6 +1,7 @@
 package g05.controlador.servicio;
 
 
+import g05.controlador.SoundController;
 import g05.modelo.*;
 import g05.App;
 import javafx.collections.FXCollections;
@@ -50,10 +51,10 @@ public class ServiciosController implements Initializable {
             tablaServicios.setItems(obtenerServicios());
             botonEditarS.setDisable(true);
             botonEliminarS.setDisable(true);
-            botonAgregarS.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-            botonEditarS.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-            botonEliminarS.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-            regresarS.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+            botonAgregarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+            botonEditarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+            botonEliminarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+            regresarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
         }
 
     public static ArrayList<Servicio> serviciosCSV = Servicio.cargarServicios(App.pathServiciosCSV);

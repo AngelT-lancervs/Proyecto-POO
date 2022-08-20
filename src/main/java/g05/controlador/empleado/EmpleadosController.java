@@ -1,6 +1,7 @@
 package g05.controlador.empleado;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.modelo.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,10 +60,10 @@ public class EmpleadosController implements Initializable {
         tablaEmpleados.setItems(obtenerEmpleados());
         botonEditarE.setDisable(true);
         botonEliminarE.setDisable(true);
-        botonAgregarE.setOnMouseEntered(ev -> App.button_hoverSound());
-        botonEditarE.setOnMouseEntered(ev -> App.button_hoverSound());
-        botonEliminarE.setOnMouseEntered(ev -> App.button_hoverSound());
-        regresarE.setOnMouseEntered(ev -> App.button_hoverSound());
+        botonAgregarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        botonEditarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        botonEliminarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        regresarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
     }
 
     public static ObservableList<Empleado> obtenerEmpleados() {

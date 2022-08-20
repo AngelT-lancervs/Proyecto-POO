@@ -1,5 +1,6 @@
 package g05.controlador.cliente;
 import g05.App;
+import g05.controlador.SoundController;
 import g05.controlador.cliente.ClientesController;
 import g05.modelo.Cliente;
 import javafx.event.ActionEvent;
@@ -48,8 +49,8 @@ public class AgregarClienteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         botonAgregarC.setDisable(true);
-        botonAgregarC.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        botonCancelarC.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonCancelarC.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
     }
 
     @FXML

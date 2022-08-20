@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import g05.App;
+import g05.controlador.SoundController;
 import g05.controlador.atencion.RegistrarAtencionController;
 import g05.modelo.*;
 import javafx.collections.FXCollections;
@@ -74,11 +75,11 @@ public class CitasController implements Initializable {
         tablaCitas.setItems(obtenerCitas());
         botonRegistrarA.setDisable(true);
         botonEliminarCi.setDisable(true);
-        botonCrearCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        botonConsultarAc.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        botonEliminarCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        botonRegistrarA.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        regresarCi.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonCrearCi.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonConsultarAc.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonEliminarCi.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonRegistrarA.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        regresarCi.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
         filtroClientes = FXCollections.observableArrayList();
     }
 

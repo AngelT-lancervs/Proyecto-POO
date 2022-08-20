@@ -1,5 +1,6 @@
 package g05.controlador.cliente;
 import g05.App;
+import g05.controlador.SoundController;
 import g05.controlador.cliente.ClientesController;
 import g05.modelo.Cliente;
 import javafx.event.ActionEvent;
@@ -33,8 +34,8 @@ public class EditarClienteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        botonEditarC.setOnMouseEntered(ev -> App.button_hoverSound());
-        botonCancelarC.setOnMouseEntered(ev -> App.button_hoverSound());
+        botonEditarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        botonCancelarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
     }
 
     @FXML

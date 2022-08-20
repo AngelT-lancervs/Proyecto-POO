@@ -16,11 +16,11 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.cita.CitasController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="CITAS">
                <font>
-                  <Font name="Tahoma" size="28.0" />
+                  <Font name="Yu Gothic Regular" size="32.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="639.0">
@@ -54,30 +54,33 @@
                         <TableColumn fx:id="colFechaCi" prefWidth="126.0" text="Fecha" />
                         <TableColumn fx:id="colHoraCi" prefWidth="111.0" text="Hora" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="botonCrearCi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#crearCita" prefHeight="40.0" prefWidth="89.0" text="Crear">
+                        <Button fx:id="botonCrearCi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#crearCita" prefHeight="44.0" prefWidth="89.0" text="Crear">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonRegistrarA" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#registrarAtencion" prefHeight="40.0" prefWidth="176.0" text="Registrar Atención">
+                        <Button fx:id="botonRegistrarA" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#registrarAtencion" prefHeight="44.0" prefWidth="176.0" text="Registrar Atención">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonConsultarAc" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#consultarActividades" prefHeight="40.0" prefWidth="185.0" text="Consultar Actividades">
+                        <Button fx:id="botonConsultarAc" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#consultarActividades" prefHeight="44.0" prefWidth="185.0" text="Consultar Actividades">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botonEliminarCi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarCita" prefHeight="40.0" prefWidth="96.0" text="Eliminar">
+                        <Button fx:id="botonEliminarCi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarCita" prefHeight="44.0" prefWidth="96.0" text="Eliminar">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="regresarCi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backCitas" prefHeight="40.0" prefWidth="107.0" text="Regresar">
+                        <Button fx:id="regresarCi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backCitas" prefHeight="44.0" prefWidth="107.0" text="Regresar">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="14.0" />
                            </font>
@@ -87,9 +90,6 @@
                </children>
             </GridPane>
          </children>
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
       </VBox>
    </children>
 </AnchorPane>

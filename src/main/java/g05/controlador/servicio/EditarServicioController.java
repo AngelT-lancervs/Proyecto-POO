@@ -1,6 +1,7 @@
 package g05.controlador.servicio;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.modelo.Servicio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,8 +38,8 @@ public class EditarServicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        botonEditarS.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        botonCancelarS.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonEditarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonCancelarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
     }
     @FXML
     void backEditarServicios(ActionEvent event) {

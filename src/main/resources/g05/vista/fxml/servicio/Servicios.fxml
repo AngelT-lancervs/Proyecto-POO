@@ -15,11 +15,11 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.servicio.ServiciosController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="SERVICIOS">
                <font>
-                  <Font name="Tahoma" size="28.0" />
+                  <Font name="Yu Gothic Regular" size="32.0" />
                </font>
             </Label>
             <GridPane alignment="CENTER" prefHeight="356.0" prefWidth="570.0">
@@ -33,10 +33,10 @@
                <children>
                   <TableView fx:id="tablaServicios" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="269.0" prefWidth="605.0" stylesheets="@../../css/estilos.css">
                      <columns>
-                        <TableColumn fx:id="colNombreS" prefWidth="207.0" resizable="false" text="Nombre" />
-                        <TableColumn fx:id="colDuracionS" prefWidth="110.0" resizable="false" text="Duración" />
-                        <TableColumn fx:id="colPrecioS" prefWidth="108.0" resizable="false" text="Precio" />
-                        <TableColumn fx:id="colEstadoS" prefWidth="117.0" resizable="false" text="Estado" />
+                        <TableColumn fx:id="colNombreS" minWidth="-Infinity" prefWidth="114.0" text="Nombre" />
+                        <TableColumn fx:id="colDuracionS" minWidth="-Infinity" prefWidth="149.0" text="Duración" />
+                        <TableColumn fx:id="colPrecioS" minWidth="-Infinity" prefWidth="166.0" text="Precio" />
+                        <TableColumn fx:id="colEstadoS" minWidth="-Infinity" prefWidth="179.0" text="Estado" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

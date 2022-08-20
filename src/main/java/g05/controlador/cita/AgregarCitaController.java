@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.controlador.cita.CitasController;
 import g05.controlador.cliente.ClientesController;
 import g05.controlador.empleado.EmpleadosController;
@@ -114,6 +115,9 @@ public class AgregarCitaController implements Initializable{
         if(!(serviciosCita.getItems().size()>=1)){
             serviciosCita.setPromptText("No hay servicios activos");
         }
+
+        botonAgregarC.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonCancelar.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
     }
 
     public void getDate(ActionEvent event){

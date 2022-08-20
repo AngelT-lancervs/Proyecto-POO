@@ -15,11 +15,11 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.empleado.EmpleadosController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="-9.0" prefHeight="430.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="430.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="EMPLEADOS">
                <font>
-                  <Font name="Tahoma" size="28.0" />
+                  <Font name="Yu Gothic Regular" size="32.0" />
                </font>
             </Label>
             <GridPane alignment="CENTER" prefHeight="365.0" prefWidth="637.0">
@@ -31,14 +31,17 @@
                 <RowConstraints maxHeight="89.0" minHeight="8.0" prefHeight="35.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tablaEmpleados" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@../../css/estilos.css">
+                  <TableView fx:id="tablaEmpleados" fixedCellSize="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#comprobarSeleccion" pickOnBounds="false" prefHeight="263.0" prefWidth="722.0" stylesheets="@../../css/estilos.css">
                      <columns>
-                        <TableColumn fx:id="colNombreE" prefWidth="109.0" text="Nombre" />
-                        <TableColumn fx:id="colCedulaE" prefWidth="101.0" text="Cédula" />
-                        <TableColumn fx:id="colEmailE" prefWidth="217.0" text="Email" />
-                        <TableColumn fx:id="colTelefonoE" prefWidth="97.0" text="Teléfono" />
-                        <TableColumn fx:id="colEstadoE" prefWidth="111.0" text="Estado" />
+                        <TableColumn fx:id="colNombreE" editable="false" prefWidth="109.0" sortable="false" text="Nombre" />
+                        <TableColumn fx:id="colCedulaE" editable="false" prefWidth="101.0" sortable="false" text="Cédula" />
+                        <TableColumn fx:id="colEmailE" editable="false" prefWidth="217.0" sortable="false" text="Email" />
+                        <TableColumn fx:id="colTelefonoE" editable="false" prefWidth="97.0" sortable="false" text="Teléfono" />
+                        <TableColumn fx:id="colEstadoE" editable="false" prefWidth="111.0" sortable="false" text="Estado" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
                      <children>
@@ -70,9 +73,6 @@
                </children>
             </GridPane>
          </children>
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
       </VBox>
    </children>
 </AnchorPane>

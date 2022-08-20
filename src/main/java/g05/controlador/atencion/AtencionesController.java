@@ -1,6 +1,7 @@
 package g05.controlador.atencion;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.modelo.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -73,8 +74,8 @@ public class AtencionesController implements Initializable {
         colEmpleadoA.setCellValueFactory(new PropertyValueFactory<Atencion, Empleado>("empleado"));
         tablaAtenciones.setItems(obtenerAtenciones());
         botonEliminarA.setDisable(true);
-        botonEliminarA.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        regresarA.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonEliminarA.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        regresarA.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
     }
     @FXML
     void backAtenciones(ActionEvent event) {

@@ -1,5 +1,6 @@
 package g05.controlador.empleado;
 import g05.App;
+import g05.controlador.SoundController;
 import g05.modelo.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,8 +35,8 @@ public class EditarEmpleadoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        botonEditarE.setOnMouseEntered(ev -> App.button_hoverSound());
-        botonCancelarE.setOnMouseEntered(ev -> App.button_hoverSound());
+        botonEditarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        botonCancelarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
     }
     @FXML
     void editarEmpleado(ActionEvent event) {

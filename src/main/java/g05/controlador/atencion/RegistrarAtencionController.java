@@ -1,6 +1,7 @@
 package g05.controlador.atencion;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.controlador.cita.CitasController;
 import g05.controlador.empleado.EmpleadosController;
 import g05.modelo.Atencion;
@@ -49,8 +50,8 @@ public class RegistrarAtencionController implements Initializable {
             //Solo se podrá registrar a los empleados activos
         }
         guardar.setDisable(true);
-        guardar.setOnMouseEntered(ev -> App.button_hoverSound());
-        cancelar.setOnMouseEntered(ev -> App.button_hoverSound());
+        guardar.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+        cancelar.setOnMouseEntered(ev -> SoundController.button_hoverSound());
     }
     @FXML
     public void agregarAtencion(ActionEvent event) {

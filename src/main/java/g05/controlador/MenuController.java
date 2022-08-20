@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.net.SocketOption;
 import java.util.Optional;
 
 
@@ -28,42 +30,42 @@ public class MenuController{
     //Métodos cuando el cursor pasa por encima de cada boton
     @FXML
     public void preServicios(){
-        App.button_hoverSound();
+        SoundController.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/servicios.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, agregar, editar y/o desactivar \nalgún servicio. Presione el botón\n -Servicios- para continuar");
     }
     @FXML
     public void preClientes(){
-        App.button_hoverSound();
+        SoundController.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/clientes.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, agregar y/o editar clientes.\nPresione el botón -Clientes- para\n continuar");
     }
     @FXML
     public void preAtenciones(){
-        App.button_hoverSound();
+        SoundController.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/atenciones.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá consultar las atenciones.\nPresione el botón -Atenciones- para\n continuar");
     }
     @FXML
     public void preCitas(){
-        App.button_hoverSound();
+        SoundController.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/citas.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, crear, eliminar, consultar\ncitas, y/o registrar su atención \nPresione el botón -Citas- para continuar");
     }
     @FXML
     public void preEmpleados(){
-        App.button_hoverSound();
+        SoundController.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/empleados.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Podrá ver, agregar, editar y/o eliminar \nempleados. Presione el botón\n -Empleados- para continuar");
     }
     @FXML
     public void preSalir(){
-        App.button_hoverSound();
+        SoundController.button_hoverSound();
         Image im = new Image(App.class.getResourceAsStream("vista/img/salir.png"));
         displayMenu.setImage(im);
         infoMenu.setText("Cerrará la sesión actual.\nPresione el botón -Salir- para cerrar\n el sistema");

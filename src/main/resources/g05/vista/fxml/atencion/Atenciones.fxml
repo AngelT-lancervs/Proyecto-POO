@@ -17,11 +17,11 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="430.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.atencion.AtencionesController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="6.0" prefHeight="430.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="270.0" text="ATENCIONES">
                <font>
-                  <Font name="Tahoma" size="28.0" />
+                  <Font name="Yu Gothic Regular" size="32.0" />
                </font>
             </Label>
             <HBox fx:id="hConsulta" alignment="CENTER" prefHeight="62.0" prefWidth="639.0">
@@ -31,11 +31,7 @@
                         <Font name="Microsoft JhengHei Light" size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbConsultarPor" onAction="#filtrarAtenciones" prefHeight="32.0" prefWidth="139.0">
-                     <padding>
-                        <Insets bottom="2.0" left="5.0" right="2.0" top="5.0" />
-                     </padding>
-                  </ComboBox>
+                  <ComboBox fx:id="cbConsultarPor" onAction="#filtrarAtenciones" prefHeight="25.0" prefWidth="235.0" promptText="-Seleccione un modo de búsqueda-" visibleRowCount="20" />
                   <TextField fx:id="txtConsultar" onAction="#filtrarAtenciones">
                      <HBox.margin>
                         <Insets left="10.0" />
@@ -59,13 +55,13 @@
                         <TableColumn fx:id="colDuracionA" prefWidth="188.0" text="Duración real" />
                         <TableColumn fx:id="colEmpleadoA" prefWidth="157.0" text="Terapista" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="botonEliminarA" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarAtenciones" prefHeight="44.0" prefWidth="148.0" text="Eliminar">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
+                        <Button fx:id="botonEliminarA" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminarAtenciones" prefHeight="44.0" prefWidth="148.0" text="Eliminar" textAlignment="CENTER">
                            <font>
                               <Font name="Microsoft JhengHei Light" size="18.0" />
                            </font>

@@ -17,11 +17,6 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-
-    private static File file;
-    private static Media media;
-    private static MediaPlayer mp;
-
     public static String pathSound = "src/main/resources/g05/vista/sound-fx/";
     public static String pathEmpleadosCSV = "archivo/registros/empleados.csv";
     public static String pathClientesCSV= "archivo/registros/clientes.csv";
@@ -32,7 +27,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("vista/Menu"),800 ,650);
+        scene = new Scene(loadFXML("vista/fxml/Menu"),1280 ,720);
         stage.setScene(scene);
         stage.setTitle("Sistema para manejo de atenciones");
         scene.getStylesheets().add(App.class.getResource("vista/css/estilos.css").toExternalForm());
@@ -83,19 +78,7 @@ public class App extends Application {
         }
     }
 
-
     public static void main(String[] args) {
         launch();
     }
-
-    /**
-     * Sonidos para javafx media
-     */
-    public static void button_hoverSound(){
-        file = new File(pathSound+"button-hover.mp3");
-        media = new Media(file.toURI().toString());
-        mp = new MediaPlayer(media);
-        mp.play();
-    }
-
 }

@@ -1,6 +1,7 @@
 package g05.controlador.empleado;
 
 import g05.App;
+import g05.controlador.SoundController;
 import g05.modelo.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,8 +40,8 @@ public class AgregarEmpleadoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         botonAgregarE.setDisable(true);
-        botonAgregarE.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
-        botonCancelar.setOnMouseEntered(mouseEvent -> App.button_hoverSound());
+        botonAgregarE.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonCancelar.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
     }
 
     @FXML
