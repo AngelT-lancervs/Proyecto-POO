@@ -22,4 +22,7 @@ module g05 {
     opens g05.controlador.servicio to javafx.fxml;
     exports g05.controlador.cita;
     opens g05.controlador.cita to javafx.fxml;
+    exports g05.controlador.actividad;
+    opens g05.controlador.actividad;
+
 }

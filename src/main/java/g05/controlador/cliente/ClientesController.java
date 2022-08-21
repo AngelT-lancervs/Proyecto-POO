@@ -55,9 +55,11 @@ public class ClientesController implements Initializable {
         colDatosRepresentante.setCellValueFactory(new PropertyValueFactory<Cliente, String>("datos_del_representante"));
         tablaClientes.setItems(obtenerClientes());
         botonEditarC.setDisable(true);
-        botonEditarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
-        botonAgregarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
-        regresarC.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+
+        SoundController sc = new SoundController();
+        botonEditarC.setOnMouseEntered(ev -> sc.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(ev -> sc.button_hoverSound());
+        regresarC.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
 
     @FXML

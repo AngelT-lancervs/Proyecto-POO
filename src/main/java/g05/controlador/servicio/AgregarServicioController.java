@@ -38,8 +38,10 @@ public class AgregarServicioController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         botonAgregarS.setDisable(true);
-        botonAgregarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonCancelarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+
+        SoundController sc = new SoundController();
+        botonAgregarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonCancelarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
     @FXML

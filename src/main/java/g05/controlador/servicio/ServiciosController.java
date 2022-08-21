@@ -44,6 +44,7 @@ public class ServiciosController implements Initializable {
 
         @Override
         public void initialize(URL url, ResourceBundle rb) {
+            SoundController sc = new SoundController();
             colNombreS.setCellValueFactory(new PropertyValueFactory<Servicio, String>("nombreServicio"));
             colDuracionS.setCellValueFactory(new PropertyValueFactory<Servicio, Double> ("duracion") );
             colPrecioS.setCellValueFactory(new PropertyValueFactory<Servicio, Double> ("precio"));
@@ -51,10 +52,10 @@ public class ServiciosController implements Initializable {
             tablaServicios.setItems(obtenerServicios());
             botonEditarS.setDisable(true);
             botonEliminarS.setDisable(true);
-            botonAgregarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-            botonEditarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-            botonEliminarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-            regresarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+            botonAgregarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+            botonEditarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+            botonEliminarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+            regresarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
         }
 
     public static ArrayList<Servicio> serviciosCSV = Servicio.cargarServicios(App.pathServiciosCSV);

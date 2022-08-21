@@ -60,10 +60,12 @@ public class EmpleadosController implements Initializable {
         tablaEmpleados.setItems(obtenerEmpleados());
         botonEditarE.setDisable(true);
         botonEliminarE.setDisable(true);
-        botonAgregarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
-        botonEditarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
-        botonEliminarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
-        regresarE.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+
+        SoundController sc = new SoundController();
+        botonAgregarE.setOnMouseEntered(ev -> sc.button_hoverSound());
+        botonEditarE.setOnMouseEntered(ev -> sc.button_hoverSound());
+        botonEliminarE.setOnMouseEntered(ev -> sc.button_hoverSound());
+        regresarE.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
 
     public static ObservableList<Empleado> obtenerEmpleados() {

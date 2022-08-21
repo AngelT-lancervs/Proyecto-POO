@@ -74,8 +74,10 @@ public class AtencionesController implements Initializable {
         colEmpleadoA.setCellValueFactory(new PropertyValueFactory<Atencion, Empleado>("empleado"));
         tablaAtenciones.setItems(obtenerAtenciones());
         botonEliminarA.setDisable(true);
-        botonEliminarA.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        regresarA.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+
+        SoundController sc = new SoundController();
+        botonEliminarA.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        regresarA.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
     @FXML
     void backAtenciones(ActionEvent event) {

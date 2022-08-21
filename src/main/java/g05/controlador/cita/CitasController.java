@@ -1,25 +1,29 @@
 package g05.controlador.cita;
 
-import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.ResourceBundle;
 import g05.App;
 import g05.controlador.SoundController;
+import g05.controlador.actividad.ActividadesController;
 import g05.controlador.atencion.RegistrarAtencionController;
 import g05.modelo.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 
 public class CitasController implements Initializable {
@@ -75,11 +79,14 @@ public class CitasController implements Initializable {
         tablaCitas.setItems(obtenerCitas());
         botonRegistrarA.setDisable(true);
         botonEliminarCi.setDisable(true);
-        botonCrearCi.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonConsultarAc.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonEliminarCi.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonRegistrarA.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        regresarCi.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonConsultarAc.setDisable(true);
+
+        SoundController sc = new SoundController();
+        botonCrearCi.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonConsultarAc.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonEliminarCi.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonRegistrarA.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        regresarCi.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
         filtroClientes = FXCollections.observableArrayList();
     }
 
@@ -143,7 +150,18 @@ public class CitasController implements Initializable {
 
     @FXML
     public void consultarActividades(){
+        try {
+            Cita ci = (Cita) tablaCitas.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("vista/fxml/actividad/Actividades.fxml"));
+            ActividadesController controller = new ActividadesController();
+            controller.cargarDatosActividades(ci);
+            fxmlLoader.setController(controller);
+            Parent root = (Parent) fxmlLoader.load();
+            anchorPane.getScene().setRoot(root);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -157,9 +175,11 @@ public class CitasController implements Initializable {
         Cita ci = (Cita) tablaCitas.getSelectionModel().getSelectedItem();
         if (ci == null) {
             botonRegistrarA.setDisable(true);
+            botonConsultarAc.setDisable(true);
             botonEliminarCi.setDisable(true);
         } else {
             botonRegistrarA.setDisable(false);
+            botonConsultarAc.setDisable(false);
             botonEliminarCi.setDisable(false);
         }
     }

@@ -38,8 +38,9 @@ public class EditarServicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        botonEditarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonCancelarS.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        SoundController sc = new SoundController();
+        botonEditarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonCancelarS.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
     @FXML
     void backEditarServicios(ActionEvent event) {

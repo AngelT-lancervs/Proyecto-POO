@@ -37,11 +37,13 @@ public class AgregarEmpleadoController implements Initializable {
     String telefono;
     boolean estadoE;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        SoundController sc = new SoundController();
         botonAgregarE.setDisable(true);
-        botonAgregarE.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonCancelar.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonAgregarE.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonCancelar.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
     @FXML

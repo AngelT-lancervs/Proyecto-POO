@@ -23,7 +23,7 @@ public class App extends Application {
     public static String pathServiciosCSV = "archivo/registros/servicios.csv";
     public static String pathCitas = "archivo/registros/citas.ser";
     public static String pathAtenciones = "archivo/registros/atenciones.ser";
-
+    public static String pathActividades = "archivo/registros/actividades.ser";
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -77,6 +77,10 @@ public class App extends Application {
             throw new RuntimeException(e);
         }
     }
+
+
+
+
 
     public static void main(String[] args) {
         launch();

@@ -1,12 +1,11 @@
 package g05.controlador.atencion;
 
 import g05.App;
+import g05.controlador.JuegoController;
 import g05.controlador.SoundController;
 import g05.controlador.cita.CitasController;
 import g05.controlador.empleado.EmpleadosController;
-import g05.modelo.Atencion;
-import g05.modelo.Cita;
-import g05.modelo.Empleado;
+import g05.modelo.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import java.net.URL;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -50,8 +48,10 @@ public class RegistrarAtencionController implements Initializable {
             //Solo se podrá registrar a los empleados activos
         }
         guardar.setDisable(true);
-        guardar.setOnMouseEntered(ev -> SoundController.button_hoverSound());
-        cancelar.setOnMouseEntered(ev -> SoundController.button_hoverSound());
+
+        SoundController sc = new SoundController();
+        guardar.setOnMouseEntered(ev -> sc.button_hoverSound());
+        cancelar.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
     @FXML
     public void agregarAtencion(ActionEvent event) {
@@ -70,11 +70,12 @@ public class RegistrarAtencionController implements Initializable {
         alertaRegistroA.setContentText("¡Atención de "+ nuevaAtencion.getCliente()+" registrada correctamente!");
         alertaRegistroA.showAndWait();
         System.out.println(atenciones);
-        App.changeRootFXML("vista/Citas");
+        App.changeRootFXML("vista/fxml/cita/Citas");
     }
     @FXML
     public void entrarJuego(){
-        App.changeRootFXML("vista/fxml/Juego");
+       JuegoController controladorJ = (JuegoController) App.changeRootFXML("vista/fxml/Juego", JuegoController.class);
+       controladorJ.cargarDatosJuego(citaSeleccionada);
     }
 
     @FXML

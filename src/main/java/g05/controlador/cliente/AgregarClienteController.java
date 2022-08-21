@@ -48,9 +48,10 @@ public class AgregarClienteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        SoundController sc = new SoundController();
         botonAgregarC.setDisable(true);
-        botonAgregarC.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonCancelarC.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonCancelarC.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
     @FXML

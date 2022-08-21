@@ -1,17 +1,14 @@
 package g05.controlador.cita;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import g05.App;
 import g05.controlador.SoundController;
-import g05.controlador.cita.CitasController;
 import g05.controlador.cliente.ClientesController;
 import g05.controlador.empleado.EmpleadosController;
 import g05.controlador.servicio.ServiciosController;
@@ -20,19 +17,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -115,9 +103,10 @@ public class AgregarCitaController implements Initializable{
         if(!(serviciosCita.getItems().size()>=1)){
             serviciosCita.setPromptText("No hay servicios activos");
         }
+        SoundController sc = new SoundController();
 
-        botonAgregarC.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
-        botonCancelar.setOnMouseEntered(mouseEvent -> SoundController.button_hoverSound());
+        botonAgregarC.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
+        botonCancelar.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
     public void getDate(ActionEvent event){
