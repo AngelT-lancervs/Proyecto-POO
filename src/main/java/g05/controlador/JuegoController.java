@@ -234,8 +234,15 @@ public class JuegoController implements Initializable {
             //Creación de menú dinámico para felicitar al cliente
             anchorPane.getChildren().clear();
             Image im = new Image(App.class.getResourceAsStream("vista/img/gato/congratulations.gif"), 500.0,500.0, true, false);
+            Image im2 = new Image(App.class.getResourceAsStream("vista/img/gato/pinwino.gif"), 600.0,600.0, true, false);
             ImageView imv = new ImageView(im);
-            anchorPane.getChildren().add(imv);
+            ImageView imv2 = new ImageView(im2);
+            imv.setLayoutX(100);
+            imv.setLayoutY(0);
+            imv2.setLayoutX(600);
+            imv2.setLayoutY(200);
+            anchorPane.getChildren().addAll(imv);
+            anchorPane.getChildren().addAll(imv2);
             sc.bingo_congratulationsSound();
             //Se guarda la actividad realizada y se la serializa
             Actividad bingo = new Actividad("Bingo", LocalDate.now(), numAciertos, numErrores,tiempo, citaAtendida);
