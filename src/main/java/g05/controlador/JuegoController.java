@@ -13,6 +13,7 @@ import g05.App;
 import g05.controlador.actividad.ActividadesController;
 import g05.controlador.atencion.RegistrarAtencionController;
 import g05.modelo.*;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
@@ -40,7 +41,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class JuegoController implements Initializable {
+public class JuegoController implements Initializable, Runnable{
 
     @FXML
     private AnchorPane anchorPane;
@@ -101,7 +102,16 @@ public class JuegoController implements Initializable {
     @FXML
     private Label timer;
 
+    private FadeTransition fdCorrecto = new FadeTransition();
+    private FadeTransition fdError = new FadeTransition();
 
+
+    private String pathGato = "vista/img/gato/gatoImgs/" ;
+    private String pathPerro = "vista/img/gato/perroImgs/";
+    private String pathZorro = "vista/img/gato/zorroImgs/";
+    private String pathPato = "vista/img/gato/patoImgs/";
+    private String imagenElegida;
+    private int selectorImagen;
 
     /*
     *
@@ -130,6 +140,10 @@ public class JuegoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        selectorImagen = (int) (Math.random()*3+1);
+        escogerImagen(selectorImagen);
+        
+
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
@@ -202,7 +216,8 @@ public class JuegoController implements Initializable {
                     numAciertos += 1;
                     this.aciertos.setText(String.valueOf(numAciertos));
                     l.setText("");
-                    Image im = new Image(App.class.getResourceAsStream("vista/img/gato/gifgato.gif"), 200.0,100.0, true, false);
+                    animacion(l, "vista/img/gato/correcto.png");
+                    Image im = new Image(App.class.getResourceAsStream(imagenElegida + recuperarClave(l) + ".jpg"), 150 , 100, false, false);
                     l.setGraphic(new ImageView(im));
                     sc.bingo_correctSound();
                     cambiarNumero();
@@ -233,16 +248,22 @@ public class JuegoController implements Initializable {
             sc.bingo_soundtrackSound(false);
             //Creación de menú dinámico para felicitar al cliente
             anchorPane.getChildren().clear();
-            Image im = new Image(App.class.getResourceAsStream("vista/img/gato/congratulations.gif"), 500.0,500.0, true, false);
-            Image im2 = new Image(App.class.getResourceAsStream("vista/img/gato/pinwino.gif"), 600.0,600.0, true, false);
+            Image im = new Image(App.class.getResourceAsStream("vista/img/gato/congratulations.gif"), 300.0,500.0, true, false);
+            Image im2 = new Image(App.class.getResourceAsStream("vista/img/gato/pinwino.gif"), 350.0,350.0, true, false);
+            Image im3 = new Image(App.class.getResourceAsStream(imagenElegida + String.valueOf(selectorImagen) + "_0.jpg"), 500.0,500.0, true, false);
             ImageView imv = new ImageView(im);
             ImageView imv2 = new ImageView(im2);
-            imv.setLayoutX(100);
-            imv.setLayoutY(0);
-            imv2.setLayoutX(600);
-            imv2.setLayoutY(200);
+            ImageView imv3 = new ImageView(im3);
+            imv.setLayoutX(50);
+            imv.setLayoutY(200);
+            imv2.setLayoutX(900);
+            imv2.setLayoutY(250);
+            imv3.setLayoutX(375);
+            imv3.setLayoutY(100);
             anchorPane.getChildren().addAll(imv);
             anchorPane.getChildren().addAll(imv2);
+            anchorPane.getChildren().addAll(imv3);
+
             sc.bingo_congratulationsSound();
             //Se guarda la actividad realizada y se la serializa
             Actividad bingo = new Actividad("Bingo", LocalDate.now(), numAciertos, numErrores,tiempo, citaAtendida);
@@ -263,9 +284,9 @@ public class JuegoController implements Initializable {
     }
 
     //Cambiar imagen Perro
-    public void cambiarImagen(Label l){
+    public void cambiarImagen(Label l, String ruta){
         l.setText("");
-        Image im = new Image(App.class.getResourceAsStream("vista/img/gato/perro2.jpg"), 200.0,100.0, true, false);
+        Image im = new Image(App.class.getResourceAsStream(ruta + recuperarClave(l) + ".jpg"), 150 , 100, false, false);
         l.setGraphic(new ImageView(im));
     }
 
@@ -282,11 +303,11 @@ public class JuegoController implements Initializable {
         return indices;
     }
 
-    //cambiar por perritos
+    //cambiar a casillas vacias
     public void casillasVacias(){
         for (Integer i: indicesV){
             labels.get("label" + String.valueOf(i)).setText("");
-            cambiarImagen(labels.get("label" + String.valueOf(i)));
+            cambiarImagen(labels.get("label" + String.valueOf(i)), imagenElegida);
         }
     }
        
@@ -308,4 +329,54 @@ public class JuegoController implements Initializable {
         }
         return numerosPro;
     }
+
+
+    public String recuperarClave(Label l){
+        String cl = "";
+        
+        for(String s: labels.keySet()){
+            if(l.equals(labels.get(s))){
+                String[] datos = s.split("label");
+                int prueba = Integer.parseInt(datos[1]);
+                prueba++;
+                cl = String.valueOf(prueba);
+            }
+        }
+        return cl;
+    }
+
+    public void escogerImagen(int i){
+        if(i == 0){
+            this.imagenElegida = this.pathGato;
+        }
+        if(i == 1){
+            this.imagenElegida = this.pathPerro;
+        }
+        if(i == 2){
+            this.imagenElegida = this.pathZorro;
+        }
+        if(i == 3){
+            this.imagenElegida = this.pathPato;
+        }
+    }
+
+    //"vista/img/gato/correcto.png"
+    public void animacion(Label l, String ruta){
+        Image imCorrecto = new Image(App.class.getResourceAsStream(ruta), 50 , 50, false, false);
+        l.setGraphic(new ImageView(imCorrecto));
+        FadeTransition fd = new FadeTransition(Duration.millis(1500), l);
+
+        fd.setFromValue(0.0);
+        fd.setToValue(1.0);
+        fd.setCycleCount(1);
+        fd.setAutoReverse(true);
+        fd.play();
+    }
+
+    @Override
+    public void run(){
+        
+    }
+
+
 }
