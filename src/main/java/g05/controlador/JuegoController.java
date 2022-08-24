@@ -3,7 +3,6 @@ package g05.controlador;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.security.AccessController;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -29,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -41,7 +41,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class JuegoController implements Initializable, Runnable{
+public class JuegoController implements Initializable{
 
     @FXML
     private AnchorPane anchorPane;
@@ -102,8 +102,6 @@ public class JuegoController implements Initializable, Runnable{
     @FXML
     private Label timer;
 
-    private FadeTransition fdCorrecto = new FadeTransition();
-    private FadeTransition fdError = new FadeTransition();
 
 
     private String pathGato = "vista/img/gato/gatoImgs/" ;
@@ -219,11 +217,13 @@ public class JuegoController implements Initializable, Runnable{
                     animacion(l, "vista/img/gato/correcto.png");
                     Image im = new Image(App.class.getResourceAsStream(imagenElegida + recuperarClave(l) + ".jpg"), 150 , 100, false, false);
                     l.setGraphic(new ImageView(im));
+                    animacionAccion("vista/img/gato/correcto.png");
                     sc.bingo_correctSound();
                     cambiarNumero();
                 } else {
                     numErrores += 1;
                     this.errores.setText(String.valueOf(numErrores));
+                    animacionAccion("vista/img/gato/error.png");
                     sc.bingo_errorSound();
                 }
             });
@@ -362,10 +362,7 @@ public class JuegoController implements Initializable, Runnable{
 
     //"vista/img/gato/correcto.png"
     public void animacion(Label l, String ruta){
-        Image imCorrecto = new Image(App.class.getResourceAsStream(ruta), 50 , 50, false, false);
-        l.setGraphic(new ImageView(imCorrecto));
         FadeTransition fd = new FadeTransition(Duration.millis(1500), l);
-
         fd.setFromValue(0.0);
         fd.setToValue(1.0);
         fd.setCycleCount(1);
@@ -373,9 +370,20 @@ public class JuegoController implements Initializable, Runnable{
         fd.play();
     }
 
-    @Override
-    public void run(){
-        
+    public void animacionAccion(String ruta){
+        ImageView iv = new ImageView();
+        Image imCorrecto = new Image(App.class.getResourceAsStream(ruta), 100 , 100, true, true);
+        iv.setImage(imCorrecto);
+        this.anchorPane.getChildren().add(iv);
+        iv.setLayoutX(350);
+        iv.setLayoutY(350);
+
+        FadeTransition fd = new FadeTransition(Duration.millis(1000), iv);
+        fd.setFromValue(0.0);
+        fd.setToValue(1.0);
+        fd.setCycleCount(2);
+        fd.setAutoReverse(true);
+        fd.play();
     }
 
 
