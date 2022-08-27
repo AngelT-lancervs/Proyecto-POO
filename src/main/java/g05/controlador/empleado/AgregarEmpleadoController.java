@@ -13,6 +13,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador asociado a la ventana de agregar empleado
+ * Autor: Grupo 5
+ * Version: 1.0
+ */
 public class AgregarEmpleadoController implements Initializable {
 
     @FXML
@@ -38,6 +43,11 @@ public class AgregarEmpleadoController implements Initializable {
     boolean estadoE;
 
 
+    /**
+     * Inicializa apenas de ejecute el programa
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SoundController sc = new SoundController();
@@ -46,6 +56,10 @@ public class AgregarEmpleadoController implements Initializable {
         botonCancelar.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
+    /**
+     * Agrega el empleado al archivo de empleados
+     * @param event
+     */
     @FXML
     void agregarEmpleado(ActionEvent event) {
         nombre = txtNomE.getText();
@@ -67,12 +81,20 @@ public class AgregarEmpleadoController implements Initializable {
         App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
 
+    /**
+     * Regresa a la ventana principal de empleados
+     * @param event
+     */
     @FXML
     void backAgregarEmpleados(ActionEvent event) {
         App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
 
 
+    /**
+     * Verifica que los datos que haya ingresado el usuario esten correctos
+     * @param event
+     */
     @FXML
     void datosCorrectos(KeyEvent event) {
         if(txtCedE.getText()!="" && txtCorreoE.getText()!="" && txtNomE.getText()!= "" && txtTelE.getText()!=""){
@@ -81,6 +103,11 @@ public class AgregarEmpleadoController implements Initializable {
             botonAgregarE.setDisable(true);
         }
     }
+
+    /**
+     * Escribe los datos del empleado en el archivo
+     * @param e
+     */
     void escribirEmpleado(Empleado e){
         ArrayList<Empleado> empleados = EmpleadosController.empleadosCSV;
         empleados.add(e);

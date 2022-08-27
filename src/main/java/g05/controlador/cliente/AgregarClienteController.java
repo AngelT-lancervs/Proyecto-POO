@@ -14,6 +14,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controlado asociado a la agregacion de clientes
+ * Autor: Grupo 5
+ * Version:1.0
+ */
 public class AgregarClienteController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
@@ -44,8 +49,12 @@ public class AgregarClienteController implements Initializable {
     String email;
     String telefono;
     String datosRepresentante;
-    
 
+    /**
+     * Incializa apenas se ejecuta el programa
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SoundController sc = new SoundController();
@@ -54,6 +63,10 @@ public class AgregarClienteController implements Initializable {
         botonCancelarC.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
+    /**
+     * Agrega el cliente al regsitro
+     * @param event
+     */
     @FXML
     public void agregarCliente(ActionEvent event) {
         nombre = txtNomC.getText();
@@ -69,13 +82,21 @@ public class AgregarClienteController implements Initializable {
         alertaRegistro.setContentText("Cliente "+nombre+" registrado correctamente!");
         alertaRegistro.showAndWait();
         App.changeRootFXML("vista/fxml/cliente/Clientes");
-
     }
+
+    /**
+     * Regresa a la ventana principal de clientes
+     * @param event
+     */
     @FXML
     void backAgregarCliente(ActionEvent event){
         App.changeRootFXML("vista/fxml/cliente/Clientes");
     }
 
+    /**
+     * Verifica que los datos sean los correctos
+     * @param event
+     */
     @FXML
     public void datosCorrectos(KeyEvent event){
         if(txtNomC.getText()!="" && txtCorreoC.getText()!="" && txtCedC.getText()!= "" && txtTelC.getText()!="" && txtDatR.getText()!=""){
@@ -85,6 +106,10 @@ public class AgregarClienteController implements Initializable {
         }
     }
 
+    /**
+     * Escribe los datos del cliente en el arxhivo
+     * @param c
+     */
     void escribirCliente(Cliente c){
         ArrayList<Cliente> clientes = ClientesController.clientesCSV;
         clientes.add(c);

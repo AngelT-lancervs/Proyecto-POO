@@ -12,6 +12,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador asociado a la ventana de editar empleado
+ * Autor: Grupo 5
+ * Version: 1.0
+ */
 public class EditarEmpleadoController implements Initializable {
     @FXML
     private RadioButton rbA;
@@ -33,12 +38,24 @@ public class EditarEmpleadoController implements Initializable {
     private TextField txtTelE;
     private Empleado empleadoSeleccionado;
 
+    /**
+     * Inicializa apenas se ejecute el programa
+     * Autor: Grupo 5
+     * Version: 1.0
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SoundController sc = new SoundController();
         botonEditarE.setOnMouseEntered(ev -> sc.button_hoverSound());
         botonCancelarE.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
+
+    /**
+     * Edita el empelado segun los datos ingresados por el usuario
+     * @param event
+     */
     @FXML
     void editarEmpleado(ActionEvent event) {
 
@@ -60,11 +77,20 @@ public class EditarEmpleadoController implements Initializable {
             App.changeRootFXML("vista/fxml/empleado/Empleados");
         }
     }
+
+    /**
+     * Regresa a la ventana principal de empleado
+     * @param event
+     */
     @FXML
     void backEditarEmpleados(ActionEvent event) {
         App.changeRootFXML("vista/fxml/empleado/Empleados");
     }
 
+    /**
+     * Verifica que los datos ingresados por el usuario esten correctos
+     * @param event
+     */
     @FXML
     void datosCorrectos(KeyEvent event) {
         if(txtNomE.getText()!="" && txtCorreoE.getText()!="" && txtTelE.getText()!= ""){
@@ -74,6 +100,10 @@ public class EditarEmpleadoController implements Initializable {
         }
     }
 
+    /**
+     * Carga los datos del empleado sleccionado en la ventana de editar
+     * @param e
+     */
     public void cargarDatosEmpleado(Empleado e){
         lbCed.setText(e.getCedula());
         txtNomE.setText(e.getNombre());

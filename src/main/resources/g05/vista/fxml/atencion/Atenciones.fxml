@@ -32,7 +32,7 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="cbConsultarPor" onAction="#filtrarAtenciones" prefHeight="25.0" prefWidth="235.0" promptText="-Seleccione un modo de búsqueda-" visibleRowCount="20" />
-                  <TextField fx:id="txtConsultar" onAction="#filtrarAtenciones">
+                  <TextField fx:id="txtConsultar" onAction="#filtrarAtenciones" prefHeight="26.0" prefWidth="347.0">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

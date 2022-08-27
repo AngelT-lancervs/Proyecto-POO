@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+/**
+ * Controlador para el sonido el bingo
+ */
 public class SoundController extends Thread {
     MediaPlayer mp;
     Bingo_soundtrack bs = new Bingo_soundtrack();
@@ -31,6 +34,9 @@ public class SoundController extends Thread {
         run();
     }
 
+    /**
+     * Sonido de error
+     */
     public void bingo_errorSound() {
 
         File file = new File(App.pathSound + "/sonidosJuego/error.mp3");
@@ -39,6 +45,10 @@ public class SoundController extends Thread {
         run();
 
     }
+
+    /**
+     * Sonido de fin del juego
+     */
     public void bingo_congratulationsSound() {
 
         File file = new File(App.pathSound + "/sonidosJuego/congratulations.mp3");

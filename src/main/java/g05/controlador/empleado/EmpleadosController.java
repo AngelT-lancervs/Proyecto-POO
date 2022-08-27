@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador asociado a la ventana de Empleados
+ * Autor: Grupo 5
+ * Version: 1.0
+ */
 public class EmpleadosController implements Initializable {
 
     @FXML
@@ -47,9 +52,16 @@ public class EmpleadosController implements Initializable {
     @FXML
     private TableView<Empleado> tablaEmpleados;
 
-    // ArrayList donde se almacenan todos los empleados.
+    /**
+     * ArrayList donde se alamcenan los empleados
+     */
     public static ArrayList<Empleado> empleadosCSV = Empleado.cargarEmpleados(App.pathEmpleadosCSV);
 
+    /**
+     * Inicializa apenas se ejecute el programa
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         colNombreE.setCellValueFactory(new PropertyValueFactory<Empleado, String>("nombre"));
@@ -68,6 +80,11 @@ public class EmpleadosController implements Initializable {
         regresarE.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
 
+    /**
+     * Permite visualizar los empleados en la tabla
+     * @return
+     */
+
     public static ObservableList<Empleado> obtenerEmpleados() {
         ObservableList<Empleado> empleados = FXCollections.observableArrayList();
         for (Empleado e : empleadosCSV) {
@@ -76,23 +93,40 @@ public class EmpleadosController implements Initializable {
         return empleados;
     }
 
-    //Eventos al presionar los botones del menú Empleados
+    /**
+     * Regresa a la ventana de menu
+     * @param event
+     */
     @FXML
     void backEmpleados(ActionEvent event) {
         App.changeRootFXML("vista/fxml/Menu");
     }
 
+    /**
+     * Redirige a la ventana de agregar empleado
+     * @param actionEvent
+     */
     @FXML
     void agregarEmpleado(ActionEvent actionEvent) {
         App.changeRootFXML("vista/fxml/empleado/AgregarEmpleado");
     }
 
+
+    /**
+     * Asocia al controlador de editar empleado
+     * @param event
+     */
     @FXML
     void editarEmpleado(ActionEvent event) {
         Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
         EditarEmpleadoController controladorEditarE = (EditarEmpleadoController) App.changeRootFXML("vista/fxml/empleado/EditarEmpleado", EditarEmpleadoController.class);
         controladorEditarE.cargarDatosEmpleado(e);
     }
+
+    /**
+     * Elimina al empelado seleccionado
+     * @param event
+     */
     @FXML
     void eliminarEmpleado(ActionEvent event){
         Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();
@@ -113,6 +147,11 @@ public class EmpleadosController implements Initializable {
             botonEliminarE.setDisable(true);
         }
     }
+
+    /**
+     * Habilita los botones de editar y eliminar si se selecciona un empleado
+     * @param event
+     */
     @FXML
     void comprobarSeleccion(MouseEvent event) {
         Empleado e = (Empleado) tablaEmpleados.getSelectionModel().getSelectedItem();

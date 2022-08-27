@@ -18,7 +18,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-
+/**
+ * Controlador asociado a Clientes
+ * Autor: Grupo 5
+ * Version: 1.0
+ */
 public class ClientesController implements Initializable {
     @FXML
     private TableView<Cliente> tablaClientes;
@@ -42,9 +46,16 @@ public class ClientesController implements Initializable {
     @FXML
     private Button regresarC;
 
-    // ArrayList donde se almacenan todos los empleados.
+    /**
+     * Arraylist donde se almacenan los clientes
+     */
     public static ArrayList<Cliente> clientesCSV = Cliente.cargarClientes(App.pathClientesCSV);
 
+    /**
+     * Inicializa apenas de eejcuta el programa
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -62,6 +73,10 @@ public class ClientesController implements Initializable {
         regresarC.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
 
+    /**
+     * Muestra los clientes en el TableView
+     * @return
+     */
     @FXML
     public static ObservableList<Cliente> obtenerClientes(){
         ObservableList<Cliente> clientes = FXCollections.observableArrayList();
@@ -71,11 +86,19 @@ public class ClientesController implements Initializable {
         return clientes;
     }
 
+    /**
+     * Lleva a la ventana de agregar Cliente
+     * @param event
+     */
     @FXML
     public void agregarCliente(ActionEvent event) {
         App.changeRootFXML("vista/fxml/cliente/AgregarCliente");
     }
 
+    /**
+     * Habilita el boton de editar si se ha seleccionado un cliente
+     * @param event
+     */
     @FXML
     void comprobarSeleccion(MouseEvent event) {
         Cliente c = (Cliente) tablaClientes.getSelectionModel().getSelectedItem();
@@ -87,11 +110,19 @@ public class ClientesController implements Initializable {
         }
     }
 
+    /**
+     * Regresa a la ventana del menu principal
+     * @param event
+     */
     @FXML
     public void regresarClientes(ActionEvent event) {
         App.changeRootFXML("vista/fxml/Menu");
     }
 
+    /**
+     * Asocia con el controlador de editar clientes
+     * @param event
+     */
     @FXML
     public void editarClientes(ActionEvent event) {
         Cliente c = (Cliente) tablaClientes.getSelectionModel().getSelectedItem();

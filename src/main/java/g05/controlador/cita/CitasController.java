@@ -25,7 +25,11 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-
+/**
+ * Controlador asociado a citas
+ * Autor: Grupo 5
+ * Version:1.0
+ */
 public class CitasController implements Initializable {
 
     @FXML
@@ -66,8 +70,16 @@ public class CitasController implements Initializable {
     @FXML
     private TextField txtCedCliente;
 
+    /**
+     * Carga las citas del archivo de citas
+     */
     public static ArrayList<Cita> citasSer = (ArrayList<Cita>) Cita.cargarCitas(App.pathCitas);
 
+    /**
+     * Inicializa apenas se ejcuta el programa
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -90,6 +102,10 @@ public class CitasController implements Initializable {
         filtroClientes = FXCollections.observableArrayList();
     }
 
+    /**
+     * Obtiene las citas del archivo Serializado
+     * @return
+     */
     public ObservableList<Cita> obtenerCitas() {
         ObservableList<Cita> citas = FXCollections.observableArrayList();
         for (Cita ci : citasSer) {
@@ -98,12 +114,18 @@ public class CitasController implements Initializable {
         return citas;
     }
 
-    //Metodos de las opciones de cita
+    /**
+     * LLeva a la ventana de creacion de cita
+     */
     @FXML
     public void crearCita() {
         App.changeRootFXML("vista/fxml/cita/AgregarCita");
     }
 
+    /**
+     * Filtra a los clientes segun su nombre
+     * @param event
+     */
     @FXML
     public void filtrarCliente(KeyEvent event){
         String filtroNombre = this.txtCedCliente.getText();
@@ -120,12 +142,17 @@ public class CitasController implements Initializable {
         }
     }
 
-
+    /**
+     * Regresa a la ventana del menu principal
+     */
     @FXML
     public void backCitas(){
         App.changeRootFXML("vista/fxml/Menu");
     }
 
+    /**
+     * Elimina la cita seleccionada
+     */
     @FXML
     public void eliminarCita(){
         Cita ci = (Cita) tablaCitas.getSelectionModel().getSelectedItem();
@@ -148,6 +175,9 @@ public class CitasController implements Initializable {
 
     }
 
+    /**
+     * Consulta la actividad del cliente seleccionado
+     */
     @FXML
     public void consultarActividades(){
         try {
@@ -164,12 +194,20 @@ public class CitasController implements Initializable {
         }
     }
 
+    /**
+     * Registra la atencion en base a la cita
+     */
     @FXML
     public void registrarAtencion(){
         Cita ci = (Cita) tablaCitas.getSelectionModel().getSelectedItem();
         RegistrarAtencionController controladorRegistroA = (RegistrarAtencionController) App.changeRootFXML("vista/fxml/atencion/RegistrarAtencion", RegistrarAtencionController.class);
         controladorRegistroA.cargarDatosCita(ci);
     }
+
+    /**
+     * Habilita los botones de registrar, consultar y eliminar si se ha seleccionado alguna cita
+     * @param event
+     */
     @FXML
     void comprobarSeleccion(MouseEvent event) {
         Cita ci = (Cita) tablaCitas.getSelectionModel().getSelectedItem();

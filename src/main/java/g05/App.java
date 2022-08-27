@@ -13,6 +13,8 @@ import java.io.IOException;
 
 /**
  * JavaFX App
+ * Autor: Grupo 5
+ * Version: 1.0
  */
 public class App extends Application {
 
@@ -48,7 +50,10 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    //Método para cambiar el nodo root de la escena.
+    /**
+     * Metodo para cambiar el nodo de las escena
+     * @param pathFXML
+     */
     public static void changeRootFXML(String pathFXML) {
         Parent root = null;
         try {
@@ -58,8 +63,13 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
-    //Método para cambiar el nodo root de la escena, y recuperar el controlador.
 
+    /**
+     * Método para cambiar el nodo root de la escena, y recuperar el controlador
+     * @param pathFXML
+     * @param controllerClass
+     * @return
+     */
     public static Object changeRootFXML(String pathFXML, Class controllerClass){
 
         try {

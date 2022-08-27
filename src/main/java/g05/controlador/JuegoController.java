@@ -41,6 +41,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Controlador asociado al juego del bingo
+ * Autor: Grupo 5
+ * Version: 1.0
+ */
 public class JuegoController implements Initializable{
 
     @FXML
@@ -135,6 +140,11 @@ public class JuegoController implements Initializable{
         timer.setText(tiempo.toString());
     }));
 
+    /**
+     * Inicializa apenas se ejecute le programa
+     * @param url
+     * @param rb
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -172,15 +182,25 @@ public class JuegoController implements Initializable{
         iniciar();
     }
 
+    /**
+     * Comprueba la accion que realiza el jugador
+     */
     @FXML
     public void accionJugador(){
         comprobarAccion();
     }
 
+    /**
+     * Carga datos asociados a la cita
+     * @param ci
+     */
     public void cargarDatosJuego(Cita ci){
         citaAtendida = ci;
     }
 
+    /**
+     * inicia el bingo
+     */
     @FXML
     public void iniciar(){
         numerosR();
@@ -190,7 +210,11 @@ public class JuegoController implements Initializable{
         
     }
 
-    //Genera numeros aleatorios no repetidos
+
+    /**
+     * Genera numeros aleatorios no repetidos
+     * @return
+     */
     public static ArrayList<Integer> generarNumeros(){
         ArrayList<Integer> nums = new ArrayList<>();
         while (nums.size() < 20){
@@ -203,7 +227,9 @@ public class JuegoController implements Initializable{
         return nums;
     }
 
-    //Comprobar movimiento
+    /**
+     * Comprueba el movimiento que realice el jugador
+     */
     public void comprobarAccion(){
         for(Label l: labels.values()){
             l.setOnMouseClicked(ev -> {
@@ -236,7 +262,10 @@ public class JuegoController implements Initializable{
     }
 
 
-    //Cambiar Numero
+    /**
+     * Cambia el numero
+     * @return
+     */
     public int cambiarNumero(){
         try{
             int numA = (int) (Math.random()*(numerosReales.size()-1));
@@ -283,14 +312,21 @@ public class JuegoController implements Initializable{
         return 0;
     }
 
-    //Cambiar imagen Perro
+    /**
+     * Cambia la imagen
+     * @param l
+     * @param ruta
+     */
     public void cambiarImagen(Label l, String ruta){
         l.setText("");
         Image im = new Image(App.class.getResourceAsStream(ruta + recuperarClave(l) + ".jpg"), 150 , 100, false, false);
         l.setGraphic(new ImageView(im));
     }
 
-    //Genera indices para las casillas vacias
+    /**
+     * Genera indices para las casillas vacias
+     * @return
+     */
     public ArrayList<Integer> indicesVacios(){
         ArrayList<Integer> indices = new ArrayList<>();
         while (indices.size() <5){
@@ -303,7 +339,9 @@ public class JuegoController implements Initializable{
         return indices;
     }
 
-    //cambiar a casillas vacias
+    /**
+     * Cambia las casillas vacias
+     */
     public void casillasVacias(){
         for (Integer i: indicesV){
             labels.get("label" + String.valueOf(i)).setText("");

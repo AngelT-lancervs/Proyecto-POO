@@ -25,6 +25,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+/**
+ * Controlador de agregar cita
+ * Autor: Grupo 5
+ * Version:1.0
+ */
 
 public class AgregarCitaController implements Initializable{
 
@@ -51,7 +56,9 @@ public class AgregarCitaController implements Initializable{
     @FXML
     private TextField hora;
 
-    //Deshabilita fechas anteriores
+    /**
+     * Metodo para deshabilitar fechas anteriores en el DatePicker
+     */
     final Callback<DatePicker, DateCell> dayCellFactory= new Callback<DatePicker, DateCell>() {
         @Override
         public DateCell call(final DatePicker datePicker) {
@@ -67,6 +74,11 @@ public class AgregarCitaController implements Initializable{
         }
     };
 
+    /**
+     * Inicializa apenas de ejecute el programa
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         botonAgregarC.setDisable(true);
@@ -109,12 +121,18 @@ public class AgregarCitaController implements Initializable{
         botonCancelar.setOnMouseEntered(mouseEvent -> sc.button_hoverSound());
     }
 
+    /**
+     * Obtiene la fecha seleccionada en el DatePicker
+     * @param event
+     */
     public void getDate(ActionEvent event){
         LocalDate fechaC= fechaCita.getValue();
     }
 
 
-    //Metodos de los botones 
+    /**
+     * Metodo asociado al boton Guardar, guarda la cita
+     */
     @FXML
     public void guardarCita(){
 
@@ -131,11 +149,18 @@ public class AgregarCitaController implements Initializable{
     }
 
 
+    /**
+     * Rgeresa al menu principal de citas
+     * @param event
+     */
     @FXML
     public void cancelar(Event event){
         App.changeRootFXML("vista/fxml/cita/Citas");
     }
 
+    /**
+     * Confirma que la fecha ingresada sea del formato correcto
+     */
     void confirmarFormato(){
         try{
             LocalTime.parse(hora.getText());
@@ -145,6 +170,10 @@ public class AgregarCitaController implements Initializable{
         }
     }
 
+    /**
+     * Verifica que los datos ingresados sean los correctos
+     * @param event
+     */
     @FXML
     void datosCorrectosTF(KeyEvent event) {
         verificarCampos();
@@ -153,6 +182,10 @@ public class AgregarCitaController implements Initializable{
     void datosCorrectosCB(ActionEvent event) {
         verificarCampos();
     }
+
+    /**
+     * Verifica que los datos ingresados sean los correctos
+     */
     void verificarCampos(){
         if((fechaCita.getValue())!=null && (hora.getText())!="" && opcionesEmpleado.getSelectionModel().getSelectedItem() != null && opcionesCliente.getSelectionModel().getSelectedItem() != null && serviciosCita.getSelectionModel().getSelectedItem() != null){
             confirmarFormato();

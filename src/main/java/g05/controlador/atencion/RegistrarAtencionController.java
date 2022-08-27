@@ -17,6 +17,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador del registro de las atenciones
+ * Autor: Grupo 5
+ * Version:1.0
+ */
 public class RegistrarAtencionController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
@@ -37,6 +42,11 @@ public class RegistrarAtencionController implements Initializable {
     private Cita citaSeleccionada;
     private Atencion nuevaAtencion;
 
+    /**
+     * Inicializa apenas de ejecute el programa
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -53,6 +63,11 @@ public class RegistrarAtencionController implements Initializable {
         guardar.setOnMouseEntered(ev -> sc.button_hoverSound());
         cancelar.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
+
+    /**
+     * Metodo que permite agregar la atencion
+     * @param event
+     */
     @FXML
     public void agregarAtencion(ActionEvent event) {
         nuevaAtencion = new Atencion(Integer.parseInt(duracion.getText()), citaSeleccionada.getServicioObj(), citaSeleccionada.getEmpleado(), citaSeleccionada, citaSeleccionada.getClienteObj(), citaSeleccionada.getFecha());
@@ -72,21 +87,39 @@ public class RegistrarAtencionController implements Initializable {
         System.out.println(atenciones);
         App.changeRootFXML("vista/fxml/cita/Citas");
     }
+
+    /**
+     * Ingreso al juego: Bingo
+     */
     @FXML
     public void entrarJuego(){
        JuegoController controladorJ = (JuegoController) App.changeRootFXML("vista/fxml/Juego", JuegoController.class);
        controladorJ.cargarDatosJuego(citaSeleccionada);
     }
 
+    /**
+     * Regresa a la ventana de citas
+     * @param event
+     */
     @FXML
     void atrasAtencion(ActionEvent event) {
         App.changeRootFXML("vista/fxml/cita/Citas");
     }
+
+    /**
+     * Carga los datos asociados a la cita
+     * @param ci
+     */
     public void cargarDatosCita(Cita ci){
         fecha_hora.setText(ci.getFecha()+" a las "+ci.getHora());
         cliente.setText(ci.getCliente());
         citaSeleccionada = ci;
     }
+
+    /**
+     * Verifica que los campos sean correctos
+     * @param event
+     */
     @FXML
     void datosCorrectosTF(KeyEvent event) {
         verificarCampos();
@@ -95,6 +128,10 @@ public class RegistrarAtencionController implements Initializable {
     void datosCorrectosCB(ActionEvent event) {
         verificarCampos();
     }
+
+    /**
+     * Verifica los campos a ingresar
+     */
     void verificarCampos(){
         try {
             Double.parseDouble(duracion.getText());

@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador de las actividades
+ * Autor: Grupo 5
+ * Version: 1.0
+ */
 public class ActividadesController implements Initializable {
 
     @FXML
@@ -55,7 +60,11 @@ public class ActividadesController implements Initializable {
     private static Cita citaSeleccionadaAc;
     public static ArrayList<Actividad>  actividadesSer = Actividad.cargarActividades(App.pathActividades);
 
-
+    /**
+     * Acciones que se realizan al iniciar la ejecucion
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -74,7 +83,10 @@ public class ActividadesController implements Initializable {
         regresarAc.setOnMouseEntered(ev -> sc.button_hoverSound());
     }
 
-
+    /**
+     * Metodo para obtener las actividades
+     * @return actividades
+     */
     public ObservableList<Actividad> obtenerActividades() {
         ObservableList<Actividad> actividades = FXCollections.observableArrayList();
         for (Actividad ac : actividadesSer) {
@@ -100,6 +112,10 @@ public class ActividadesController implements Initializable {
         }
     }
 
+    /**
+     * Elimina la actividad de la tabla de actividades
+     * @param event
+     */
     @FXML
     void eliminarActividad(ActionEvent event) {
         Actividad ac = (Actividad) tablaActividades.getSelectionModel().getSelectedItem();
@@ -119,6 +135,11 @@ public class ActividadesController implements Initializable {
             botonEliminarAc.setDisable(true);
         }
     }
+
+    /**
+     * Carga los datos de las actividades realizadas
+     * @param ci
+     */
     public void cargarDatosActividades(Cita ci){
         citaSeleccionadaAc = ci;
     }
