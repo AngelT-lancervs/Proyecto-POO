@@ -92,6 +92,7 @@ public class Cliente extends Usuario implements Serializable {
 
 
 
+
     public void setDatos_del_representante(String datos_del_representante) {
         this.datos_del_representante = datos_del_representante;
     }

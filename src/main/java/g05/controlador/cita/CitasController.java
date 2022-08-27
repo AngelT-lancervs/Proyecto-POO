@@ -128,17 +128,24 @@ public class CitasController implements Initializable {
      */
     @FXML
     public void filtrarCliente(KeyEvent event){
+        try{
         String filtroNombre = this.txtCedCliente.getText();
+        String filtroFecha= this.txtCedCliente.getText();
         if(filtroNombre.isEmpty()){
             this.tablaCitas.setItems(obtenerCitas());
         }else {
             this.filtroClientes.clear();
             for(Cita c: this.obtenerCitas()) {
+                String fecha=String.valueOf(c.getFecha());
                 if (c.getClienteObj().getNombre().toLowerCase().contains(filtroNombre.toLowerCase())){
+                    this.filtroClientes.add(c);
+                }else if(fecha.contains(filtroFecha)){
                     this.filtroClientes.add(c);
                 }
             }
             this.tablaCitas.setItems(filtroClientes);
+        }}catch(Exception e){
+
         }
     }
 
