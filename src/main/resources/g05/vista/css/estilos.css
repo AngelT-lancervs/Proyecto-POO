@@ -1,0 +1,108 @@
+.backgroundColor{
+    -fx-background-color: #eceff4;
+}
+
+.button {
+    -fx-background-color: #d8dee9;
+    -fx-text-fill: #2e3440;
+    -fx-background-radius: 30;
+}
+.button:hover {
+    -fx-background-color: #4c566a;
+    -fx-text-fill: #d8dee9;
+    -fx-background-radius: 30;
+}
+.button:pressed {
+    -fx-background-color: #2e3440;
+    -fx-text-fill: #d8dee9;
+    -fx-background-radius: 30;
+}
+
+.table-view {
+    -fx-background-color: #e5e9f0;
+    -fx-background-radius: 10.0 10.0 10.0 10.0;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+/*Cabecera de la tabla*/
+.table-view .column-header{
+    -fx-background-color: transparent;
+    -fx-size: 30.0px;
+    -fx-cursor: hand;
+}
+.table-view .filler{
+    -fx-background-color: transparent;
+    -fx-min-height: 45.0px;
+}
+.table-view .column-header-background{
+   -fx-background-color: linear-gradient(#3b4252 0%, #2e3440 100%);
+   -fx-background-radius: 10.0 10.0 0 0;
+}
+.table-view .column-header-background .text{
+  -fx-font-size: 15.0px;
+  -fx-font-weight: bold;
+  -fx-fill: #d8dee9;
+}
+.table-view .show-hide-columns-button{
+    -fx-background-color: #27A5F9;
+}
+.table-view .column-drag-header{
+    -fx-background-color: #27A5F9;
+    -fx-cursor: h-resize;
+}
+.table-view .column-resize-line{
+    -fx-text-fill: white;
+    -fx-background-color: white;
+    -fx-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+}
+.table-view .column-header .sort-order{
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+.table-view .virtualflow{
+    -fx-background-color: white;
+}
+/*Filas vacías*/
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-width: 0.0;
+    -fx-padding: 10.0 0.0 10.0 0.0;
+    -fx-pref-height: 45.0px;
+}
+/*Filas que no estén seleccionadas*/
+.table-row-cell:filled:even{
+    -fx-background-color: white;
+}
+.table-row-cell:filled:odd{
+    -fx-background-color: #F6F7F8;
+}
+
+/*Fila seleccionada*/
+.table-row-cell:filled:focused {
+    -fx-background-color: #4c566a;
+    -fx-background-insets: 0.0;
+}
+.table-row-cell:filled:focused .text{
+    -fx-fill: #e5e9f0;
+}
+
+/*Scroll de la tabla*/
+.table-view .scroll-bar:vertical{
+    -fx-padding: 0.0 0.0 0.0 0.0;
+}
+
+.table-view .scroll-bar:horizontal {
+    -fx-padding: 0.0 0.0 0.0 0.0;
+}
+
+
+/*Columnas*/
+.table-column {
+  -fx-alignment: CENTER;
+  -fx-font-family: "Microsoft JhengHei Light";
+}
+.table-row-cell .table-column{
+    -fx-border-width: 0.0;
+}

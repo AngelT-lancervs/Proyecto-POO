@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="548.0" prefWidth="740.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g05.controlador.MenuController">
+   <children>
+      <VBox alignment="CENTER" layoutX="40.0" layoutY="37.0" prefHeight="475.0" prefWidth="661.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" depthTest="DISABLE" prefHeight="38.0" prefWidth="327.0" text="MENÚ PRINCIPAL" textAlignment="CENTER" textFill="#36362d" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="Yu Gothic Light" size="38.0" />
+               </font>
+            </Label>
+            <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="650.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="336.0" minWidth="10.0" prefWidth="332.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="354.0" minWidth="10.0" prefWidth="329.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="274.0" minHeight="10.0" prefHeight="274.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER" fillWidth="false" prefHeight="395.0" prefWidth="341.0" GridPane.columnIndex="1">
+                     <children>
+                        <ImageView fx:id="displayMenu" fitHeight="170.0" fitWidth="170.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <viewport>
+                              <Rectangle2D height="800.0" width="800.0" />
+                           </viewport>
+                        </ImageView>
+                        <Label fx:id="infoMenu" alignment="TOP_LEFT" prefHeight="98.0" prefWidth="323.0" text="Seleccione una opción." textFill="#2e3440">
+                           <font>
+                              <Font name="Microsoft YaHei Light" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vBoxMenu" alignment="CENTER" prefHeight="289.0" prefWidth="332.0" spacing="15.0">
+                     <children>
+                        <Button fx:id="botonServicios" onAction="#entrarServicios" onMouseEntered="#preServicios" prefHeight="44.0" prefWidth="229.0" text="Servicios">
+                           <font>
+                              <Font name="Microsoft YaHei Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="botonEmpleados" onAction="#entrarEmpleados" onMouseEntered="#preEmpleados" prefHeight="44.0" prefWidth="229.0" text="Empleados">
+                           <font>
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="botonClientes" onAction="#entrarClientes" onMouseEntered="#preClientes" prefHeight="44.0" prefWidth="229.0" text="Clientes">
+                           <font>
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="botonCitas" layoutX="10.0" layoutY="118.0" onAction="#entrarCitas" onMouseEntered="#preCitas" prefHeight="44.0" prefWidth="229.0" text="Citas">
+                           <font>
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="botonAtenciones" layoutX="10.0" layoutY="172.0" onAction="#entrarAtenciones" onMouseEntered="#preAtenciones" prefHeight="44.0" prefWidth="229.0" text="Atenciones">
+                           <font>
+                              <Font name="Microsoft JhengHei Light" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </GridPane>
+            <Button fx:id="botonSalir" alignment="CENTER" contentDisplay="CENTER" onAction="#cerrarSistema" onMouseEntered="#preSalir" prefHeight="44.0" prefWidth="110.0" text="Salir" textAlignment="CENTER">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

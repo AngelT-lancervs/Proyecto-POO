@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1147.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="507.0" prefWidth="718.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="12.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="193.0" text="BINGO" textOverrun="CENTER_ELLIPSIS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="Yu Gothic Regular" size="32.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="table-column" stylesheets="@../css/estilos.css">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label fx:id="label0" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" snapToPixel="false" text="0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label8" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label12" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label9" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label13" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="label2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label6" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label10" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label14" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label18" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label7" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label11" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label15" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label19" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label17" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label16" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#accionJugador" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic Light" size="88.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="75.0" />
+                     </HBox.margin>
+                  </GridPane>
+                  <HBox alignment="CENTER" prefHeight="500.0" prefWidth="218.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="500.0" prefWidth="246.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="202.0" text="Seleccione el:">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Microsoft YaHei" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="numero" alignment="CENTER" onMouseClicked="#accionJugador" prefHeight="95.0" prefWidth="114.0" text="0">
+                                 <font>
+                                    <Font name="Tahoma" size="86.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="172.0">
+                                 <children>
+                                    <Label fx:id="label0_01" onMouseClicked="#accionJugador" prefHeight="42.0" prefWidth="111.0" text="Aciertos" textFill="#0ed73d">
+                                       <font>
+                                          <Font name="Microsoft JhengHei Light" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="aciertos" layoutX="10.0" layoutY="10.0" onMouseClicked="#accionJugador" prefHeight="29.0" prefWidth="80.0" text="0" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="30.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="label0_012" layoutX="10.0" layoutY="10.0" onMouseClicked="#accionJugador" prefHeight="37.0" prefWidth="106.0" text="Errores " textFill="#ed552b">
+                                       <font>
+                                          <Font name="Microsoft YaHei Light" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="errores" layoutX="20.0" layoutY="48.0" onMouseClicked="#accionJugador" prefHeight="30.0" prefWidth="80.0" text="0">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="30.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="timer" alignment="CENTER" prefHeight="32.0" prefWidth="172.0" text="00:00:00">
+                                       <font>
+                                          <Font name="Yu Gothic Light" size="28.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="200.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </VBox>
+   </children>
+</AnchorPane>
